@@ -1,0 +1,282 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07F05FE91586709B00380D63 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F05FE81586709B00380D63 /* UIKit.framework */; };
+		07F05FEB1586709B00380D63 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F05FEA1586709B00380D63 /* Foundation.framework */; };
+		07F05FED1586709B00380D63 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F05FEC1586709B00380D63 /* CoreGraphics.framework */; };
+		07F05FEF1586709B00380D63 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F05FEE1586709B00380D63 /* CoreData.framework */; };
+		07F05FF51586709B00380D63 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07F05FF31586709B00380D63 /* InfoPlist.strings */; };
+		07F05FF71586709B00380D63 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F05FF61586709B00380D63 /* main.m */; };
+		07F05FFB1586709B00380D63 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F05FFA1586709B00380D63 /* AppDelegate.m */; };
+		07F05FFE1586709B00380D63 /* Infernales.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 07F05FFC1586709B00380D63 /* Infernales.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		07F05FE41586709B00380D63 /* Infernales.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Infernales.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		07F05FE81586709B00380D63 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		07F05FEA1586709B00380D63 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		07F05FEC1586709B00380D63 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		07F05FEE1586709B00380D63 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		07F05FF21586709B00380D63 /* Infernales-Info.plist */ = {isa = PBXFileReference; path = "Infernales-Info.plist"; sourceTree = "<group>"; };
+		07F05FF41586709B00380D63 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		07F05FF61586709B00380D63 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		07F05FF81586709B00380D63 /* Infernales-Prefix.pch */ = {isa = PBXFileReference; path = "Infernales-Prefix.pch"; sourceTree = "<group>"; };
+		07F05FF91586709B00380D63 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		07F05FFA1586709B00380D63 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		07F05FFD1586709B00380D63 /* Infernales.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Infernales.xcdatamodel; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		07F05FE11586709B00380D63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07F05FE91586709B00380D63 /* UIKit.framework in Frameworks */,
+				07F05FEB1586709B00380D63 /* Foundation.framework in Frameworks */,
+				07F05FED1586709B00380D63 /* CoreGraphics.framework in Frameworks */,
+				07F05FEF1586709B00380D63 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07F05FD91586709B00380D63 = {
+			isa = PBXGroup;
+			children = (
+				07F05FF01586709B00380D63 /* Infernales */,
+				07F05FE71586709B00380D63 /* Frameworks */,
+				07F05FE51586709B00380D63 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		07F05FE51586709B00380D63 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				07F05FE41586709B00380D63 /* Infernales.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		07F05FE71586709B00380D63 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07F05FE81586709B00380D63 /* UIKit.framework */,
+				07F05FEA1586709B00380D63 /* Foundation.framework */,
+				07F05FEC1586709B00380D63 /* CoreGraphics.framework */,
+				07F05FEE1586709B00380D63 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		07F05FF01586709B00380D63 /* Infernales */ = {
+			isa = PBXGroup;
+			children = (
+				07F05FF91586709B00380D63 /* AppDelegate.h */,
+				07F05FFA1586709B00380D63 /* AppDelegate.m */,
+				07F05FFC1586709B00380D63 /* Infernales.xcdatamodeld */,
+				07F05FF11586709B00380D63 /* Supporting Files */,
+			);
+			path = Infernales;
+			sourceTree = "<group>";
+		};
+		07F05FF11586709B00380D63 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				07F05FF21586709B00380D63 /* Infernales-Info.plist */,
+				07F05FF31586709B00380D63 /* InfoPlist.strings */,
+				07F05FF61586709B00380D63 /* main.m */,
+				07F05FF81586709B00380D63 /* Infernales-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		07F05FE31586709B00380D63 /* Infernales */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07F060011586709B00380D63 /* Build configuration list for PBXNativeTarget "Infernales" */;
+			buildPhases = (
+				07F05FE01586709B00380D63 /* Sources */,
+				07F05FE11586709B00380D63 /* Frameworks */,
+				07F05FE21586709B00380D63 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Infernales;
+			productName = Infernales;
+			productReference = 07F05FE41586709B00380D63 /* Infernales.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		07F05FDB1586709B00380D63 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 07F05FDE1586709B00380D63 /* Build configuration list for PBXProject "Infernales" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 07F05FD91586709B00380D63;
+			productRefGroup = 07F05FE51586709B00380D63 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				07F05FE31586709B00380D63 /* Infernales */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		07F05FE21586709B00380D63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07F05FF51586709B00380D63 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		07F05FE01586709B00380D63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07F05FF71586709B00380D63 /* main.m in Sources */,
+				07F05FFB1586709B00380D63 /* AppDelegate.m in Sources */,
+				07F05FFE1586709B00380D63 /* Infernales.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		07F05FF31586709B00380D63 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07F05FF41586709B00380D63 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		07F05FFF1586709B00380D63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		07F060001586709B00380D63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		07F060021586709B00380D63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Infernales/Infernales-Prefix.pch";
+				INFOPLIST_FILE = "Infernales/Infernales-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		07F060031586709B00380D63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Infernales/Infernales-Prefix.pch";
+				INFOPLIST_FILE = "Infernales/Infernales-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		07F05FDE1586709B00380D63 /* Build configuration list for PBXProject "Infernales" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07F05FFF1586709B00380D63 /* Debug */,
+				07F060001586709B00380D63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07F060011586709B00380D63 /* Build configuration list for PBXNativeTarget "Infernales" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07F060021586709B00380D63 /* Debug */,
+				07F060031586709B00380D63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		07F05FFC1586709B00380D63 /* Infernales.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				07F05FFD1586709B00380D63 /* Infernales.xcdatamodel */,
+			);
+			currentVersion = 07F05FFD1586709B00380D63 /* Infernales.xcdatamodel */;
+			path = Infernales.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 07F05FDB1586709B00380D63 /* Project object */;
+}
