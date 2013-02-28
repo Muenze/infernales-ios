@@ -14,6 +14,7 @@
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
+@synthesize navigationController;
 
 - (void)dealloc
 {
@@ -21,6 +22,7 @@
     [__managedObjectContext release];
     [__managedObjectModel release];
     [__persistentStoreCoordinator release];
+    [navigationController release];
     [super dealloc];
 }
 
@@ -29,6 +31,13 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+
+    UINavigationController *nav = [[UINavigationController alloc] init];
+    ChoiceViewController *cvc = [[ChoiceViewController alloc] init];
+    [nav pushViewController:cvc animated:NO];
+    [cvc release];
+    
+    [self.window addSubview:nav.view];
     [self.window makeKeyAndVisible];
     return YES;
 }
