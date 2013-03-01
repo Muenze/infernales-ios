@@ -56,7 +56,7 @@
     [super viewDidLoad];
     
     self.threadData = [self loadThreadData];
-    NSLog(@"%@",self.threadData);
+//    NSLog(@"%@",self.threadData);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -105,14 +105,30 @@
     }
     
     NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
-//    NSLog(@"%@",dic);
+    NSLog(@"%@",dic);
     
     NSString *name = [dic objectForKey:@"name"];
     if(name) {
         cell.textLabel.text = name;
+        cell.textLabel.text = [cell.textLabel.text stringByReplacingOccurrencesOfString:@"&ouml;" withString:@"ö"];
+        cell.textLabel.text = [cell.textLabel.text stringByReplacingOccurrencesOfString:@"&uuml;" withString:@"ü"];
+        cell.textLabel.text = [cell.textLabel.text stringByReplacingOccurrencesOfString:@"&auml;" withString:@"ä"];
+        cell.textLabel.text = [cell.textLabel.text stringByReplacingOccurrencesOfString:@"&amp;" withString:@"&"];
+        cell.textLabel.text = [cell.textLabel.text stringByReplacingOccurrencesOfString:@"&amp;" withString:@"&"];
+        cell.textLabel.text = [cell.textLabel.text stringByReplacingOccurrencesOfString:@"&quot;" withString:@"\""];
+        
+        
     } else {
         cell.textLabel.text = @"bla";
     }
+    NSDecimalNumber *news = [dic objectForKey:@"isnew"];
+    int hasnew = [news intValue];
+    if(hasnew == 1) {
+        cell.detailTextLabel.text = @"new";
+        
+    }
+    
+    
     
     
     return cell;

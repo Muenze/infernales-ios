@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0725B93E1634A5DE00DD10E0 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0725B93D1634A5DE00DD10E0 /* PostViewController.m */; };
 		0777939F1597A1B100E37317 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 0777939E1597A1B100E37317 /* NSString+MD5.m */; };
 		07E75796159657ED000EA122 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E7578B159657ED000EA122 /* NSObject+SBJSON.m */; };
 		07E75797159657ED000EA122 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E7578D159657ED000EA122 /* NSString+SBJSON.m */; };
@@ -35,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0725B93C1634A5DE00DD10E0 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
+		0725B93D1634A5DE00DD10E0 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		0777939D1597A1B100E37317 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
 		0777939E1597A1B100E37317 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 		07E75789159657ED000EA122 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
@@ -167,6 +170,8 @@
 				07E7579E15965856000EA122 /* ForumViewController.m */,
 				CBF161F115B350990030D2C2 /* ThreadViewController.h */,
 				CBF161F215B350990030D2C2 /* ThreadViewController.m */,
+				0725B93C1634A5DE00DD10E0 /* PostViewController.h */,
+				0725B93D1634A5DE00DD10E0 /* PostViewController.m */,
 				07F05FFC1586709B00380D63 /* Infernales.xcdatamodeld */,
 				07F05FF11586709B00380D63 /* Supporting Files */,
 			);
@@ -273,6 +278,7 @@
 				0777939F1597A1B100E37317 /* NSString+MD5.m in Sources */,
 				CBBD598815A4C9C9002BA33F /* OrderedDictionary.m in Sources */,
 				CBF161F415B350990030D2C2 /* ThreadViewController.m in Sources */,
+				0725B93E1634A5DE00DD10E0 /* PostViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

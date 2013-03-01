@@ -4,7 +4,7 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Infernales/JSON/NSString+SBJSON.m"
@@ -17,7 +17,7 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Infernales/ForumViewController.m"
@@ -30,20 +30,4 @@
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
-   <SymbolicBreakpoints>
-      <SymbolicBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         symbolName = "objc_exception:throw"
-         moduleName = "libobjc.A.dylib">
-      </SymbolicBreakpoint>
-      <SymbolicBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         symbolName = "-[NSException raise]"
-         moduleName = "CoreFoundation">
-      </SymbolicBreakpoint>
-   </SymbolicBreakpoints>
 </Bucket>

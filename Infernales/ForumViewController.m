@@ -106,12 +106,15 @@
     NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
     
     cell.textLabel.text = [dic objectForKey:@"name"];
+    cell.textLabel.text = [cell.textLabel.text stringByReplacingOccurrencesOfString:@"&amp;" withString:@"&"];
+    cell.textLabel.text = [cell.textLabel.text stringByReplacingOccurrencesOfString:@"&ouml;" withString:@"ö"];
     NSDecimalNumber *news = [dic objectForKey:@"hasnew"];
     int hasnew = [news intValue];
     if(hasnew == 1) {
         cell.detailTextLabel.text = @"new";
         
     }
+    
     
     
 
