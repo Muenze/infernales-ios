@@ -30,7 +30,7 @@
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"passwort"];
     
     if([username length] > 0 && [password length] > 0) {
-        NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/viewforum.json.php?username=%@&password=%@&forum_id=%@", username, password, forumId];
+        NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/viewforum.json.php?username=%@&password=%@&forum_id=%@", username, password, threadId];
         return [[NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil] JSONValue];
     } else {
         NSString *urlString = @"http://www.infernales.de/portal/forum/viewforum.json.php";
