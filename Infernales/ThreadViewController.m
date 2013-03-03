@@ -7,6 +7,7 @@
 //
 
 #import "ThreadViewController.h"
+#import "NSString+HtmlEntities.h"
 
 @interface ThreadViewController ()
 
@@ -96,22 +97,51 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"ThreadViewCell";
+    ThreadViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
     if(!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ThreadViewCell" owner:nil options:nil];
+        for(id currentObject in topLevelObjects) {
+            if([currentObject isKindOfClass:[UITableViewCell class]]) {
+                cell = (ThreadViewCell *) currentObject;
+                break;
+            }
+        }
+        
+//        cell = [[ThreadViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
     
     NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
-//    NSLog(@"%@",dic);
+    
+    NSDecimalNumber *isNew = [dic objectForKey:@"isnew"];
+    if([isNew isEqualToNumber:[NSNumber numberWithInt:0]]) {
+    } else {
+        UIImage *im = [UIImage imageNamed:@"newIndicator.png"];
+        cell.imageView.image = im;
+    }
+    
+    NSString *isSticky = [dic objectForKey:@"sticky"];
+    if([isSticky isEqualToString:@"1"]) {
+        UIImage *stick = [UIImage imageNamed:@"pin.png"];
+        cell.stickyIndicator.image = stick;
+    } else {
+        cell.stickyIndicator.image = nil;
+    }
+    
+    NSString *author = [dic objectForKey:@"user_author"];
+    NSString *erstelltText = [NSString stringWithFormat:@"Author: "];
+    erstelltText = [erstelltText stringByAppendingFormat:author];
+    cell.threadShortDescription.text = erstelltText;
     
     NSString *name = [dic objectForKey:@"name"];
     if(name) {
-        cell.textLabel.text = name;
+        name = [name decodeHtmlEntities];
+        cell.threadNameLabel.text = name;
+//        cell.textLabel.text = name;
     } else {
-        cell.textLabel.text = @"bla";
+//        cell.textLabel.text = @"bla";
     }
     
     
@@ -156,6 +186,12 @@
     return YES;
 }
 */
+
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return 100;
+//}
+
+
 
 #pragma mark - Table view delegate
 

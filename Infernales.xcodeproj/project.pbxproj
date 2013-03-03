@@ -29,7 +29,12 @@
 		07F05FF71586709B00380D63 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F05FF61586709B00380D63 /* main.m */; };
 		07F05FFB1586709B00380D63 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F05FFA1586709B00380D63 /* AppDelegate.m */; };
 		07F05FFE1586709B00380D63 /* Infernales.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 07F05FFC1586709B00380D63 /* Infernales.xcdatamodeld */; };
+		CB9D836216E375FC0047B1F2 /* NSString+HtmlEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9D836116E375FC0047B1F2 /* NSString+HtmlEntities.m */; };
+		CB9D836516E38E7D0047B1F2 /* ThreadViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9D836416E38E7D0047B1F2 /* ThreadViewCell.m */; };
+		CB9D836716E390090047B1F2 /* ThreadViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB9D836616E390090047B1F2 /* ThreadViewCell.xib */; };
+		CB9D836916E394CA0047B1F2 /* newIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = CB9D836816E394CA0047B1F2 /* newIndicator.png */; };
 		CBBD598815A4C9C9002BA33F /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBD598715A4C9C9002BA33F /* OrderedDictionary.m */; };
+		CBCFB1B916E3E2C500972EEB /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCFB1B816E3E2C500972EEB /* pin.png */; };
 		CBF161F415B350990030D2C2 /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF161F215B350990030D2C2 /* ThreadViewController.m */; };
 		CBF161F515B350990030D2C2 /* ThreadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBF161F315B350990030D2C2 /* ThreadViewController.xib */; };
 /* End PBXBuildFile section */
@@ -73,8 +78,15 @@
 		07F05FF91586709B00380D63 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		07F05FFA1586709B00380D63 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		07F05FFD1586709B00380D63 /* Infernales.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Infernales.xcdatamodel; sourceTree = "<group>"; };
+		CB9D836016E375FC0047B1F2 /* NSString+HtmlEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+HtmlEntities.h"; path = "../NSString+HtmlEntities.h"; sourceTree = "<group>"; };
+		CB9D836116E375FC0047B1F2 /* NSString+HtmlEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+HtmlEntities.m"; path = "../NSString+HtmlEntities.m"; sourceTree = "<group>"; };
+		CB9D836316E38E7D0047B1F2 /* ThreadViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadViewCell.h; sourceTree = "<group>"; };
+		CB9D836416E38E7D0047B1F2 /* ThreadViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadViewCell.m; sourceTree = "<group>"; };
+		CB9D836616E390090047B1F2 /* ThreadViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreadViewCell.xib; sourceTree = "<group>"; };
+		CB9D836816E394CA0047B1F2 /* newIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newIndicator.png; sourceTree = "<group>"; };
 		CBBD598615A4C9C9002BA33F /* OrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderedDictionary.h; sourceTree = "<group>"; };
 		CBBD598715A4C9C9002BA33F /* OrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderedDictionary.m; sourceTree = "<group>"; };
+		CBCFB1B816E3E2C500972EEB /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
 		CBF161F115B350990030D2C2 /* ThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadViewController.h; sourceTree = "<group>"; };
 		CBF161F215B350990030D2C2 /* ThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadViewController.m; sourceTree = "<group>"; };
 		CBF161F315B350990030D2C2 /* ThreadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreadViewController.xib; sourceTree = "<group>"; };
@@ -155,6 +167,10 @@
 		07F05FF01586709B00380D63 /* Infernales */ = {
 			isa = PBXGroup;
 			children = (
+				CB9D836016E375FC0047B1F2 /* NSString+HtmlEntities.h */,
+				CB9D836116E375FC0047B1F2 /* NSString+HtmlEntities.m */,
+				CB9D836316E38E7D0047B1F2 /* ThreadViewCell.h */,
+				CB9D836416E38E7D0047B1F2 /* ThreadViewCell.m */,
 				07F05FF91586709B00380D63 /* AppDelegate.h */,
 				07F05FFA1586709B00380D63 /* AppDelegate.m */,
 				07EEC85A1587CCC2006A7F37 /* SettingsViewController.h */,
@@ -176,6 +192,8 @@
 		07F05FF11586709B00380D63 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CBCFB1B816E3E2C500972EEB /* pin.png */,
+				CB9D836816E394CA0047B1F2 /* newIndicator.png */,
 				0777939B1597A18800E37317 /* md5 */,
 				07E75788159657ED000EA122 /* JSON */,
 				07EEC85C1587CCC2006A7F37 /* SettingsViewController.xib */,
@@ -188,6 +206,7 @@
 				07F05FF81586709B00380D63 /* Infernales-Prefix.pch */,
 				CBBD598615A4C9C9002BA33F /* OrderedDictionary.h */,
 				CBBD598715A4C9C9002BA33F /* OrderedDictionary.m */,
+				CB9D836616E390090047B1F2 /* ThreadViewCell.xib */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -247,6 +266,9 @@
 				07E757A115965857000EA122 /* ForumViewController.xib in Resources */,
 				07E757A615965A35000EA122 /* NewsViewController.xib in Resources */,
 				CBF161F515B350990030D2C2 /* ThreadViewController.xib in Resources */,
+				CB9D836716E390090047B1F2 /* ThreadViewCell.xib in Resources */,
+				CB9D836916E394CA0047B1F2 /* newIndicator.png in Resources */,
+				CBCFB1B916E3E2C500972EEB /* pin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +295,8 @@
 				0777939F1597A1B100E37317 /* NSString+MD5.m in Sources */,
 				CBBD598815A4C9C9002BA33F /* OrderedDictionary.m in Sources */,
 				CBF161F415B350990030D2C2 /* ThreadViewController.m in Sources */,
+				CB9D836216E375FC0047B1F2 /* NSString+HtmlEntities.m in Sources */,
+				CB9D836516E38E7D0047B1F2 /* ThreadViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
