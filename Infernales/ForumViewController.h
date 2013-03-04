@@ -10,6 +10,7 @@
 #import "JSON.h"
 #import "NSString+MD5.h"
 #import "NSString+HtmlEntities.h"
+#import "ForumViewCell.h"
 
 @interface ForumViewController : UITableViewController {
     NSDictionary *forumData;

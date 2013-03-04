@@ -90,17 +90,34 @@
     return [[[self.forumData objectForKey:[[self.forumData allKeys] objectAtIndex:section]] objectForKey:@"forum"] count];
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"ForumViewCell";
+    ForumViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
+    // Configure the cell...
     if(!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ForumViewCell" owner:nil options:nil];
+        for(id currentObject in topLevelObjects) {
+            if([currentObject isKindOfClass:[UITableViewCell class]]) {
+                cell = (ForumViewCell *) currentObject;
+                break;
+            }
+        }
+        
+        //        cell = [[ThreadViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
     NSDictionary *tempdict = [[[self.forumData objectForKey:[[self.forumData allKeys] objectAtIndex:indexPath.section]] objectForKey:@"forum"] retain];
     
-    cell.textLabel.text = [[[tempdict objectForKey:[[tempdict allKeys] objectAtIndex:indexPath.row]] objectForKey:@"name"] decodeHtmlEntities];
+    NSDictionary *dic = [tempdict objectForKey:[[tempdict allKeys] objectAtIndex:indexPath.row]];
+    cell.mainLabel.text = [[dic objectForKey:@"name"] decodeHtmlEntities];
+    
+//    [dic objectForKey:@"]
+    
 //    cell.detailTextLabel.text = @"detail";
     
     [tempdict release];
