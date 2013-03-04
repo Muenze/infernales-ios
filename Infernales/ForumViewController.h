@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "JSON.h"
 #import "NSString+MD5.h"
-#import "ThreadViewController.h"
 
 @interface ForumViewController : UITableViewController {
     NSDictionary *forumData;

@@ -7,6 +7,7 @@
 //
 
 #import "ForumViewController.h"
+#import "ThreadViewController.h"
 
 @interface ForumViewController ()
 
@@ -42,20 +43,20 @@
     [super viewDidLoad];
     self.forumData = self.loadForumData;
     if([self.forumData count] > 0) {
-
-    
+        
+        
     }
     
     
     
-//    NSLog(@"%@",self.forumData);
+    //    NSLog(@"%@",self.forumData);
     
-
-//    NSLog(@"%@",[self.forumData objectForKey:[[self.forumData allKeys] objectAtIndex:1]]);
+    
+    //    NSLog(@"%@",[self.forumData objectForKey:[[self.forumData allKeys] objectAtIndex:1]]);
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -100,70 +101,62 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
     }
     
-//    NSDictionary *tempdict = [[[self.forumData objectForKey:[[self.forumData allKeys] objectAtIndex:indexPath.section]] objectForKey:@"forum"] retain];
-//    
-//    cell.textLabel.text = [[tempdict objectForKey:[[tempdict allKeys] objectAtIndex:indexPath.row]] objectForKey:@"name"];
-    NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
+    NSDictionary *tempdict = [[[self.forumData objectForKey:[[self.forumData allKeys] objectAtIndex:indexPath.section]] objectForKey:@"forum"] retain];
     
-    cell.textLabel.text = [dic objectForKey:@"name"];
-    NSDecimalNumber *news = [dic objectForKey:@"hasnew"];
-    int hasnew = [news intValue];
-    if(hasnew == 1) {
-        cell.detailTextLabel.text = @"new";
-        
-    }
+    cell.textLabel.text = [[tempdict objectForKey:[[tempdict allKeys] objectAtIndex:indexPath.row]] objectForKey:@"name"];
     
+    cell.textLabel.text = [cell.textLabel.text stringByReplacingOccurrencesOfString:@"&amp;" withString:@"&"];
+    cell.detailTextLabel.text = @"detail";
     
-
-    [dic release];
+    [tempdict release];
     // Configure the cell...
     
     return cell;
 }
 
+/*
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
+
+/*
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ }
+ else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
+
+/*
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
+
+/*
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
+
 - (NSDictionary *)getDictionaryAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *tempdict = [[self.forumData objectForKey:[[self.forumData allKeys] objectAtIndex:indexPath.section]] objectForKey:@"forum"];
     return [[tempdict objectForKey:[[tempdict allKeys] objectAtIndex:indexPath.row]] retain];
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
@@ -172,13 +165,13 @@
     NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
     NSInteger *forumid = [dic objectForKey:@"forumid"];
     
-
+    
     ThreadViewController *tvc = [[ThreadViewController alloc] initWithForumId:forumid];
-//     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
+    //     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+    // ...
+    // Pass the selected object to the new view controller.
     [self.navigationController pushViewController:tvc animated:YES];
-//     [self.navigationController pushViewController:detailViewController animated:YES];
+    //     [self.navigationController pushViewController:detailViewController animated:YES];
     [tvc release];
 }
 

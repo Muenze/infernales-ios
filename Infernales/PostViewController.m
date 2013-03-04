@@ -1,26 +1,20 @@
 //
-//  ChoiceViewController.m
+//  PostViewController.m
 //  Infernales
 //
-//  Created by Guido Wehner on 12.06.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by machi on 21.10.12.
+//
 //
 
-#import "ChoiceViewController.h"
+#import "PostViewController.h"
 
-@interface ChoiceViewController ()
-@property (nonatomic, retain) NSArray *choices;
+@interface PostViewController ()
 
 @end
 
-@implementation ChoiceViewController
-@synthesize choices;
+@implementation PostViewController
 
--(IBAction)clickSettings:(id)sender {
-    SettingsViewController *svc = [[SettingsViewController alloc] init];
-    [self.navigationController pushViewController:svc animated:YES];
-
-}
+@synthesize postData, threadId;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -31,11 +25,17 @@
     return self;
 }
 
--(NSArray *)choices {
-    if(!choices) {
-        choices = [NSArray arrayWithObjects:@"Forum", @"News", nil];
+-(NSDictionary *)loadPostData {
+    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"passwort"];
+    
+    if([username length] > 0 && [password length] > 0) {
+        NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/viewforum.json.php?username=%@&password=%@&forum_id=%@", username, password, threadId];
+        return [[NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil] JSONValue];
+    } else {
+        NSString *urlString = @"http://www.infernales.de/portal/forum/viewforum.json.php";
+        return [[NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil] JSONValue];
     }
-    return choices;
 }
 
 - (void)viewDidLoad
@@ -45,56 +45,38 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] init];
-    button.style = UITableViewCellStyleValue1;
-    button.title = @"Settings";
-    button.target = self;
-    button.action = @selector(clickSettings:);
-    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    self.navigationItem.leftBarButtonItem = button;
-    [button release];
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)viewDidUnload
+- (void)didReceiveMemoryWarning
 {
-    [super viewDidUnload];
-    [choices release];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 1;
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [self.choices count];
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    if(!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
-    }
-    
-    cell.textLabel.text = [self.choices objectAtIndex:[indexPath row]];
     
     return cell;
 }
@@ -114,7 +96,7 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -142,15 +124,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == 0 && indexPath.section == 0) {
-        ForumViewController *fvc = [[ForumViewController alloc] init];
-        [self.navigationController pushViewController:fvc animated:YES];
-        [fvc release];
-    } else if (indexPath.row == 1 && indexPath.section == 0) {
-        NewsViewController *nvc = [[NewsViewController alloc] init];
-        [self.navigationController pushViewController:nvc animated:YES];
-        [nvc release];
-    }
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
@@ -160,5 +133,19 @@
      [detailViewController release];
      */
 }
+
+-(NSDictionary *)getDictionaryAtIndexPath:(NSIndexPath *)indexPath {
+    return [self.postData objectForKey:[[self.postData allKeys] objectAtIndex:indexPath.row]];
+}
+
+-(id)initWithThreadId:(NSInteger *)fd {
+    self = [super init];
+    if(self) {
+        self.threadId = fd;
+    }
+    return self;
+}
+
+
 
 @end
