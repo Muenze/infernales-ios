@@ -7,42 +7,42 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Infernales/JSON/NSString+SBJSON.m"
-         timestampString = "363120833.806828"
+         filePath = "Infernales/ForumViewController.m"
+         timestampString = "384121710.838288"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "47"
-         endingLineNumber = "47"
-         landmarkName = "-JSONValue"
+         startingLineNumber = "46"
+         endingLineNumber = "46"
+         landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Infernales/ForumViewController.m"
-         timestampString = "364075265.580766"
+         filePath = "Infernales/NSNull+Length.m"
+         timestampString = "384122963.0153"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "175"
-         endingLineNumber = "175"
-         landmarkName = "-tableView:didSelectRowAtIndexPath:"
+         startingLineNumber = "13"
+         endingLineNumber = "13"
+         landmarkName = "-length"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
    <SymbolicBreakpoints>
       <SymbolicBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         symbolName = "objc_exception:throw"
+         symbolName = "objc_exception_throw"
          moduleName = "libobjc.A.dylib">
       </SymbolicBreakpoint>
       <SymbolicBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         symbolName = "-[NSException raise]"
+         symbolName = "+[NSException raise:format:arguments:]"
          moduleName = "CoreFoundation">
       </SymbolicBreakpoint>
    </SymbolicBreakpoints>

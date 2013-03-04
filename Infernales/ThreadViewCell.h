@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ThreadViewCell : UITableViewCell {
+    IBOutlet UIImageView *newImageView;
+    IBOutlet UILabel *threadNameLabel;
+    IBOutlet UILabel *threadShortDescription;
+    IBOutlet UIImageView *stickyIndicator;
     
 }
 
