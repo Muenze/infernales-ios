@@ -30,6 +30,8 @@
 		07F05FFB1586709B00380D63 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F05FFA1586709B00380D63 /* AppDelegate.m */; };
 		07F05FFE1586709B00380D63 /* Infernales.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 07F05FFC1586709B00380D63 /* Infernales.xcdatamodeld */; };
 		CB893B6816E684F00028DBF0 /* foldernew.gif in Resources */ = {isa = PBXBuildFile; fileRef = CB893B6716E684F00028DBF0 /* foldernew.gif */; };
+		CB893B6F16E696A80028DBF0 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB893B6D16E696A80028DBF0 /* PostViewController.m */; };
+		CB893B7016E696A80028DBF0 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB893B6E16E696A80028DBF0 /* PostViewController.xib */; };
 		CB9D836216E375FC0047B1F2 /* NSString+HtmlEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9D836116E375FC0047B1F2 /* NSString+HtmlEntities.m */; };
 		CB9D836516E38E7D0047B1F2 /* ThreadViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9D836416E38E7D0047B1F2 /* ThreadViewCell.m */; };
 		CB9D836716E390090047B1F2 /* ThreadViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB9D836616E390090047B1F2 /* ThreadViewCell.xib */; };
@@ -81,6 +83,9 @@
 		07F05FFA1586709B00380D63 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		07F05FFD1586709B00380D63 /* Infernales.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Infernales.xcdatamodel; sourceTree = "<group>"; };
 		CB893B6716E684F00028DBF0 /* foldernew.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = foldernew.gif; sourceTree = "<group>"; };
+		CB893B6C16E696A80028DBF0 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
+		CB893B6D16E696A80028DBF0 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
+		CB893B6E16E696A80028DBF0 /* PostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
 		CB9D836016E375FC0047B1F2 /* NSString+HtmlEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+HtmlEntities.h"; path = "../NSString+HtmlEntities.h"; sourceTree = "<group>"; };
 		CB9D836116E375FC0047B1F2 /* NSString+HtmlEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+HtmlEntities.m"; path = "../NSString+HtmlEntities.m"; sourceTree = "<group>"; };
 		CB9D836316E38E7D0047B1F2 /* ThreadViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadViewCell.h; sourceTree = "<group>"; };
@@ -190,6 +195,8 @@
 				CBF161F215B350990030D2C2 /* ThreadViewController.m */,
 				CB9D836316E38E7D0047B1F2 /* ThreadViewCell.h */,
 				CB9D836416E38E7D0047B1F2 /* ThreadViewCell.m */,
+				CB893B6C16E696A80028DBF0 /* PostViewController.h */,
+				CB893B6D16E696A80028DBF0 /* PostViewController.m */,
 				07F05FFC1586709B00380D63 /* Infernales.xcdatamodeld */,
 				07F05FF11586709B00380D63 /* Supporting Files */,
 			);
@@ -199,6 +206,7 @@
 		07F05FF11586709B00380D63 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CB893B6E16E696A80028DBF0 /* PostViewController.xib */,
 				CB893B6716E684F00028DBF0 /* foldernew.gif */,
 				CBE9BEF916E5470F0050EE0F /* ForumViewCell.xib */,
 				CBCFB1B816E3E2C500972EEB /* pin.png */,
@@ -278,6 +286,7 @@
 				CBCFB1B916E3E2C500972EEB /* pin.png in Resources */,
 				CBE9BEFA16E5470F0050EE0F /* ForumViewCell.xib in Resources */,
 				CB893B6816E684F00028DBF0 /* foldernew.gif in Resources */,
+				CB893B7016E696A80028DBF0 /* PostViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +316,7 @@
 				CB9D836216E375FC0047B1F2 /* NSString+HtmlEntities.m in Sources */,
 				CB9D836516E38E7D0047B1F2 /* ThreadViewCell.m in Sources */,
 				CBE9BEF816E546AE0050EE0F /* ForumViewCell.m in Sources */,
+				CB893B6F16E696A80028DBF0 /* PostViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

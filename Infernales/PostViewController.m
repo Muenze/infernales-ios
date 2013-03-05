@@ -2,7 +2,7 @@
 //  PostViewController.m
 //  Infernales
 //
-//  Created by machi on 21.10.12.
+//  Created by Guido Wehner on 05.03.13.
 //
 //
 
@@ -14,7 +14,19 @@
 
 @implementation PostViewController
 
-@synthesize postData, threadId;
+-(NSDictionary *)loadPostData {
+    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"passwort"];
+    
+    if([username length] > 0 && [password length] > 0) {
+        NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/viewthread.json.php?username=%@&password=%@&thread_id=%@", username, password, threadId];
+        return [[NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil] JSONValue];
+    } else {
+        NSString *urlString = @"http://www.infernales.de/portal/forum/viewforum.json.php";
+        return [[NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil] JSONValue];
+    }
+}
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -23,19 +35,6 @@
         // Custom initialization
     }
     return self;
-}
-
--(NSDictionary *)loadPostData {
-    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
-    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"passwort"];
-    
-    if([username length] > 0 && [password length] > 0) {
-        NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/viewforum.json.php?username=%@&password=%@&forum_id=%@", username, password, threadId];
-        return [[NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil] JSONValue];
-    } else {
-        NSString *urlString = @"http://www.infernales.de/portal/forum/viewforum.json.php";
-        return [[NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil] JSONValue];
-    }
 }
 
 - (void)viewDidLoad
@@ -74,7 +73,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
     
     // Configure the cell...
     
@@ -133,19 +135,5 @@
      [detailViewController release];
      */
 }
-
--(NSDictionary *)getDictionaryAtIndexPath:(NSIndexPath *)indexPath {
-    return [self.postData objectForKey:[[self.postData allKeys] objectAtIndex:indexPath.row]];
-}
-
--(id)initWithThreadId:(NSInteger *)fd {
-    self = [super init];
-    if(self) {
-        self.threadId = fd;
-    }
-    return self;
-}
-
-
 
 @end

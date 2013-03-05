@@ -2,25 +2,23 @@
 //  PostViewController.h
 //  Infernales
 //
-//  Created by machi on 21.10.12.
+//  Created by Guido Wehner on 05.03.13.
 //
 //
 
 #import <UIKit/UIKit.h>
-#import "JSON.h"
-#import "NSString+MD5.h"
-
 
 @interface PostViewController : UITableViewController {
-    NSDictionary *postData;
     NSInteger *threadId;
+    NSDictionary *postData;
 }
 
-@property (nonatomic, retain) NSDictionary *postData;
 @property (nonatomic) NSInteger *threadId;
+@property (nonatomic, strong) NSDictionary *postData;
 
 -(NSDictionary *)loadPostData;
--(id)initWithThreadId:(NSInteger *)fd;
+-(id)initWithForumId:(NSInteger *)fd;
 -(NSDictionary *)getDictionaryAtIndexPath:(NSIndexPath *)indexPath;
+
 
 @end
