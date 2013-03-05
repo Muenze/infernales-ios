@@ -118,7 +118,7 @@
     NSDecimalNumber *isNew = [dic objectForKey:@"isnew"];
     if([isNew isEqualToNumber:[NSNumber numberWithInt:0]]) {
     } else {
-        UIImage *im = [UIImage imageNamed:@"newIndicator.png"];
+        UIImage *im = [UIImage imageNamed:@"foldernew.gif"];
         cell.imageView.image = im;
     }
     
