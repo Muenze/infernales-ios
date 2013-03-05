@@ -116,9 +116,21 @@
     NSDictionary *dic = [tempdict objectForKey:[[tempdict allKeys] objectAtIndex:indexPath.row]];
     cell.mainLabel.text = [[dic objectForKey:@"name"] decodeHtmlEntities];
     
-//    [dic objectForKey:@"]
+//    NSLog(@"%@",
+    NSString *autor = @"Letzter Post: ";
+    autor = [autor stringByAppendingString:[dic objectForKey:@"user"]];
+    NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[[dic objectForKey:@"lastpost"] doubleValue]];
+    NSDateFormatter * format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"dd.mm.yyyy HH:mm"];
+    NSString *date = [format stringFromDate:theDate];
+    [format release];
     
-//    cell.detailTextLabel.text = @"detail";
+    
+    autor = [autor stringByAppendingFormat:@" am "];
+    autor = [autor stringByAppendingFormat:date];
+
+//    NSLog(@"%@",date);
+    cell.lastAutorLabel.text = autor;
     
     [tempdict release];
     // Configure the cell...
