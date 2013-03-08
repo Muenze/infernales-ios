@@ -133,8 +133,15 @@
     NSString *author = [dic objectForKey:@"user_author"];
     NSString *erstelltText = [NSString stringWithFormat:@"Author: "];
     erstelltText = [erstelltText stringByAppendingFormat:author];
-    cell.threadShortDescription.text = erstelltText;
     
+    NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[[dic objectForKey:@"thread_lastpost"] doubleValue]];
+    NSDateFormatter * format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"dd.MM.yyyy"];
+    NSString *date = [format stringFromDate:theDate];
+    erstelltText = [erstelltText stringByAppendingFormat:@", letzter Beitrag am: "];
+    erstelltText = [erstelltText stringByAppendingFormat:date];
+    
+    cell.threadShortDescription.text = erstelltText;
     NSString *name = [dic objectForKey:@"name"];
     if(name) {
         name = [name decodeHtmlEntities];

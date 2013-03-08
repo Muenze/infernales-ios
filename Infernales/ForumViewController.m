@@ -121,7 +121,7 @@
     autor = [autor stringByAppendingString:[dic objectForKey:@"user"]];
     NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[[dic objectForKey:@"lastpost"] doubleValue]];
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
-    [format setDateFormat:@"dd.mm.yyyy HH:mm"];
+    [format setDateFormat:@"dd.MM.yyyy HH:mm"];
     NSString *date = [format stringFromDate:theDate];
     [format release];
     
