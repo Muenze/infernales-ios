@@ -35,6 +35,8 @@
 		CB9D836216E375FC0047B1F2 /* NSString+HtmlEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9D836116E375FC0047B1F2 /* NSString+HtmlEntities.m */; };
 		CB9D836516E38E7D0047B1F2 /* ThreadViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9D836416E38E7D0047B1F2 /* ThreadViewCell.m */; };
 		CB9D836716E390090047B1F2 /* ThreadViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB9D836616E390090047B1F2 /* ThreadViewCell.xib */; };
+		CBAFD2D616EA7D21002D4BE8 /* PostViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAFD2D516EA7D21002D4BE8 /* PostViewCell.m */; };
+		CBAFD2D816EA7D36002D4BE8 /* PostViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBAFD2D716EA7D36002D4BE8 /* PostViewCell.xib */; };
 		CBBD598815A4C9C9002BA33F /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBD598715A4C9C9002BA33F /* OrderedDictionary.m */; };
 		CBCFB1B916E3E2C500972EEB /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCFB1B816E3E2C500972EEB /* pin.png */; };
 		CBE9BEF816E546AE0050EE0F /* ForumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE9BEF716E546AE0050EE0F /* ForumViewCell.m */; };
@@ -91,6 +93,9 @@
 		CB9D836316E38E7D0047B1F2 /* ThreadViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadViewCell.h; sourceTree = "<group>"; };
 		CB9D836416E38E7D0047B1F2 /* ThreadViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadViewCell.m; sourceTree = "<group>"; };
 		CB9D836616E390090047B1F2 /* ThreadViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreadViewCell.xib; sourceTree = "<group>"; };
+		CBAFD2D416EA7D21002D4BE8 /* PostViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewCell.h; sourceTree = "<group>"; };
+		CBAFD2D516EA7D21002D4BE8 /* PostViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewCell.m; sourceTree = "<group>"; };
+		CBAFD2D716EA7D36002D4BE8 /* PostViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostViewCell.xib; sourceTree = "<group>"; };
 		CBBD598615A4C9C9002BA33F /* OrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderedDictionary.h; sourceTree = "<group>"; };
 		CBBD598715A4C9C9002BA33F /* OrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderedDictionary.m; sourceTree = "<group>"; };
 		CBCFB1B816E3E2C500972EEB /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
@@ -197,6 +202,9 @@
 				CB9D836416E38E7D0047B1F2 /* ThreadViewCell.m */,
 				CB893B6C16E696A80028DBF0 /* PostViewController.h */,
 				CB893B6D16E696A80028DBF0 /* PostViewController.m */,
+				CBAFD2D416EA7D21002D4BE8 /* PostViewCell.h */,
+				CBAFD2D516EA7D21002D4BE8 /* PostViewCell.m */,
+				CBAFD2D716EA7D36002D4BE8 /* PostViewCell.xib */,
 				07F05FFC1586709B00380D63 /* Infernales.xcdatamodeld */,
 				07F05FF11586709B00380D63 /* Supporting Files */,
 			);
@@ -287,6 +295,7 @@
 				CBE9BEFA16E5470F0050EE0F /* ForumViewCell.xib in Resources */,
 				CB893B6816E684F00028DBF0 /* foldernew.gif in Resources */,
 				CB893B7016E696A80028DBF0 /* PostViewController.xib in Resources */,
+				CBAFD2D816EA7D36002D4BE8 /* PostViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +326,7 @@
 				CB9D836516E38E7D0047B1F2 /* ThreadViewCell.m in Sources */,
 				CBE9BEF816E546AE0050EE0F /* ForumViewCell.m in Sources */,
 				CB893B6F16E696A80028DBF0 /* PostViewController.m in Sources */,
+				CBAFD2D616EA7D21002D4BE8 /* PostViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

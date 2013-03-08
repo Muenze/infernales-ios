@@ -10,6 +10,7 @@
 #import "JSON.h"
 #import "NSString+MD5.h"
 #import "ThreadViewCell.h"
+#import "PostViewController.h"
 
 @interface ThreadViewController : UITableViewController {
     NSDictionary *threadData;

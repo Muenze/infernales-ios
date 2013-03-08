@@ -57,7 +57,6 @@
     [super viewDidLoad];
     
     self.threadData = [self loadThreadData];
-    NSLog(@"%@",self.threadData);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -204,14 +203,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
+    NSInteger *thread_id = [dic objectForKey:@"thread_id"];
+    
+    PostViewController *pvc = [[PostViewController alloc] initWithThreadId:thread_id];
+    [self.navigationController pushViewController:pvc animated:YES];
+    [pvc release];
 }
 
 @end

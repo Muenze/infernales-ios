@@ -14,12 +14,15 @@
 
 @implementation PostViewController
 
+@synthesize threadId, postData;
+
 -(NSDictionary *)loadPostData {
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"passwort"];
     
     if([username length] > 0 && [password length] > 0) {
         NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/viewthread.json.php?username=%@&password=%@&thread_id=%@", username, password, threadId];
+        NSLog(@"%@",urlString);
         return [[NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil] JSONValue];
     } else {
         NSString *urlString = @"http://www.infernales.de/portal/forum/viewforum.json.php";
@@ -37,15 +40,33 @@
     return self;
 }
 
+- (id)initWithThreadId:(NSInteger *)threadid {
+    self = [super init];
+    if(self) {
+        self.threadId = threadid;
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.postData = [self loadPostData];
 
+    NSLog(@"%@",self.postData);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    [postData release];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,27 +79,44 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
+    // Return the number of sections.
+    if([self.postData count] > 0) {
+        return 1;
+    }
     return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.postData count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
+    static NSString *CellIdentifier = @"PostViewCell";
+    PostViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
+    if(!cell) {
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"PostViewCell" owner:nil options:nil];
+        for(id currentObject in topLevelObjects) {
+            if([currentObject isKindOfClass:[UITableViewCell class]]) {
+                cell = (PostViewCell *) currentObject;
+                break;
+            }
+        }
+        
+        //        cell = [[ThreadViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+    }
+    
+    NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
+    NSString *autor = [dic objectForKey:@"user_name"];
+    autor = [autor decodeHtmlEntities];
+    
+    cell.autorLabel.text = autor;
+    
     
     return cell;
 }
@@ -121,6 +159,14 @@
     return YES;
 }
 */
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 100;
+}
+
+-(NSDictionary *)getDictionaryAtIndexPath:(NSIndexPath *)indexPath {
+    return [self.postData objectForKey:[[self.postData allKeys] objectAtIndex:indexPath.row]];
+}
 
 #pragma mark - Table view delegate
 
