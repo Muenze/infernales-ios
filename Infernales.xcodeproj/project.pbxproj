@@ -204,7 +204,6 @@
 				CB893B6D16E696A80028DBF0 /* PostViewController.m */,
 				CBAFD2D416EA7D21002D4BE8 /* PostViewCell.h */,
 				CBAFD2D516EA7D21002D4BE8 /* PostViewCell.m */,
-				CBAFD2D716EA7D36002D4BE8 /* PostViewCell.xib */,
 				07F05FFC1586709B00380D63 /* Infernales.xcdatamodeld */,
 				07F05FF11586709B00380D63 /* Supporting Files */,
 			);
@@ -214,6 +213,7 @@
 		07F05FF11586709B00380D63 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CBAFD2D716EA7D36002D4BE8 /* PostViewCell.xib */,
 				CB893B6E16E696A80028DBF0 /* PostViewController.xib */,
 				CB893B6716E684F00028DBF0 /* foldernew.gif */,
 				CBE9BEF916E5470F0050EE0F /* ForumViewCell.xib */,

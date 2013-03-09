@@ -22,7 +22,6 @@
     
     if([username length] > 0 && [password length] > 0) {
         NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/viewthread.json.php?username=%@&password=%@&thread_id=%@", username, password, threadId];
-        NSLog(@"%@",urlString);
         return [[NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil] JSONValue];
     } else {
         NSString *urlString = @"http://www.infernales.de/portal/forum/viewforum.json.php";
@@ -53,7 +52,7 @@
     [super viewDidLoad];
     self.postData = [self loadPostData];
 
-    NSLog(@"%@",self.postData);
+//    NSLog(@"%@",self.postData);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -117,52 +116,49 @@
     
     cell.autorLabel.text = autor;
     
+    NSString *post_message = [dic objectForKey:@"post_message"];
+    post_message = [post_message decodeHtmlEntities];
+    
+    cell.mainLabel.text = post_message;
+//    [cell.mainLabel sizeToFit];
+    
+    CGSize aSize;
+    aSize = [post_message sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(300.0, 9999.9) lineBreakMode:cell.mainLabel.lineBreakMode];
+//    NSLog(@"Die Höhe der Berechnung für %@: %f",autor, aSize.height);
+//    NSLog(@"Die Höhe der Zelle für %@: %f",autor,  cell.frame.size.height);
+    CGRect myframe = [cell.mainLabel frame];
+    myframe.size.height = aSize.height;
+    [cell.mainLabel setFrame:myframe];
+//    NSLog(@"Die Höhe des Label für %@: %f", autor, cell.mainLabel.frame.size.height);
+    
+    CGRect cellrect = cell.frame;
+    cellrect.size.height = aSize.height+20;
+    [cell setFrame:cellrect];
+//    NSLog(@"Die Höhe der Zelle für %@: %f",autor,  cell.frame.size.height);
+    
+//    cell 
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100;
+    CGSize aSize;
+    
+    CGFloat initialSize = 40.0f;
+    NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
+    NSString *text = [dic objectForKey:@"post_message"];
+    aSize = [text sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(280.0, 9999.9) lineBreakMode:NSLineBreakByWordWrapping];
+    CGFloat myheight;
+    myheight = aSize.height + initialSize;
+//    NSLog(@"Höhe des Frame1: %f",aSize.height);
+    if(myheight < 100.0f) {
+        myheight = 100.0f;
+    }
+//    NSLog(@"Höhe des Frame2: %f",myheight);
+    return myheight;
 }
+
+
 
 -(NSDictionary *)getDictionaryAtIndexPath:(NSIndexPath *)indexPath {
     return [self.postData objectForKey:[[self.postData allKeys] objectAtIndex:indexPath.row]];
