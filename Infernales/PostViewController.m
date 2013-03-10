@@ -14,7 +14,7 @@
 
 @implementation PostViewController
 
-@synthesize threadId, postData;
+@synthesize threadId, postData, threadName;
 
 -(NSDictionary *)loadPostData {
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
@@ -39,10 +39,11 @@
     return self;
 }
 
-- (id)initWithThreadId:(NSInteger *)threadid {
+- (id)initWithThreadId:(NSInteger *)threadid andThreadName:(NSString *)threadName {
     self = [super init];
     if(self) {
         self.threadId = threadid;
+        self.threadName = threadName;
     }
     return self;
 }
@@ -51,6 +52,13 @@
 {
     [super viewDidLoad];
     self.postData = [self loadPostData];
+    self.title = threadName;
+    
+    
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonSystemItemSave target:self action:@selector(postInForum:)];
+    self.navigationItem.rightBarButtonItem = button;
+    [button release];
+
 
 //    NSLog(@"%@",self.postData);
     // Uncomment the following line to preserve selection between presentations.
@@ -113,6 +121,17 @@
     NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
     NSString *autor = [dic objectForKey:@"user_name"];
     autor = [autor decodeHtmlEntities];
+    
+    NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[[dic objectForKey:@"post_datestamp"] doubleValue]];
+    NSDateFormatter * format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"dd.MM.yyyy HH:mm"];
+    NSString *date = [format stringFromDate:theDate];
+    
+    autor = [autor stringByAppendingFormat:@" am "];
+    autor = [autor stringByAppendingFormat:date];
+    
+    
+    
     
     cell.autorLabel.text = autor;
     

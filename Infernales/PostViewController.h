@@ -14,14 +14,16 @@
 
 @interface PostViewController : UITableViewController {
     NSInteger *threadId;
+    NSString *threadName;
     NSDictionary *postData;
 }
 
 @property (nonatomic) NSInteger *threadId;
 @property (nonatomic, strong) NSDictionary *postData;
+@property (nonatomic, strong) NSString *threadName;
 
 -(NSDictionary *)loadPostData;
--(id)initWithThreadId:(NSInteger *)threadid;
+-(id)initWithThreadId:(NSInteger *)threadid andThreadName:(NSString *)threadName;
 -(NSDictionary *)getDictionaryAtIndexPath:(NSIndexPath *)indexPath;
 
 

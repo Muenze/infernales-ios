@@ -205,8 +205,11 @@
 {
     NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
     NSInteger *thread_id = [dic objectForKey:@"thread_id"];
+    NSString *thread_name = [dic objectForKey:@"name"];
+    thread_name = [thread_name decodeHtmlEntities];
     
-    PostViewController *pvc = [[PostViewController alloc] initWithThreadId:thread_id];
+    
+    PostViewController *pvc = [[PostViewController alloc] initWithThreadId:thread_id andThreadName:thread_name];
     [self.navigationController pushViewController:pvc animated:YES];
     [pvc release];
 }

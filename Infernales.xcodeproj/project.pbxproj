@@ -29,6 +29,8 @@
 		07F05FF71586709B00380D63 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F05FF61586709B00380D63 /* main.m */; };
 		07F05FFB1586709B00380D63 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F05FFA1586709B00380D63 /* AppDelegate.m */; };
 		07F05FFE1586709B00380D63 /* Infernales.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 07F05FFC1586709B00380D63 /* Infernales.xcdatamodeld */; };
+		CB87B5CD16ED0BFC0022355F /* infernales.png in Resources */ = {isa = PBXBuildFile; fileRef = CB87B5CC16ED0BFC0022355F /* infernales.png */; };
+		CB87B5CF16ED0C0E0022355F /* infernales.png in Resources */ = {isa = PBXBuildFile; fileRef = CB87B5CE16ED0C0E0022355F /* infernales.png */; };
 		CB893B6816E684F00028DBF0 /* foldernew.gif in Resources */ = {isa = PBXBuildFile; fileRef = CB893B6716E684F00028DBF0 /* foldernew.gif */; };
 		CB893B6F16E696A80028DBF0 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB893B6D16E696A80028DBF0 /* PostViewController.m */; };
 		CB893B7016E696A80028DBF0 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB893B6E16E696A80028DBF0 /* PostViewController.xib */; };
@@ -84,6 +86,8 @@
 		07F05FF91586709B00380D63 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		07F05FFA1586709B00380D63 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		07F05FFD1586709B00380D63 /* Infernales.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Infernales.xcdatamodel; sourceTree = "<group>"; };
+		CB87B5CC16ED0BFC0022355F /* infernales.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infernales.png; sourceTree = "<group>"; };
+		CB87B5CE16ED0C0E0022355F /* infernales.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infernales.png; sourceTree = "<group>"; };
 		CB893B6716E684F00028DBF0 /* foldernew.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = foldernew.gif; sourceTree = "<group>"; };
 		CB893B6C16E696A80028DBF0 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
 		CB893B6D16E696A80028DBF0 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 		07F05FD91586709B00380D63 = {
 			isa = PBXGroup;
 			children = (
+				CB87B5CE16ED0C0E0022355F /* infernales.png */,
 				07F05FF01586709B00380D63 /* Infernales */,
 				07F05FE71586709B00380D63 /* Frameworks */,
 				07F05FE51586709B00380D63 /* Products */,
@@ -213,6 +218,7 @@
 		07F05FF11586709B00380D63 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CB87B5CC16ED0BFC0022355F /* infernales.png */,
 				CBAFD2D716EA7D36002D4BE8 /* PostViewCell.xib */,
 				CB893B6E16E696A80028DBF0 /* PostViewController.xib */,
 				CB893B6716E684F00028DBF0 /* foldernew.gif */,
@@ -296,6 +302,8 @@
 				CB893B6816E684F00028DBF0 /* foldernew.gif in Resources */,
 				CB893B7016E696A80028DBF0 /* PostViewController.xib in Resources */,
 				CBAFD2D816EA7D36002D4BE8 /* PostViewCell.xib in Resources */,
+				CB87B5CD16ED0BFC0022355F /* infernales.png in Resources */,
+				CB87B5CF16ED0C0E0022355F /* infernales.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +357,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -373,6 +385,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -393,8 +409,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Infernales/Infernales-Prefix.pch";
 				INFOPLIST_FILE = "Infernales/Infernales-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				NSZombieEnabled = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -405,8 +423,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Infernales/Infernales-Prefix.pch";
 				INFOPLIST_FILE = "Infernales/Infernales-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				NSZombieEnabled = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
