@@ -104,6 +104,7 @@
 {
     static NSString *CellIdentifier = @"PostViewCell";
     PostViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    PostViewCell *cell = nil;
     
     // Configure the cell...
     if(!cell) {
@@ -117,6 +118,7 @@
         
         //        cell = [[ThreadViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
+    
     
     NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
     NSString *autor = [dic objectForKey:@"user_name"];
@@ -135,14 +137,39 @@
     
     cell.autorLabel.text = autor;
     
+    cell.mainLabel.editable = NO;
+    cell.mainLabel.dataDetectorTypes = UIDataDetectorTypeLink;
+    
     NSString *post_message = [dic objectForKey:@"post_message"];
     post_message = [post_message decodeHtmlEntities];
     
-    cell.mainLabel.text = post_message;
+//    cell.mainLabel.text = post_message;
 //    [cell.mainLabel sizeToFit];
     
     CGSize aSize;
-    aSize = [post_message sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(300.0, 9999.9) lineBreakMode:cell.mainLabel.lineBreakMode];
+    aSize = [post_message sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(300.0, 9999.9) lineBreakMode:NSLineBreakByWordWrapping];
+    if([cell.styledLabel isKindOfClass:[TTStyledTextLabel class]]) {
+        [cell.styledLabel removeFromSuperview];
+    }
+    
+    CGRect styledLabelRect = CGRectMake(20.0f, 20.0, 280.0f, aSize.height);
+    NSLog(@"Ich setze die Höhe als %f",aSize.height);
+    TTStyledTextLabel* label = [[[TTStyledTextLabel alloc] initWithFrame:styledLabelRect] autorelease];
+//    TTStyledTextLabel* label = [[TTStyledTextLabel alloc] initWithFrame:styledLabelRect];
+    TTStyledText* styleText = [TTStyledText textFromXHTML:post_message lineBreaks:YES URLs:YES];
+    
+//    NSLog(@"Style Text: %@", styleText);
+    label.text = styleText;
+    cell.styledLabel = label;
+    [cell.contentView addSubview:label];
+    
+    
+    
+//    [label release];
+    
+
+    
+    
 //    NSLog(@"Die Höhe der Berechnung für %@: %f",autor, aSize.height);
 //    NSLog(@"Die Höhe der Zelle für %@: %f",autor,  cell.frame.size.height);
     CGRect myframe = [cell.mainLabel frame];
@@ -151,7 +178,7 @@
 //    NSLog(@"Die Höhe des Label für %@: %f", autor, cell.mainLabel.frame.size.height);
     
     CGRect cellrect = cell.frame;
-    cellrect.size.height = aSize.height+20;
+    cellrect.size.height = aSize.height+25;
     [cell setFrame:cellrect];
 //    NSLog(@"Die Höhe der Zelle für %@: %f",autor,  cell.frame.size.height);
     

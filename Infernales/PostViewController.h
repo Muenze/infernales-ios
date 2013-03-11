@@ -11,6 +11,7 @@
 #import "NSString+MD5.h"
 #import "NSString+HtmlEntities.h"
 #import "PostViewCell.h"
+#import "Three20/Three20.h"
 
 @interface PostViewController : UITableViewController {
     NSInteger *threadId;
