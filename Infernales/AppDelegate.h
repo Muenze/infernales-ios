@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "ChoiceViewController.h"
-#import "Three20/Three20.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {
     UINavigationController *navigationController;

@@ -10,7 +10,7 @@
 
 @implementation PostViewCell
 
-@synthesize mainLabel, autorLabel, styledLabel;
+@synthesize mainLabel, autorLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

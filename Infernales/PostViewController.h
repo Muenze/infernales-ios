@@ -11,15 +11,15 @@
 #import "NSString+MD5.h"
 #import "NSString+HtmlEntities.h"
 #import "PostViewCell.h"
-#import "Three20/Three20.h"
+#import "MSTextView.h"
+#import "PostdetailViewController.h"
 
 @interface PostViewController : UITableViewController {
-    NSInteger *threadId;
-    NSString *threadName;
-    NSDictionary *postData;
+    NSInteger* threadId;
+    NSString* threadName;
+    NSDictionary* postData;
 }
-
-@property (nonatomic) NSInteger *threadId;
+@property (nonatomic) NSInteger* threadId;
 @property (nonatomic, strong) NSDictionary *postData;
 @property (nonatomic, strong) NSString *threadName;
 

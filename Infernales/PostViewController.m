@@ -54,8 +54,10 @@
     self.postData = [self loadPostData];
     self.title = threadName;
     
+   
     
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonSystemItemSave target:self action:@selector(postInForum:)];
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStylePlain target:self action:@selector(postInForum:)];
+//    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonSystemItemSave target:self action:@selector(postInForum:)];
     self.navigationItem.rightBarButtonItem = button;
     [button release];
 
@@ -67,6 +69,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
 
 - (void)viewDidUnload
 {
@@ -138,30 +141,45 @@
     cell.autorLabel.text = autor;
     
     cell.mainLabel.editable = NO;
-    cell.mainLabel.dataDetectorTypes = UIDataDetectorTypeLink;
+//    cell.mainLabel.dataDetectorTypes = UIDataDetectorTypeAll;
     
     NSString *post_message = [dic objectForKey:@"post_message"];
     post_message = [post_message decodeHtmlEntities];
     
-//    cell.mainLabel.text = post_message;
+    post_message = @"http://google.de";
+    
+    cell.mainLabel.text = post_message;
 //    [cell.mainLabel sizeToFit];
     
     CGSize aSize;
     aSize = [post_message sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(300.0, 9999.9) lineBreakMode:NSLineBreakByWordWrapping];
-    if([cell.styledLabel isKindOfClass:[TTStyledTextLabel class]]) {
-        [cell.styledLabel removeFromSuperview];
-    }
     
-    CGRect styledLabelRect = CGRectMake(20.0f, 20.0, 280.0f, aSize.height);
-    NSLog(@"Ich setze die Höhe als %f",aSize.height);
-    TTStyledTextLabel* label = [[[TTStyledTextLabel alloc] initWithFrame:styledLabelRect] autorelease];
+    CGRect rec = cell.mainLabel.frame;
+    rec.size.height = aSize.height;
+    [cell.mainLabel setFrame:rec];
+    
+//    CGRect MSLabelRect = CGRectMake(20.0f, 20.0, 280.0f, aSize.height);
+//    MSTextView* mstv = [[MSTextView alloc] initWithFrame:MSLabelRect];
+//    mstv.text = post_message;
+//    [cell.contentView addSubview:mstv];
+    
+    
+    
+//    if([cell.styledLabel isKindOfClass:[TTStyledTextLabel class]]) {
+//        [cell.styledLabel removeFromSuperview];
+//        cell.styledLabel = nil;
+//    }
+    
+//    CGRect styledLabelRect = CGRectMake(20.0f, 20.0, 280.0f, aSize.height);
+//    NSLog(@"Ich setze die Höhe als %f",aSize.height);
+//    TTStyledTextLabel* label = [[[TTStyledTextLabel alloc] initWithFrame:styledLabelRect] autorelease];
 //    TTStyledTextLabel* label = [[TTStyledTextLabel alloc] initWithFrame:styledLabelRect];
-    TTStyledText* styleText = [TTStyledText textFromXHTML:post_message lineBreaks:YES URLs:YES];
+//    TTStyledText* styleText = [TTStyledText textFromXHTML:post_message lineBreaks:YES URLs:YES];
     
 //    NSLog(@"Style Text: %@", styleText);
-    label.text = styleText;
-    cell.styledLabel = label;
-    [cell.contentView addSubview:label];
+//    label.text = styleText;
+//    cell.styledLabel = label;
+//    [cell.contentView addSubview:label];
     
     
     
@@ -215,13 +233,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+    
+     PostdetailViewController *pdvc = [[PostdetailViewController alloc] initWithNibName:@"PostdetailViewController" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+     [self.navigationController pushViewController:pdvc animated:YES];
+     [pdvc release];
+    
 }
 
 @end

@@ -28,14 +28,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    TTNavigator* navigator = [TTNavigator navigator];
-    navigator.persistenceMode = TTNavigatorPersistenceModeAll;
+//    TTNavigator* navigator = [TTNavigator navigator];
+//    navigator.persistenceMode = TTNavigatorPersistenceModeAll;
     
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    navigator.window = self.window;
+//    navigator.window = self.window;
     
-    TTURLMap* map = navigator.URLMap;
-    [map from:@"*" toViewController:[TTWebController class]];
+//    TTURLMap* map = navigator.URLMap;
+//    [map from:@"*" toViewController:[TTWebController class]];
     
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
@@ -166,8 +166,13 @@
 }
 
 -(BOOL)application:(UIApplication*)application handleOpenURL:(NSURL *)url {
-    [[TTNavigator navigator] openURLAction:[TTURLAction actionWithURLPath:url.absoluteString]];
+    NSLog(@"URL detected");
+//    [[TTNavigator navigator] openURLAction:[TTURLAction actionWithURLPath:url.absoluteString]];
     return YES;
+}
+
+-(BOOL)openURL:(NSURL *)url {
+    NSLog(@"angekommen");
 }
 
 #pragma mark - Application's Documents directory
