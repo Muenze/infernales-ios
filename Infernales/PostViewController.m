@@ -146,8 +146,6 @@
     NSString *post_message = [dic objectForKey:@"post_message"];
     post_message = [post_message decodeHtmlEntities];
     
-    post_message = @"http://google.de";
-    
     cell.mainLabel.text = post_message;
 //    [cell.mainLabel sizeToFit];
     
@@ -233,8 +231,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
+    NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
+
     
      PostdetailViewController *pdvc = [[PostdetailViewController alloc] initWithNibName:@"PostdetailViewController" bundle:nil];
+    [pdvc setPostValues:dic];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:pdvc animated:YES];

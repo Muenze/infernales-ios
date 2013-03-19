@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSString+HtmlEntities.h"
 
-@interface PostdetailViewController : UIViewController
+@interface PostdetailViewController : UIViewController {
+    
+    IBOutlet UITextView *myTextView;
+    NSDictionary* postValues;
+}
+@property (retain, nonatomic) IBOutlet UITextView *myTextView;
+@property (nonatomic, strong) NSDictionary* postValues;
+
+-(void)setPostValues:(NSDictionary *)paramPostValues;
+
+
 
 @end
