@@ -14,7 +14,7 @@
 
 @implementation PostViewController
 
-@synthesize threadId, postData, threadName;
+@synthesize forumId, threadId, postData, threadName;
 
 -(NSDictionary *)loadPostData {
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
@@ -39,11 +39,12 @@
     return self;
 }
 
-- (id)initWithThreadId:(NSInteger *)threadid andThreadName:(NSString *)threadName {
+-(id)initWithForumId:(NSInteger *)forumid withThreadId:(NSInteger *)threadid andThreadName:(NSString *)threadName {
     self = [super init];
     if(self) {
         self.threadId = threadid;
         self.threadName = threadName;
+        self.forumId = forumid;
     }
     return self;
 }
@@ -72,7 +73,12 @@
 
 
 -(IBAction)postInForum:(id)sender {
-    
+    PostFormViewController *pfvc = [[PostFormViewController alloc] initWithNibName:@"PostFormViewController" bundle:nil];
+    pfvc.threadId = self.threadId;
+    pfvc.forumId = self.forumId;
+
+    [self.navigationController pushViewController:pfvc animated:YES];
+    [pfvc release];
 }
 
 

@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASIFormDataRequest.h"
 
-@interface PostFormViewController : UIViewController
+@interface PostFormViewController : UIViewController {
+    IBOutlet UITextView *formText;
+    NSInteger* threadId;
+    NSInteger* forumId;
+}
+@property (nonatomic) NSInteger* threadId;
+@property (nonatomic) NSInteger* forumId;
+@property (retain, nonatomic) IBOutlet UITextView *formText;
 
+-(IBAction)pressConfirmButton:(id)sender;
 @end
