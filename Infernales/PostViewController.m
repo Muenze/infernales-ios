@@ -71,6 +71,13 @@
 }
 
 
+-(IBAction)postInForum:(id)sender {
+    
+}
+
+
+
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -131,6 +138,7 @@
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"dd.MM.yyyy HH:mm"];
     NSString *date = [format stringFromDate:theDate];
+    [format release];
     
     autor = [autor stringByAppendingFormat:@" am "];
     autor = [autor stringByAppendingFormat:date];
@@ -140,61 +148,40 @@
     
     cell.autorLabel.text = autor;
     
-    cell.mainLabel.editable = NO;
+//    cell.mainLabel.editable = NO;
 //    cell.mainLabel.dataDetectorTypes = UIDataDetectorTypeAll;
     
     NSString *post_message = [dic objectForKey:@"post_message"];
     post_message = [post_message decodeHtmlEntities];
     
-    cell.mainLabel.text = post_message;
 //    [cell.mainLabel sizeToFit];
     
-    CGSize aSize;
-    aSize = [post_message sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(300.0, 9999.9) lineBreakMode:NSLineBreakByWordWrapping];
+    CGSize aSize = [self getSizeForString:post_message];
+   
+    if([cell.mainLabel isKindOfClass:[UITextView class]]) {
+        [cell.mainLabel removeFromSuperview];
+        cell.mainLabel = nil;
+    }
     
-    CGRect rec = cell.mainLabel.frame;
-    rec.size.height = aSize.height;
-    [cell.mainLabel setFrame:rec];
-    
-//    CGRect MSLabelRect = CGRectMake(20.0f, 20.0, 280.0f, aSize.height);
-//    MSTextView* mstv = [[MSTextView alloc] initWithFrame:MSLabelRect];
-//    mstv.text = post_message;
-//    [cell.contentView addSubview:mstv];
-    
-    
-    
-//    if([cell.styledLabel isKindOfClass:[TTStyledTextLabel class]]) {
-//        [cell.styledLabel removeFromSuperview];
-//        cell.styledLabel = nil;
-//    }
-    
-//    CGRect styledLabelRect = CGRectMake(20.0f, 20.0, 280.0f, aSize.height);
-//    NSLog(@"Ich setze die Höhe als %f",aSize.height);
-//    TTStyledTextLabel* label = [[[TTStyledTextLabel alloc] initWithFrame:styledLabelRect] autorelease];
-//    TTStyledTextLabel* label = [[TTStyledTextLabel alloc] initWithFrame:styledLabelRect];
-//    TTStyledText* styleText = [TTStyledText textFromXHTML:post_message lineBreaks:YES URLs:YES];
-    
-//    NSLog(@"Style Text: %@", styleText);
-//    label.text = styleText;
-//    cell.styledLabel = label;
-//    [cell.contentView addSubview:label];
+    CGRect uiTextViewRect = CGRectMake(20.0f, 20.0f, 280.0f, aSize.height);
+    UITextView* textView = [[UITextView alloc] initWithFrame:uiTextViewRect];
+//    UITextView* textView = [[UITextView alloc] init];
+    textView.dataDetectorTypes = UIDataDetectorTypeAll;
+    textView.scrollEnabled = NO;
+    textView.editable = NO;
+    textView.userInteractionEnabled = NO;
+    textView.text = post_message;
+    textView.backgroundColor = [UIColor colorWithRed:0.9f green:0.9f blue:0.9f alpha:0.5f];
+//    [textView sizeToFit];
+    textView.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
+    [cell.contentView addSubview:textView];
+    cell.mainLabel = textView;
+    [textView release];
     
     
-    
-//    [label release];
-    
-
-    
-    
-//    NSLog(@"Die Höhe der Berechnung für %@: %f",autor, aSize.height);
-//    NSLog(@"Die Höhe der Zelle für %@: %f",autor,  cell.frame.size.height);
-    CGRect myframe = [cell.mainLabel frame];
-    myframe.size.height = aSize.height;
-    [cell.mainLabel setFrame:myframe];
-//    NSLog(@"Die Höhe des Label für %@: %f", autor, cell.mainLabel.frame.size.height);
     
     CGRect cellrect = cell.frame;
-    cellrect.size.height = aSize.height+25;
+    cellrect.size.height = aSize.height+20;
     [cell setFrame:cellrect];
 //    NSLog(@"Die Höhe der Zelle für %@: %f",autor,  cell.frame.size.height);
     
@@ -203,18 +190,29 @@
     return cell;
 }
 
+
+-(CGSize)getSizeForString:(NSString *)thestring {
+    CGSize aSize;
+    aSize = [thestring sizeWithFont:[UIFont fontWithName:@"Helvetica" size:16] constrainedToSize:CGSizeMake(260.0, 9999.9) lineBreakMode:NSLineBreakByWordWrapping];
+//    aSize.height = (aSize.height * 1.15f)+10;
+    aSize.height += 10;
+    return aSize;
+}
+
+
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     CGSize aSize;
     
-    CGFloat initialSize = 40.0f;
+    CGFloat initialSize = 20.0f;
     NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
     NSString *text = [dic objectForKey:@"post_message"];
-    aSize = [text sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(280.0, 9999.9) lineBreakMode:NSLineBreakByWordWrapping];
+    aSize = [self getSizeForString:text];
     CGFloat myheight;
     myheight = aSize.height + initialSize;
 //    NSLog(@"Höhe des Frame1: %f",aSize.height);
-    if(myheight < 100.0f) {
-        myheight = 100.0f;
+    if(myheight < 80.0f) {
+        myheight = 80.0f;
     }
 //    NSLog(@"Höhe des Frame2: %f",myheight);
     return myheight;

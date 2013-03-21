@@ -19,6 +19,7 @@
 -(IBAction)clickSettings:(id)sender {
     SettingsViewController *svc = [[SettingsViewController alloc] init];
     [self.navigationController pushViewController:svc animated:YES];
+    [svc release];
 
 }
 

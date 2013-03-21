@@ -68,6 +68,7 @@
     [defaults setObject:self.username.text forKey:@"username"];
     [defaults setObject:self.passwort.text forKey:@"passwort"];
     [defaults synchronize];
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 

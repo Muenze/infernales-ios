@@ -11,7 +11,6 @@
 #import "NSString+MD5.h"
 #import "NSString+HtmlEntities.h"
 #import "PostViewCell.h"
-#import "MSTextView.h"
 #import "PostdetailViewController.h"
 
 @interface PostViewController : UITableViewController {
@@ -26,6 +25,7 @@
 -(NSDictionary *)loadPostData;
 -(id)initWithThreadId:(NSInteger *)threadid andThreadName:(NSString *)threadName;
 -(NSDictionary *)getDictionaryAtIndexPath:(NSIndexPath *)indexPath;
-
+-(CGSize)getSizeForString:(NSString *)thestring;
+-(IBAction)postInForum:(id)sender;
 
 @end

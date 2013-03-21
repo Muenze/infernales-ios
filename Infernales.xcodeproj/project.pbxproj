@@ -30,8 +30,6 @@
 		07F05FFB1586709B00380D63 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F05FFA1586709B00380D63 /* AppDelegate.m */; };
 		07F05FFE1586709B00380D63 /* Infernales.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 07F05FFC1586709B00380D63 /* Infernales.xcdatamodeld */; };
 		320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320AF8492C47A4D819F7C450 /* QuartzCore.framework */; };
-		320B6C86F11D9990244A9731 /* Three20.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 320B6C86F11D9990244A9730 /* Three20.bundle */; };
-		CB049F8716EFD75F005CA8CD /* MSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB049F8616EFD75F005CA8CD /* MSTextView.m */; };
 		CB21A91316F11F5F00BD3735 /* PostdetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB21A91116F11F5F00BD3735 /* PostdetailViewController.m */; };
 		CB21A91416F11F5F00BD3735 /* PostdetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB21A91216F11F5F00BD3735 /* PostdetailViewController.xib */; };
 		CB44E2CF16F903CB0050DA9C /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = CB44E2BC16F903CB0050DA9C /* ASIAuthenticationDialog.m */; };
@@ -52,6 +50,8 @@
 		CB893B6816E684F00028DBF0 /* foldernew.gif in Resources */ = {isa = PBXBuildFile; fileRef = CB893B6716E684F00028DBF0 /* foldernew.gif */; };
 		CB893B6F16E696A80028DBF0 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB893B6D16E696A80028DBF0 /* PostViewController.m */; };
 		CB893B7016E696A80028DBF0 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB893B6E16E696A80028DBF0 /* PostViewController.xib */; };
+		CB91035F16FBA2DC00DA7E07 /* PostFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB91035D16FBA2DC00DA7E07 /* PostFormViewController.m */; };
+		CB91036016FBA2DC00DA7E07 /* PostFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB91035E16FBA2DC00DA7E07 /* PostFormViewController.xib */; };
 		CB9D836216E375FC0047B1F2 /* NSString+HtmlEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9D836116E375FC0047B1F2 /* NSString+HtmlEntities.m */; };
 		CB9D836516E38E7D0047B1F2 /* ThreadViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9D836416E38E7D0047B1F2 /* ThreadViewCell.m */; };
 		CB9D836716E390090047B1F2 /* ThreadViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB9D836616E390090047B1F2 /* ThreadViewCell.xib */; };
@@ -105,9 +105,6 @@
 		07F05FFA1586709B00380D63 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		07F05FFD1586709B00380D63 /* Infernales.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Infernales.xcdatamodel; sourceTree = "<group>"; };
 		320AF8492C47A4D819F7C450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.frameworks; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		320B6C86F11D9990244A9730 /* Three20.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Three20.bundle; path = ../three20/src/Three20.bundle; sourceTree = SOURCE_ROOT; };
-		CB049F8516EFD75E005CA8CD /* MSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTextView.h; sourceTree = "<group>"; };
-		CB049F8616EFD75F005CA8CD /* MSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSTextView.m; sourceTree = "<group>"; };
 		CB21A91016F11F5F00BD3735 /* PostdetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostdetailViewController.h; path = ../PostdetailViewController.h; sourceTree = "<group>"; };
 		CB21A91116F11F5F00BD3735 /* PostdetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostdetailViewController.m; path = ../PostdetailViewController.m; sourceTree = "<group>"; };
 		CB21A91216F11F5F00BD3735 /* PostdetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PostdetailViewController.xib; path = ../PostdetailViewController.xib; sourceTree = "<group>"; };
@@ -143,6 +140,9 @@
 		CB893B6C16E696A80028DBF0 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
 		CB893B6D16E696A80028DBF0 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		CB893B6E16E696A80028DBF0 /* PostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
+		CB91035C16FBA2DC00DA7E07 /* PostFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostFormViewController.h; sourceTree = "<group>"; };
+		CB91035D16FBA2DC00DA7E07 /* PostFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostFormViewController.m; sourceTree = "<group>"; };
+		CB91035E16FBA2DC00DA7E07 /* PostFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostFormViewController.xib; sourceTree = "<group>"; };
 		CB9D836016E375FC0047B1F2 /* NSString+HtmlEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+HtmlEntities.h"; path = "../NSString+HtmlEntities.h"; sourceTree = "<group>"; };
 		CB9D836116E375FC0047B1F2 /* NSString+HtmlEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+HtmlEntities.m"; path = "../NSString+HtmlEntities.m"; sourceTree = "<group>"; };
 		CB9D836316E38E7D0047B1F2 /* ThreadViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadViewCell.h; sourceTree = "<group>"; };
@@ -250,8 +250,6 @@
 			children = (
 				CB21A91016F11F5F00BD3735 /* PostdetailViewController.h */,
 				CB21A91116F11F5F00BD3735 /* PostdetailViewController.m */,
-				CB049F8516EFD75E005CA8CD /* MSTextView.h */,
-				CB049F8616EFD75F005CA8CD /* MSTextView.m */,
 				CB9D836016E375FC0047B1F2 /* NSString+HtmlEntities.h */,
 				CB9D836116E375FC0047B1F2 /* NSString+HtmlEntities.m */,
 				07F05FF91586709B00380D63 /* AppDelegate.h */,
@@ -275,6 +273,8 @@
 				CBAFD2D416EA7D21002D4BE8 /* PostViewCell.h */,
 				CBAFD2D516EA7D21002D4BE8 /* PostViewCell.m */,
 				07F05FFC1586709B00380D63 /* Infernales.xcdatamodeld */,
+				CB91035C16FBA2DC00DA7E07 /* PostFormViewController.h */,
+				CB91035D16FBA2DC00DA7E07 /* PostFormViewController.m */,
 				07F05FF11586709B00380D63 /* Supporting Files */,
 			);
 			path = Infernales;
@@ -283,30 +283,16 @@
 		07F05FF11586709B00380D63 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CB44E2D716F903FD0050DA9C /* Reachability.h */,
-				CB44E2D816F903FD0050DA9C /* Reachability.m */,
+				CB91036316FBA34100DA7E07 /* libs */,
+				CB91036216FBA32E00DA7E07 /* views */,
+				CB91036116FBA31D00DA7E07 /* images */,
 				CB44E2BA16F903BA0050DA9C /* ASI */,
-				CB21A91216F11F5F00BD3735 /* PostdetailViewController.xib */,
-				320B6C86F11D9990244A9730 /* Three20.bundle */,
-				CB87B5CC16ED0BFC0022355F /* infernales.png */,
-				CBAFD2D716EA7D36002D4BE8 /* PostViewCell.xib */,
-				CB893B6E16E696A80028DBF0 /* PostViewController.xib */,
-				CB893B6716E684F00028DBF0 /* foldernew.gif */,
-				CBE9BEF916E5470F0050EE0F /* ForumViewCell.xib */,
-				CBCFB1B816E3E2C500972EEB /* pin.png */,
 				0777939B1597A18800E37317 /* md5 */,
 				07E75788159657ED000EA122 /* JSON */,
-				07EEC85C1587CCC2006A7F37 /* SettingsViewController.xib */,
-				07E7579F15965856000EA122 /* ForumViewController.xib */,
-				07E757A415965A35000EA122 /* NewsViewController.xib */,
-				CBF161F315B350990030D2C2 /* ThreadViewController.xib */,
+				07F05FF81586709B00380D63 /* Infernales-Prefix.pch */,
 				07F05FF21586709B00380D63 /* Infernales-Info.plist */,
 				07F05FF31586709B00380D63 /* InfoPlist.strings */,
 				07F05FF61586709B00380D63 /* main.m */,
-				07F05FF81586709B00380D63 /* Infernales-Prefix.pch */,
-				CBBD598615A4C9C9002BA33F /* OrderedDictionary.h */,
-				CBBD598715A4C9C9002BA33F /* OrderedDictionary.m */,
-				CB9D836616E390090047B1F2 /* ThreadViewCell.xib */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -336,6 +322,44 @@
 				CB44E2CE16F903CB0050DA9C /* ASIProgressDelegate.h */,
 			);
 			name = ASI;
+			sourceTree = "<group>";
+		};
+		CB91036116FBA31D00DA7E07 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				CB87B5CC16ED0BFC0022355F /* infernales.png */,
+				CB893B6716E684F00028DBF0 /* foldernew.gif */,
+				CBCFB1B816E3E2C500972EEB /* pin.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		CB91036216FBA32E00DA7E07 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				CB91035E16FBA2DC00DA7E07 /* PostFormViewController.xib */,
+				CB21A91216F11F5F00BD3735 /* PostdetailViewController.xib */,
+				CBAFD2D716EA7D36002D4BE8 /* PostViewCell.xib */,
+				CB893B6E16E696A80028DBF0 /* PostViewController.xib */,
+				CBE9BEF916E5470F0050EE0F /* ForumViewCell.xib */,
+				07EEC85C1587CCC2006A7F37 /* SettingsViewController.xib */,
+				07E7579F15965856000EA122 /* ForumViewController.xib */,
+				07E757A415965A35000EA122 /* NewsViewController.xib */,
+				CBF161F315B350990030D2C2 /* ThreadViewController.xib */,
+				CB9D836616E390090047B1F2 /* ThreadViewCell.xib */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		CB91036316FBA34100DA7E07 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				CB44E2D816F903FD0050DA9C /* Reachability.m */,
+				CB44E2D716F903FD0050DA9C /* Reachability.h */,
+				CBBD598615A4C9C9002BA33F /* OrderedDictionary.h */,
+				CBBD598715A4C9C9002BA33F /* OrderedDictionary.m */,
+			);
+			name = libs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,7 +412,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				320B6C86F11D9990244A9731 /* Three20.bundle in Resources */,
 				07F05FF51586709B00380D63 /* InfoPlist.strings in Resources */,
 				07EEC85E1587CCC2006A7F37 /* SettingsViewController.xib in Resources */,
 				07E757A115965857000EA122 /* ForumViewController.xib in Resources */,
@@ -403,6 +426,7 @@
 				CB87B5CD16ED0BFC0022355F /* infernales.png in Resources */,
 				CB87B5CF16ED0C0E0022355F /* infernales.png in Resources */,
 				CB21A91416F11F5F00BD3735 /* PostdetailViewController.xib in Resources */,
+				CB91036016FBA2DC00DA7E07 /* PostFormViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,7 +458,6 @@
 				CBE9BEF816E546AE0050EE0F /* ForumViewCell.m in Sources */,
 				CB893B6F16E696A80028DBF0 /* PostViewController.m in Sources */,
 				CBAFD2D616EA7D21002D4BE8 /* PostViewCell.m in Sources */,
-				CB049F8716EFD75F005CA8CD /* MSTextView.m in Sources */,
 				CB21A91316F11F5F00BD3735 /* PostdetailViewController.m in Sources */,
 				CB44E2CF16F903CB0050DA9C /* ASIAuthenticationDialog.m in Sources */,
 				CB44E2D016F903CB0050DA9C /* ASIDataCompressor.m in Sources */,
@@ -445,6 +468,7 @@
 				CB44E2D516F903CB0050DA9C /* ASIInputStream.m in Sources */,
 				CB44E2D616F903CB0050DA9C /* ASINetworkQueue.m in Sources */,
 				CB44E2D916F903FD0050DA9C /* Reachability.m in Sources */,
+				CB91035F16FBA2DC00DA7E07 /* PostFormViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
