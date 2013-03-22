@@ -30,6 +30,15 @@
 		07F05FFB1586709B00380D63 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F05FFA1586709B00380D63 /* AppDelegate.m */; };
 		07F05FFE1586709B00380D63 /* Infernales.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 07F05FFC1586709B00380D63 /* Infernales.xcdatamodeld */; };
 		320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320AF8492C47A4D819F7C450 /* QuartzCore.framework */; };
+		CB1FB42016FCF965003636BA /* ACPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1FB41F16FCF965003636BA /* ACPlaceholderTextView.m */; };
+		CB1FB42816FCFC31003636BA /* MessageInputBarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1FB42716FCFC31003636BA /* MessageInputBarBackground.png */; };
+		CB1FB42A16FCFD78003636BA /* MessageInputBarBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1FB42916FCFD78003636BA /* MessageInputBarBackground@2x.png */; };
+		CB1FB42D16FCFD84003636BA /* MessageInputFieldBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1FB42B16FCFD84003636BA /* MessageInputFieldBackground.png */; };
+		CB1FB42E16FCFD84003636BA /* MessageInputFieldBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1FB42C16FCFD84003636BA /* MessageInputFieldBackground@2x.png */; };
+		CB1FB43116FCFD8C003636BA /* SendButton.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1FB42F16FCFD8C003636BA /* SendButton.png */; };
+		CB1FB43216FCFD8C003636BA /* SendButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1FB43016FCFD8C003636BA /* SendButton@2x.png */; };
+		CB1FB43516FCFD92003636BA /* SendButtonHighlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1FB43316FCFD92003636BA /* SendButtonHighlighted.png */; };
+		CB1FB43616FCFD92003636BA /* SendButtonHighlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1FB43416FCFD92003636BA /* SendButtonHighlighted@2x.png */; };
 		CB21A91316F11F5F00BD3735 /* PostdetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB21A91116F11F5F00BD3735 /* PostdetailViewController.m */; };
 		CB21A91416F11F5F00BD3735 /* PostdetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB21A91216F11F5F00BD3735 /* PostdetailViewController.xib */; };
 		CB44E2CF16F903CB0050DA9C /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = CB44E2BC16F903CB0050DA9C /* ASIAuthenticationDialog.m */; };
@@ -105,6 +114,16 @@
 		07F05FFA1586709B00380D63 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		07F05FFD1586709B00380D63 /* Infernales.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Infernales.xcdatamodel; sourceTree = "<group>"; };
 		320AF8492C47A4D819F7C450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.frameworks; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CB1FB41E16FCF965003636BA /* ACPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACPlaceholderTextView.h; sourceTree = "<group>"; };
+		CB1FB41F16FCF965003636BA /* ACPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACPlaceholderTextView.m; sourceTree = "<group>"; };
+		CB1FB42716FCFC31003636BA /* MessageInputBarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageInputBarBackground.png; sourceTree = "<group>"; };
+		CB1FB42916FCFD78003636BA /* MessageInputBarBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageInputBarBackground@2x.png"; sourceTree = "<group>"; };
+		CB1FB42B16FCFD84003636BA /* MessageInputFieldBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageInputFieldBackground.png; sourceTree = "<group>"; };
+		CB1FB42C16FCFD84003636BA /* MessageInputFieldBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageInputFieldBackground@2x.png"; sourceTree = "<group>"; };
+		CB1FB42F16FCFD8C003636BA /* SendButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SendButton.png; sourceTree = "<group>"; };
+		CB1FB43016FCFD8C003636BA /* SendButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SendButton@2x.png"; sourceTree = "<group>"; };
+		CB1FB43316FCFD92003636BA /* SendButtonHighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SendButtonHighlighted.png; sourceTree = "<group>"; };
+		CB1FB43416FCFD92003636BA /* SendButtonHighlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SendButtonHighlighted@2x.png"; sourceTree = "<group>"; };
 		CB21A91016F11F5F00BD3735 /* PostdetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostdetailViewController.h; path = ../PostdetailViewController.h; sourceTree = "<group>"; };
 		CB21A91116F11F5F00BD3735 /* PostdetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostdetailViewController.m; path = ../PostdetailViewController.m; sourceTree = "<group>"; };
 		CB21A91216F11F5F00BD3735 /* PostdetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PostdetailViewController.xib; path = ../PostdetailViewController.xib; sourceTree = "<group>"; };
@@ -248,6 +267,8 @@
 		07F05FF01586709B00380D63 /* Infernales */ = {
 			isa = PBXGroup;
 			children = (
+				CB1FB41E16FCF965003636BA /* ACPlaceholderTextView.h */,
+				CB1FB41F16FCF965003636BA /* ACPlaceholderTextView.m */,
 				CB21A91016F11F5F00BD3735 /* PostdetailViewController.h */,
 				CB21A91116F11F5F00BD3735 /* PostdetailViewController.m */,
 				CB9D836016E375FC0047B1F2 /* NSString+HtmlEntities.h */,
@@ -283,6 +304,14 @@
 		07F05FF11586709B00380D63 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CB1FB43316FCFD92003636BA /* SendButtonHighlighted.png */,
+				CB1FB43416FCFD92003636BA /* SendButtonHighlighted@2x.png */,
+				CB1FB42F16FCFD8C003636BA /* SendButton.png */,
+				CB1FB43016FCFD8C003636BA /* SendButton@2x.png */,
+				CB1FB42B16FCFD84003636BA /* MessageInputFieldBackground.png */,
+				CB1FB42C16FCFD84003636BA /* MessageInputFieldBackground@2x.png */,
+				CB1FB42916FCFD78003636BA /* MessageInputBarBackground@2x.png */,
+				CB1FB42716FCFC31003636BA /* MessageInputBarBackground.png */,
 				CB91036316FBA34100DA7E07 /* libs */,
 				CB91036216FBA32E00DA7E07 /* views */,
 				CB91036116FBA31D00DA7E07 /* images */,
@@ -427,6 +456,14 @@
 				CB87B5CF16ED0C0E0022355F /* infernales.png in Resources */,
 				CB21A91416F11F5F00BD3735 /* PostdetailViewController.xib in Resources */,
 				CB91036016FBA2DC00DA7E07 /* PostFormViewController.xib in Resources */,
+				CB1FB42816FCFC31003636BA /* MessageInputBarBackground.png in Resources */,
+				CB1FB42A16FCFD78003636BA /* MessageInputBarBackground@2x.png in Resources */,
+				CB1FB42D16FCFD84003636BA /* MessageInputFieldBackground.png in Resources */,
+				CB1FB42E16FCFD84003636BA /* MessageInputFieldBackground@2x.png in Resources */,
+				CB1FB43116FCFD8C003636BA /* SendButton.png in Resources */,
+				CB1FB43216FCFD8C003636BA /* SendButton@2x.png in Resources */,
+				CB1FB43516FCFD92003636BA /* SendButtonHighlighted.png in Resources */,
+				CB1FB43616FCFD92003636BA /* SendButtonHighlighted@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +506,7 @@
 				CB44E2D616F903CB0050DA9C /* ASINetworkQueue.m in Sources */,
 				CB44E2D916F903FD0050DA9C /* Reachability.m in Sources */,
 				CB91035F16FBA2DC00DA7E07 /* PostFormViewController.m in Sources */,
+				CB1FB42016FCF965003636BA /* ACPlaceholderTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

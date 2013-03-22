@@ -47,6 +47,7 @@
         self.forumId = forumid;
     }
     return self;
+    
 }
 
 - (void)viewDidLoad
