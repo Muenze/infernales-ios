@@ -15,13 +15,16 @@
 @interface ThreadViewController : UITableViewController {
     NSDictionary *threadData;
     NSInteger *forumId;
+    NSString *threadName;
 }
 
 @property (nonatomic, retain) NSDictionary *threadData;
-@property (nonatomic) NSInteger *forumId;
+@property (nonatomic) NSInteger* forumId;
+@property (nonatomic, strong) NSString* threadName;
 
 -(NSDictionary *)loadThreadData;
 -(id)initWithForumId:(NSInteger *)fd;
 -(NSDictionary *)getDictionaryAtIndexPath:(NSIndexPath *)indexPath;
+-(void)setNameForThread:(NSString *)thread_name;
 
 @end

@@ -9,6 +9,7 @@
 #import "PostFormViewController.h"
 
 #define kChatBarHeight1                      40
+#define kChatBarHeight4                      94
 #define TEXT_VIEW_X                          7   // 40  (with CameraButton)
 #define TEXT_VIEW_Y                          2
 #define TEXT_VIEW_WIDTH                      249 // 216 (with CameraButton)
@@ -21,7 +22,7 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
 [notificationCenter addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil]
 
 
-@interface PostFormViewController () {
+@interface PostFormViewController () <UITextViewDelegate> {
     CGFloat _previousTextViewContentHeight;
 }
 
@@ -63,7 +64,7 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     // TODO: Shrink cursor height by 1 px on top & 1 px on bottom.
     _textView = [[ACPlaceholderTextView alloc] initWithFrame:CGRectMake(TEXT_VIEW_X, TEXT_VIEW_Y, TEXT_VIEW_WIDTH, TEXT_VIEW_HEIGHT_MIN)];
     _textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-//    _textView.delegate = self;
+    _textView.delegate = self;
     _textView.backgroundColor = [UIColor colorWithWhite:245/255.0f alpha:1];
     _textView.scrollIndicatorInsets = UIEdgeInsetsMake(13, 0, 8, 6);
     _textView.scrollsToTop = NO;
@@ -105,16 +106,21 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    UIKeyboardNotificationsObserve();
+}
+
 
 - (void)keyboardWillShow:(NSNotification *)notification {
 //    NSTimeInterval animationDuration;
 //    UIViewAnimationCurve animationCurve;
-//    CGRect frameEnd;
-//    NSDictionary *userInfo = [notification userInfo];
+    CGRect frameEnd;
+    NSDictionary *userInfo = [notification userInfo];
 //    [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
 //    [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
-//    [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&frameEnd];
-//    
+    [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&frameEnd];
+    
 //    //    NSLog(@"animationDuration: %f", animationDuration); // TODO: Why 0.35 on viewDidLoad?
 ////    [UIView animateWithDuration:animationDuration delay:0.0 options:(UIViewAnimationOptionsFromCurve(animationCurve) | UIViewAnimationOptionBeginFromCurrentState) animations:^{
 ////        UIViewSetFrameY(messageInputBar, viewHeight-messageInputBar.frame.size.height);
@@ -125,7 +131,7 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
 //    UIView *messageInputBar = _textView.superview;
     
     UIView *messageInputBar = _textView.superview;
-    CGRect frameEnd;
+//    CGRect frameEnd;
     CGFloat viewHeight = [self.view convertRect:frameEnd fromView:nil].origin.y;
     messageInputBar.frame = CGRectMake(messageInputBar.frame.origin.x, viewHeight-messageInputBar.frame.size.height, messageInputBar.frame.size.width, messageInputBar.frame.size.height);
     
@@ -151,5 +157,40 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
 }
 - (void)viewDidUnload {
     [super viewDidUnload];
+}
+
+
+
+
+#pragma mark UITextViewDelegate
+
+- (void)textViewDidChange:(UITextView *)textView {
+    // Change height of _tableView & messageInputBar to match textView's content height.
+    CGFloat textViewContentHeight = textView.contentSize.height;
+    CGFloat changeInHeight = textViewContentHeight - _previousTextViewContentHeight;
+    //    NSLog(@"textViewContentHeight: %f", textViewContentHeight);
+    
+    if (textViewContentHeight+changeInHeight > kChatBarHeight4+2) {
+        changeInHeight = kChatBarHeight4+2-_previousTextViewContentHeight;
+    }
+    
+    if (changeInHeight) {
+        [UIView animateWithDuration:0.2 animations:^{
+            UIView *messageInputBar = _textView.superview;
+            messageInputBar.frame = CGRectMake(0, messageInputBar.frame.origin.y-changeInHeight, messageInputBar.frame.size.width, messageInputBar.frame.size.height+changeInHeight);
+        } completion:^(BOOL finished) {
+            [_textView updateShouldDrawPlaceholder];
+        }];
+        _previousTextViewContentHeight = MIN(textViewContentHeight, kChatBarHeight4+2);
+    }
+    
+    // Enable/disable sendButton if textView.text has/lacks length.
+    if ([textView.text length]) {
+        _sendButton.enabled = YES;
+        _sendButton.titleLabel.alpha = 1;
+    } else {
+        _sendButton.enabled = NO;
+        _sendButton.titleLabel.alpha = 0.5f; // Sam S. says 0.4f
+    }
 }
 @end

@@ -15,7 +15,7 @@
 
 @implementation ThreadViewController
 
-@synthesize threadData, forumId;
+@synthesize threadData, forumId, threadName;
 
 -(NSDictionary *)loadThreadData {
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
@@ -52,9 +52,15 @@
     return self;
 }
 
+-(void)setNameForThread:(NSString *)thread_name {
+    threadName = thread_name;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationItem.title = threadName;
     
     self.threadData = [self loadThreadData];
     // Uncomment the following line to preserve selection between presentations.

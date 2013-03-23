@@ -41,6 +41,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.title = @"Forenauswahl";
     self.forumData = self.loadForumData;
     if([self.forumData count] > 0) {
         
@@ -188,6 +189,7 @@
 {
     NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
     NSInteger *forumid = [dic objectForKey:@"forumid"];
+//    NSString *cat = [[[self.forumData objectForKey:[[self.forumData allKeys] objectAtIndex:section]] objectForKey:@"name"] decodeHtmlEntities];
     
     
     ThreadViewController *tvc = [[ThreadViewController alloc] initWithForumId:forumid];
