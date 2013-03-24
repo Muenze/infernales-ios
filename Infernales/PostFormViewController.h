@@ -14,6 +14,7 @@
     IBOutlet UITextView *formText;
     NSInteger* threadId;
     NSInteger* forumId;
+    ACPlaceholderTextView* textView;
 }
 
 @property (strong, nonatomic) ACPlaceholderTextView *textView;
@@ -22,5 +23,5 @@
 @property (retain, nonatomic) IBOutlet UITextView *formText;
 @property (strong, nonatomic) UIButton *sendButton;
 
--(IBAction)pressConfirmButton:(id)sender;
+-(void)pressConfirmButton;
 @end

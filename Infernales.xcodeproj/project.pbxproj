@@ -383,8 +383,8 @@
 		CB91036316FBA34100DA7E07 /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				CB44E2D816F903FD0050DA9C /* Reachability.m */,
 				CB44E2D716F903FD0050DA9C /* Reachability.h */,
+				CB44E2D816F903FD0050DA9C /* Reachability.m */,
 				CBBD598615A4C9C9002BA33F /* OrderedDictionary.h */,
 				CBBD598715A4C9C9002BA33F /* OrderedDictionary.m */,
 			);
@@ -596,7 +596,6 @@
 				GCC_PREFIX_HEADER = "Infernales/Infernales-Prefix.pch";
 				INFOPLIST_FILE = "Infernales/Infernales-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				NSZombieEnabled = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
@@ -610,7 +609,6 @@
 				GCC_PREFIX_HEADER = "Infernales/Infernales-Prefix.pch";
 				INFOPLIST_FILE = "Infernales/Infernales-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				NSZombieEnabled = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;

@@ -73,11 +73,16 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     [messageInputBar addSubview:_textView];
     _previousTextViewContentHeight = MessageFontSize+20;
     
+    [_textView release];
+    
     // Create messageInputBarBackgroundImageView as subview of messageInputBar.
     UIImageView *messageInputBarBackgroundImageView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"MessageInputFieldBackground"] resizableImageWithCapInsets:UIEdgeInsetsMake(20, 12, 18, 18)]]; // 32 x 40
     messageInputBarBackgroundImageView.frame = CGRectMake(TEXT_VIEW_X-2, 0, TEXT_VIEW_WIDTH+2, kChatBarHeight1);
 //    messageInputBarBackgroundImageView.autoresizingMask = _tableView.autoresizingMask;
     [messageInputBar addSubview:messageInputBarBackgroundImageView];
+    
+    
+    [messageInputBarBackgroundImageView release];
     
     // Create sendButton.
     self.sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -92,12 +97,16 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     _sendButton.titleLabel.shadowOffset = CGSizeMake(0.0, -1.0);
     [_sendButton setTitle:NSLocalizedString(@"Send", nil) forState:UIControlStateNormal];
     [_sendButton setTitleShadowColor:[UIColor colorWithRed:0.325f green:0.463f blue:0.675f alpha:1] forState:UIControlStateNormal];
-    [_sendButton addTarget:self action:@selector(sendMessage) forControlEvents:UIControlEventTouchUpInside];
+    [_sendButton addTarget:self action:@selector(pressConfirmButton) forControlEvents:UIControlEventTouchUpInside];
     [messageInputBar addSubview:_sendButton];
+    
+    [_sendButton release];
     
 //    NSLog(@"%@",_textView);
     
     [self.view addSubview:messageInputBar];
+    
+    [messageInputBar release];
     
 
     
@@ -141,9 +150,49 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
 
 
 
--(IBAction)pressConfirmButton:(id)sender {
-    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"www.infernales.de/portal/forum/viewthread.php?thread_id=%@",self.threadId]];
+-(void)pressConfirmButton {
+    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"passwort"];
+
+    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.infernales.de/portal/forum/postreply.json.php?forum_id=%@&thread_id=%@&username=%@&password=%@",self.forumId, self.threadId, username, password]];
     ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
+    NSString *message = _textView.text;
+    [request setPostValue:message forKey:@"message"];
+    [request setPostValue:@"1" forKey:@"postreply"];
+    
+    request.delegate = self;
+    [request startAsynchronous];
+//    NSError *error = [request error];
+//    if (!error) {
+//        NSString *respone_message = [request responseString];
+//    } else {
+//        
+//    }
+
+    
+//    NSString *respone_message = [request responseString];
+    
+//    NSLog(@"Status Message: %@", status_message);
+    
+
+    
+}
+
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    // Use when fetching text data
+    NSString *responseString = [request responseString];
+    
+    NSLog(@"string: %@", responseString);
+    
+    // Use when fetching binary data
+    NSData *responseData = [request responseData];
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+    NSError *error = [request error];
+
 }
 
 - (void)didReceiveMemoryWarning

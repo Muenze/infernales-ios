@@ -143,6 +143,8 @@
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"dd.MM.yyyy"];
     NSString *date = [format stringFromDate:theDate];
+    
+    [format release];
     erstelltText = [erstelltText stringByAppendingFormat:@", letzter Beitrag am: "];
     erstelltText = [erstelltText stringByAppendingFormat:date];
     
