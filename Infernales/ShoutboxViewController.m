@@ -1,28 +1,20 @@
 //
-//  ChoiceViewController.m
+//  ShoutboxViewController.m
 //  Infernales
 //
-//  Created by Guido Wehner on 12.06.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Guido Wehner on 26.03.13.
+//
 //
 
-#import "ChoiceViewController.h"
+#import "ShoutboxViewController.h"
 
-@interface ChoiceViewController ()
-@property (nonatomic, retain) NSArray *choices;
-@property (nonatomic, retain) NSArray *subtext;
+@interface ShoutboxViewController ()
 
 @end
 
-@implementation ChoiceViewController
-@synthesize choices, subtext;
+@implementation ShoutboxViewController
 
--(IBAction)clickSettings:(id)sender {
-    SettingsViewController *svc = [[SettingsViewController alloc] init];
-    [self.navigationController pushViewController:svc animated:YES];
-    [svc release];
-
-}
+@synthesize shouts;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,53 +25,32 @@
     return self;
 }
 
--(NSArray *)choices {
-    if(!choices) {
-        choices = [NSArray arrayWithObjects:@"Forum", @"News", @"Shoutbox", nil];
-        
-    }
-    return choices;
-}
+-(OrderedDictionary *)loadShoutboxData {
 
--(NSArray *)subtext {
-    if(!subtext) {
-        subtext = [NSArray arrayWithObjects:@"Forenbereich", @"News lesen", @"Shoutbox lesen", nil];
-    }
-    return subtext;
+    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"passwort"];
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/shoutbox.json.php?username=%@&password=%@", username, password];
+    return [[NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil] JSONValue];
 }
-
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
+    self.shouts = [self loadShoutboxData];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] init];
-    button.style = UITableViewCellStyleValue1;
-    button.title = @"Settings";
-    button.target = self;
-    button.action = @selector(clickSettings:);
-    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    self.navigationItem.leftBarButtonItem = button;
-    [button release];
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)viewDidUnload
+- (void)didReceiveMemoryWarning
 {
-    [super viewDidUnload];
-    [choices release];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -93,21 +64,22 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.choices count];
+    return [self.shouts count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    // Configure the cell...
-    if(!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    cell.textLabel.text = [self.choices objectAtIndex:[indexPath row]];
-    cell.detailTextLabel.text = [self.subtext objectAtIndex:[indexPath row]];
+    NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
+
+    
+    // Configure the cell...
+    cell.textLabel.text = [[dic objectForKey:@"message"] decodeHtmlEntities];
     
     return cell;
 }
@@ -127,7 +99,7 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -151,27 +123,15 @@
 }
 */
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50;
+
+-(NSDictionary *)getDictionaryAtIndexPath:(NSIndexPath *)indexPath {
+    return [self.shouts objectForKey:[[self.shouts allKeys] objectAtIndex:indexPath.row]];
 }
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == 0 && indexPath.section == 0) {
-        ForumViewController *fvc = [[ForumViewController alloc] init];
-        [self.navigationController pushViewController:fvc animated:YES];
-        [fvc release];
-    } else if (indexPath.row == 1 && indexPath.section == 0) {
-        NewsViewController *nvc = [[NewsViewController alloc] init];
-        [self.navigationController pushViewController:nvc animated:YES];
-        [nvc release];
-    } else if (indexPath.row == 2 && indexPath.section == 0) {
-        ShoutboxViewController *sbvc = [[ShoutboxViewController alloc] init];
-        [self.navigationController pushViewController:sbvc animated:YES];
-        [sbvc release];
-    }
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];

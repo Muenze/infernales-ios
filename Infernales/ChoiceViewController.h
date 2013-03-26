@@ -11,10 +11,12 @@
 #import "ForumViewController.h"
 #import "NewsViewController.h"
 #import "NSString+MD5.h"
+#import "ShoutboxViewController.h"
 
 
 @interface ChoiceViewController : UITableViewController {
     NSArray *choices;
+    NSArray *subtext;
 }
 
 -(IBAction)clickSettings:(id)sender;

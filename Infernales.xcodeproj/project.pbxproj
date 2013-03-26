@@ -30,6 +30,8 @@
 		07F05FFB1586709B00380D63 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F05FFA1586709B00380D63 /* AppDelegate.m */; };
 		07F05FFE1586709B00380D63 /* Infernales.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 07F05FFC1586709B00380D63 /* Infernales.xcdatamodeld */; };
 		320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320AF8492C47A4D819F7C450 /* QuartzCore.framework */; };
+		CB0AC9B5170234A1007C13B0 /* ShoutboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0AC9B3170234A1007C13B0 /* ShoutboxViewController.m */; };
+		CB0AC9B6170234A1007C13B0 /* ShoutboxViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB0AC9B4170234A1007C13B0 /* ShoutboxViewController.xib */; };
 		CB1FB42016FCF965003636BA /* ACPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1FB41F16FCF965003636BA /* ACPlaceholderTextView.m */; };
 		CB1FB42816FCFC31003636BA /* MessageInputBarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1FB42716FCFC31003636BA /* MessageInputBarBackground.png */; };
 		CB1FB42A16FCFD78003636BA /* MessageInputBarBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1FB42916FCFD78003636BA /* MessageInputBarBackground@2x.png */; };
@@ -114,6 +116,9 @@
 		07F05FFA1586709B00380D63 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		07F05FFD1586709B00380D63 /* Infernales.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Infernales.xcdatamodel; sourceTree = "<group>"; };
 		320AF8492C47A4D819F7C450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.frameworks; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CB0AC9B2170234A1007C13B0 /* ShoutboxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoutboxViewController.h; sourceTree = "<group>"; };
+		CB0AC9B3170234A1007C13B0 /* ShoutboxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoutboxViewController.m; sourceTree = "<group>"; };
+		CB0AC9B4170234A1007C13B0 /* ShoutboxViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoutboxViewController.xib; sourceTree = "<group>"; };
 		CB1FB41E16FCF965003636BA /* ACPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACPlaceholderTextView.h; sourceTree = "<group>"; };
 		CB1FB41F16FCF965003636BA /* ACPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACPlaceholderTextView.m; sourceTree = "<group>"; };
 		CB1FB42716FCFC31003636BA /* MessageInputBarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageInputBarBackground.png; sourceTree = "<group>"; };
@@ -296,6 +301,8 @@
 				07F05FFC1586709B00380D63 /* Infernales.xcdatamodeld */,
 				CB91035C16FBA2DC00DA7E07 /* PostFormViewController.h */,
 				CB91035D16FBA2DC00DA7E07 /* PostFormViewController.m */,
+				CB0AC9B2170234A1007C13B0 /* ShoutboxViewController.h */,
+				CB0AC9B3170234A1007C13B0 /* ShoutboxViewController.m */,
 				07F05FF11586709B00380D63 /* Supporting Files */,
 			);
 			path = Infernales;
@@ -366,6 +373,7 @@
 		CB91036216FBA32E00DA7E07 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				CB0AC9B4170234A1007C13B0 /* ShoutboxViewController.xib */,
 				CB91035E16FBA2DC00DA7E07 /* PostFormViewController.xib */,
 				CB21A91216F11F5F00BD3735 /* PostdetailViewController.xib */,
 				CBAFD2D716EA7D36002D4BE8 /* PostViewCell.xib */,
@@ -464,6 +472,7 @@
 				CB1FB43216FCFD8C003636BA /* SendButton@2x.png in Resources */,
 				CB1FB43516FCFD92003636BA /* SendButtonHighlighted.png in Resources */,
 				CB1FB43616FCFD92003636BA /* SendButtonHighlighted@2x.png in Resources */,
+				CB0AC9B6170234A1007C13B0 /* ShoutboxViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +516,7 @@
 				CB44E2D916F903FD0050DA9C /* Reachability.m in Sources */,
 				CB91035F16FBA2DC00DA7E07 /* PostFormViewController.m in Sources */,
 				CB1FB42016FCF965003636BA /* ACPlaceholderTextView.m in Sources */,
+				CB0AC9B5170234A1007C13B0 /* ShoutboxViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
