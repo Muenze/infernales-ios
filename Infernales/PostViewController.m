@@ -161,6 +161,7 @@
     NSString *post_message = [dic objectForKey:@"post_message"];
     post_message = [post_message decodeHtmlEntities];
     
+//    NSLog(@"Message: %@",post_message);
 //    [cell.mainLabel sizeToFit];
     
     CGSize aSize = [self getSizeForString:post_message];
@@ -170,6 +171,8 @@
         cell.mainLabel = nil;
     }
     
+//    NSLog(@"Höhe des Rec: %f",aSize.height);
+    
     CGRect uiTextViewRect = CGRectMake(20.0f, 20.0f, 280.0f, aSize.height);
     UITextView* textView = [[UITextView alloc] initWithFrame:uiTextViewRect];
 //    UITextView* textView = [[UITextView alloc] init];
@@ -178,7 +181,7 @@
     textView.editable = NO;
     textView.userInteractionEnabled = NO;
     textView.text = post_message;
-    textView.backgroundColor = [UIColor colorWithRed:0.9f green:0.9f blue:0.9f alpha:0.5f];
+//    textView.backgroundColor = [UIColor colorWithRed:0.9f green:0.9f blue:0.9f alpha:0.5f];
 //    [textView sizeToFit];
     textView.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
     [cell.contentView addSubview:textView];
@@ -188,7 +191,7 @@
     
     
     CGRect cellrect = cell.frame;
-    cellrect.size.height = aSize.height+20;
+    cellrect.size.height = aSize.height+40;
     [cell setFrame:cellrect];
 //    NSLog(@"Die Höhe der Zelle für %@: %f",autor,  cell.frame.size.height);
     
@@ -200,9 +203,9 @@
 
 -(CGSize)getSizeForString:(NSString *)thestring {
     CGSize aSize;
-    aSize = [thestring sizeWithFont:[UIFont fontWithName:@"Helvetica" size:16] constrainedToSize:CGSizeMake(260.0, 9999.9) lineBreakMode:NSLineBreakByWordWrapping];
+    aSize = [thestring sizeWithFont:[UIFont fontWithName:@"Helvetica" size:14] constrainedToSize:CGSizeMake(260.0, 9999.9) lineBreakMode:NSLineBreakByWordWrapping];
 //    aSize.height = (aSize.height * 1.15f)+10;
-    aSize.height += 10;
+    aSize.height += 16;
     return aSize;
 }
 
@@ -211,9 +214,9 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     CGSize aSize;
     
-    CGFloat initialSize = 20.0f;
+    CGFloat initialSize = 40.0f;
     NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
-    NSString *text = [dic objectForKey:@"post_message"];
+    NSString *text = [[dic objectForKey:@"post_message"] decodeHtmlEntities];
     aSize = [self getSizeForString:text];
     CGFloat myheight;
     myheight = aSize.height + initialSize;

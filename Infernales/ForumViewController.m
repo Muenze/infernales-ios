@@ -117,7 +117,14 @@
     NSDictionary *dic = [tempdict objectForKey:[[tempdict allKeys] objectAtIndex:indexPath.row]];
     cell.mainLabel.text = [[dic objectForKey:@"name"] decodeHtmlEntities];
     
-//    NSLog(@"%@",
+//    NSLog(@"%@",dic);
+    NSDecimalNumber *dec = [dic objectForKey:@"hasnew"];
+    
+    if([dec compare:[NSNumber numberWithInt:1]] == NSOrderedSame) {
+        cell.newIndicator.image = [UIImage imageNamed:@"foldernew.gif"];
+    }
+//    [dec release];
+    
     NSString *autor = @"Letzter Post: ";
     autor = [autor stringByAppendingString:[dic objectForKey:@"user"]];
     NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[[dic objectForKey:@"lastpost"] doubleValue]];
