@@ -50,8 +50,7 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     self.navigationItem.rightBarButtonItem = button;
     [button release];
 
-    
-    
+ 
     
     // Create messageInputBar to contain _textView, messageInputBarBackgroundImageView, & _sendButton.
     UIImageView *messageInputBar = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-kChatBarHeight1, self.view.frame.size.width, kChatBarHeight1)];
@@ -73,12 +72,12 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     [messageInputBar addSubview:_textView];
     _previousTextViewContentHeight = MessageFontSize+20;
     
-    [_textView release];
+//    [_textView release];
     
     // Create messageInputBarBackgroundImageView as subview of messageInputBar.
     UIImageView *messageInputBarBackgroundImageView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"MessageInputFieldBackground"] resizableImageWithCapInsets:UIEdgeInsetsMake(20, 12, 18, 18)]]; // 32 x 40
     messageInputBarBackgroundImageView.frame = CGRectMake(TEXT_VIEW_X-2, 0, TEXT_VIEW_WIDTH+2, kChatBarHeight1);
-//    messageInputBarBackgroundImageView.autoresizingMask = _tableView.autoresizingMask;
+    messageInputBarBackgroundImageView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     [messageInputBar addSubview:messageInputBarBackgroundImageView];
     
     
