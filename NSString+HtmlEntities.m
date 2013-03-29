@@ -13,6 +13,7 @@
 -(NSString *)decodeHtmlEntities {
     NSMutableString *final = [NSMutableString stringWithString:self];
     [final replaceOccurrencesOfString:@"&amp;" withString:@"&" options:NSLiteralSearch range:NSMakeRange(0, [final length])];
+    [final replaceOccurrencesOfString:@"&amp;" withString:@"&" options:NSLiteralSearch range:NSMakeRange(0, [final length])];
     [final replaceOccurrencesOfString:@"&reg;" withString:@"®" options:NSLiteralSearch range:NSMakeRange(0, [final length])];
     [final replaceOccurrencesOfString:@"&quot;" withString:@"\"" options:NSLiteralSearch range:NSMakeRange(0, [final length])];
     [final replaceOccurrencesOfString:@"&aacute;" withString:@"á" options:NSLiteralSearch range:NSMakeRange(0, [final length])];

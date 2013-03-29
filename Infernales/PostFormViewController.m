@@ -30,7 +30,7 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
 
 @implementation PostFormViewController
 
-@synthesize forumId, threadId, formText;
+@synthesize forumId, threadId, formText, formString;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -49,6 +49,9 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     //    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonSystemItemSave target:self action:@selector(postInForum:)];
     self.navigationItem.rightBarButtonItem = button;
     [button release];
+    
+    formText.text = formString;
+    NSLog(@"formString: %@", formString);
 
  
     
@@ -182,10 +185,14 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     // Use when fetching text data
     NSString *responseString = [request responseString];
     
-    NSLog(@"string: %@", responseString);
+    
+    NSDictionary *response = [responseString JSONValue];
+    if ([[response objectForKey:@"code"] compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
     
     // Use when fetching binary data
-    NSData *responseData = [request responseData];
+//    NSData *responseData = [request responseData];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request

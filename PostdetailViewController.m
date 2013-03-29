@@ -32,8 +32,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStylePlain target:self action:@selector(postInForum:)];
+    //    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonSystemItemSave target:self action:@selector(postInForum:)];
+    self.navigationItem.rightBarButtonItem = button;
+    [button release];
+    
     // Do any additional setup after loading the view from its nib.
     myTextView.text = [[postValues valueForKey:@"post_message"] decodeHtmlEntities];
+    NSLog(@"%@",postValues);
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,4 +58,18 @@
     [myTextView release];
     [super viewDidUnload];
 }
+
+
+-(IBAction)postInForum:(id)sender {
+    PostFormViewController *pfvc = [[PostFormViewController alloc] initWithNibName:@"PostFormViewController" bundle:nil];
+    
+    pfvc.threadId = [postValues objectForKey:@"thread_id"];
+    pfvc.forumId = [postValues objectForKey:@"forum_id"];
+    pfvc.formString = [[postValues objectForKey:@"post_message"] decodeHtmlEntities];
+    
+    [self.navigationController pushViewController:pfvc animated:YES];
+    [pfvc release];
+}
+
+
 @end
