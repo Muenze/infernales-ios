@@ -45,13 +45,13 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
 {
     [super viewDidLoad];
     
+    
+    
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStylePlain target:self action:@selector(pressConfirmButton:)];
-    //    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonSystemItemSave target:self action:@selector(postInForum:)];
     self.navigationItem.rightBarButtonItem = button;
     [button release];
     
     formText.text = formString;
-    NSLog(@"formString: %@", formString);
 
  
     

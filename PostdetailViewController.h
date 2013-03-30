@@ -14,10 +14,10 @@
     
     IBOutlet UITextView *myTextView;
     NSDictionary* postValues;
-
 }
 @property (retain, nonatomic) IBOutlet UITextView *myTextView;
-@property (nonatomic, strong) NSDictionary* postValues;
+@property (nonatomic, retain) NSDictionary* postValues;
+
 
 -(void)setPostValues:(NSDictionary *)paramPostValues;
 -(IBAction)postInForum:(id)sender;

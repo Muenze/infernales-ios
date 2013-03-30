@@ -32,15 +32,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStylePlain target:self action:@selector(postInForum:)];
-    //    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonSystemItemSave target:self action:@selector(postInForum:)];
-    self.navigationItem.rightBarButtonItem = button;
-    [button release];
-    
+
+    if([[postValues objectForKey:@"thread_locked"] compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
+        UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStylePlain target:self action:@selector(postInForum:)];
+        self.navigationItem.rightBarButtonItem = button;
+        [button release];
+    }
     // Do any additional setup after loading the view from its nib.
     myTextView.text = [[postValues valueForKey:@"post_message"] decodeHtmlEntities];
-    NSLog(@"%@",postValues);
+//    NSLog(@"%@",postValues);
 }
 
 - (void)didReceiveMemoryWarning

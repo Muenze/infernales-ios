@@ -19,16 +19,19 @@
     NSInteger* forumId;
     NSString* threadName;
     NSDictionary* postData;
+    bool locked;
 }
 @property (nonatomic) NSInteger* threadId;
 @property (nonatomic) NSInteger* forumId;
 @property (nonatomic, strong) NSDictionary *postData;
 @property (nonatomic, strong) NSString *threadName;
+@property bool locked;
 
 -(NSDictionary *)loadPostData;
 -(id)initWithForumId:(NSInteger *)forumid withThreadId:(NSInteger *)threadid andThreadName:(NSString *)threadName;
 -(NSDictionary *)getDictionaryAtIndexPath:(NSIndexPath *)indexPath;
 -(CGSize)getSizeForString:(NSString *)thestring;
 -(IBAction)postInForum:(id)sender;
+
 
 @end

@@ -14,7 +14,7 @@
 
 @implementation PostViewController
 
-@synthesize forumId, threadId, postData, threadName;
+@synthesize forumId, threadId, postData, threadName, locked;
 
 -(NSDictionary *)loadPostData {
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
@@ -56,12 +56,11 @@
 //    self.postData = [self loadPostData];
     self.title = threadName;
     
-   
-    
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStylePlain target:self action:@selector(postInForum:)];
-//    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonSystemItemSave target:self action:@selector(postInForum:)];
-    self.navigationItem.rightBarButtonItem = button;
-    [button release];
+    if(locked == NO) {
+        UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStylePlain target:self action:@selector(postInForum:)];
+        self.navigationItem.rightBarButtonItem = button;
+        [button release];
+    }
 
 
 //    NSLog(@"%@",self.postData);
@@ -251,6 +250,7 @@
     
      PostdetailViewController *pdvc = [[PostdetailViewController alloc] initWithNibName:@"PostdetailViewController" bundle:nil];
     [pdvc setPostValues:dic];
+    
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:pdvc animated:YES];

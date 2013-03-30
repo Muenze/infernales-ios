@@ -217,8 +217,15 @@
     NSString *thread_name = [dic objectForKey:@"name"];
     thread_name = [thread_name decodeHtmlEntities];
     
+    NSDecimalNumber *locked = [dic objectForKey:@"locked"];
+    bool lock = NO;
+    if([locked compare:[NSNumber numberWithInt:1]] == NSOrderedSame) {
+        lock = YES;
+    }
+    
     
     PostViewController *pvc = [[PostViewController alloc] initWithForumId:forum_id withThreadId:thread_id andThreadName:thread_name];
+    pvc.locked = lock;
     [self.navigationController pushViewController:pvc animated:YES];
     [pvc release];
 }
