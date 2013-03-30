@@ -40,6 +40,7 @@
     [super viewDidLoad];
 
     self.shouts = [self loadShoutboxData];
+    self.title = @"Shoutbox";
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
