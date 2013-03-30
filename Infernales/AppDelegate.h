@@ -11,6 +11,7 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {
     UINavigationController *navigationController;
+    bool needsUpdatePost;
 }
 
 @property (strong, nonatomic) UIWindow *window;
@@ -19,6 +20,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property bool needsUpdatePost;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

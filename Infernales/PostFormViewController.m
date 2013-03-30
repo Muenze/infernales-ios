@@ -110,7 +110,6 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     
     [messageInputBar release];
     
-
     
     
     
@@ -188,7 +187,18 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     
     NSDictionary *response = [responseString JSONValue];
     if ([[response objectForKey:@"code"] compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
-        [self.navigationController popViewControllerAnimated:YES];
+        AppDelegate *del = [[UIApplication sharedApplication] delegate];
+        del.needsUpdatePost = true;
+        NSUInteger *index = [self.navigationController.viewControllers indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+            if([obj isKindOfClass:[PostViewController class]]) {
+                *stop = YES;
+                return YES;
+            }
+            return NO;
+        }];
+        
+        [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:index] animated:YES];
+//        [self.navigationController popViewControllerAnimated:YES];
     }
     
     // Use when fetching binary data

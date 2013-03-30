@@ -15,6 +15,7 @@
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 @synthesize navigationController;
+@synthesize needsUpdatePost;
 
 - (void)dealloc
 {
@@ -47,6 +48,7 @@
     
     [self.window addSubview:nav.view];
     [self.window makeKeyAndVisible];
+    needsUpdatePost = false;
     return YES;
 }
 

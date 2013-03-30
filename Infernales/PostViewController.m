@@ -53,7 +53,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.postData = [self loadPostData];
+//    self.postData = [self loadPostData];
     self.title = threadName;
     
    
@@ -70,6 +70,13 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+//    NSLog(@"fired");
+    self.postData = [self loadPostData];
+    [self.view reloadData];
+
 }
 
 

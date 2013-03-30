@@ -10,6 +10,8 @@
 #import "ASIFormDataRequest.h"
 #import "ACPlaceholderTextView.h"
 #import "JSON.h"
+#import "AppDelegate.h"
+#import "PostViewController.h"
 
 @interface PostFormViewController : UIViewController {
     IBOutlet UITextView *formText;
