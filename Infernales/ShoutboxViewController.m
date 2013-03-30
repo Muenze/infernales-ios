@@ -69,19 +69,46 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
-    
     NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
-
+    static NSString *CellIdentifier = @"ShoutboxViewCell";
+    ShoutboxViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    //    PostViewCell *cell = nil;
     
     // Configure the cell...
-    cell.textLabel.text = [[dic objectForKey:@"message"] decodeHtmlEntities];
+    if(!cell) {
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ShoutboxViewCell" owner:nil options:nil];
+        for(id currentObject in topLevelObjects) {
+            if([currentObject isKindOfClass:[UITableViewCell class]]) {
+                cell = (ShoutboxViewCell *) currentObject;
+                break;
+            }
+        }
+    }
+
+    NSString *autor = [dic objectForKey:@"user"];
+    autor = [autor decodeHtmlEntities];
+
+    NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[[dic objectForKey:@"datestamp"] doubleValue]];
+    NSDateFormatter * format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"dd.MM.yyyy HH:mm"];
+    NSString *date = [format stringFromDate:theDate];
+    [format release];
+
+    autor = [autor stringByAppendingFormat:@" am "];
+    autor = [autor stringByAppendingFormat:date];
+
+    cell.authorLabel.text = autor;
+
+
+
+    // Configure the cell...
+    cell.mainLabel.text = [[dic objectForKey:@"message"] decodeHtmlEntities];
     
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 80.0f;
 }
 
 /*

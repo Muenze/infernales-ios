@@ -10,6 +10,7 @@
 #import "JSON.h"
 #import "OrderedDictionary.h"
 #import "NSString+HtmlEntities.h"
+#import "ShoutboxViewCell.h"
 
 @interface ShoutboxViewController : UITableViewController {
     OrderedDictionary *shouts;

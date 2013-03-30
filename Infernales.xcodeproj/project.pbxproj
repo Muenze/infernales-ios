@@ -74,6 +74,8 @@
 		CBE9BEFA16E5470F0050EE0F /* ForumViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBE9BEF916E5470F0050EE0F /* ForumViewCell.xib */; };
 		CBF161F415B350990030D2C2 /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF161F215B350990030D2C2 /* ThreadViewController.m */; };
 		CBF161F515B350990030D2C2 /* ThreadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBF161F315B350990030D2C2 /* ThreadViewController.xib */; };
+		CBF60D3917078895004A67C8 /* ShoutboxViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF60D3817078895004A67C8 /* ShoutboxViewCell.m */; };
+		CBF60D3B170788AC004A67C8 /* ShoutboxViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBF60D3A170788AC004A67C8 /* ShoutboxViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -184,6 +186,9 @@
 		CBF161F115B350990030D2C2 /* ThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadViewController.h; sourceTree = "<group>"; };
 		CBF161F215B350990030D2C2 /* ThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadViewController.m; sourceTree = "<group>"; };
 		CBF161F315B350990030D2C2 /* ThreadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreadViewController.xib; sourceTree = "<group>"; };
+		CBF60D3717078895004A67C8 /* ShoutboxViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoutboxViewCell.h; sourceTree = "<group>"; };
+		CBF60D3817078895004A67C8 /* ShoutboxViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoutboxViewCell.m; sourceTree = "<group>"; };
+		CBF60D3A170788AC004A67C8 /* ShoutboxViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoutboxViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +308,8 @@
 				CB91035D16FBA2DC00DA7E07 /* PostFormViewController.m */,
 				CB0AC9B2170234A1007C13B0 /* ShoutboxViewController.h */,
 				CB0AC9B3170234A1007C13B0 /* ShoutboxViewController.m */,
+				CBF60D3717078895004A67C8 /* ShoutboxViewCell.h */,
+				CBF60D3817078895004A67C8 /* ShoutboxViewCell.m */,
 				07F05FF11586709B00380D63 /* Supporting Files */,
 			);
 			path = Infernales;
@@ -373,6 +380,7 @@
 		CB91036216FBA32E00DA7E07 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				CBF60D3A170788AC004A67C8 /* ShoutboxViewCell.xib */,
 				CB0AC9B4170234A1007C13B0 /* ShoutboxViewController.xib */,
 				CB91035E16FBA2DC00DA7E07 /* PostFormViewController.xib */,
 				CB21A91216F11F5F00BD3735 /* PostdetailViewController.xib */,
@@ -473,6 +481,7 @@
 				CB1FB43516FCFD92003636BA /* SendButtonHighlighted.png in Resources */,
 				CB1FB43616FCFD92003636BA /* SendButtonHighlighted@2x.png in Resources */,
 				CB0AC9B6170234A1007C13B0 /* ShoutboxViewController.xib in Resources */,
+				CBF60D3B170788AC004A67C8 /* ShoutboxViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +526,7 @@
 				CB91035F16FBA2DC00DA7E07 /* PostFormViewController.m in Sources */,
 				CB1FB42016FCF965003636BA /* ACPlaceholderTextView.m in Sources */,
 				CB0AC9B5170234A1007C13B0 /* ShoutboxViewController.m in Sources */,
+				CBF60D3917078895004A67C8 /* ShoutboxViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
