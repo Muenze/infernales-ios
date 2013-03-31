@@ -11,10 +11,14 @@
 #import "OrderedDictionary.h"
 #import "NSString+HtmlEntities.h"
 #import "ShoutboxViewCell.h"
+#import "ShoutboxDetailViewController.h"
+#import "ShoutboxFormViewController.h"
 
 @interface ShoutboxViewController : UITableViewController {
     OrderedDictionary *shouts;
 }
 
 @property (nonatomic, retain) OrderedDictionary* shouts;
+
+-(IBAction)pressShout:(id)sender;
 @end

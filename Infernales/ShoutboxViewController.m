@@ -41,11 +41,22 @@
 
     self.shouts = [self loadShoutboxData];
     self.title = @"Shoutbox";
+    
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"shout!" style:UIBarButtonItemStylePlain target:self action:@selector(pressShout:)];
+    self.navigationItem.rightBarButtonItem = button;
+    [button release];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(IBAction)pressShout:(id)sender {
+    ShoutboxFormViewController *sfc = [[ShoutboxFormViewController alloc] initWithNibName:@"ShoutboxFormViewController" bundle:nil];
+    [self.navigationController pushViewController:sfc animated:YES];
+    [sfc release];
 }
 
 - (void)didReceiveMemoryWarning
@@ -161,6 +172,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
+    NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
+    
+    ShoutboxDetailViewController *sbdvc = [[ShoutboxDetailViewController alloc] initWithNibName:@"ShoutboxDetailViewController" bundle:nil];
+    sbdvc.shout = dic;
+    [self.navigationController pushViewController:sbdvc animated:YES];
+    [sbdvc release];
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...

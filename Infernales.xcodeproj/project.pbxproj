@@ -72,6 +72,10 @@
 		CBCFB1B916E3E2C500972EEB /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCFB1B816E3E2C500972EEB /* pin.png */; };
 		CBD0273C17085E7000EC67D3 /* ThreadFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD0273A17085E7000EC67D3 /* ThreadFormViewController.m */; };
 		CBD0273D17085E7000EC67D3 /* ThreadFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBD0273B17085E7000EC67D3 /* ThreadFormViewController.xib */; };
+		CBD027411708A95A00EC67D3 /* ShoutboxDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD0273F1708A95A00EC67D3 /* ShoutboxDetailViewController.m */; };
+		CBD027421708A95A00EC67D3 /* ShoutboxDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBD027401708A95A00EC67D3 /* ShoutboxDetailViewController.xib */; };
+		CBD027461708B05B00EC67D3 /* ShoutboxFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD027441708B05A00EC67D3 /* ShoutboxFormViewController.m */; };
+		CBD027471708B05B00EC67D3 /* ShoutboxFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBD027451708B05A00EC67D3 /* ShoutboxFormViewController.xib */; };
 		CBE9BEF816E546AE0050EE0F /* ForumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE9BEF716E546AE0050EE0F /* ForumViewCell.m */; };
 		CBE9BEFA16E5470F0050EE0F /* ForumViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBE9BEF916E5470F0050EE0F /* ForumViewCell.xib */; };
 		CBF161F415B350990030D2C2 /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF161F215B350990030D2C2 /* ThreadViewController.m */; };
@@ -185,6 +189,12 @@
 		CBD0273917085E7000EC67D3 /* ThreadFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadFormViewController.h; sourceTree = "<group>"; };
 		CBD0273A17085E7000EC67D3 /* ThreadFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadFormViewController.m; sourceTree = "<group>"; };
 		CBD0273B17085E7000EC67D3 /* ThreadFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreadFormViewController.xib; sourceTree = "<group>"; };
+		CBD0273E1708A95A00EC67D3 /* ShoutboxDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoutboxDetailViewController.h; sourceTree = "<group>"; };
+		CBD0273F1708A95A00EC67D3 /* ShoutboxDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoutboxDetailViewController.m; sourceTree = "<group>"; };
+		CBD027401708A95A00EC67D3 /* ShoutboxDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoutboxDetailViewController.xib; sourceTree = "<group>"; };
+		CBD027431708B05A00EC67D3 /* ShoutboxFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoutboxFormViewController.h; sourceTree = "<group>"; };
+		CBD027441708B05A00EC67D3 /* ShoutboxFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoutboxFormViewController.m; sourceTree = "<group>"; };
+		CBD027451708B05A00EC67D3 /* ShoutboxFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoutboxFormViewController.xib; sourceTree = "<group>"; };
 		CBE9BEF616E546AE0050EE0F /* ForumViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumViewCell.h; sourceTree = "<group>"; };
 		CBE9BEF716E546AE0050EE0F /* ForumViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumViewCell.m; sourceTree = "<group>"; };
 		CBE9BEF916E5470F0050EE0F /* ForumViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForumViewCell.xib; sourceTree = "<group>"; };
@@ -317,6 +327,10 @@
 				CB0AC9B3170234A1007C13B0 /* ShoutboxViewController.m */,
 				CBF60D3717078895004A67C8 /* ShoutboxViewCell.h */,
 				CBF60D3817078895004A67C8 /* ShoutboxViewCell.m */,
+				CBD0273E1708A95A00EC67D3 /* ShoutboxDetailViewController.h */,
+				CBD0273F1708A95A00EC67D3 /* ShoutboxDetailViewController.m */,
+				CBD027431708B05A00EC67D3 /* ShoutboxFormViewController.h */,
+				CBD027441708B05A00EC67D3 /* ShoutboxFormViewController.m */,
 				07F05FF11586709B00380D63 /* Supporting Files */,
 			);
 			path = Infernales;
@@ -387,6 +401,8 @@
 		CB91036216FBA32E00DA7E07 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				CBD027451708B05A00EC67D3 /* ShoutboxFormViewController.xib */,
+				CBD027401708A95A00EC67D3 /* ShoutboxDetailViewController.xib */,
 				CBD0273B17085E7000EC67D3 /* ThreadFormViewController.xib */,
 				CBF60D3A170788AC004A67C8 /* ShoutboxViewCell.xib */,
 				CB0AC9B4170234A1007C13B0 /* ShoutboxViewController.xib */,
@@ -491,6 +507,8 @@
 				CB0AC9B6170234A1007C13B0 /* ShoutboxViewController.xib in Resources */,
 				CBF60D3B170788AC004A67C8 /* ShoutboxViewCell.xib in Resources */,
 				CBD0273D17085E7000EC67D3 /* ThreadFormViewController.xib in Resources */,
+				CBD027421708A95A00EC67D3 /* ShoutboxDetailViewController.xib in Resources */,
+				CBD027471708B05B00EC67D3 /* ShoutboxFormViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +555,8 @@
 				CB0AC9B5170234A1007C13B0 /* ShoutboxViewController.m in Sources */,
 				CBF60D3917078895004A67C8 /* ShoutboxViewCell.m in Sources */,
 				CBD0273C17085E7000EC67D3 /* ThreadFormViewController.m in Sources */,
+				CBD027411708A95A00EC67D3 /* ShoutboxDetailViewController.m in Sources */,
+				CBD027461708B05B00EC67D3 /* ShoutboxFormViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
