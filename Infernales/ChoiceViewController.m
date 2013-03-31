@@ -63,6 +63,8 @@
     button.target = self;
     button.action = @selector(clickSettings:);
     
+    self.title = @"Auswahl";
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.leftBarButtonItem = button;
     [button release];

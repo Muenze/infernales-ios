@@ -41,7 +41,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.title = @"Forenauswahl";
+    self.title = @"Forum";
     self.forumData = self.loadForumData;
     if([self.forumData count] > 0) {
         
@@ -203,6 +203,8 @@
     //     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
     // ...
     // Pass the selected object to the new view controller.
+    
+    [tvc setThreadName:[dic objectForKey:@"name"]];
     [self.navigationController pushViewController:tvc animated:YES];
     //     [self.navigationController pushViewController:detailViewController animated:YES];
     [tvc release];

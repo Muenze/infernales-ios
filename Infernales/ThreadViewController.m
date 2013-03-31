@@ -60,14 +60,28 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = threadName;
+    NSLog(@"%@",threadName);
+    self.title = threadName;
+    self.title = [self.title decodeHtmlEntities];
     
     self.threadData = [self loadThreadData];
+    
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"New Thread" style:UIBarButtonItemStylePlain target:self action:@selector(postNewThread:)];
+    self.navigationItem.rightBarButtonItem = button;
+    [button release];
+    
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(IBAction)postNewThread:(id)sender {
+    ThreadFormViewController *tfvc = [[ThreadFormViewController alloc] initWithNibName:@"ThreadFormViewController" bundle:nil];
+    [self.navigationController pushViewController:tfvc animated:YES];
+    [tfvc release];
 }
 
 - (void)viewDidUnload
@@ -216,7 +230,6 @@
     NSInteger *thread_id = [dic objectForKey:@"thread_id"];
     NSString *thread_name = [dic objectForKey:@"name"];
     thread_name = [thread_name decodeHtmlEntities];
-    
     NSDecimalNumber *locked = [dic objectForKey:@"locked"];
     bool lock = NO;
     if([locked compare:[NSNumber numberWithInt:1]] == NSOrderedSame) {

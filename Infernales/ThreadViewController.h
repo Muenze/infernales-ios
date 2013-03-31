@@ -11,6 +11,8 @@
 #import "NSString+MD5.h"
 #import "ThreadViewCell.h"
 #import "PostViewController.h"
+#import "NSString+HtmlEntities.h"
+#import "ThreadFormViewController.h"
 
 @interface ThreadViewController : UITableViewController {
     NSDictionary *threadData;
@@ -26,5 +28,6 @@
 -(id)initWithForumId:(NSInteger *)fd;
 -(NSDictionary *)getDictionaryAtIndexPath:(NSIndexPath *)indexPath;
 -(void)setNameForThread:(NSString *)thread_name;
+-(IBAction)postNewThread:(id)sender;
 
 @end

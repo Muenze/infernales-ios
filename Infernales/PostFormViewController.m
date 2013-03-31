@@ -72,6 +72,7 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     _textView.scrollsToTop = NO;
     _textView.font = [UIFont systemFontOfSize:MessageFontSize];
     _textView.placeholder = NSLocalizedString(@" Message", nil);
+    _textView.autocorrectionType = UITextAutocorrectionTypeNo;
     [messageInputBar addSubview:_textView];
     _previousTextViewContentHeight = MessageFontSize+20;
     

@@ -70,6 +70,8 @@
 		CBAFD2D816EA7D36002D4BE8 /* PostViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBAFD2D716EA7D36002D4BE8 /* PostViewCell.xib */; };
 		CBBD598815A4C9C9002BA33F /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBD598715A4C9C9002BA33F /* OrderedDictionary.m */; };
 		CBCFB1B916E3E2C500972EEB /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCFB1B816E3E2C500972EEB /* pin.png */; };
+		CBD0273C17085E7000EC67D3 /* ThreadFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD0273A17085E7000EC67D3 /* ThreadFormViewController.m */; };
+		CBD0273D17085E7000EC67D3 /* ThreadFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBD0273B17085E7000EC67D3 /* ThreadFormViewController.xib */; };
 		CBE9BEF816E546AE0050EE0F /* ForumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE9BEF716E546AE0050EE0F /* ForumViewCell.m */; };
 		CBE9BEFA16E5470F0050EE0F /* ForumViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBE9BEF916E5470F0050EE0F /* ForumViewCell.xib */; };
 		CBF161F415B350990030D2C2 /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF161F215B350990030D2C2 /* ThreadViewController.m */; };
@@ -180,6 +182,9 @@
 		CBBD598615A4C9C9002BA33F /* OrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderedDictionary.h; sourceTree = "<group>"; };
 		CBBD598715A4C9C9002BA33F /* OrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderedDictionary.m; sourceTree = "<group>"; };
 		CBCFB1B816E3E2C500972EEB /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
+		CBD0273917085E7000EC67D3 /* ThreadFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadFormViewController.h; sourceTree = "<group>"; };
+		CBD0273A17085E7000EC67D3 /* ThreadFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadFormViewController.m; sourceTree = "<group>"; };
+		CBD0273B17085E7000EC67D3 /* ThreadFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreadFormViewController.xib; sourceTree = "<group>"; };
 		CBE9BEF616E546AE0050EE0F /* ForumViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumViewCell.h; sourceTree = "<group>"; };
 		CBE9BEF716E546AE0050EE0F /* ForumViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumViewCell.m; sourceTree = "<group>"; };
 		CBE9BEF916E5470F0050EE0F /* ForumViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForumViewCell.xib; sourceTree = "<group>"; };
@@ -299,6 +304,8 @@
 				CBF161F215B350990030D2C2 /* ThreadViewController.m */,
 				CB9D836316E38E7D0047B1F2 /* ThreadViewCell.h */,
 				CB9D836416E38E7D0047B1F2 /* ThreadViewCell.m */,
+				CBD0273917085E7000EC67D3 /* ThreadFormViewController.h */,
+				CBD0273A17085E7000EC67D3 /* ThreadFormViewController.m */,
 				CB893B6C16E696A80028DBF0 /* PostViewController.h */,
 				CB893B6D16E696A80028DBF0 /* PostViewController.m */,
 				CBAFD2D416EA7D21002D4BE8 /* PostViewCell.h */,
@@ -380,6 +387,7 @@
 		CB91036216FBA32E00DA7E07 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				CBD0273B17085E7000EC67D3 /* ThreadFormViewController.xib */,
 				CBF60D3A170788AC004A67C8 /* ShoutboxViewCell.xib */,
 				CB0AC9B4170234A1007C13B0 /* ShoutboxViewController.xib */,
 				CB91035E16FBA2DC00DA7E07 /* PostFormViewController.xib */,
@@ -482,6 +490,7 @@
 				CB1FB43616FCFD92003636BA /* SendButtonHighlighted@2x.png in Resources */,
 				CB0AC9B6170234A1007C13B0 /* ShoutboxViewController.xib in Resources */,
 				CBF60D3B170788AC004A67C8 /* ShoutboxViewCell.xib in Resources */,
+				CBD0273D17085E7000EC67D3 /* ThreadFormViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +536,7 @@
 				CB1FB42016FCF965003636BA /* ACPlaceholderTextView.m in Sources */,
 				CB0AC9B5170234A1007C13B0 /* ShoutboxViewController.m in Sources */,
 				CBF60D3917078895004A67C8 /* ShoutboxViewCell.m in Sources */,
+				CBD0273C17085E7000EC67D3 /* ThreadFormViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
