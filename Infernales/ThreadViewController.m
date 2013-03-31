@@ -64,7 +64,7 @@
     self.title = threadName;
     self.title = [self.title decodeHtmlEntities];
     
-    self.threadData = [self loadThreadData];
+//    self.threadData = [self loadThreadData];
     
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"New Thread" style:UIBarButtonItemStylePlain target:self action:@selector(postNewThread:)];
     self.navigationItem.rightBarButtonItem = button;
@@ -78,8 +78,14 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    self.threadData = [self loadThreadData];
+    [self.view reloadData];
+}
+
 -(IBAction)postNewThread:(id)sender {
     ThreadFormViewController *tfvc = [[ThreadFormViewController alloc] initWithNibName:@"ThreadFormViewController" bundle:nil];
+    tfvc.forum_id = self.forumId;
     [self.navigationController pushViewController:tfvc animated:YES];
     [tfvc release];
 }

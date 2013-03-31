@@ -13,10 +13,14 @@
 
 @interface ThreadFormViewController : UIViewController {
     IBOutlet UITextField *subject;
-    IBOutlet UITextView *message;
+    IBOutlet ACPlaceholderTextView *message;
+    NSInteger *forum_id;
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *subject;
-@property (nonatomic, retain) IBOutlet UITextView *message;
+@property (nonatomic, retain) IBOutlet ACPlaceholderTextView *message;
+@property (nonatomic) NSInteger *forum_id;
+
+-(IBAction)pressSend:(id)sender;
 
 @end

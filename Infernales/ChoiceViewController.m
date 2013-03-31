@@ -35,7 +35,7 @@
 
 -(NSArray *)choices {
     if(!choices) {
-        choices = [NSArray arrayWithObjects:@"Forum", @"News", @"Shoutbox", nil];
+        choices = [NSArray arrayWithObjects:@"Forum", @"Shoutbox", nil];
         
     }
     return choices;
@@ -43,7 +43,7 @@
 
 -(NSArray *)subtext {
     if(!subtext) {
-        subtext = [NSArray arrayWithObjects:@"Forenbereich", @"News lesen", @"Shoutbox lesen", nil];
+        subtext = [NSArray arrayWithObjects:@"Forenbereich", @"Shoutbox lesen", nil];
     }
     return subtext;
 }
@@ -165,11 +165,13 @@
         ForumViewController *fvc = [[ForumViewController alloc] init];
         [self.navigationController pushViewController:fvc animated:YES];
         [fvc release];
-    } else if (indexPath.row == 1 && indexPath.section == 0) {
-        NewsViewController *nvc = [[NewsViewController alloc] init];
-        [self.navigationController pushViewController:nvc animated:YES];
-        [nvc release];
-    } else if (indexPath.row == 2 && indexPath.section == 0) {
+    }
+//    else if (indexPath.row == 1 && indexPath.section == 0) {
+//        NewsViewController *nvc = [[NewsViewController alloc] init];
+//        [self.navigationController pushViewController:nvc animated:YES];
+//        [nvc release];
+//    }
+    else if (indexPath.row == 1 && indexPath.section == 0) {
         ShoutboxViewController *sbvc = [[ShoutboxViewController alloc] init];
         [self.navigationController pushViewController:sbvc animated:YES];
         [sbvc release];
