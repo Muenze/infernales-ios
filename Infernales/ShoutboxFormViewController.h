@@ -10,6 +10,7 @@
 #import "ASIFormDataRequest.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ACPlaceholderTextView.h"
+#import "ShoutboxViewController.h"
 
 @interface ShoutboxFormViewController : UIViewController {
     IBOutlet ACPlaceholderTextView *message;

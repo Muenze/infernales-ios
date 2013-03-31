@@ -39,7 +39,6 @@
 {
     [super viewDidLoad];
 
-    self.shouts = [self loadShoutboxData];
     self.title = @"Shoutbox";
     
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"shout!" style:UIBarButtonItemStylePlain target:self action:@selector(pressShout:)];
@@ -51,6 +50,11 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    self.shouts = [self loadShoutboxData];
+    [self.view reloadData];
 }
 
 -(IBAction)pressShout:(id)sender {
