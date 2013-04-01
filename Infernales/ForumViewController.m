@@ -31,7 +31,17 @@
    
     if([username length] > 0 && [password length] > 0) {
         NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/index.json.php?username=%@&password=%@", username, password];
-        return [[NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil] JSONValue];
+        NSString *responseString = [NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil];
+        NSDictionary *responseObject = [responseString JSONValue];
+        NSArray *keys = [responseObject allKeys];
+        if([keys containsObject:@"error_code"] == YES) {
+            AppDelegate *del = [[UIApplication sharedApplication] delegate];
+            del.unregistered = true;
+
+            NSString *urlString = @"http://www.infernales.de/portal/forum/index.json.php";
+            return [[NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil] JSONValue];
+        }
+        return [responseString JSONValue];
     } else {
         NSString *urlString = @"http://www.infernales.de/portal/forum/index.json.php";
         return [[NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil] JSONValue];

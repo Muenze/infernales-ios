@@ -16,6 +16,7 @@
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 @synthesize navigationController;
 @synthesize needsUpdatePost;
+@synthesize unregistered;
 
 - (void)dealloc
 {
@@ -49,6 +50,7 @@
     [self.window addSubview:nav.view];
     [self.window makeKeyAndVisible];
     needsUpdatePost = false;
+    unregistered = false;
     return YES;
 }
 
