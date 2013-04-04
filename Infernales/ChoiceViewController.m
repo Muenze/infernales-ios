@@ -79,6 +79,10 @@
     // e.g. self.myOutlet = nil;
 }
 
+//-(void)viewWillAppear:(BOOL)animated {
+//    [self.view reloadData];
+//}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);

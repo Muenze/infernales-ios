@@ -167,7 +167,7 @@
 		CB44E2DE16F904560050DA9C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CB44E2E016F9046D0050DA9C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CB87B5CC16ED0BFC0022355F /* infernales.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infernales.png; sourceTree = "<group>"; };
-		CB87B5CE16ED0C0E0022355F /* infernales.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infernales.png; sourceTree = "<group>"; };
+		CB87B5CE16ED0C0E0022355F /* infernales.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = infernales.png; path = ../infernales.png; sourceTree = "<group>"; };
 		CB893B6716E684F00028DBF0 /* foldernew.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = foldernew.gif; sourceTree = "<group>"; };
 		CB893B6C16E696A80028DBF0 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
 		CB893B6D16E696A80028DBF0 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
@@ -258,11 +258,6 @@
 		07F05FD91586709B00380D63 = {
 			isa = PBXGroup;
 			children = (
-				CB44E2E016F9046D0050DA9C /* libz.dylib */,
-				CB44E2DE16F904560050DA9C /* MobileCoreServices.framework */,
-				CB44E2DC16F9044C0050DA9C /* SystemConfiguration.framework */,
-				CB44E2DA16F904410050DA9C /* CFNetwork.framework */,
-				CB87B5CE16ED0C0E0022355F /* infernales.png */,
 				07F05FF01586709B00380D63 /* Infernales */,
 				07F05FE71586709B00380D63 /* Frameworks */,
 				07F05FE51586709B00380D63 /* Products */,
@@ -280,6 +275,10 @@
 		07F05FE71586709B00380D63 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CB44E2E016F9046D0050DA9C /* libz.dylib */,
+				CB44E2DE16F904560050DA9C /* MobileCoreServices.framework */,
+				CB44E2DC16F9044C0050DA9C /* SystemConfiguration.framework */,
+				CB44E2DA16F904410050DA9C /* CFNetwork.framework */,
 				320AF8492C47A4D819F7C450 /* QuartzCore.framework */,
 				07F05FE81586709B00380D63 /* UIKit.framework */,
 				07F05FEA1586709B00380D63 /* Foundation.framework */,
@@ -292,6 +291,7 @@
 		07F05FF01586709B00380D63 /* Infernales */ = {
 			isa = PBXGroup;
 			children = (
+				CB87B5CE16ED0C0E0022355F /* infernales.png */,
 				CB1FB41E16FCF965003636BA /* ACPlaceholderTextView.h */,
 				CB1FB41F16FCF965003636BA /* ACPlaceholderTextView.m */,
 				CB21A91016F11F5F00BD3735 /* PostdetailViewController.h */,
@@ -648,6 +648,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -661,6 +662,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

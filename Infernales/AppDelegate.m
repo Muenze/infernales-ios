@@ -49,10 +49,32 @@
     
     [self.window addSubview:nav.view];
     [self.window makeKeyAndVisible];
+    
+    // Push Notification
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    
+    
     needsUpdatePost = false;
     unregistered = false;
     return YES;
 }
+
+
+
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+	NSLog(@"My token is: %@", deviceToken);
+}
+
+- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
+{
+	NSLog(@"Failed to get token, error: %@", error);
+}
+
+
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

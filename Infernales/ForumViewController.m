@@ -35,11 +35,12 @@
         NSDictionary *responseObject = [responseString JSONValue];
         NSArray *keys = [responseObject allKeys];
         if([keys containsObject:@"error_code"] == YES) {
-            AppDelegate *del = [[UIApplication sharedApplication] delegate];
-            del.unregistered = true;
-
-            NSString *urlString = @"http://www.infernales.de/portal/forum/index.json.php";
-            return [[NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil] JSONValue];
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Zugriffsfehler" message:@"Sie brauchen einen gültigen infernales.de Forenlogin um diese App nutzen zu können." delegate:nil cancelButtonTitle:@"Ok, besorg ich mir" otherButtonTitles:nil, nil];
+            [alert show];
+            [alert release];
+            [self.navigationController popViewControllerAnimated:YES];
+            
         }
         return [responseString JSONValue];
     } else {
