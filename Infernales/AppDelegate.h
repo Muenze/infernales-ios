@@ -8,14 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "ChoiceViewController.h"
+#import "ASIFormDataRequest.h"
+#import "MBProgressHUD.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {
     UINavigationController *navigationController;
     bool needsUpdatePost;
     bool unregistered;
+    NSData *pushDeviceToken;
 }
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, retain) NSData *pushDeviceToken;
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;

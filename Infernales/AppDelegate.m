@@ -17,6 +17,7 @@
 @synthesize navigationController;
 @synthesize needsUpdatePost;
 @synthesize unregistered;
+@synthesize pushDeviceToken;
 
 - (void)dealloc
 {
@@ -51,8 +52,7 @@
     [self.window makeKeyAndVisible];
     
     // Push Notification
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     
     
     needsUpdatePost = false;
@@ -64,7 +64,63 @@
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
+    self.pushDeviceToken = deviceToken;
+    [self registerWithPushServerWithDeviceToken];
 	NSLog(@"My token is: %@", deviceToken);
+}
+
+-(void)registerWithPushServerWithDeviceToken {
+//    NSLog(@"started");
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *username = [defaults objectForKey:@"username"];
+    if([username compare:@""] == NSOrderedSame) {
+        NSLog(@"username is leer");
+    } else {
+        NSLog(@"else");
+        NSURL *url = [NSURL URLWithString:@"http://www.infernales.de/push/push_controller.php"];
+        ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+        [request setDelegate:self];
+        [request setPostValue:@"register" forKey:@"method"];
+        [request setPostValue:self.pushDeviceToken forKey:@"device_id"];
+        [request setPostValue:username forKey:@"login"];
+        [request setCompletionBlock:^{
+            NSLog(@"Registered with Server");
+            NSLog(@"%@",[request responseString]);
+            if([request responseStatusCode] == 200) {
+                
+            }
+        }];
+        [request setFailedBlock:^{
+            NSLog(@"failed to register with server");
+        }];
+        [request startAsynchronous];
+        
+    }
+}
+
+-(void)destroyPushTokenWithLogin {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *username = [defaults objectForKey:@"username"];
+    if([username compare:@""] == NSOrderedSame) {
+    } else {
+        NSURL *url = [NSURL URLWithString:@"http://www.infernales.de/push/push_controller.php"];
+        ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+        [request setDelegate:self];
+        [request setPostValue:@"destroy" forKey:@"method"];
+        [request setPostValue:username forKey:@"login"];
+        [request setCompletionBlock:^{
+            NSLog(@"deRegistered with Server");
+            NSLog(@"%@",[request responseString]);
+            if([request responseStatusCode] == 200) {
+                
+            }
+        }];
+        [request setFailedBlock:^{
+            NSLog(@"failed to register with server");
+        }];
+        [request startSynchronous];
+        
+    }
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
@@ -101,6 +157,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Saves changes in the application's managed object context before the application terminates.
+    [self destroyPushTokenWithLogin];
     [self saveContext];
 }
 
