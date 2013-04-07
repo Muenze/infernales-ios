@@ -21,6 +21,7 @@
 
 -(void)setPostValues:(NSDictionary *)paramPostValues;
 -(IBAction)postInForum:(id)sender;
+-(IBAction)editInForum:(id)sender;
 
 
 @end

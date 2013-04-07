@@ -19,6 +19,7 @@
     NSInteger* forumId;
     ACPlaceholderTextView* textView;
     NSString *formString;
+    bool editMode;
 }
 
 @property (strong, nonatomic) ACPlaceholderTextView *textView;
@@ -27,6 +28,7 @@
 @property (nonatomic) NSInteger* forumId;
 @property (retain, nonatomic) IBOutlet UITextView *formText;
 @property (strong, nonatomic) UIButton *sendButton;
+@property (nonatomic) bool editMode;
 
 -(void)pressConfirmButton;
 @end

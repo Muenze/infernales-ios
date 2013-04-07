@@ -30,7 +30,7 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
 
 @implementation PostFormViewController
 
-@synthesize forumId, threadId, formText, formString;
+@synthesize forumId, threadId, formText, formString, editMode;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,6 +45,7 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
 {
     [super viewDidLoad];
     
+
     
     
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStylePlain target:self action:@selector(pressConfirmButton:)];
@@ -75,6 +76,7 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     _textView.autocorrectionType = UITextAutocorrectionTypeNo;
     [messageInputBar addSubview:_textView];
     _previousTextViewContentHeight = MessageFontSize+20;
+
     
 //    [_textView release];
     
@@ -111,7 +113,10 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     
     [messageInputBar release];
     
-    
+    if(editMode == TRUE) {
+        _textView.text = formString;
+        [self textViewDidChange:_textView];
+    }
     
     
     // Do any additional setup after loading the view from its nib.
