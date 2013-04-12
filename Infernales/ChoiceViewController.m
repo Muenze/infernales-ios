@@ -35,7 +35,7 @@
 
 -(NSArray *)choices {
     if(!choices) {
-        choices = [NSArray arrayWithObjects:@"Forum", @"Shoutbox", nil];
+        choices = [NSArray arrayWithObjects:@"Forum", @"Shoutbox", @"Private Nachrichten", nil];
         
     }
     return choices;
@@ -43,7 +43,7 @@
 
 -(NSArray *)subtext {
     if(!subtext) {
-        subtext = [NSArray arrayWithObjects:@"Forenbereich", @"Shoutbox lesen", nil];
+        subtext = [NSArray arrayWithObjects:@"", @"", @"", nil];
     }
     return subtext;
 }
@@ -179,6 +179,11 @@
         ShoutboxViewController *sbvc = [[ShoutboxViewController alloc] init];
         [self.navigationController pushViewController:sbvc animated:YES];
         [sbvc release];
+    }
+    else if (indexPath.row == 2 && indexPath.section == 0) {
+        InboxMessagesViewController *ibc = [[InboxMessagesViewController alloc] initWithStyle:UITableViewStylePlain];
+        [self.navigationController pushViewController:ibc animated:YES];
+        [ibc release];
     }
     // Navigation logic may go here. Create and push another view controller.
     /*

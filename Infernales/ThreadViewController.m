@@ -155,7 +155,7 @@
         cell.stickyIndicator.image = nil;
     }
     
-    NSString *author = [dic objectForKey:@"user_author"];
+    NSString *author = [dic objectForKey:@"lastuser"];
     NSString *erstelltText = [NSString stringWithFormat:@"Author: "];
     erstelltText = [erstelltText stringByAppendingFormat:author];
     

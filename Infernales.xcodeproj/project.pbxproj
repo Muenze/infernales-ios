@@ -83,6 +83,8 @@
 		CBF161F515B350990030D2C2 /* ThreadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBF161F315B350990030D2C2 /* ThreadViewController.xib */; };
 		CBF60D3917078895004A67C8 /* ShoutboxViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF60D3817078895004A67C8 /* ShoutboxViewCell.m */; };
 		CBF60D3B170788AC004A67C8 /* ShoutboxViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBF60D3A170788AC004A67C8 /* ShoutboxViewCell.xib */; };
+		CBF7C2C31718B06300F1761B /* InboxMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7C2C11718B06300F1761B /* InboxMessagesViewController.m */; };
+		CBF7C2C41718B06300F1761B /* InboxMessagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBF7C2C21718B06300F1761B /* InboxMessagesViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -207,6 +209,9 @@
 		CBF60D3717078895004A67C8 /* ShoutboxViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoutboxViewCell.h; sourceTree = "<group>"; };
 		CBF60D3817078895004A67C8 /* ShoutboxViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoutboxViewCell.m; sourceTree = "<group>"; };
 		CBF60D3A170788AC004A67C8 /* ShoutboxViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoutboxViewCell.xib; sourceTree = "<group>"; };
+		CBF7C2C01718B06300F1761B /* InboxMessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InboxMessagesViewController.h; sourceTree = "<group>"; };
+		CBF7C2C11718B06300F1761B /* InboxMessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InboxMessagesViewController.m; sourceTree = "<group>"; };
+		CBF7C2C21718B06300F1761B /* InboxMessagesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InboxMessagesViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,6 +339,8 @@
 				CBD0273F1708A95A00EC67D3 /* ShoutboxDetailViewController.m */,
 				CBD027431708B05A00EC67D3 /* ShoutboxFormViewController.h */,
 				CBD027441708B05A00EC67D3 /* ShoutboxFormViewController.m */,
+				CBF7C2C01718B06300F1761B /* InboxMessagesViewController.h */,
+				CBF7C2C11718B06300F1761B /* InboxMessagesViewController.m */,
 				07F05FF11586709B00380D63 /* Supporting Files */,
 			);
 			path = Infernales;
@@ -404,6 +411,7 @@
 		CB91036216FBA32E00DA7E07 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				CBF7C2C21718B06300F1761B /* InboxMessagesViewController.xib */,
 				CBD027451708B05A00EC67D3 /* ShoutboxFormViewController.xib */,
 				CBD027401708A95A00EC67D3 /* ShoutboxDetailViewController.xib */,
 				CBD0273B17085E7000EC67D3 /* ThreadFormViewController.xib */,
@@ -514,6 +522,7 @@
 				CBD0273D17085E7000EC67D3 /* ThreadFormViewController.xib in Resources */,
 				CBD027421708A95A00EC67D3 /* ShoutboxDetailViewController.xib in Resources */,
 				CBD027471708B05B00EC67D3 /* ShoutboxFormViewController.xib in Resources */,
+				CBF7C2C41718B06300F1761B /* InboxMessagesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,6 +572,7 @@
 				CBD027411708A95A00EC67D3 /* ShoutboxDetailViewController.m in Sources */,
 				CBD027461708B05B00EC67D3 /* ShoutboxFormViewController.m in Sources */,
 				CB8903CD170F61390036EEDE /* MBProgressHUD.m in Sources */,
+				CBF7C2C31718B06300F1761B /* InboxMessagesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
