@@ -43,6 +43,10 @@
 		CB1FB43616FCFD92003636BA /* SendButtonHighlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1FB43416FCFD92003636BA /* SendButtonHighlighted@2x.png */; };
 		CB21A91316F11F5F00BD3735 /* PostdetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB21A91116F11F5F00BD3735 /* PostdetailViewController.m */; };
 		CB21A91416F11F5F00BD3735 /* PostdetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB21A91216F11F5F00BD3735 /* PostdetailViewController.xib */; };
+		CB36CB781719656500AF44B4 /* MessageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB36CB771719656500AF44B4 /* MessageViewCell.m */; };
+		CB36CB7A1719657C00AF44B4 /* MessageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB36CB791719657C00AF44B4 /* MessageViewCell.xib */; };
+		CB36CB83171968A600AF44B4 /* MessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB36CB81171968A600AF44B4 /* MessageDetailViewController.m */; };
+		CB36CB84171968A600AF44B4 /* MessageDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB36CB82171968A600AF44B4 /* MessageDetailViewController.xib */; };
 		CB44E2CF16F903CB0050DA9C /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = CB44E2BC16F903CB0050DA9C /* ASIAuthenticationDialog.m */; };
 		CB44E2D016F903CB0050DA9C /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = CB44E2BF16F903CB0050DA9C /* ASIDataCompressor.m */; };
 		CB44E2D116F903CB0050DA9C /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = CB44E2C116F903CB0050DA9C /* ASIDataDecompressor.m */; };
@@ -143,6 +147,12 @@
 		CB21A91016F11F5F00BD3735 /* PostdetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostdetailViewController.h; path = ../PostdetailViewController.h; sourceTree = "<group>"; };
 		CB21A91116F11F5F00BD3735 /* PostdetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostdetailViewController.m; path = ../PostdetailViewController.m; sourceTree = "<group>"; };
 		CB21A91216F11F5F00BD3735 /* PostdetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PostdetailViewController.xib; path = ../PostdetailViewController.xib; sourceTree = "<group>"; };
+		CB36CB761719656500AF44B4 /* MessageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewCell.h; sourceTree = "<group>"; };
+		CB36CB771719656500AF44B4 /* MessageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewCell.m; sourceTree = "<group>"; };
+		CB36CB791719657C00AF44B4 /* MessageViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageViewCell.xib; sourceTree = "<group>"; };
+		CB36CB80171968A600AF44B4 /* MessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDetailViewController.h; sourceTree = "<group>"; };
+		CB36CB81171968A600AF44B4 /* MessageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDetailViewController.m; sourceTree = "<group>"; };
+		CB36CB82171968A600AF44B4 /* MessageDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageDetailViewController.xib; sourceTree = "<group>"; };
 		CB44E2BB16F903CB0050DA9C /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		CB44E2BC16F903CB0050DA9C /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		CB44E2BD16F903CB0050DA9C /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -299,48 +309,12 @@
 		07F05FF01586709B00380D63 /* Infernales */ = {
 			isa = PBXGroup;
 			children = (
+				CB36CB7F1719683600AF44B4 /* Cells */,
+				CB36CB7D1719682800AF44B4 /* Controller */,
 				CB87B5CE16ED0C0E0022355F /* infernales.png */,
-				CB1FB41E16FCF965003636BA /* ACPlaceholderTextView.h */,
-				CB1FB41F16FCF965003636BA /* ACPlaceholderTextView.m */,
-				CB9D836016E375FC0047B1F2 /* NSString+HtmlEntities.h */,
-				CB9D836116E375FC0047B1F2 /* NSString+HtmlEntities.m */,
 				07F05FF91586709B00380D63 /* AppDelegate.h */,
 				07F05FFA1586709B00380D63 /* AppDelegate.m */,
-				07EEC85A1587CCC2006A7F37 /* SettingsViewController.h */,
-				07EEC85B1587CCC2006A7F37 /* SettingsViewController.m */,
-				07EEC8511587BDAC006A7F37 /* ChoiceViewController.h */,
-				07EEC8521587BDAC006A7F37 /* ChoiceViewController.m */,
-				07E757A215965A35000EA122 /* NewsViewController.h */,
-				07E757A315965A35000EA122 /* NewsViewController.m */,
-				07E7579D15965856000EA122 /* ForumViewController.h */,
-				07E7579E15965856000EA122 /* ForumViewController.m */,
-				CBE9BEF616E546AE0050EE0F /* ForumViewCell.h */,
-				CBE9BEF716E546AE0050EE0F /* ForumViewCell.m */,
-				CBF161F115B350990030D2C2 /* ThreadViewController.h */,
-				CBF161F215B350990030D2C2 /* ThreadViewController.m */,
-				CB9D836316E38E7D0047B1F2 /* ThreadViewCell.h */,
-				CB9D836416E38E7D0047B1F2 /* ThreadViewCell.m */,
-				CBD0273917085E7000EC67D3 /* ThreadFormViewController.h */,
-				CBD0273A17085E7000EC67D3 /* ThreadFormViewController.m */,
-				CB893B6C16E696A80028DBF0 /* PostViewController.h */,
-				CB893B6D16E696A80028DBF0 /* PostViewController.m */,
-				CBAFD2D416EA7D21002D4BE8 /* PostViewCell.h */,
-				CBAFD2D516EA7D21002D4BE8 /* PostViewCell.m */,
 				07F05FFC1586709B00380D63 /* Infernales.xcdatamodeld */,
-				CB21A91016F11F5F00BD3735 /* PostdetailViewController.h */,
-				CB21A91116F11F5F00BD3735 /* PostdetailViewController.m */,
-				CB91035C16FBA2DC00DA7E07 /* PostFormViewController.h */,
-				CB91035D16FBA2DC00DA7E07 /* PostFormViewController.m */,
-				CB0AC9B2170234A1007C13B0 /* ShoutboxViewController.h */,
-				CB0AC9B3170234A1007C13B0 /* ShoutboxViewController.m */,
-				CBF60D3717078895004A67C8 /* ShoutboxViewCell.h */,
-				CBF60D3817078895004A67C8 /* ShoutboxViewCell.m */,
-				CBD0273E1708A95A00EC67D3 /* ShoutboxDetailViewController.h */,
-				CBD0273F1708A95A00EC67D3 /* ShoutboxDetailViewController.m */,
-				CBD027431708B05A00EC67D3 /* ShoutboxFormViewController.h */,
-				CBD027441708B05A00EC67D3 /* ShoutboxFormViewController.m */,
-				CBF7C2C01718B06300F1761B /* InboxMessagesViewController.h */,
-				CBF7C2C11718B06300F1761B /* InboxMessagesViewController.m */,
 				07F05FF11586709B00380D63 /* Supporting Files */,
 			);
 			path = Infernales;
@@ -369,6 +343,58 @@
 				07F05FF61586709B00380D63 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CB36CB7D1719682800AF44B4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CBD0273E1708A95A00EC67D3 /* ShoutboxDetailViewController.h */,
+				CBD0273F1708A95A00EC67D3 /* ShoutboxDetailViewController.m */,
+				CBD027431708B05A00EC67D3 /* ShoutboxFormViewController.h */,
+				CBD027441708B05A00EC67D3 /* ShoutboxFormViewController.m */,
+				CBF7C2C01718B06300F1761B /* InboxMessagesViewController.h */,
+				CBF7C2C11718B06300F1761B /* InboxMessagesViewController.m */,
+				CB21A91016F11F5F00BD3735 /* PostdetailViewController.h */,
+				CB21A91116F11F5F00BD3735 /* PostdetailViewController.m */,
+				CB91035C16FBA2DC00DA7E07 /* PostFormViewController.h */,
+				CB91035D16FBA2DC00DA7E07 /* PostFormViewController.m */,
+				CB0AC9B2170234A1007C13B0 /* ShoutboxViewController.h */,
+				CB0AC9B3170234A1007C13B0 /* ShoutboxViewController.m */,
+				CB893B6C16E696A80028DBF0 /* PostViewController.h */,
+				CB893B6D16E696A80028DBF0 /* PostViewController.m */,
+				CBD0273917085E7000EC67D3 /* ThreadFormViewController.h */,
+				CBD0273A17085E7000EC67D3 /* ThreadFormViewController.m */,
+				CBF161F115B350990030D2C2 /* ThreadViewController.h */,
+				CBF161F215B350990030D2C2 /* ThreadViewController.m */,
+				07E757A215965A35000EA122 /* NewsViewController.h */,
+				07E757A315965A35000EA122 /* NewsViewController.m */,
+				07E7579D15965856000EA122 /* ForumViewController.h */,
+				07E7579E15965856000EA122 /* ForumViewController.m */,
+				07EEC8511587BDAC006A7F37 /* ChoiceViewController.h */,
+				07EEC8521587BDAC006A7F37 /* ChoiceViewController.m */,
+				07EEC85A1587CCC2006A7F37 /* SettingsViewController.h */,
+				07EEC85B1587CCC2006A7F37 /* SettingsViewController.m */,
+				CB36CB80171968A600AF44B4 /* MessageDetailViewController.h */,
+				CB36CB81171968A600AF44B4 /* MessageDetailViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		CB36CB7F1719683600AF44B4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CBF60D3717078895004A67C8 /* ShoutboxViewCell.h */,
+				CBF60D3817078895004A67C8 /* ShoutboxViewCell.m */,
+				CB36CB761719656500AF44B4 /* MessageViewCell.h */,
+				CB36CB771719656500AF44B4 /* MessageViewCell.m */,
+				CBAFD2D416EA7D21002D4BE8 /* PostViewCell.h */,
+				CBAFD2D516EA7D21002D4BE8 /* PostViewCell.m */,
+				CBE9BEF616E546AE0050EE0F /* ForumViewCell.h */,
+				CBE9BEF716E546AE0050EE0F /* ForumViewCell.m */,
+				CB9D836316E38E7D0047B1F2 /* ThreadViewCell.h */,
+				CB9D836416E38E7D0047B1F2 /* ThreadViewCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		CB44E2BA16F903BA0050DA9C /* ASI */ = {
@@ -412,6 +438,8 @@
 			isa = PBXGroup;
 			children = (
 				CBF7C2C21718B06300F1761B /* InboxMessagesViewController.xib */,
+				CB36CB82171968A600AF44B4 /* MessageDetailViewController.xib */,
+				CB36CB791719657C00AF44B4 /* MessageViewCell.xib */,
 				CBD027451708B05A00EC67D3 /* ShoutboxFormViewController.xib */,
 				CBD027401708A95A00EC67D3 /* ShoutboxDetailViewController.xib */,
 				CBD0273B17085E7000EC67D3 /* ThreadFormViewController.xib */,
@@ -434,6 +462,10 @@
 		CB91036316FBA34100DA7E07 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				CB1FB41E16FCF965003636BA /* ACPlaceholderTextView.h */,
+				CB1FB41F16FCF965003636BA /* ACPlaceholderTextView.m */,
+				CB9D836016E375FC0047B1F2 /* NSString+HtmlEntities.h */,
+				CB9D836116E375FC0047B1F2 /* NSString+HtmlEntities.m */,
 				CB8903CB170F61390036EEDE /* MBProgressHUD.h */,
 				CB8903CC170F61390036EEDE /* MBProgressHUD.m */,
 				CB44E2D716F903FD0050DA9C /* Reachability.h */,
@@ -523,6 +555,8 @@
 				CBD027421708A95A00EC67D3 /* ShoutboxDetailViewController.xib in Resources */,
 				CBD027471708B05B00EC67D3 /* ShoutboxFormViewController.xib in Resources */,
 				CBF7C2C41718B06300F1761B /* InboxMessagesViewController.xib in Resources */,
+				CB36CB7A1719657C00AF44B4 /* MessageViewCell.xib in Resources */,
+				CB36CB84171968A600AF44B4 /* MessageDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +607,8 @@
 				CBD027461708B05B00EC67D3 /* ShoutboxFormViewController.m in Sources */,
 				CB8903CD170F61390036EEDE /* MBProgressHUD.m in Sources */,
 				CBF7C2C31718B06300F1761B /* InboxMessagesViewController.m in Sources */,
+				CB36CB781719656500AF44B4 /* MessageViewCell.m in Sources */,
+				CB36CB83171968A600AF44B4 /* MessageDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

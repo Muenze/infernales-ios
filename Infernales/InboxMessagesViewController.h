@@ -10,6 +10,7 @@
 #import "OrderedDictionary.h"
 #import "JSON.h"
 #import "ASIFormDataRequest.h"
+#import "MessageViewCell.h"
 
 @interface InboxMessagesViewController : UITableViewController {
     NSArray *dict;

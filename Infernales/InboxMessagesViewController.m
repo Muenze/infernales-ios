@@ -79,18 +79,55 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
+    static NSString *CellIdentifier = @"MessageViewCell";
+    MessageViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    //    PostViewCell *cell = nil;
     
     // Configure the cell...
+    if(!cell) {
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"MessageViewCell" owner:nil options:nil];
+        for(id currentObject in topLevelObjects) {
+            if([currentObject isKindOfClass:[UITableViewCell class]]) {
+                cell = (MessageViewCell *) currentObject;
+                break;
+            }
+        }
+    }
+    
+
+    
+    
+    
+    
+    
+    
+
 
     NSDictionary *dict = [self.dict objectAtIndex:indexPath.row];
-    cell.textLabel.text = [dict objectForKey:@"message_subject"];
+//    cell.textLabel.text = [dict objectForKey:@"message_subject"];
+    
+    cell.subjectLabel.text = [dict objectForKey:@"message_subject"];
+    
+    
+    NSString *autor = [dict objectForKey:@"user_name"];
+    
+    NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[[dict objectForKey:@"message_datestamp"] doubleValue]];
+    NSDateFormatter * format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"dd.MM.yyyy HH:mm"];
+    NSString *date = [format stringFromDate:theDate];
+    [format release];
+    
+    autor = [[autor stringByAppendingString:@" am "] stringByAppendingString:date];
+    cell.authorLabel.text = autor;
+    
+    
+    
     
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60;
 }
 
 /*
