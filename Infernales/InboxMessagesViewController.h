@@ -11,10 +11,11 @@
 #import "JSON.h"
 #import "ASIFormDataRequest.h"
 #import "MessageViewCell.h"
+#import "MessageDetailViewController.h"
 
 @interface InboxMessagesViewController : UITableViewController {
-    NSArray *dict;
+    NSMutableArray *dict;
 }
 
-@property (nonatomic, strong)  NSArray *dict;
+@property (nonatomic, strong)  NSMutableArray *dict;
 @end
