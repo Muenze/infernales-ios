@@ -232,7 +232,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
-    NSInteger *forum_id = [dic objectForKey:@"forum_id"];
+//    NSLog(@"DIC: %@",dic);
     NSInteger *thread_id = [dic objectForKey:@"thread_id"];
     NSString *thread_name = [dic objectForKey:@"name"];
     thread_name = [thread_name decodeHtmlEntities];
@@ -243,7 +243,7 @@
     }
     
     
-    PostViewController *pvc = [[PostViewController alloc] initWithForumId:forum_id withThreadId:thread_id andThreadName:thread_name];
+    PostViewController *pvc = [[PostViewController alloc] initWithForumId:forumId withThreadId:thread_id andThreadName:thread_name];
     pvc.locked = lock;
     [self.navigationController pushViewController:pvc animated:YES];
     [pvc release];

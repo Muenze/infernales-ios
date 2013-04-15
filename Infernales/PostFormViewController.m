@@ -161,7 +161,8 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"passwort"];
 
-    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.infernales.de/portal/forum/postreply.json.php?forum_id=%@&thread_id=%@&username=%@&password=%@",self.forumId, self.threadId, username, password]];
+    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.infernales.de/portal/forum/postreply.json.php?forum_id=%@&thread_id=%@&username=%@&password=%@",forumId, threadId, username, password]];
+//    NSLog(@"URL: %@", [url description]);
     ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
     NSString *message = _textView.text;
     [request setPostValue:message forKey:@"message"];
@@ -189,9 +190,12 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
 {
     // Use when fetching text data
     NSString *responseString = [request responseString];
-    
+//    NSLog(@"Response: %@", request);
     
     NSDictionary *response = [responseString JSONValue];
+//    NSDictionary *response = nil;
+//    NSLog(@"Response Dict: %@", response);
+//    NSLog(@"Response String: %@", responseString);
     if ([[response objectForKey:@"code"] compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
         AppDelegate *del = [[UIApplication sharedApplication] delegate];
         del.needsUpdatePost = true;

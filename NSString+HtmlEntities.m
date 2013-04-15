@@ -29,6 +29,7 @@
     [final replaceOccurrencesOfString:@"&amp;#39;" withString:@"'" options:NSLiteralSearch range:NSMakeRange(0, [final length])];
     [final replaceOccurrencesOfString:@"&szlig;" withString:@"ß" options:NSLiteralSearch range:NSMakeRange(0, [final length])];
     [final replaceOccurrencesOfString:@"&ETH;" withString:@"Ð" options:NSLiteralSearch range:NSMakeRange(0, [final length])];
+    [final replaceOccurrencesOfString:@"&#39;" withString:@"'" options:NSLiteralSearch range:NSMakeRange(0, [final length])];
     
     return (NSString *)final;
 }
