@@ -34,12 +34,12 @@
     [super viewDidLoad];
     NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
     NSMutableArray *theButtons = [NSMutableArray arrayWithCapacity:2];
-    if([[postValues objectForKey:@"thread_locked"] compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
-        UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStylePlain target:self action:@selector(postInForum:)];
-        [theButtons addObject:button];
-        //        self.navigationItem.rightBarButtonItem = button;
-        [button release];
-    }
+//    if([[postValues objectForKey:@"thread_locked"] compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
+//        UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStylePlain target:self action:@selector(postInForum:)];
+//        [theButtons addObject:button];
+//        //        self.navigationItem.rightBarButtonItem = button;
+//        [button release];
+//    }
 
     
     if([[postValues objectForKey:@"user_name"] isEqualToString:[def objectForKey:@"username"]]) {
@@ -91,6 +91,7 @@
     pfvc.forumId = [postValues objectForKey:@"forum_id"];
     pfvc.formString = [[postValues objectForKey:@"post_message"] decodeHtmlEntities];
     pfvc.editMode = TRUE;
+    pfvc.postValues = postValues;
     
     [self.navigationController pushViewController:pfvc animated:YES];
     [pfvc release];

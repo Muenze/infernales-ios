@@ -44,12 +44,18 @@
     autor = [[autor stringByAppendingString:@" am "] stringByAppendingString:date];
     authorLabel.text = autor;
     
-    
-    
+    UIBarButtonItem *postButton = [[UIBarButtonItem alloc] initWithTitle:@"antworten" style:UIBarButtonItemStylePlain target:self action:@selector(replyToMessage:)];
+    self.navigationItem.rightBarButtonItem = postButton;
+    [postButton release];
     
     
     // Do any additional setup after loading the view from its nib.
 }
+
+-(IBAction)replyToMessage:(id)sender {
+        
+}
+
 
 - (void)didReceiveMemoryWarning
 {

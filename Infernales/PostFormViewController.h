@@ -20,6 +20,7 @@
     ACPlaceholderTextView* textView;
     NSString *formString;
     bool editMode;
+    NSDictionary *postValues;
 }
 
 @property (strong, nonatomic) ACPlaceholderTextView *textView;
@@ -29,6 +30,8 @@
 @property (retain, nonatomic) IBOutlet UITextView *formText;
 @property (strong, nonatomic) UIButton *sendButton;
 @property (nonatomic) bool editMode;
+@property (nonatomic, strong) NSDictionary *postValues;
+
 
 -(void)pressConfirmButton;
 @end

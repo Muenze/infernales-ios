@@ -1,13 +1,12 @@
 //
-//  PostFormViewController.m
+//  MessageFormViewController.m
 //  Infernales
 //
-//  Created by Guido Wehner on 21.03.13.
+//  Created by Guido Wehner on 23.04.13.
 //
 //
 
-#import "PostFormViewController.h"
-
+#import "MessageFormViewController.h"
 #define kChatBarHeight1                      40
 #define kChatBarHeight4                      94
 #define TEXT_VIEW_X                          7   // 40  (with CameraButton)
@@ -21,16 +20,16 @@
 NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter]; \
 [notificationCenter addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil]
 
-
-@interface PostFormViewController () <UITextViewDelegate> {
+@interface MessageFormViewController () <UITextViewDelegate> {
     CGFloat _previousTextViewContentHeight;
 }
 
+
 @end
 
-@implementation PostFormViewController
+@implementation MessageFormViewController
 
-@synthesize forumId, threadId, formText, formString, editMode, postValues;
+@synthesize messageData, formText;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,17 +43,16 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-
-    
+    // Do any additional setup after loading the view from its nib.
     
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStylePlain target:self action:@selector(pressConfirmButton:)];
     self.navigationItem.rightBarButtonItem = button;
     [button release];
     
-    formText.text = formString;
-
- 
+    formText.text = [messageData objectForKey:@"message_message"];
+    
+    
+    
     
     // Create messageInputBar to contain _textView, messageInputBarBackgroundImageView, & _sendButton.
     UIImageView *messageInputBar = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-kChatBarHeight1, self.view.frame.size.width, kChatBarHeight1)];
@@ -76,9 +74,9 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     _textView.autocorrectionType = UITextAutocorrectionTypeNo;
     [messageInputBar addSubview:_textView];
     _previousTextViewContentHeight = MessageFontSize+20;
-
     
-//    [_textView release];
+    
+    //    [_textView release];
     
     // Create messageInputBarBackgroundImageView as subview of messageInputBar.
     UIImageView *messageInputBarBackgroundImageView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"MessageInputFieldBackground"] resizableImageWithCapInsets:UIEdgeInsetsMake(20, 12, 18, 18)]]; // 32 x 40
@@ -107,19 +105,11 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     
     [_sendButton release];
     
-//    NSLog(@"%@",_textView);
-    
     [self.view addSubview:messageInputBar];
     
     [messageInputBar release];
     
-    if(editMode == TRUE) {
-        _textView.text = formString;
-        [self textViewDidChange:_textView];
-    }
-    
-    
-    // Do any additional setup after loading the view from its nib.
+
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -128,31 +118,20 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
 }
 
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
 - (void)keyboardWillShow:(NSNotification *)notification {
-//    NSTimeInterval animationDuration;
-//    UIViewAnimationCurve animationCurve;
     CGRect frameEnd;
     NSDictionary *userInfo = [notification userInfo];
-//    [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
-//    [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
     [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&frameEnd];
-    
-//    //    NSLog(@"animationDuration: %f", animationDuration); // TODO: Why 0.35 on viewDidLoad?
-////    [UIView animateWithDuration:animationDuration delay:0.0 options:(UIViewAnimationOptionsFromCurve(animationCurve) | UIViewAnimationOptionBeginFromCurrentState) animations:^{
-////        UIViewSetFrameY(messageInputBar, viewHeight-messageInputBar.frame.size.height);
-//////        _tableView.contentInset = _tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, self.view.frame.size.height-viewHeight, 0);
-////        [self scrollToBottomAnimated:NO];
-////    } completion:nil];
-//    CGFloat viewHeight = [self.view convertRect:frameEnd fromView:nil].origin.y;
-//    UIView *messageInputBar = _textView.superview;
-    
     UIView *messageInputBar = _textView.superview;
-//    CGRect frameEnd;
     CGFloat viewHeight = [self.view convertRect:frameEnd fromView:nil].origin.y;
     messageInputBar.frame = CGRectMake(messageInputBar.frame.origin.x, viewHeight-messageInputBar.frame.size.height, messageInputBar.frame.size.width, messageInputBar.frame.size.height);
-    
-    
-    
 }
 
 
@@ -160,135 +139,54 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
 -(void)pressConfirmButton {
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"passwort"];
-    if(editMode != TRUE) {
-        NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.infernales.de/portal/forum/postreply.json.php?forum_id=%@&thread_id=%@&username=%@&password=%@",forumId, threadId, username, password]];
-        ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
-        NSString *message = _textView.text;
-        [request setPostValue:message forKey:@"message"];
-        [request setPostValue:@"1" forKey:@"postreply"];
-        
-        request.delegate = self;
-        [request startAsynchronous];
-        
-    } else {
-        NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/postedit.json.php?username=%@&password=%@&post_id=%@", username, password, [postValues objectForKey:@"post_id"]];
+
+        NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/message.json.php?username=%@&password=%@&msg_send=0", username, password];
         NSURL* url = [NSURL URLWithString:urlString];
         ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
         NSString *message = _textView.text;
         [request setPostValue:message forKey:@"message"];
-        [request setPostValue:@"1" forKey:@"savechanges"];
+        [request setPostValue:[messageData objectForKey:@"user_id"] forKey:@"msg_send"];
         [request setDelegate:self];
-//        [request setCompletionBlock:^{
-////            NSLog(@"yeah, klappte");
-////            NSLog(@"response String: %@",request.responseString);
-//        }];
-//        
-//        [request setFailedBlock:^{
-////            NSLog(@"oh noes, klappte nicht");
-////            NSLog(@"error: %@",[[request error] localizedDescription]);
-//        }];
+        
         
         [request startAsynchronous];
-//        request.delegate = self;
-//        [request startAsynchronous];
-        
-    }
-//    NSError *error = [request error];
-//    if (!error) {
-//        NSString *respone_message = [request responseString];
-//    } else {
-//        
-//    }
-
-    
-//    NSString *respone_message = [request responseString];
-    
-//    NSLog(@"Status Message: %@", status_message);
-    
-
-    
+   
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
     // Use when fetching text data
     NSString *responseString = [request responseString];
-//    NSLog(@"Response: %@", request);
+    //    NSLog(@"Response: %@", request);
     
     NSDictionary *response = [responseString JSONValue];
-//    NSDictionary *response = nil;
-//    NSLog(@"Response Dict: %@", response);
-//    NSLog(@"Response String: %@", responseString);
+    //    NSDictionary *response = nil;
+    //    NSLog(@"Response Dict: %@", response);
+    //    NSLog(@"Response String: %@", responseString);
     if ([[response objectForKey:@"code"] compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
         AppDelegate *del = [[UIApplication sharedApplication] delegate];
         del.needsUpdatePost = true;
         NSUInteger *index = [self.navigationController.viewControllers indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-            if([obj isKindOfClass:[PostViewController class]]) {
+            if([obj isKindOfClass:[InboxMessagesViewController class]]) {
                 *stop = YES;
                 return YES;
             }
             return NO;
         }];
         
-        [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:index] animated:YES];
-//        [self.navigationController popViewControllerAnimated:YES];
+        [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:*index] animated:YES];
+        //        [self.navigationController popViewControllerAnimated:YES];
     }
     
     // Use when fetching binary data
-//    NSData *responseData = [request responseData];
+    //    NSData *responseData = [request responseData];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
     NSError *error = [request error];
-
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)dealloc {
-    [super dealloc];
-}
-- (void)viewDidUnload {
-    [super viewDidUnload];
-}
-
-
-
-
-#pragma mark UITextViewDelegate
-
-- (void)textViewDidChange:(UITextView *)textView {
-    // Change height of _tableView & messageInputBar to match textView's content height.
-    CGFloat textViewContentHeight = textView.contentSize.height;
-    CGFloat changeInHeight = textViewContentHeight - _previousTextViewContentHeight;
-    //    NSLog(@"textViewContentHeight: %f", textViewContentHeight);
     
-    if (textViewContentHeight+changeInHeight > kChatBarHeight4+2) {
-        changeInHeight = kChatBarHeight4+2-_previousTextViewContentHeight;
-    }
-    
-    if (changeInHeight) {
-        [UIView animateWithDuration:0.2 animations:^{
-            UIView *messageInputBar = _textView.superview;
-            messageInputBar.frame = CGRectMake(0, messageInputBar.frame.origin.y-changeInHeight, messageInputBar.frame.size.width, messageInputBar.frame.size.height+changeInHeight);
-        } completion:^(BOOL finished) {
-            [_textView updateShouldDrawPlaceholder];
-        }];
-        _previousTextViewContentHeight = MIN(textViewContentHeight, kChatBarHeight4+2);
-    }
-    
-    // Enable/disable sendButton if textView.text has/lacks length.
-    if ([textView.text length]) {
-        _sendButton.enabled = YES;
-        _sendButton.titleLabel.alpha = 1;
-    } else {
-        _sendButton.enabled = NO;
-        _sendButton.titleLabel.alpha = 0.5f; // Sam S. says 0.4f
-    }
 }
+
+
 @end

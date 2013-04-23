@@ -20,4 +20,6 @@
 @property (nonatomic, strong) IBOutlet UILabel *subjectLabel;
 @property (nonatomic, strong) NSDictionary *message;
 
+-(IBAction)replyToMessage:(id)sender;
+
 @end
