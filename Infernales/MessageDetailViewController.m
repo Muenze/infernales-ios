@@ -53,7 +53,11 @@
 }
 
 -(IBAction)replyToMessage:(id)sender {
-        
+    MessageFormViewController *mfvc = [[MessageFormViewController alloc] initWithNibName:@"MessageFormViewController" bundle:[NSBundle mainBundle]];
+    mfvc.messageData = message;
+    
+    [self.navigationController pushViewController:mfvc animated:YES];
+    [mfvc release];
 }
 
 

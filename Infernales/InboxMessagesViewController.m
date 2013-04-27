@@ -49,7 +49,7 @@
     [self fetchMessages];
     
     
-    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:self.editButtonItem, nil];
+//    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:self.editButtonItem, nil];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

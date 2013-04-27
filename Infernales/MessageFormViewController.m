@@ -140,11 +140,12 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"passwort"];
 
-        NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/message.json.php?username=%@&password=%@&msg_send=0", username, password];
+        NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/messages.json.php?username=%@&password=%@&msg_send=0", username, password];
         NSURL* url = [NSURL URLWithString:urlString];
         ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
         NSString *message = _textView.text;
         [request setPostValue:message forKey:@"message"];
+        [request setPostValue:@"1" forKey:@"send_message"];
         [request setPostValue:[messageData objectForKey:@"user_id"] forKey:@"msg_send"];
         [request setDelegate:self];
         
@@ -162,19 +163,18 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     NSDictionary *response = [responseString JSONValue];
     //    NSDictionary *response = nil;
     //    NSLog(@"Response Dict: %@", response);
-    //    NSLog(@"Response String: %@", responseString);
+    NSLog(@"Response String: %@", responseString);
     if ([[response objectForKey:@"code"] compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
         AppDelegate *del = [[UIApplication sharedApplication] delegate];
         del.needsUpdatePost = true;
-        NSUInteger *index = [self.navigationController.viewControllers indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+        NSUInteger index = [self.navigationController.viewControllers indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
             if([obj isKindOfClass:[InboxMessagesViewController class]]) {
                 *stop = YES;
                 return YES;
             }
             return NO;
         }];
-        
-        [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:*index] animated:YES];
+        [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:index] animated:YES];
         //        [self.navigationController popViewControllerAnimated:YES];
     }
     
@@ -186,6 +186,38 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
 {
     NSError *error = [request error];
     
+}
+
+#pragma mark UITextViewDelegate
+
+- (void)textViewDidChange:(UITextView *)textView {
+    // Change height of _tableView & messageInputBar to match textView's content height.
+    CGFloat textViewContentHeight = textView.contentSize.height;
+    CGFloat changeInHeight = textViewContentHeight - _previousTextViewContentHeight;
+    //    NSLog(@"textViewContentHeight: %f", textViewContentHeight);
+    
+    if (textViewContentHeight+changeInHeight > kChatBarHeight4+2) {
+        changeInHeight = kChatBarHeight4+2-_previousTextViewContentHeight;
+    }
+    
+    if (changeInHeight) {
+        [UIView animateWithDuration:0.2 animations:^{
+            UIView *messageInputBar = _textView.superview;
+            messageInputBar.frame = CGRectMake(0, messageInputBar.frame.origin.y-changeInHeight, messageInputBar.frame.size.width, messageInputBar.frame.size.height+changeInHeight);
+        } completion:^(BOOL finished) {
+            [_textView updateShouldDrawPlaceholder];
+        }];
+        _previousTextViewContentHeight = MIN(textViewContentHeight, kChatBarHeight4+2);
+    }
+    
+    // Enable/disable sendButton if textView.text has/lacks length.
+    if ([textView.text length]) {
+        _sendButton.enabled = YES;
+        _sendButton.titleLabel.alpha = 1;
+    } else {
+        _sendButton.enabled = NO;
+        _sendButton.titleLabel.alpha = 0.5f; // Sam S. says 0.4f
+    }
 }
 
 

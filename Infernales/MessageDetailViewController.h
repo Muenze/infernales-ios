@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MessageFormViewController.h"
 
 @interface MessageDetailViewController : UIViewController {
     IBOutlet UILabel *authorLabel;
