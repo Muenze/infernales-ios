@@ -12,7 +12,7 @@
 #import "NewsViewController.h"
 #import "NSString+MD5.h"
 #import "ShoutboxViewController.h"
-#import "InboxMessagesViewController.h"
+#import "MessagesViewController.h"
 
 
 @interface ChoiceViewController : UITableViewController {

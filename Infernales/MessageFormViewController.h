@@ -12,7 +12,7 @@
 #import "ACPlaceholderTextView.h"
 #import "JSON.h"
 #import "AppDelegate.h"
-#import "InboxMessagesViewController.h"
+#import "MessagesViewController.h"
 
 @interface MessageFormViewController : UIViewController {
     IBOutlet UITextView *formText;

@@ -168,7 +168,7 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
         AppDelegate *del = [[UIApplication sharedApplication] delegate];
         del.needsUpdatePost = true;
         NSUInteger index = [self.navigationController.viewControllers indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-            if([obj isKindOfClass:[InboxMessagesViewController class]]) {
+            if([obj isKindOfClass:[MessagesViewController class]]) {
                 *stop = YES;
                 return YES;
             }

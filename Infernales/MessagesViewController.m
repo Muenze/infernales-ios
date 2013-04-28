@@ -6,15 +6,20 @@
 //
 //
 
-#import "InboxMessagesViewController.h"
+#import "MessagesViewController.h"
 
-@interface InboxMessagesViewController ()
+@interface MessagesViewController ()
 
 @end
 
-@implementation InboxMessagesViewController
+@implementation MessagesViewController
 
 @synthesize dict;
+@synthesize tableView = _tableView;
+@synthesize folder = _folder;
+@synthesize btnInbox = _btnInbox;
+@synthesize btnOutbox = _btnOutbox;
+@synthesize btnTrash = _btnTrash;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -30,12 +35,12 @@
     NSString *username = [defaults objectForKey:@"username"];
     NSString *password = [defaults objectForKey:@"passwort"];
     
-    NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/messages.json.php?username=%@&password=%@", username, password];
+    NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/messages.json.php?username=%@&password=%@&folder=%@", username, password, _folder];
     NSURL *url = [NSURL URLWithString:urlString];
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
     [request setCompletionBlock:^{
         self.dict = [[request responseString] JSONValue];
-        [self.view reloadData];
+        [self.tableView reloadData];
     }];
     [request setFailedBlock:^{
         NSLog(@"Failed for reason: %@", [[request error] localizedDescription]);
@@ -47,6 +52,9 @@
 {
     [super viewDidLoad];
     [self fetchMessages];
+    [_btnInbox setEnabled:NO];
+    self.title = @"Posteingang";
+    self.navigationItem.rightBarButtonItem = [self getNewButton];
     
     
 //    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:self.editButtonItem, nil];
@@ -207,6 +215,66 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:dvc animated:YES];
      [dvc release];
+}
+
+
+- (void)dealloc {
+    [_btnInbox release];
+    [_btnOutbox release];
+    [_btnTrash release];
+    [super dealloc];
+}
+- (void)viewDidUnload {
+    [self setBtnInbox:nil];
+    [self setBtnOutbox:nil];
+    [self setBtnTrash:nil];
+    [super viewDidUnload];
+}
+
+-(UIBarButtonItem *)getNewButton {
+    UIBarButtonItem *button = [[[UIBarButtonItem alloc] initWithTitle:@"Neu" style:UIBarButtonSystemItemAdd target:self action:@selector(clickNewButton:)] autorelease];
+    return button;
+}
+
+-(IBAction)clickNewButton:(id)sender {
+    MessageNewViewController *mnvc = [[MessageNewViewController alloc] initWithNibName:@"MessageNewViewController" bundle:nil];
+    [self.navigationController pushViewController:mnvc animated:YES];
+    [mnvc release];
+}
+
+
+#pragma mark - Button Action Code
+- (IBAction)pressInbox:(id)sender {
+    [_btnInbox setEnabled:NO];
+    [_btnOutbox setEnabled:YES];
+    [_btnTrash setEnabled:YES];
+    self.title = @"Posteingang";
+    self.navigationItem.rightBarButtonItem = [self getNewButton];
+    
+    _folder = @"inbox";
+    [self fetchMessages];
+}
+
+- (IBAction)pressOutbox:(id)sender {
+    [_btnInbox setEnabled:YES];
+    [_btnOutbox setEnabled:NO];
+    [_btnTrash setEnabled:YES];
+    self.title = @"Postausgang";
+    self.navigationItem.rightBarButtonItem = nil;
+    
+    _folder = @"outbox";
+    [self fetchMessages];
+}
+
+- (IBAction)pressTrash:(id)sender {
+    [_btnInbox setEnabled:YES];
+    [_btnOutbox setEnabled:YES];
+    [_btnTrash setEnabled:NO];
+    self.title = @"Papierkorb";
+    self.navigationItem.rightBarButtonItem = nil;
+    
+    _folder = @"trash";
+    [self fetchMessages];
 }
 
 @end

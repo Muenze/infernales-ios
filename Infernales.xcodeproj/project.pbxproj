@@ -73,6 +73,8 @@
 		CB9D836216E375FC0047B1F2 /* NSString+HtmlEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9D836116E375FC0047B1F2 /* NSString+HtmlEntities.m */; };
 		CB9D836516E38E7D0047B1F2 /* ThreadViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9D836416E38E7D0047B1F2 /* ThreadViewCell.m */; };
 		CB9D836716E390090047B1F2 /* ThreadViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB9D836616E390090047B1F2 /* ThreadViewCell.xib */; };
+		CBAB310E172DA56A00E79810 /* MessageNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAB310C172DA56A00E79810 /* MessageNewViewController.m */; };
+		CBAB310F172DA56A00E79810 /* MessageNewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBAB310D172DA56A00E79810 /* MessageNewViewController.xib */; };
 		CBAFD2D616EA7D21002D4BE8 /* PostViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAFD2D516EA7D21002D4BE8 /* PostViewCell.m */; };
 		CBAFD2D816EA7D36002D4BE8 /* PostViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBAFD2D716EA7D36002D4BE8 /* PostViewCell.xib */; };
 		CBBD598815A4C9C9002BA33F /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBD598715A4C9C9002BA33F /* OrderedDictionary.m */; };
@@ -89,8 +91,8 @@
 		CBF161F515B350990030D2C2 /* ThreadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBF161F315B350990030D2C2 /* ThreadViewController.xib */; };
 		CBF60D3917078895004A67C8 /* ShoutboxViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF60D3817078895004A67C8 /* ShoutboxViewCell.m */; };
 		CBF60D3B170788AC004A67C8 /* ShoutboxViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBF60D3A170788AC004A67C8 /* ShoutboxViewCell.xib */; };
-		CBF7C2C31718B06300F1761B /* InboxMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7C2C11718B06300F1761B /* InboxMessagesViewController.m */; };
-		CBF7C2C41718B06300F1761B /* InboxMessagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBF7C2C21718B06300F1761B /* InboxMessagesViewController.xib */; };
+		CBF7C2C31718B06300F1761B /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7C2C11718B06300F1761B /* MessagesViewController.m */; };
+		CBF7C2C41718B06300F1761B /* MessagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBF7C2C21718B06300F1761B /* MessagesViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -200,6 +202,9 @@
 		CB9D836316E38E7D0047B1F2 /* ThreadViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadViewCell.h; sourceTree = "<group>"; };
 		CB9D836416E38E7D0047B1F2 /* ThreadViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadViewCell.m; sourceTree = "<group>"; };
 		CB9D836616E390090047B1F2 /* ThreadViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreadViewCell.xib; sourceTree = "<group>"; };
+		CBAB310B172DA56A00E79810 /* MessageNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageNewViewController.h; sourceTree = "<group>"; };
+		CBAB310C172DA56A00E79810 /* MessageNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageNewViewController.m; sourceTree = "<group>"; };
+		CBAB310D172DA56A00E79810 /* MessageNewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageNewViewController.xib; sourceTree = "<group>"; };
 		CBAFD2D416EA7D21002D4BE8 /* PostViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewCell.h; sourceTree = "<group>"; };
 		CBAFD2D516EA7D21002D4BE8 /* PostViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewCell.m; sourceTree = "<group>"; };
 		CBAFD2D716EA7D36002D4BE8 /* PostViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostViewCell.xib; sourceTree = "<group>"; };
@@ -224,9 +229,9 @@
 		CBF60D3717078895004A67C8 /* ShoutboxViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoutboxViewCell.h; sourceTree = "<group>"; };
 		CBF60D3817078895004A67C8 /* ShoutboxViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoutboxViewCell.m; sourceTree = "<group>"; };
 		CBF60D3A170788AC004A67C8 /* ShoutboxViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoutboxViewCell.xib; sourceTree = "<group>"; };
-		CBF7C2C01718B06300F1761B /* InboxMessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InboxMessagesViewController.h; sourceTree = "<group>"; };
-		CBF7C2C11718B06300F1761B /* InboxMessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InboxMessagesViewController.m; sourceTree = "<group>"; };
-		CBF7C2C21718B06300F1761B /* InboxMessagesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InboxMessagesViewController.xib; sourceTree = "<group>"; };
+		CBF7C2C01718B06300F1761B /* MessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesViewController.h; sourceTree = "<group>"; };
+		CBF7C2C11718B06300F1761B /* MessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesViewController.m; sourceTree = "<group>"; };
+		CBF7C2C21718B06300F1761B /* MessagesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessagesViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,8 +362,8 @@
 				CBD0273F1708A95A00EC67D3 /* ShoutboxDetailViewController.m */,
 				CBD027431708B05A00EC67D3 /* ShoutboxFormViewController.h */,
 				CBD027441708B05A00EC67D3 /* ShoutboxFormViewController.m */,
-				CBF7C2C01718B06300F1761B /* InboxMessagesViewController.h */,
-				CBF7C2C11718B06300F1761B /* InboxMessagesViewController.m */,
+				CBF7C2C01718B06300F1761B /* MessagesViewController.h */,
+				CBF7C2C11718B06300F1761B /* MessagesViewController.m */,
 				CB21A91016F11F5F00BD3735 /* PostdetailViewController.h */,
 				CB21A91116F11F5F00BD3735 /* PostdetailViewController.m */,
 				CB91035C16FBA2DC00DA7E07 /* PostFormViewController.h */,
@@ -383,6 +388,8 @@
 				CB36CB81171968A600AF44B4 /* MessageDetailViewController.m */,
 				CB5E85D417270C3D007CEDA0 /* MessageFormViewController.h */,
 				CB5E85D517270C3D007CEDA0 /* MessageFormViewController.m */,
+				CBAB310B172DA56A00E79810 /* MessageNewViewController.h */,
+				CBAB310C172DA56A00E79810 /* MessageNewViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -444,8 +451,9 @@
 		CB91036216FBA32E00DA7E07 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				CBAB310D172DA56A00E79810 /* MessageNewViewController.xib */,
 				CB5E85D617270C3D007CEDA0 /* MessageFormViewController.xib */,
-				CBF7C2C21718B06300F1761B /* InboxMessagesViewController.xib */,
+				CBF7C2C21718B06300F1761B /* MessagesViewController.xib */,
 				CB36CB82171968A600AF44B4 /* MessageDetailViewController.xib */,
 				CB36CB791719657C00AF44B4 /* MessageViewCell.xib */,
 				CBD027451708B05A00EC67D3 /* ShoutboxFormViewController.xib */,
@@ -562,10 +570,11 @@
 				CBD0273D17085E7000EC67D3 /* ThreadFormViewController.xib in Resources */,
 				CBD027421708A95A00EC67D3 /* ShoutboxDetailViewController.xib in Resources */,
 				CBD027471708B05B00EC67D3 /* ShoutboxFormViewController.xib in Resources */,
-				CBF7C2C41718B06300F1761B /* InboxMessagesViewController.xib in Resources */,
+				CBF7C2C41718B06300F1761B /* MessagesViewController.xib in Resources */,
 				CB36CB7A1719657C00AF44B4 /* MessageViewCell.xib in Resources */,
 				CB36CB84171968A600AF44B4 /* MessageDetailViewController.xib in Resources */,
 				CB5E85D817270C3D007CEDA0 /* MessageFormViewController.xib in Resources */,
+				CBAB310F172DA56A00E79810 /* MessageNewViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,10 +624,11 @@
 				CBD027411708A95A00EC67D3 /* ShoutboxDetailViewController.m in Sources */,
 				CBD027461708B05B00EC67D3 /* ShoutboxFormViewController.m in Sources */,
 				CB8903CD170F61390036EEDE /* MBProgressHUD.m in Sources */,
-				CBF7C2C31718B06300F1761B /* InboxMessagesViewController.m in Sources */,
+				CBF7C2C31718B06300F1761B /* MessagesViewController.m in Sources */,
 				CB36CB781719656500AF44B4 /* MessageViewCell.m in Sources */,
 				CB36CB83171968A600AF44B4 /* MessageDetailViewController.m in Sources */,
 				CB5E85D717270C3D007CEDA0 /* MessageFormViewController.m in Sources */,
+				CBAB310E172DA56A00E79810 /* MessageNewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

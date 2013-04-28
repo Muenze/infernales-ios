@@ -181,7 +181,8 @@
         [sbvc release];
     }
     else if (indexPath.row == 2 && indexPath.section == 0) {
-        InboxMessagesViewController *ibc = [[InboxMessagesViewController alloc] initWithStyle:UITableViewStylePlain];
+        MessagesViewController *ibc = [[MessagesViewController alloc] initWithNibName:@"MessagesViewController" bundle:nil];
+        ibc.folder = @"inbox";
         [self.navigationController pushViewController:ibc animated:YES];
         [ibc release];
     }
