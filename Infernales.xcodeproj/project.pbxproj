@@ -73,6 +73,7 @@
 		CB9D836216E375FC0047B1F2 /* NSString+HtmlEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9D836116E375FC0047B1F2 /* NSString+HtmlEntities.m */; };
 		CB9D836516E38E7D0047B1F2 /* ThreadViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9D836416E38E7D0047B1F2 /* ThreadViewCell.m */; };
 		CB9D836716E390090047B1F2 /* ThreadViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB9D836616E390090047B1F2 /* ThreadViewCell.xib */; };
+		CB9F1742172F0B5D002965F9 /* UIDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9F1741172F0B5D002965F9 /* UIDropDownMenu.m */; };
 		CBAB310E172DA56A00E79810 /* MessageNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAB310C172DA56A00E79810 /* MessageNewViewController.m */; };
 		CBAB310F172DA56A00E79810 /* MessageNewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBAB310D172DA56A00E79810 /* MessageNewViewController.xib */; };
 		CBAFD2D616EA7D21002D4BE8 /* PostViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAFD2D516EA7D21002D4BE8 /* PostViewCell.m */; };
@@ -202,6 +203,8 @@
 		CB9D836316E38E7D0047B1F2 /* ThreadViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadViewCell.h; sourceTree = "<group>"; };
 		CB9D836416E38E7D0047B1F2 /* ThreadViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadViewCell.m; sourceTree = "<group>"; };
 		CB9D836616E390090047B1F2 /* ThreadViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreadViewCell.xib; sourceTree = "<group>"; };
+		CB9F1740172F0B5D002965F9 /* UIDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDropDownMenu.h; sourceTree = "<group>"; };
+		CB9F1741172F0B5D002965F9 /* UIDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDropDownMenu.m; sourceTree = "<group>"; };
 		CBAB310B172DA56A00E79810 /* MessageNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageNewViewController.h; sourceTree = "<group>"; };
 		CBAB310C172DA56A00E79810 /* MessageNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageNewViewController.m; sourceTree = "<group>"; };
 		CBAB310D172DA56A00E79810 /* MessageNewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageNewViewController.xib; sourceTree = "<group>"; };
@@ -478,6 +481,8 @@
 		CB91036316FBA34100DA7E07 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				CB9F1740172F0B5D002965F9 /* UIDropDownMenu.h */,
+				CB9F1741172F0B5D002965F9 /* UIDropDownMenu.m */,
 				CB1FB41E16FCF965003636BA /* ACPlaceholderTextView.h */,
 				CB1FB41F16FCF965003636BA /* ACPlaceholderTextView.m */,
 				CB9D836016E375FC0047B1F2 /* NSString+HtmlEntities.h */,
@@ -629,6 +634,7 @@
 				CB36CB83171968A600AF44B4 /* MessageDetailViewController.m in Sources */,
 				CB5E85D717270C3D007CEDA0 /* MessageFormViewController.m in Sources */,
 				CBAB310E172DA56A00E79810 /* MessageNewViewController.m in Sources */,
+				CB9F1742172F0B5D002965F9 /* UIDropDownMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
