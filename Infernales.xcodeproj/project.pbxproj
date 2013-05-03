@@ -62,6 +62,8 @@
 		CB44E2E116F9046D0050DA9C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CB44E2E016F9046D0050DA9C /* libz.dylib */; };
 		CB5E85D717270C3D007CEDA0 /* MessageFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5E85D517270C3D007CEDA0 /* MessageFormViewController.m */; };
 		CB5E85D817270C3D007CEDA0 /* MessageFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB5E85D617270C3D007CEDA0 /* MessageFormViewController.xib */; };
+		CB801351173440FC00CBDEEE /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB801350173440FC00CBDEEE /* splash@2x.png */; };
+		CB801353173440FF00CBDEEE /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = CB801352173440FF00CBDEEE /* splash.png */; };
 		CB87B5CD16ED0BFC0022355F /* infernales.png in Resources */ = {isa = PBXBuildFile; fileRef = CB87B5CC16ED0BFC0022355F /* infernales.png */; };
 		CB87B5CF16ED0C0E0022355F /* infernales.png in Resources */ = {isa = PBXBuildFile; fileRef = CB87B5CE16ED0C0E0022355F /* infernales.png */; };
 		CB8903CD170F61390036EEDE /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8903CC170F61390036EEDE /* MBProgressHUD.m */; };
@@ -187,6 +189,8 @@
 		CB5E85D417270C3D007CEDA0 /* MessageFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageFormViewController.h; sourceTree = "<group>"; };
 		CB5E85D517270C3D007CEDA0 /* MessageFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageFormViewController.m; sourceTree = "<group>"; };
 		CB5E85D617270C3D007CEDA0 /* MessageFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageFormViewController.xib; sourceTree = "<group>"; };
+		CB801350173440FC00CBDEEE /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@2x.png"; sourceTree = "<group>"; };
+		CB801352173440FF00CBDEEE /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		CB87B5CC16ED0BFC0022355F /* infernales.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infernales.png; sourceTree = "<group>"; };
 		CB87B5CE16ED0C0E0022355F /* infernales.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = infernales.png; path = ../infernales.png; sourceTree = "<group>"; };
 		CB8903CB170F61390036EEDE /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -339,6 +343,8 @@
 				CB1FB43316FCFD92003636BA /* SendButtonHighlighted.png */,
 				CB1FB43416FCFD92003636BA /* SendButtonHighlighted@2x.png */,
 				CB1FB42F16FCFD8C003636BA /* SendButton.png */,
+				CB801350173440FC00CBDEEE /* splash@2x.png */,
+				CB801352173440FF00CBDEEE /* splash.png */,
 				CB1FB43016FCFD8C003636BA /* SendButton@2x.png */,
 				CB1FB42B16FCFD84003636BA /* MessageInputFieldBackground.png */,
 				CB1FB42C16FCFD84003636BA /* MessageInputFieldBackground@2x.png */,
@@ -580,6 +586,8 @@
 				CB36CB84171968A600AF44B4 /* MessageDetailViewController.xib in Resources */,
 				CB5E85D817270C3D007CEDA0 /* MessageFormViewController.xib in Resources */,
 				CBAB310F172DA56A00E79810 /* MessageNewViewController.xib in Resources */,
+				CB801351173440FC00CBDEEE /* splash@2x.png in Resources */,
+				CB801353173440FF00CBDEEE /* splash.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
