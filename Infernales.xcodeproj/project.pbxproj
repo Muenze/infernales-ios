@@ -60,8 +60,6 @@
 		CB44E2DD16F9044C0050DA9C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB44E2DC16F9044C0050DA9C /* SystemConfiguration.framework */; };
 		CB44E2DF16F904560050DA9C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB44E2DE16F904560050DA9C /* MobileCoreServices.framework */; };
 		CB44E2E116F9046D0050DA9C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CB44E2E016F9046D0050DA9C /* libz.dylib */; };
-		CB5E85D717270C3D007CEDA0 /* MessageFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5E85D517270C3D007CEDA0 /* MessageFormViewController.m */; };
-		CB5E85D817270C3D007CEDA0 /* MessageFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB5E85D617270C3D007CEDA0 /* MessageFormViewController.xib */; };
 		CB801351173440FC00CBDEEE /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB801350173440FC00CBDEEE /* splash@2x.png */; };
 		CB801353173440FF00CBDEEE /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = CB801352173440FF00CBDEEE /* splash.png */; };
 		CB87B5CD16ED0BFC0022355F /* infernales.png in Resources */ = {isa = PBXBuildFile; fileRef = CB87B5CC16ED0BFC0022355F /* infernales.png */; };
@@ -78,6 +76,8 @@
 		CB9F1742172F0B5D002965F9 /* UIDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9F1741172F0B5D002965F9 /* UIDropDownMenu.m */; };
 		CBAB310E172DA56A00E79810 /* MessageNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAB310C172DA56A00E79810 /* MessageNewViewController.m */; };
 		CBAB310F172DA56A00E79810 /* MessageNewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBAB310D172DA56A00E79810 /* MessageNewViewController.xib */; };
+		CBAD4910173D872600EC8365 /* MessageFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAD490E173D872600EC8365 /* MessageFormViewController.m */; };
+		CBAD4911173D872600EC8365 /* MessageFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBAD490F173D872600EC8365 /* MessageFormViewController.xib */; };
 		CBAFD2D616EA7D21002D4BE8 /* PostViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAFD2D516EA7D21002D4BE8 /* PostViewCell.m */; };
 		CBAFD2D816EA7D36002D4BE8 /* PostViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBAFD2D716EA7D36002D4BE8 /* PostViewCell.xib */; };
 		CBBD598815A4C9C9002BA33F /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBD598715A4C9C9002BA33F /* OrderedDictionary.m */; };
@@ -186,9 +186,6 @@
 		CB44E2DC16F9044C0050DA9C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CB44E2DE16F904560050DA9C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CB44E2E016F9046D0050DA9C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		CB5E85D417270C3D007CEDA0 /* MessageFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageFormViewController.h; sourceTree = "<group>"; };
-		CB5E85D517270C3D007CEDA0 /* MessageFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageFormViewController.m; sourceTree = "<group>"; };
-		CB5E85D617270C3D007CEDA0 /* MessageFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageFormViewController.xib; sourceTree = "<group>"; };
 		CB801350173440FC00CBDEEE /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@2x.png"; sourceTree = "<group>"; };
 		CB801352173440FF00CBDEEE /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		CB87B5CC16ED0BFC0022355F /* infernales.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infernales.png; sourceTree = "<group>"; };
@@ -212,6 +209,9 @@
 		CBAB310B172DA56A00E79810 /* MessageNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageNewViewController.h; sourceTree = "<group>"; };
 		CBAB310C172DA56A00E79810 /* MessageNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageNewViewController.m; sourceTree = "<group>"; };
 		CBAB310D172DA56A00E79810 /* MessageNewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageNewViewController.xib; sourceTree = "<group>"; };
+		CBAD490D173D872600EC8365 /* MessageFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageFormViewController.h; sourceTree = "<group>"; };
+		CBAD490E173D872600EC8365 /* MessageFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageFormViewController.m; sourceTree = "<group>"; };
+		CBAD490F173D872600EC8365 /* MessageFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageFormViewController.xib; sourceTree = "<group>"; };
 		CBAFD2D416EA7D21002D4BE8 /* PostViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewCell.h; sourceTree = "<group>"; };
 		CBAFD2D516EA7D21002D4BE8 /* PostViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewCell.m; sourceTree = "<group>"; };
 		CBAFD2D716EA7D36002D4BE8 /* PostViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostViewCell.xib; sourceTree = "<group>"; };
@@ -395,10 +395,10 @@
 				07EEC85B1587CCC2006A7F37 /* SettingsViewController.m */,
 				CB36CB80171968A600AF44B4 /* MessageDetailViewController.h */,
 				CB36CB81171968A600AF44B4 /* MessageDetailViewController.m */,
-				CB5E85D417270C3D007CEDA0 /* MessageFormViewController.h */,
-				CB5E85D517270C3D007CEDA0 /* MessageFormViewController.m */,
 				CBAB310B172DA56A00E79810 /* MessageNewViewController.h */,
 				CBAB310C172DA56A00E79810 /* MessageNewViewController.m */,
+				CBAD490D173D872600EC8365 /* MessageFormViewController.h */,
+				CBAD490E173D872600EC8365 /* MessageFormViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -460,8 +460,8 @@
 		CB91036216FBA32E00DA7E07 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				CBAD490F173D872600EC8365 /* MessageFormViewController.xib */,
 				CBAB310D172DA56A00E79810 /* MessageNewViewController.xib */,
-				CB5E85D617270C3D007CEDA0 /* MessageFormViewController.xib */,
 				CBF7C2C21718B06300F1761B /* MessagesViewController.xib */,
 				CB36CB82171968A600AF44B4 /* MessageDetailViewController.xib */,
 				CB36CB791719657C00AF44B4 /* MessageViewCell.xib */,
@@ -584,10 +584,10 @@
 				CBF7C2C41718B06300F1761B /* MessagesViewController.xib in Resources */,
 				CB36CB7A1719657C00AF44B4 /* MessageViewCell.xib in Resources */,
 				CB36CB84171968A600AF44B4 /* MessageDetailViewController.xib in Resources */,
-				CB5E85D817270C3D007CEDA0 /* MessageFormViewController.xib in Resources */,
 				CBAB310F172DA56A00E79810 /* MessageNewViewController.xib in Resources */,
 				CB801351173440FC00CBDEEE /* splash@2x.png in Resources */,
 				CB801353173440FF00CBDEEE /* splash.png in Resources */,
+				CBAD4911173D872600EC8365 /* MessageFormViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,9 +640,9 @@
 				CBF7C2C31718B06300F1761B /* MessagesViewController.m in Sources */,
 				CB36CB781719656500AF44B4 /* MessageViewCell.m in Sources */,
 				CB36CB83171968A600AF44B4 /* MessageDetailViewController.m in Sources */,
-				CB5E85D717270C3D007CEDA0 /* MessageFormViewController.m in Sources */,
 				CBAB310E172DA56A00E79810 /* MessageNewViewController.m in Sources */,
 				CB9F1742172F0B5D002965F9 /* UIDropDownMenu.m in Sources */,
+				CBAD4910173D872600EC8365 /* MessageFormViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,9 +731,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Infernales/Infernales-Prefix.pch";
 				INFOPLIST_FILE = "Infernales/Infernales-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -745,9 +746,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Infernales/Infernales-Prefix.pch";
 				INFOPLIST_FILE = "Infernales/Infernales-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
