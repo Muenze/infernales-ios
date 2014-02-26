@@ -7,20 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuickDialog/QuickDialog.h>
 
-@interface SettingsViewController : UIViewController {
-    UILabel *usernameLabel;
-    UITextField *username;
-    UILabel *passwortLabel;
-    UITextField *passwort;
+// @interface SettingsViewController : UIViewController {
+@interface SettingsViewController : QuickDialogController {
 }
-
-@property (nonatomic, retain) IBOutlet UILabel *usernameLabel;
-@property (nonatomic, retain) IBOutlet UITextField *username;
-@property (nonatomic, retain) IBOutlet UILabel *passwortLabel;
-@property (nonatomic, retain) IBOutlet UITextField *passwort;
 
 
 -(IBAction)saveSettings:(id)sender;
+-(void)buildNavigationButton;
+-(void)buildQuickDialog;
 
 @end

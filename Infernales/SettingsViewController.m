@@ -14,13 +14,14 @@
 
 @implementation SettingsViewController
 
-@synthesize username, usernameLabel, passwort, passwortLabel;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        QRootElement *_root = [[QRootElement alloc] init];
+        _root.grouped = YES;
+        self.root = _root;
     }
     return self;
 }
@@ -28,32 +29,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"save" style:UIBarButtonSystemItemSave target:self action:@selector(saveSettings:)];
-    self.navigationItem.rightBarButtonItem = button;
-    [button release];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    NSString *passwort_text = [defaults objectForKey:@"passwort"];
-    NSString *username_text = [defaults objectForKey:@"username"];
-    NSLog(@"%@", defaults);
-    if (passwort_text) {
-        self.passwort.text = passwort_text;
-    }
-    if(username_text) {
-        self.username.text = username_text;
-    }
+    [self buildNavigationButton];
+    [self buildQuickDialog];
     
     // Do any additional setup after loading the view from its nib.
 }
 
+
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    [usernameLabel release];
-    [username release];
-    [passwort release];
-    [passwortLabel release];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -64,12 +50,54 @@
 }
 
 - (IBAction)saveSettings:(id)sender {
+    NSMutableDictionary *fetchValues = [NSMutableDictionary new];
+    [self.root fetchValueIntoObject:fetchValues];
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:self.username.text forKey:@"username"];
-    [defaults setObject:self.passwort.text forKey:@"passwort"];
+    [defaults setObject:[fetchValues objectForKey:@"username"] forKey:@"username"];
+    if ([[fetchValues allKeys] containsObject:@"password"] ) {
+        [defaults setObject:[fetchValues objectForKey:@"password"] forKey:@"passwort"];
+    }
     [defaults synchronize];
     [self.navigationController popViewControllerAnimated:YES];
     
 }
 
+-(void)buildNavigationButton {
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"save" style:UIBarButtonSystemItemSave target:self action:@selector(saveSettings:)];
+    self.navigationItem.rightBarButtonItem = button;
+    
+}
+
+-(void)buildQuickDialog {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    QSection *sec1 = [[QSection alloc] initWithTitle:@"Benutzerdaten"];
+    
+    QEntryElement *benutzernameField = [[QEntryElement alloc]
+                                        initWithTitle:@"Benutzername"
+                                        Value:[userDefaults objectForKey:@"username"]
+                                        Placeholder:@"Login eingeben"];
+    benutzernameField.key = @"username";
+    
+    
+    QEntryElement *passwordField = [[QEntryElement alloc]
+                                    initWithTitle:@"Passwort"
+                                    Value:[userDefaults objectForKey:@"passwort"]];
+    passwordField.secureTextEntry = YES;
+    passwordField.key = @"password";
+    passwordField.value = [userDefaults objectForKey:@"passwort"];
+    
+    
+    QTextElement *textField = [[QTextElement alloc] initWithText:@"Für den Betrieb der App muss ein valider Forenbenutzer login von http://www.infernales.de eingegeben werden. Im Fehlerfall kann die App crashen"];
+    
+    
+    [sec1 addElement:benutzernameField];
+    [sec1 addElement:passwordField];
+    [sec1 addElement:textField];
+    [self.root addSection:sec1];
+}
+
 @end
+
+

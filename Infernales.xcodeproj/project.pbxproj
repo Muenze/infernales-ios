@@ -30,6 +30,7 @@
 		07F05FFB1586709B00380D63 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F05FFA1586709B00380D63 /* AppDelegate.m */; };
 		07F05FFE1586709B00380D63 /* Infernales.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 07F05FFC1586709B00380D63 /* Infernales.xcdatamodeld */; };
 		320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320AF8492C47A4D819F7C450 /* QuartzCore.framework */; };
+		47E3FA0189C648639A07CF03 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC6DF6937B8E46A286E6D1B3 /* libPods.a */; };
 		CB0AC9B5170234A1007C13B0 /* ShoutboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0AC9B3170234A1007C13B0 /* ShoutboxViewController.m */; };
 		CB0AC9B6170234A1007C13B0 /* ShoutboxViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB0AC9B4170234A1007C13B0 /* ShoutboxViewController.xib */; };
 		CB1FB42016FCF965003636BA /* ACPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1FB41F16FCF965003636BA /* ACPlaceholderTextView.m */; };
@@ -137,6 +138,7 @@
 		07F05FF91586709B00380D63 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		07F05FFA1586709B00380D63 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		07F05FFD1586709B00380D63 /* Infernales.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Infernales.xcdatamodel; sourceTree = "<group>"; };
+		2EB58509DE0943D3A73B3B90 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		320AF8492C47A4D819F7C450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.frameworks; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CB0AC9B2170234A1007C13B0 /* ShoutboxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoutboxViewController.h; sourceTree = "<group>"; };
 		CB0AC9B3170234A1007C13B0 /* ShoutboxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoutboxViewController.m; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 		CBF7C2C01718B06300F1761B /* MessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesViewController.h; sourceTree = "<group>"; };
 		CBF7C2C11718B06300F1761B /* MessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesViewController.m; sourceTree = "<group>"; };
 		CBF7C2C21718B06300F1761B /* MessagesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessagesViewController.xib; sourceTree = "<group>"; };
+		FC6DF6937B8E46A286E6D1B3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +258,7 @@
 				07F05FE91586709B00380D63 /* UIKit.framework in Frameworks */,
 				07F05FEB1586709B00380D63 /* Foundation.framework in Frameworks */,
 				07F05FEF1586709B00380D63 /* CoreData.framework in Frameworks */,
+				47E3FA0189C648639A07CF03 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +300,7 @@
 				07F05FF01586709B00380D63 /* Infernales */,
 				07F05FE71586709B00380D63 /* Frameworks */,
 				07F05FE51586709B00380D63 /* Products */,
+				2EB58509DE0943D3A73B3B90 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -319,6 +324,7 @@
 				07F05FEA1586709B00380D63 /* Foundation.framework */,
 				07F05FEC1586709B00380D63 /* CoreGraphics.framework */,
 				07F05FEE1586709B00380D63 /* CoreData.framework */,
+				FC6DF6937B8E46A286E6D1B3 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -510,9 +516,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07F060011586709B00380D63 /* Build configuration list for PBXNativeTarget "Infernales" */;
 			buildPhases = (
+				570B1F282E4942278A5B3D9E /* Check Pods Manifest.lock */,
 				07F05FE01586709B00380D63 /* Sources */,
 				07F05FE11586709B00380D63 /* Frameworks */,
 				07F05FE21586709B00380D63 /* Resources */,
+				37A1BF0EB13A4D42987BFC92 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -592,6 +600,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		37A1BF0EB13A4D42987BFC92 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		570B1F282E4942278A5B3D9E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		07F05FE01586709B00380D63 /* Sources */ = {
@@ -727,6 +768,7 @@
 		};
 		07F060021586709B00380D63 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2EB58509DE0943D3A73B3B90 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Infernales/Infernales-Prefix.pch";
@@ -742,6 +784,7 @@
 		};
 		07F060031586709B00380D63 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2EB58509DE0943D3A73B3B90 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Infernales/Infernales-Prefix.pch";
