@@ -60,7 +60,7 @@
 {
     [super viewDidLoad];
     
-    NSLog(@"%@",threadName);
+//    NSLog(@"%@",threadName);
     self.title = threadName;
     self.title = [self.title decodeHtmlEntities];
     
@@ -84,7 +84,7 @@
 }
 
 -(IBAction)postNewThread:(id)sender {
-    ThreadFormViewController *tfvc = [[ThreadFormViewController alloc] initWithNibName:@"ThreadFormViewController" bundle:nil];
+    ThreadFormViewController *tfvc = [[ThreadFormViewController alloc] init];
     tfvc.forum_id = self.forumId;
     [self.navigationController pushViewController:tfvc animated:YES];
     [tfvc release];

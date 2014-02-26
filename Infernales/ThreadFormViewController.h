@@ -10,17 +10,16 @@
 #import "ASIFormDataRequest.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ACPlaceholderTextView.h"
+#import <QuickDialog/QuickDialog.h>
 
-@interface ThreadFormViewController : UIViewController {
-    IBOutlet UITextField *subject;
-    IBOutlet ACPlaceholderTextView *message;
+@interface ThreadFormViewController : QuickDialogController {
     NSInteger *forum_id;
 }
 
-@property (nonatomic, retain) IBOutlet UITextField *subject;
-@property (nonatomic, retain) IBOutlet ACPlaceholderTextView *message;
 @property (nonatomic) NSInteger *forum_id;
 
 -(IBAction)pressSend:(id)sender;
+-(void)buildQuickDialog;
+-(void)buildNavigation;
 
 @end

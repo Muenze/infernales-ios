@@ -14,37 +14,29 @@
 
 @implementation ThreadFormViewController
 
-@synthesize subject, forum_id;
+@synthesize forum_id;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+-(id)init {
+    self = [super init];
     if (self) {
         // Custom initialization
-       
-        ACPlaceholderTextView *tv = [[ACPlaceholderTextView alloc] initWithFrame:CGRectMake(20.0f, 85.0f, 275.0f, 115.0f)];
-        tv.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-//        tv.delegate = self;
-        tv.backgroundColor = [UIColor colorWithWhite:245/255.0f alpha:1];
-        tv.scrollIndicatorInsets = UIEdgeInsetsMake(13, 0, 8, 6);
-        tv.scrollsToTop = NO;
-        tv.font = [UIFont systemFontOfSize:14];
-        tv.autocorrectionType = UITextAutocorrectionTypeNo;
-        tv.layer.borderColor = [[UIColor grayColor] CGColor];
-        tv.layer.borderWidth = 2;
-        [self.view addSubview:tv];
-        message = tv;
         
-        UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStylePlain target:self action:@selector(pressSend:)];
-        self.navigationItem.rightBarButtonItem = button;
-        [button release];
+        QRootElement *_root = [[QRootElement alloc] init];
+        _root.grouped = YES;
+        
+        self.root = _root;
     }
     return self;
+    
 }
 
 -(IBAction)pressSend:(id)sender {
-    NSString *message_string = message.text;
-    NSString *subject_string = subject.text;
+    
+    NSMutableDictionary *fetched = [NSMutableDictionary new];
+    [self.root fetchValueIntoObject:fetched];
+    
+    NSString *message_string = [fetched objectForKey:@"text"];
+    NSString *subject_string = [fetched objectForKey:@"title"];
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"passwort"];
     
@@ -94,12 +86,45 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self buildQuickDialog];
+    [self buildNavigation];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)buildQuickDialog {
+    QSection *sec = [[QSection alloc] initWithTitle:@"Neuen Thread anlegen"];
+    QEntryElement *title = [[QEntryElement alloc]
+                            initWithTitle:@"Titel"
+                            Value:@""
+                            Placeholder:@"Threadtitel eingeben"];
+    title.key = @"title";
+    [sec addElement:title];
+    
+    QMultilineElement *text = [[QMultilineElement alloc]
+                               initWithTitle:@"Text"
+                               Value:@""
+                               Placeholder:@"Hier klicken"];
+    text.key = @"text";
+    [sec addElement:text];
+    
+    
+    
+    [self.root addSection:sec];
+}
+
+-(void)buildNavigation {
+    UIBarButtonItem *button = [[UIBarButtonItem alloc]
+                               initWithTitle:@"Send"
+                               style:UIBarButtonItemStylePlain
+                               target:self
+                               action:@selector(pressSend:)];
+    self.navigationItem.rightBarButtonItem = button;
+
 }
 
 @end
