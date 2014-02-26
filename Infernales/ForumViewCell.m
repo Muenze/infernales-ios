@@ -10,7 +10,7 @@
 
 @implementation ForumViewCell
 
-@synthesize lastAutorLabel, mainLabel, newIndicator;
+@synthesize lastAutorLabel, mainLabel, neuIndicator;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

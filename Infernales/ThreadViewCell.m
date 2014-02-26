@@ -10,7 +10,7 @@
 
 @implementation ThreadViewCell
 
-@synthesize newImageView, threadNameLabel, threadShortDescription, stickyIndicator;
+@synthesize myImageView, threadNameLabel, threadShortDescription, stickyIndicator;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

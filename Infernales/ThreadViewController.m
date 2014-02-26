@@ -80,7 +80,8 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     self.threadData = [self loadThreadData];
-    [self.view reloadData];
+    UITableView *tableView = (UITableView *)self.view;
+    [tableView reloadData];
 }
 
 -(IBAction)postNewThread:(id)sender {

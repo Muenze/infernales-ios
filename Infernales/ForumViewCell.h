@@ -11,11 +11,11 @@
 @interface ForumViewCell : UITableViewCell {
     IBOutlet UILabel *mainLabel;
     IBOutlet UILabel *lastAutorLabel;
-    IBOutlet UIImageView *newIndicator;
+    IBOutlet UIImageView *neuIndicator;
 }
 
 @property (nonatomic, strong) IBOutlet UILabel *mainLabel;
 @property (nonatomic, strong) IBOutlet UILabel *lastAutorLabel;
-@property (nonatomic, strong) IBOutlet UIImageView *newIndicator;
+@property (nonatomic, strong) IBOutlet UIImageView *neuIndicator;
 
 @end
