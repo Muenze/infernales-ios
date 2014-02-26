@@ -76,8 +76,8 @@
 -(IBAction)postInForum:(id)sender {
     PostFormViewController *pfvc = [[PostFormViewController alloc] initWithNibName:@"PostFormViewController" bundle:nil];
     
-    pfvc.threadId = [postValues objectForKey:@"thread_id"];
-    pfvc.forumId = [postValues objectForKey:@"forum_id"];
+    pfvc.threadId = (NSInteger *)[postValues objectForKey:@"thread_id"];
+    pfvc.forumId = (NSInteger *)[postValues objectForKey:@"forum_id"];
 //    pfvc.formString = [[postValues objectForKey:@"post_message"] decodeHtmlEntities];
     
     [self.navigationController pushViewController:pfvc animated:YES];
@@ -87,8 +87,8 @@
 -(IBAction)editInForum:(id)sender {
     PostFormViewController *pfvc = [[PostFormViewController alloc] initWithNibName:@"PostFormViewController" bundle:nil];
     
-    pfvc.threadId = [postValues objectForKey:@"thread_id"];
-    pfvc.forumId = [postValues objectForKey:@"forum_id"];
+    pfvc.threadId = (NSInteger *)[postValues objectForKey:@"thread_id"];
+    pfvc.forumId = (NSInteger *)[postValues objectForKey:@"forum_id"];
     pfvc.formString = [[postValues objectForKey:@"post_message"] decodeHtmlEntities];
     pfvc.editMode = TRUE;
     pfvc.postValues = postValues;

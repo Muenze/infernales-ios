@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ACPlaceholderTextView.h"
 #import <QuickDialog/QuickDialog.h>
+#import "NSString+SBJSON.h"
 
 @interface ThreadFormViewController : QuickDialogController {
     NSInteger *forum_id;

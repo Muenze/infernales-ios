@@ -54,7 +54,8 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     self.shouts = [self loadShoutboxData];
-    [self.view reloadData];
+    UITableView *tableView = (UITableView *)self.view;
+    [tableView reloadData];
 }
 
 -(IBAction)pressShout:(id)sender {
