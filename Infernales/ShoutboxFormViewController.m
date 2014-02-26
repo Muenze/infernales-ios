@@ -19,6 +19,11 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        QRootElement *_root = [[QRootElement alloc] init];
+        _root.grouped = YES;
+        
+        self.root = _root;
+        
     }
     return self;
 }
@@ -27,22 +32,35 @@
 {
     [super viewDidLoad];
     
-    ACPlaceholderTextView *tv = [[ACPlaceholderTextView alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 275.0f, 160.0f)];
-    tv.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    //        tv.delegate = self;
-    tv.backgroundColor = [UIColor colorWithWhite:245/255.0f alpha:1];
-    tv.scrollIndicatorInsets = UIEdgeInsetsMake(13, 0, 8, 6);
-    tv.scrollsToTop = NO;
-    tv.font = [UIFont systemFontOfSize:14];
-    tv.autocorrectionType = UITextAutocorrectionTypeNo;
-    tv.layer.borderColor = [[UIColor grayColor] CGColor];
-    tv.layer.borderWidth = 2;
-    [self.view addSubview:tv];
-    message = tv;
+//    ACPlaceholderTextView *tv = [[ACPlaceholderTextView alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 275.0f, 160.0f)];
+//    tv.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+//    //        tv.delegate = self;
+//    tv.backgroundColor = [UIColor colorWithWhite:245/255.0f alpha:1];
+//    tv.scrollIndicatorInsets = UIEdgeInsetsMake(13, 0, 8, 6);
+//    tv.scrollsToTop = NO;
+//    tv.font = [UIFont systemFontOfSize:14];
+//    tv.autocorrectionType = UITextAutocorrectionTypeNo;
+//    tv.layer.borderColor = [[UIColor grayColor] CGColor];
+//    tv.layer.borderWidth = 2;
+//    [self.view addSubview:tv];
+//    message = tv;
+//
+    
+    QSection *sec = [[QSection alloc] init];
+    QMultilineElement *multi = [[QMultilineElement alloc]
+                                initWithTitle:@"Shout Text"
+                                Value:@""
+                                Placeholder:@"Hier klicken"];
+    multi.key = @"text";
+    [sec addElement:multi];
+    
+    [self.root addSection:sec];
+    
+    
     
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStylePlain target:self action:@selector(pressSend:)];
     self.navigationItem.rightBarButtonItem = button;
-    [button release];
+//    [button release];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -50,9 +68,12 @@
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"passwort"];
 
-    NSString *message_string = message.text;
-
+    NSMutableDictionary *fetched = [NSMutableDictionary new];
+    [self.root fetchValueIntoObject:fetched];
     
+    NSString *message_string = [fetched objectForKey:@"text"];
+//
+//    
     NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/shoutbox.json.php?username=%@&password=%@", username, password];
     NSURL *url = [NSURL URLWithString:urlString];
     ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];

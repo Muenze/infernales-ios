@@ -11,12 +11,10 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ACPlaceholderTextView.h"
 #import "ShoutboxViewController.h"
+#import <QuickDialog/QuickDialog.h>
 
-@interface ShoutboxFormViewController : UIViewController {
-    IBOutlet ACPlaceholderTextView *message;
+@interface ShoutboxFormViewController : QuickDialogController {
 }
-
-@property (nonatomic, retain) IBOutlet ACPlaceholderTextView *message;
 
 -(IBAction)pressSend:(id)sender;
 
