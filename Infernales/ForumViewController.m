@@ -132,7 +132,7 @@
     NSDecimalNumber *dec = [dic objectForKey:@"hasnew"];
     
     if([dec compare:[NSNumber numberWithInt:1]] == NSOrderedSame) {
-        cell.newIndicator.image = [UIImage imageNamed:@"foldernew.gif"];
+        cell.neuIndicator.image = [UIImage imageNamed:@"foldernew.gif"];
     }
 //    [dec release];
     

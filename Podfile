@@ -2,3 +2,5 @@
 platform :ios, "6.0"
 
 pod "QuickDialog", git: "https://github.com/escoz/QuickDialog.git"
+pod "ASIHTTPRequest"
+pod "AFNetworking"
