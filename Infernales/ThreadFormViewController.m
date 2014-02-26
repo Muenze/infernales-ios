@@ -58,8 +58,6 @@
     // Use when fetching text data
     NSString *responseString = [request responseString];
     
-    NSLog(@"response: %@",responseString);
-    
     NSDictionary *response = [responseString JSONValue];
     if ([[response objectForKey:@"code"] compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
 //        [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:index] animated:YES];
