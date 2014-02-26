@@ -42,6 +42,14 @@
             [self.navigationController popViewControllerAnimated:YES];
             
         }
+        
+        NSData *jsonData = [responseString dataUsingEncoding:NSUTF8StringEncoding];
+        
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:nil error:nil];
+        
+        NSLog(@"%@", dic);
+        
+        
         return [responseString JSONValue];
     } else {
         NSString *urlString = @"http://www.infernales.de/portal/forum/index.json.php";
