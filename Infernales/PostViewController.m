@@ -80,7 +80,7 @@
 
 
 -(IBAction)postInForum:(id)sender {
-    PostFormViewController *pfvc = [[PostFormViewController alloc] initWithNibName:@"PostFormViewController" bundle:nil];
+    PostFormViewController *pfvc = [[PostFormViewController alloc] init];
     pfvc.threadId = self.threadId;
     pfvc.forumId = self.forumId;
 

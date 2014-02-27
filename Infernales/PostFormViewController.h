@@ -8,30 +8,28 @@
 
 #import <UIKit/UIKit.h>
 #import "ASIFormDataRequest.h"
-#import "ACPlaceholderTextView.h"
 #import "JSON.h"
 #import "AppDelegate.h"
 #import "PostViewController.h"
+#import <QuickDialog/QuickDialog.h>
 
-@interface PostFormViewController : UIViewController {
-    IBOutlet UITextView *formText;
+@interface PostFormViewController : QuickDialogController {
     NSInteger* threadId;
     NSInteger* forumId;
-    ACPlaceholderTextView* textView;
     NSString *formString;
     bool editMode;
     NSDictionary *postValues;
 }
 
-@property (strong, nonatomic) ACPlaceholderTextView *textView;
 @property (strong, nonatomic) NSString *formString;
 @property (nonatomic) NSInteger* threadId;
 @property (nonatomic) NSInteger* forumId;
-@property (retain, nonatomic) IBOutlet UITextView *formText;
 @property (strong, nonatomic) UIButton *sendButton;
 @property (nonatomic) bool editMode;
 @property (nonatomic, strong) NSDictionary *postValues;
 
 
 -(void)pressConfirmButton;
+-(void)buildNavigation;
+-(void)buildDialog;
 @end
