@@ -189,24 +189,8 @@ NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
 //        }];
         
         [request startAsynchronous];
-//        request.delegate = self;
-//        [request startAsynchronous];
         
     }
-//    NSError *error = [request error];
-//    if (!error) {
-//        NSString *respone_message = [request responseString];
-//    } else {
-//        
-//    }
-
-    
-//    NSString *respone_message = [request responseString];
-    
-//    NSLog(@"Status Message: %@", status_message);
-    
-
-    
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request
