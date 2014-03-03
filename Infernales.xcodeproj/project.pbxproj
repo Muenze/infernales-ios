@@ -47,6 +47,7 @@
 		CB36CB83171968A600AF44B4 /* MessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB36CB81171968A600AF44B4 /* MessageDetailViewController.m */; };
 		CB36CB84171968A600AF44B4 /* MessageDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB36CB82171968A600AF44B4 /* MessageDetailViewController.xib */; };
 		CB44E2E116F9046D0050DA9C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CB44E2E016F9046D0050DA9C /* libz.dylib */; };
+		CB6CB1F118C45C9800F279B3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB6CB1F318C45C9800F279B3 /* Localizable.strings */; };
 		CB801351173440FC00CBDEEE /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB801350173440FC00CBDEEE /* splash@2x.png */; };
 		CB801353173440FF00CBDEEE /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = CB801352173440FF00CBDEEE /* splash.png */; };
 		CB87B5CD16ED0BFC0022355F /* infernales.png in Resources */ = {isa = PBXBuildFile; fileRef = CB87B5CC16ED0BFC0022355F /* infernales.png */; };
@@ -151,6 +152,9 @@
 		CB44E2DC16F9044C0050DA9C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CB44E2DE16F904560050DA9C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CB44E2E016F9046D0050DA9C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		CB6CB1F218C45C9800F279B3 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CB6CB1F418C45DB500F279B3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CB6CB1F518C45DB500F279B3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CB801350173440FC00CBDEEE /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@2x.png"; sourceTree = "<group>"; };
 		CB801352173440FF00CBDEEE /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		CB87B5CC16ED0BFC0022355F /* infernales.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infernales.png; sourceTree = "<group>"; };
@@ -303,6 +307,7 @@
 		07F05FF11586709B00380D63 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CB6CB1F318C45C9800F279B3 /* Localizable.strings */,
 				CB1FB43316FCFD92003636BA /* SendButtonHighlighted.png */,
 				CB1FB43416FCFD92003636BA /* SendButtonHighlighted@2x.png */,
 				CB1FB42F16FCFD8C003636BA /* SendButton.png */,
@@ -471,6 +476,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				de,
 			);
 			mainGroup = 07F05FD91586709B00380D63;
 			productRefGroup = 07F05FE51586709B00380D63 /* Products */;
@@ -497,6 +503,7 @@
 				CBE9BEFA16E5470F0050EE0F /* ForumViewCell.xib in Resources */,
 				CB893B6816E684F00028DBF0 /* foldernew.gif in Resources */,
 				CB893B7016E696A80028DBF0 /* PostViewController.xib in Resources */,
+				CB6CB1F118C45C9800F279B3 /* Localizable.strings in Resources */,
 				CBAFD2D816EA7D36002D4BE8 /* PostViewCell.xib in Resources */,
 				CB87B5CD16ED0BFC0022355F /* infernales.png in Resources */,
 				CB87B5CF16ED0C0E0022355F /* infernales.png in Resources */,
@@ -610,8 +617,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				07F05FF41586709B00380D63 /* en */,
+				CB6CB1F518C45DB500F279B3 /* de */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CB6CB1F318C45C9800F279B3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB6CB1F218C45C9800F279B3 /* en */,
+				CB6CB1F418C45DB500F279B3 /* de */,
+			);
+			name = Localizable.strings;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
