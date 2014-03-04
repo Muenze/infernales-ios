@@ -28,4 +28,13 @@
     // Configure the view for the selected state
 }
 
+-(void)dealloc {
+    
+    [lastAutorLabel release];
+    [mainLabel release];
+    [neuIndicator release];
+    
+    [super dealloc];
+}
+
 @end

@@ -12,17 +12,19 @@
 #import "NSString+HtmlEntities.h"
 #import "ForumViewCell.h"
 #import "AppDelegate.h"
+#import <AFNetworking/AFNetworking.h>
+#import "MBProgressHUD.h"
 
 @interface ForumViewController : UITableViewController {
-    NSDictionary *forumData;
-    NSArray *forumCats;
+    NSArray *forumData;
 }
 
-@property (nonatomic, retain) NSDictionary *forumData;
-@property (nonatomic, retain) NSArray *forumcats;
+@property (nonatomic, retain) NSArray *forumData;
 
--(NSDictionary *)loadForumData;
+-(void)loadForumData;
+-(NSDictionary *)requestForumData;
 -(NSDictionary *)getDictionaryAtIndexPath:(NSIndexPath *)indexPath;
+-(void)reloadTableWithData:(NSArray *)data;
 
 
 @end

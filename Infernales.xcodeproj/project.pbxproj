@@ -52,7 +52,6 @@
 		CB801353173440FF00CBDEEE /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = CB801352173440FF00CBDEEE /* splash.png */; };
 		CB87B5CD16ED0BFC0022355F /* infernales.png in Resources */ = {isa = PBXBuildFile; fileRef = CB87B5CC16ED0BFC0022355F /* infernales.png */; };
 		CB87B5CF16ED0C0E0022355F /* infernales.png in Resources */ = {isa = PBXBuildFile; fileRef = CB87B5CE16ED0C0E0022355F /* infernales.png */; };
-		CB8903CD170F61390036EEDE /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8903CC170F61390036EEDE /* MBProgressHUD.m */; };
 		CB893B6816E684F00028DBF0 /* foldernew.gif in Resources */ = {isa = PBXBuildFile; fileRef = CB893B6716E684F00028DBF0 /* foldernew.gif */; };
 		CB893B6F16E696A80028DBF0 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB893B6D16E696A80028DBF0 /* PostViewController.m */; };
 		CB893B7016E696A80028DBF0 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB893B6E16E696A80028DBF0 /* PostViewController.xib */; };
@@ -159,8 +158,6 @@
 		CB801352173440FF00CBDEEE /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		CB87B5CC16ED0BFC0022355F /* infernales.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infernales.png; sourceTree = "<group>"; };
 		CB87B5CE16ED0C0E0022355F /* infernales.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = infernales.png; path = ../infernales.png; sourceTree = "<group>"; };
-		CB8903CB170F61390036EEDE /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		CB8903CC170F61390036EEDE /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		CB893B6716E684F00028DBF0 /* foldernew.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = foldernew.gif; sourceTree = "<group>"; };
 		CB893B6C16E696A80028DBF0 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
 		CB893B6D16E696A80028DBF0 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
@@ -334,38 +331,38 @@
 		CB36CB7D1719682800AF44B4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CBD0273E1708A95A00EC67D3 /* ShoutboxDetailViewController.h */,
-				CBD0273F1708A95A00EC67D3 /* ShoutboxDetailViewController.m */,
-				CBD027431708B05A00EC67D3 /* ShoutboxFormViewController.h */,
-				CBD027441708B05A00EC67D3 /* ShoutboxFormViewController.m */,
+				07EEC8511587BDAC006A7F37 /* ChoiceViewController.h */,
+				07EEC8521587BDAC006A7F37 /* ChoiceViewController.m */,
+				07E7579D15965856000EA122 /* ForumViewController.h */,
+				07E7579E15965856000EA122 /* ForumViewController.m */,
+				CB36CB80171968A600AF44B4 /* MessageDetailViewController.h */,
+				CB36CB81171968A600AF44B4 /* MessageDetailViewController.m */,
+				CBAD490D173D872600EC8365 /* MessageFormViewController.h */,
+				CBAD490E173D872600EC8365 /* MessageFormViewController.m */,
+				CBAB310B172DA56A00E79810 /* MessageNewViewController.h */,
+				CBAB310C172DA56A00E79810 /* MessageNewViewController.m */,
 				CBF7C2C01718B06300F1761B /* MessagesViewController.h */,
 				CBF7C2C11718B06300F1761B /* MessagesViewController.m */,
+				07E757A215965A35000EA122 /* NewsViewController.h */,
+				07E757A315965A35000EA122 /* NewsViewController.m */,
 				CB21A91016F11F5F00BD3735 /* PostdetailViewController.h */,
 				CB21A91116F11F5F00BD3735 /* PostdetailViewController.m */,
 				CB91035C16FBA2DC00DA7E07 /* PostFormViewController.h */,
 				CB91035D16FBA2DC00DA7E07 /* PostFormViewController.m */,
-				CB0AC9B2170234A1007C13B0 /* ShoutboxViewController.h */,
-				CB0AC9B3170234A1007C13B0 /* ShoutboxViewController.m */,
 				CB893B6C16E696A80028DBF0 /* PostViewController.h */,
 				CB893B6D16E696A80028DBF0 /* PostViewController.m */,
+				07EEC85A1587CCC2006A7F37 /* SettingsViewController.h */,
+				07EEC85B1587CCC2006A7F37 /* SettingsViewController.m */,
+				CBD0273E1708A95A00EC67D3 /* ShoutboxDetailViewController.h */,
+				CBD0273F1708A95A00EC67D3 /* ShoutboxDetailViewController.m */,
+				CBD027431708B05A00EC67D3 /* ShoutboxFormViewController.h */,
+				CBD027441708B05A00EC67D3 /* ShoutboxFormViewController.m */,
+				CB0AC9B2170234A1007C13B0 /* ShoutboxViewController.h */,
+				CB0AC9B3170234A1007C13B0 /* ShoutboxViewController.m */,
 				CBD0273917085E7000EC67D3 /* ThreadFormViewController.h */,
 				CBD0273A17085E7000EC67D3 /* ThreadFormViewController.m */,
 				CBF161F115B350990030D2C2 /* ThreadViewController.h */,
 				CBF161F215B350990030D2C2 /* ThreadViewController.m */,
-				07E757A215965A35000EA122 /* NewsViewController.h */,
-				07E757A315965A35000EA122 /* NewsViewController.m */,
-				07E7579D15965856000EA122 /* ForumViewController.h */,
-				07E7579E15965856000EA122 /* ForumViewController.m */,
-				07EEC8511587BDAC006A7F37 /* ChoiceViewController.h */,
-				07EEC8521587BDAC006A7F37 /* ChoiceViewController.m */,
-				07EEC85A1587CCC2006A7F37 /* SettingsViewController.h */,
-				07EEC85B1587CCC2006A7F37 /* SettingsViewController.m */,
-				CB36CB80171968A600AF44B4 /* MessageDetailViewController.h */,
-				CB36CB81171968A600AF44B4 /* MessageDetailViewController.m */,
-				CBAB310B172DA56A00E79810 /* MessageNewViewController.h */,
-				CBAB310C172DA56A00E79810 /* MessageNewViewController.m */,
-				CBAD490D173D872600EC8365 /* MessageFormViewController.h */,
-				CBAD490E173D872600EC8365 /* MessageFormViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -432,8 +429,6 @@
 				CB1FB41F16FCF965003636BA /* ACPlaceholderTextView.m */,
 				CB9D836016E375FC0047B1F2 /* NSString+HtmlEntities.h */,
 				CB9D836116E375FC0047B1F2 /* NSString+HtmlEntities.m */,
-				CB8903CB170F61390036EEDE /* MBProgressHUD.h */,
-				CB8903CC170F61390036EEDE /* MBProgressHUD.m */,
 				CBBD598615A4C9C9002BA33F /* OrderedDictionary.h */,
 				CBBD598715A4C9C9002BA33F /* OrderedDictionary.m */,
 			);
@@ -600,7 +595,6 @@
 				CBD0273C17085E7000EC67D3 /* ThreadFormViewController.m in Sources */,
 				CBD027411708A95A00EC67D3 /* ShoutboxDetailViewController.m in Sources */,
 				CBD027461708B05B00EC67D3 /* ShoutboxFormViewController.m in Sources */,
-				CB8903CD170F61390036EEDE /* MBProgressHUD.m in Sources */,
 				CBF7C2C31718B06300F1761B /* MessagesViewController.m in Sources */,
 				CB36CB781719656500AF44B4 /* MessageViewCell.m in Sources */,
 				CB36CB83171968A600AF44B4 /* MessageDetailViewController.m in Sources */,
