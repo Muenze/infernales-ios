@@ -122,7 +122,6 @@
     // Configure the cell...
     if(!cell) {
         NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ForumViewCell" owner:nil options:nil];
-        NSLog(@"%@", topLevelObjects);
         for(id currentObject in topLevelObjects) {
             if([currentObject isKindOfClass:[ForumViewCell class]]) {
                 cell = (ForumViewCell *) currentObject;
@@ -171,7 +170,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
-    NSInteger *forumid = (NSInteger *)[dic objectForKey:@"forumid"];
+    NSNumber *forumid = [dic objectForKey:@"forumid"];
     ThreadViewController *tvc = [[ThreadViewController alloc] initWithForumId:forumid];
     [tvc setThreadName:[dic objectForKey:@"name"]];
     [self.navigationController pushViewController:tvc animated:YES];

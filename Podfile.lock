@@ -31,6 +31,7 @@ PODS:
     - Reachability
   - ASIHTTPRequest/S3 (1.8.1):
     - ASIHTTPRequest/Core
+  - MBProgressHUD (0.8)
   - QuickDialog (1.0):
     - QuickDialog/Core
   - QuickDialog/Core (1.0)
@@ -39,6 +40,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - ASIHTTPRequest
+  - MBProgressHUD (~> 0.8)
   - QuickDialog (from `https://github.com/escoz/QuickDialog.git`)
 
 EXTERNAL SOURCES:
@@ -48,6 +50,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: e8cfd8f3fe3bfe19124a0cc63f4d45752d892a56
   ASIHTTPRequest: 34f0d02cc3e31e87591c8d9bda78697a29b92035
+  MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   QuickDialog: 36f3e3387b6e1af9f963c3afc665a07f03107a01
   Reachability: be4883bb93f31e38266ae3365e5600a317aae735
 

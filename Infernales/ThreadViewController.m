@@ -17,22 +17,42 @@
 
 @synthesize threadData, forumId, threadName;
 
--(NSDictionary *)loadThreadData {
+-(void)loadThreadData {
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"passwort"];
     
+    NSDictionary *params = @{
+        @"forum_id": forumId
+    };
     if([username length] > 0 && [password length] > 0) {
-        NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/viewforum.json.php?username=%@&password=%@&forum_id=%@", username, password, forumId];
-        return [[NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil] JSONValue];
-    } else {
-        NSString *urlString = @"http://www.infernales.de/portal/forum/viewforum.json.php";
-        return [[NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil] JSONValue];
-    }    
+        params = @{
+                   @"username": username,
+                   @"password": password,
+                   @"forum_id": forumId
+        };
+    }
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager
+        GET:@"http://www.infernales.de/portal/forum/viewforum.json.iphone.php"
+        parameters:params
+        success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [self reloadTableWithData:responseObject];
+        }
+        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"%@",error);
+        }
+    ];
 }
 
+-(void)reloadTableWithData:(NSArray *)data {
+    self.threadData = data;
+    UITableView *tableView = (UITableView *)self.view;
+    [tableView reloadData];
+}
 
 -(NSDictionary *)getDictionaryAtIndexPath:(NSIndexPath *)indexPath {
-    return [self.threadData objectForKey:[[self.threadData allKeys] objectAtIndex:indexPath.row]];
+    return [self.threadData objectAtIndex:indexPath.row];
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -44,7 +64,7 @@
     return self;
 }
 
--(id)initWithForumId:(NSInteger *)fid {
+-(id)initWithForumId:(NSNumber *)fid {
     self = [super init];
     if(self) {
         self.forumId = fid;
@@ -71,17 +91,10 @@
     [button release];
     
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-    self.threadData = [self loadThreadData];
-    UITableView *tableView = (UITableView *)self.view;
-    [tableView reloadData];
+    [self loadThreadData];
 }
 
 -(IBAction)postNewThread:(id)sender {
@@ -130,7 +143,7 @@
     if(!cell) {
         NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ThreadViewCell" owner:nil options:nil];
         for(id currentObject in topLevelObjects) {
-            if([currentObject isKindOfClass:[UITableViewCell class]]) {
+            if([currentObject isKindOfClass:[ThreadViewCell class]]) {
                 cell = (ThreadViewCell *) currentObject;
                 break;
             }
@@ -141,86 +154,48 @@
     
     NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
     
-    NSDecimalNumber *isNew = [dic objectForKey:@"isnew"];
-    if([isNew isEqualToNumber:[NSNumber numberWithInt:0]]) {
+    NSNumber *isNew = [dic objectForKey:@"isnew"];
+    if([isNew isEqualToNumber:@0]) {
     } else {
         UIImage *im = [UIImage imageNamed:@"foldernew.gif"];
         cell.imageView.image = im;
     }
     
-    NSString *isSticky = [dic objectForKey:@"sticky"];
-    if([isSticky isEqualToString:@"1"]) {
+    NSNumber *isSticky = [dic objectForKey:@"sticky"];
+    if([isSticky isEqualToNumber:@1]) {
         UIImage *stick = [UIImage imageNamed:@"pin.png"];
         cell.stickyIndicator.image = stick;
     } else {
         cell.stickyIndicator.image = nil;
     }
     
+    
+    
+    
     NSString *author = [dic objectForKey:@"lastuser"];
-    NSString *erstelltText = [NSString stringWithFormat:@"Author: "];
-    erstelltText = [erstelltText stringByAppendingFormat:author];
     
     NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[[dic objectForKey:@"thread_lastpost"] doubleValue]];
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"dd.MM.yyyy"];
     NSString *date = [format stringFromDate:theDate];
-    
     [format release];
-    erstelltText = [erstelltText stringByAppendingFormat:@", letzter Beitrag am: "];
-    erstelltText = [erstelltText stringByAppendingFormat:date];
+    
+    
+    NSString *erstelltText = [NSString stringWithFormat:@"Author: %@, letzter Beitrag am: %@", author, date];
+
     
     cell.threadShortDescription.text = erstelltText;
     NSString *name = [dic objectForKey:@"name"];
     if(name) {
         name = [name decodeHtmlEntities];
         cell.threadNameLabel.text = name;
-//        cell.textLabel.text = name;
     } else {
-//        cell.textLabel.text = @"bla";
     }
     
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 60;

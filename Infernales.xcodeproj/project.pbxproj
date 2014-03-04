@@ -24,7 +24,6 @@
 		07F05FE91586709B00380D63 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F05FE81586709B00380D63 /* UIKit.framework */; };
 		07F05FEB1586709B00380D63 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F05FEA1586709B00380D63 /* Foundation.framework */; };
 		07F05FEF1586709B00380D63 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F05FEE1586709B00380D63 /* CoreData.framework */; };
-		07F05FF51586709B00380D63 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07F05FF31586709B00380D63 /* InfoPlist.strings */; };
 		07F05FF71586709B00380D63 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F05FF61586709B00380D63 /* main.m */; };
 		07F05FFB1586709B00380D63 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F05FFA1586709B00380D63 /* AppDelegate.m */; };
 		07F05FFE1586709B00380D63 /* Infernales.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 07F05FFC1586709B00380D63 /* Infernales.xcdatamodeld */; };
@@ -47,7 +46,6 @@
 		CB36CB83171968A600AF44B4 /* MessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB36CB81171968A600AF44B4 /* MessageDetailViewController.m */; };
 		CB36CB84171968A600AF44B4 /* MessageDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB36CB82171968A600AF44B4 /* MessageDetailViewController.xib */; };
 		CB44E2E116F9046D0050DA9C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CB44E2E016F9046D0050DA9C /* libz.dylib */; };
-		CB6CB1F118C45C9800F279B3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB6CB1F318C45C9800F279B3 /* Localizable.strings */; };
 		CB801351173440FC00CBDEEE /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB801350173440FC00CBDEEE /* splash@2x.png */; };
 		CB801353173440FF00CBDEEE /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = CB801352173440FF00CBDEEE /* splash.png */; };
 		CB87B5CD16ED0BFC0022355F /* infernales.png in Resources */ = {isa = PBXBuildFile; fileRef = CB87B5CC16ED0BFC0022355F /* infernales.png */; };
@@ -117,7 +115,6 @@
 		07F05FEC1586709B00380D63 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		07F05FEE1586709B00380D63 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		07F05FF21586709B00380D63 /* Infernales-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Infernales-Info.plist"; sourceTree = "<group>"; };
-		07F05FF41586709B00380D63 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		07F05FF61586709B00380D63 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		07F05FF81586709B00380D63 /* Infernales-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Infernales-Prefix.pch"; sourceTree = "<group>"; };
 		07F05FF91586709B00380D63 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -151,9 +148,6 @@
 		CB44E2DC16F9044C0050DA9C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CB44E2DE16F904560050DA9C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CB44E2E016F9046D0050DA9C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		CB6CB1F218C45C9800F279B3 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		CB6CB1F418C45DB500F279B3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		CB6CB1F518C45DB500F279B3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CB801350173440FC00CBDEEE /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@2x.png"; sourceTree = "<group>"; };
 		CB801352173440FF00CBDEEE /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		CB87B5CC16ED0BFC0022355F /* infernales.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infernales.png; sourceTree = "<group>"; };
@@ -304,7 +298,6 @@
 		07F05FF11586709B00380D63 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CB6CB1F318C45C9800F279B3 /* Localizable.strings */,
 				CB1FB43316FCFD92003636BA /* SendButtonHighlighted.png */,
 				CB1FB43416FCFD92003636BA /* SendButtonHighlighted@2x.png */,
 				CB1FB42F16FCFD8C003636BA /* SendButton.png */,
@@ -322,7 +315,6 @@
 				07E75788159657ED000EA122 /* JSON */,
 				07F05FF81586709B00380D63 /* Infernales-Prefix.pch */,
 				07F05FF21586709B00380D63 /* Infernales-Info.plist */,
-				07F05FF31586709B00380D63 /* InfoPlist.strings */,
 				07F05FF61586709B00380D63 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -488,7 +480,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07F05FF51586709B00380D63 /* InfoPlist.strings in Resources */,
 				07EEC85E1587CCC2006A7F37 /* SettingsViewController.xib in Resources */,
 				07E757A115965857000EA122 /* ForumViewController.xib in Resources */,
 				07E757A615965A35000EA122 /* NewsViewController.xib in Resources */,
@@ -498,7 +489,6 @@
 				CBE9BEFA16E5470F0050EE0F /* ForumViewCell.xib in Resources */,
 				CB893B6816E684F00028DBF0 /* foldernew.gif in Resources */,
 				CB893B7016E696A80028DBF0 /* PostViewController.xib in Resources */,
-				CB6CB1F118C45C9800F279B3 /* Localizable.strings in Resources */,
 				CBAFD2D816EA7D36002D4BE8 /* PostViewCell.xib in Resources */,
 				CB87B5CD16ED0BFC0022355F /* infernales.png in Resources */,
 				CB87B5CF16ED0C0E0022355F /* infernales.png in Resources */,
@@ -605,28 +595,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		07F05FF31586709B00380D63 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				07F05FF41586709B00380D63 /* en */,
-				CB6CB1F518C45DB500F279B3 /* de */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		CB6CB1F318C45C9800F279B3 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CB6CB1F218C45C9800F279B3 /* en */,
-				CB6CB1F418C45DB500F279B3 /* de */,
-			);
-			name = Localizable.strings;
-			path = ..;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		07F05FFF1586709B00380D63 /* Debug */ = {

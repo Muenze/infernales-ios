@@ -15,19 +15,20 @@
 #import "ThreadFormViewController.h"
 
 @interface ThreadViewController : UITableViewController {
-    NSDictionary *threadData;
-    NSInteger *forumId;
+    NSArray *threadData;
+    NSNumber *forumId;
     NSString *threadName;
 }
 
-@property (nonatomic, retain) NSDictionary *threadData;
-@property (nonatomic) NSInteger* forumId;
+@property (nonatomic, retain) NSArray *threadData;
+@property (nonatomic, retain) NSNumber* forumId;
 @property (nonatomic, strong) NSString* threadName;
 
--(NSDictionary *)loadThreadData;
--(id)initWithForumId:(NSInteger *)fd;
+-(void)loadThreadData;
+-(id)initWithForumId:(NSNumber *)fd;
 -(NSDictionary *)getDictionaryAtIndexPath:(NSIndexPath *)indexPath;
 -(void)setNameForThread:(NSString *)thread_name;
 -(IBAction)postNewThread:(id)sender;
+-(void)reloadTableWithData:(NSArray *)data;
 
 @end
