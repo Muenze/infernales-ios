@@ -20,7 +20,6 @@
 		07E757A615965A35000EA122 /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07E757A415965A35000EA122 /* NewsViewController.xib */; };
 		07EEC8541587BDAC006A7F37 /* ChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EEC8521587BDAC006A7F37 /* ChoiceViewController.m */; };
 		07EEC85D1587CCC2006A7F37 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EEC85B1587CCC2006A7F37 /* SettingsViewController.m */; };
-		07EEC85E1587CCC2006A7F37 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07EEC85C1587CCC2006A7F37 /* SettingsViewController.xib */; };
 		07F05FE91586709B00380D63 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F05FE81586709B00380D63 /* UIKit.framework */; };
 		07F05FEB1586709B00380D63 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F05FEA1586709B00380D63 /* Foundation.framework */; };
 		07F05FEF1586709B00380D63 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F05FEE1586709B00380D63 /* CoreData.framework */; };
@@ -46,6 +45,7 @@
 		CB36CB83171968A600AF44B4 /* MessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB36CB81171968A600AF44B4 /* MessageDetailViewController.m */; };
 		CB36CB84171968A600AF44B4 /* MessageDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB36CB82171968A600AF44B4 /* MessageDetailViewController.xib */; };
 		CB44E2E116F9046D0050DA9C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CB44E2E016F9046D0050DA9C /* libz.dylib */; };
+		CB4B49F618C73A910014078E /* NSString+phpfusiontags.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4B49F518C73A910014078E /* NSString+phpfusiontags.m */; };
 		CB801351173440FC00CBDEEE /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB801350173440FC00CBDEEE /* splash@2x.png */; };
 		CB801353173440FF00CBDEEE /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = CB801352173440FF00CBDEEE /* splash.png */; };
 		CB87B5CD16ED0BFC0022355F /* infernales.png in Resources */ = {isa = PBXBuildFile; fileRef = CB87B5CC16ED0BFC0022355F /* infernales.png */; };
@@ -108,7 +108,6 @@
 		07EEC8521587BDAC006A7F37 /* ChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoiceViewController.m; sourceTree = "<group>"; };
 		07EEC85A1587CCC2006A7F37 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		07EEC85B1587CCC2006A7F37 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		07EEC85C1587CCC2006A7F37 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		07F05FE41586709B00380D63 /* Infernales.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Infernales.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F05FE81586709B00380D63 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		07F05FEA1586709B00380D63 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -148,6 +147,8 @@
 		CB44E2DC16F9044C0050DA9C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CB44E2DE16F904560050DA9C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CB44E2E016F9046D0050DA9C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		CB4B49F418C73A910014078E /* NSString+phpfusiontags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+phpfusiontags.h"; sourceTree = "<group>"; };
+		CB4B49F518C73A910014078E /* NSString+phpfusiontags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+phpfusiontags.m"; sourceTree = "<group>"; };
 		CB801350173440FC00CBDEEE /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@2x.png"; sourceTree = "<group>"; };
 		CB801352173440FF00CBDEEE /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		CB87B5CC16ED0BFC0022355F /* infernales.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infernales.png; sourceTree = "<group>"; };
@@ -389,25 +390,24 @@
 		CB91036216FBA32E00DA7E07 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				CBE9BEF916E5470F0050EE0F /* ForumViewCell.xib */,
+				07E7579F15965856000EA122 /* ForumViewController.xib */,
+				CB36CB82171968A600AF44B4 /* MessageDetailViewController.xib */,
 				CBAD490F173D872600EC8365 /* MessageFormViewController.xib */,
 				CBAB310D172DA56A00E79810 /* MessageNewViewController.xib */,
 				CBF7C2C21718B06300F1761B /* MessagesViewController.xib */,
-				CB36CB82171968A600AF44B4 /* MessageDetailViewController.xib */,
 				CB36CB791719657C00AF44B4 /* MessageViewCell.xib */,
-				CBD027451708B05A00EC67D3 /* ShoutboxFormViewController.xib */,
-				CBD027401708A95A00EC67D3 /* ShoutboxDetailViewController.xib */,
-				CBD0273B17085E7000EC67D3 /* ThreadFormViewController.xib */,
-				CBF60D3A170788AC004A67C8 /* ShoutboxViewCell.xib */,
-				CB0AC9B4170234A1007C13B0 /* ShoutboxViewController.xib */,
+				07E757A415965A35000EA122 /* NewsViewController.xib */,
 				CB21A91216F11F5F00BD3735 /* PostdetailViewController.xib */,
 				CBAFD2D716EA7D36002D4BE8 /* PostViewCell.xib */,
 				CB893B6E16E696A80028DBF0 /* PostViewController.xib */,
-				CBE9BEF916E5470F0050EE0F /* ForumViewCell.xib */,
-				07EEC85C1587CCC2006A7F37 /* SettingsViewController.xib */,
-				07E7579F15965856000EA122 /* ForumViewController.xib */,
-				07E757A415965A35000EA122 /* NewsViewController.xib */,
-				CBF161F315B350990030D2C2 /* ThreadViewController.xib */,
+				CBD027401708A95A00EC67D3 /* ShoutboxDetailViewController.xib */,
+				CBD027451708B05A00EC67D3 /* ShoutboxFormViewController.xib */,
+				CBF60D3A170788AC004A67C8 /* ShoutboxViewCell.xib */,
+				CB0AC9B4170234A1007C13B0 /* ShoutboxViewController.xib */,
+				CBD0273B17085E7000EC67D3 /* ThreadFormViewController.xib */,
 				CB9D836616E390090047B1F2 /* ThreadViewCell.xib */,
+				CBF161F315B350990030D2C2 /* ThreadViewController.xib */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -423,6 +423,8 @@
 				CB9D836116E375FC0047B1F2 /* NSString+HtmlEntities.m */,
 				CBBD598615A4C9C9002BA33F /* OrderedDictionary.h */,
 				CBBD598715A4C9C9002BA33F /* OrderedDictionary.m */,
+				CB4B49F418C73A910014078E /* NSString+phpfusiontags.h */,
+				CB4B49F518C73A910014078E /* NSString+phpfusiontags.m */,
 			);
 			name = libs;
 			sourceTree = "<group>";
@@ -480,7 +482,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07EEC85E1587CCC2006A7F37 /* SettingsViewController.xib in Resources */,
 				07E757A115965857000EA122 /* ForumViewController.xib in Resources */,
 				07E757A615965A35000EA122 /* NewsViewController.xib in Resources */,
 				CBF161F515B350990030D2C2 /* ThreadViewController.xib in Resources */,
@@ -577,6 +578,7 @@
 				CBE9BEF816E546AE0050EE0F /* ForumViewCell.m in Sources */,
 				CB893B6F16E696A80028DBF0 /* PostViewController.m in Sources */,
 				CBAFD2D616EA7D21002D4BE8 /* PostViewCell.m in Sources */,
+				CB4B49F618C73A910014078E /* NSString+phpfusiontags.m in Sources */,
 				CB21A91316F11F5F00BD3735 /* PostdetailViewController.m in Sources */,
 				CB91035F16FBA2DC00DA7E07 /* PostFormViewController.m in Sources */,
 				CB1FB42016FCF965003636BA /* ACPlaceholderTextView.m in Sources */,

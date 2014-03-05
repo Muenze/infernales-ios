@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NSString+HtmlEntities.h"
 #import "PostFormViewController.h"
+#import "NSString+phpfusiontags.h"
 
 @interface PostdetailViewController : UIViewController {
     

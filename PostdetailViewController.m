@@ -34,12 +34,7 @@
     [super viewDidLoad];
     NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
     NSMutableArray *theButtons = [NSMutableArray arrayWithCapacity:2];
-//    if([[postValues objectForKey:@"thread_locked"] compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
-//        UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStylePlain target:self action:@selector(postInForum:)];
-//        [theButtons addObject:button];
-//        //        self.navigationItem.rightBarButtonItem = button;
-//        [button release];
-//    }
+
 
     
     if([[postValues objectForKey:@"user_name"] isEqualToString:[def objectForKey:@"username"]]) {
@@ -51,9 +46,14 @@
 
     
     self.navigationItem.rightBarButtonItems = [theButtons copy];
-    // Do any additional setup after loading the view from its nib.
-    myTextView.text = [[postValues valueForKey:@"post_message"] decodeHtmlEntities];
-//    NSLog(@"%@",postValues);
+    
+    
+
+ 
+    NSString *youtube = [[postValues valueForKey:@"post_message"] decodeHtmlEntities];
+
+    youtube = [youtube decodePhpFusionTags];
+    myTextView.text = youtube;
 }
 
 - (void)didReceiveMemoryWarning
