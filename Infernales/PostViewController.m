@@ -39,11 +39,11 @@
     return self;
 }
 
--(id)initWithForumId:(NSInteger *)forumid withThreadId:(NSInteger *)threadid andThreadName:(NSString *)threadName {
+-(id)initWithForumId:(NSNumber *)forumid withThreadId:(NSNumber *)threadid andThreadName:(NSString *)threadNameParam {
     self = [super init];
     if(self) {
         self.threadId = threadid;
-        self.threadName = threadName;
+        self.threadName = threadNameParam;
         self.forumId = forumid;
     }
     return self;

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0777939F1597A1B100E37317 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 0777939E1597A1B100E37317 /* NSString+MD5.m */; };
 		07E75796159657ED000EA122 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E7578B159657ED000EA122 /* NSObject+SBJSON.m */; };
 		07E75797159657ED000EA122 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E7578D159657ED000EA122 /* NSString+SBJSON.m */; };
 		07E75798159657ED000EA122 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E7578F159657ED000EA122 /* SBJSON.m */; };
@@ -16,8 +15,6 @@
 		07E7579B159657ED000EA122 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E75795159657ED000EA122 /* SBJsonWriter.m */; };
 		07E757A015965857000EA122 /* ForumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E7579E15965856000EA122 /* ForumViewController.m */; };
 		07E757A115965857000EA122 /* ForumViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07E7579F15965856000EA122 /* ForumViewController.xib */; };
-		07E757A515965A35000EA122 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E757A315965A35000EA122 /* NewsViewController.m */; };
-		07E757A615965A35000EA122 /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07E757A415965A35000EA122 /* NewsViewController.xib */; };
 		07EEC8541587BDAC006A7F37 /* ChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EEC8521587BDAC006A7F37 /* ChoiceViewController.m */; };
 		07EEC85D1587CCC2006A7F37 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EEC85B1587CCC2006A7F37 /* SettingsViewController.m */; };
 		07F05FE91586709B00380D63 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F05FE81586709B00380D63 /* UIKit.framework */; };
@@ -83,8 +80,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0777939D1597A1B100E37317 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
-		0777939E1597A1B100E37317 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 		07E75789159657ED000EA122 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		07E7578A159657ED000EA122 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		07E7578B159657ED000EA122 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -101,9 +96,6 @@
 		07E7579D15965856000EA122 /* ForumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumViewController.h; sourceTree = "<group>"; };
 		07E7579E15965856000EA122 /* ForumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumViewController.m; sourceTree = "<group>"; };
 		07E7579F15965856000EA122 /* ForumViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForumViewController.xib; sourceTree = "<group>"; };
-		07E757A215965A35000EA122 /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
-		07E757A315965A35000EA122 /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
-		07E757A415965A35000EA122 /* NewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsViewController.xib; sourceTree = "<group>"; };
 		07EEC8511587BDAC006A7F37 /* ChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoiceViewController.h; sourceTree = "<group>"; };
 		07EEC8521587BDAC006A7F37 /* ChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoiceViewController.m; sourceTree = "<group>"; };
 		07EEC85A1587CCC2006A7F37 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -218,15 +210,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0777939B1597A18800E37317 /* md5 */ = {
-			isa = PBXGroup;
-			children = (
-				0777939D1597A1B100E37317 /* NSString+MD5.h */,
-				0777939E1597A1B100E37317 /* NSString+MD5.m */,
-			);
-			name = md5;
-			sourceTree = "<group>";
-		};
 		07E75788159657ED000EA122 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,7 +295,6 @@
 				CB91036316FBA34100DA7E07 /* libs */,
 				CB91036216FBA32E00DA7E07 /* views */,
 				CB91036116FBA31D00DA7E07 /* images */,
-				0777939B1597A18800E37317 /* md5 */,
 				07E75788159657ED000EA122 /* JSON */,
 				07F05FF81586709B00380D63 /* Infernales-Prefix.pch */,
 				07F05FF21586709B00380D63 /* Infernales-Info.plist */,
@@ -336,8 +318,6 @@
 				CBAB310C172DA56A00E79810 /* MessageNewViewController.m */,
 				CBF7C2C01718B06300F1761B /* MessagesViewController.h */,
 				CBF7C2C11718B06300F1761B /* MessagesViewController.m */,
-				07E757A215965A35000EA122 /* NewsViewController.h */,
-				07E757A315965A35000EA122 /* NewsViewController.m */,
 				CB21A91016F11F5F00BD3735 /* PostdetailViewController.h */,
 				CB21A91116F11F5F00BD3735 /* PostdetailViewController.m */,
 				CB91035C16FBA2DC00DA7E07 /* PostFormViewController.h */,
@@ -397,7 +377,6 @@
 				CBAB310D172DA56A00E79810 /* MessageNewViewController.xib */,
 				CBF7C2C21718B06300F1761B /* MessagesViewController.xib */,
 				CB36CB791719657C00AF44B4 /* MessageViewCell.xib */,
-				07E757A415965A35000EA122 /* NewsViewController.xib */,
 				CB21A91216F11F5F00BD3735 /* PostdetailViewController.xib */,
 				CBAFD2D716EA7D36002D4BE8 /* PostViewCell.xib */,
 				CB893B6E16E696A80028DBF0 /* PostViewController.xib */,
@@ -483,7 +462,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				07E757A115965857000EA122 /* ForumViewController.xib in Resources */,
-				07E757A615965A35000EA122 /* NewsViewController.xib in Resources */,
 				CBF161F515B350990030D2C2 /* ThreadViewController.xib in Resources */,
 				CB9D836716E390090047B1F2 /* ThreadViewCell.xib in Resources */,
 				CBCFB1B916E3E2C500972EEB /* pin.png in Resources */,
@@ -569,8 +547,6 @@
 				07E7579A159657ED000EA122 /* SBJsonParser.m in Sources */,
 				07E7579B159657ED000EA122 /* SBJsonWriter.m in Sources */,
 				07E757A015965857000EA122 /* ForumViewController.m in Sources */,
-				07E757A515965A35000EA122 /* NewsViewController.m in Sources */,
-				0777939F1597A1B100E37317 /* NSString+MD5.m in Sources */,
 				CBBD598815A4C9C9002BA33F /* OrderedDictionary.m in Sources */,
 				CBF161F415B350990030D2C2 /* ThreadViewController.m in Sources */,
 				CB9D836216E375FC0047B1F2 /* NSString+HtmlEntities.m in Sources */,

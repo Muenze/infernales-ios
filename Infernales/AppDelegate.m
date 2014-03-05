@@ -256,6 +256,7 @@
 
 -(BOOL)openURL:(NSURL *)url {
     NSLog(@"angekommen");
+    return YES;
 }
 
 #pragma mark - Application's Documents directory

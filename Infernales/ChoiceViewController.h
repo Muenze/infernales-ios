@@ -10,7 +10,6 @@
 #import "SettingsViewController.h"
 #import "ForumViewController.h"
 #import "NewsViewController.h"
-#import "NSString+MD5.h"
 #import "ShoutboxViewController.h"
 #import "MessagesViewController.h"
 

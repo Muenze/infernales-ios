@@ -64,7 +64,12 @@
 }
 
 -(void)buildNavigationButton {
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"save" style:UIBarButtonSystemItemSave target:self action:@selector(saveSettings:)];
+    UIBarButtonItem *button = [[UIBarButtonItem alloc]
+                               initWithTitle:@"save"
+                               style:UIBarButtonItemStylePlain
+                               target:self
+                               action:@selector(saveSettings:)];
+    
     self.navigationItem.rightBarButtonItem = button;
     
 }

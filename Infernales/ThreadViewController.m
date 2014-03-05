@@ -208,8 +208,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
-//    NSLog(@"DIC: %@",dic);
-    NSInteger *thread_id = [dic objectForKey:@"thread_id"];
+
+    NSNumber *thread_id = [dic objectForKey:@"thread_id"];
     NSString *thread_name = [dic objectForKey:@"name"];
     thread_name = [thread_name decodeHtmlEntities];
     NSDecimalNumber *locked = [dic objectForKey:@"locked"];
