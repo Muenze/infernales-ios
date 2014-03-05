@@ -19,9 +19,9 @@
 }
 
 @property (nonatomic, retain) NSArray *forumData;
+@property (nonatomic, retain) AFHTTPRequestOperationManager *manager;
 
 -(void)loadForumData;
--(NSDictionary *)requestForumData;
 -(NSDictionary *)getDictionaryAtIndexPath:(NSIndexPath *)indexPath;
 -(void)reloadTableWithData:(NSArray *)data;
 

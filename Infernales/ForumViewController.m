@@ -15,6 +15,7 @@
 
 @implementation ForumViewController
 @synthesize forumData;
+@synthesize manager = _manager;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -63,6 +64,7 @@
 
 - (void)viewDidLoad
 {
+    self.manager = [AFHTTPRequestOperationManager manager];
     [super viewDidLoad];
     self.title = @"Forum";
     
@@ -79,8 +81,11 @@
 {
     [super viewDidUnload];
     [self.forumData release];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[self.manager operationQueue] cancelAllOperations];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

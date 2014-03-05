@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SettingsViewController.h"
 #import "ForumViewController.h"
-#import "NewsViewController.h"
 #import "ShoutboxViewController.h"
 #import "MessagesViewController.h"
 

@@ -17,16 +17,17 @@
     NSNumber* threadId;
     NSNumber* forumId;
     NSString* threadName;
-    NSDictionary* postData;
+    NSArray* postData;
     bool locked;
 }
 @property (nonatomic, strong) NSNumber* threadId;
 @property (nonatomic, strong) NSNumber* forumId;
-@property (nonatomic, strong) NSDictionary *postData;
+@property (nonatomic, strong) NSArray *postData;
 @property (nonatomic, strong) NSString *threadName;
 @property bool locked;
 
--(NSDictionary *)loadPostData;
+-(void)loadPostData;
+-(void)reloadTableWithData:(NSArray *)data;
 -(id)initWithForumId:(NSNumber *)forumid withThreadId:(NSNumber *)threadid andThreadName:(NSString *)threadName;
 -(NSDictionary *)getDictionaryAtIndexPath:(NSIndexPath *)indexPath;
 -(CGSize)getSizeForString:(NSString *)thestring;

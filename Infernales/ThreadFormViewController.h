@@ -14,10 +14,10 @@
 #import "NSString+SBJSON.h"
 
 @interface ThreadFormViewController : QuickDialogController {
-    NSInteger *forum_id;
+    NSNumber *forum_id;
 }
 
-@property (nonatomic) NSInteger *forum_id;
+@property (nonatomic, strong) NSNumber *forum_id;
 
 -(IBAction)pressSend:(id)sender;
 -(void)buildQuickDialog;

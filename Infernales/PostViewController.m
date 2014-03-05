@@ -16,17 +16,39 @@
 
 @synthesize forumId, threadId, postData, threadName, locked;
 
--(NSDictionary *)loadPostData {
+-(void)loadPostData {
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"passwort"];
     
+    NSDictionary *params = @{
+                             @"thread_id": threadId
+                             };
     if([username length] > 0 && [password length] > 0) {
-        NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/viewthread.json.php?username=%@&password=%@&thread_id=%@", username, password, threadId];
-        return [[NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil] JSONValue];
-    } else {
-        NSString *urlString = @"http://www.infernales.de/portal/forum/viewforum.json.php";
-        return [[NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil] JSONValue];
+        params = @{
+                   @"username": username,
+                   @"password": password,
+                   @"thread_id": threadId                   
+                   };
     }
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager
+     GET:@"http://www.infernales.de/portal/forum/viewthread.json.iphone.php"
+     parameters:params
+     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//         [self reloadTableWithData:responseObject];
+         [self reloadTableWithData:responseObject];
+     }
+     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         NSLog(@"%@",error);
+     }
+     ];
+}
+
+-(void)reloadTableWithData:(NSArray *)data {
+    self.postData = data;
+    UITableView *tableView = (UITableView *)self.view;
+    [tableView reloadData];
 }
 
 
@@ -73,9 +95,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 //    NSLog(@"fired");
-    self.postData = [self loadPostData];
-    UITableView *tableView = (UITableView *)self.view;
-    [tableView reloadData];
+    [self loadPostData];
 }
 
 
@@ -237,7 +257,7 @@
 
 
 -(NSDictionary *)getDictionaryAtIndexPath:(NSIndexPath *)indexPath {
-    return [self.postData objectForKey:[[self.postData allKeys] objectAtIndex:indexPath.row]];
+    return [self.postData objectAtIndex:indexPath.row];
 }
 
 #pragma mark - Table view delegate
