@@ -14,7 +14,8 @@
 
 @implementation ShoutboxViewController
 
-@synthesize shouts;
+@synthesize shouts = _shouts;
+@synthesize manager = _manager;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -25,19 +26,38 @@
     return self;
 }
 
--(OrderedDictionary *)loadShoutboxData {
+-(void)loadShoutboxData {
 
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"passwort"];
     
-    NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/shoutbox.json.php?username=%@&password=%@", username, password];
-    return [[NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil] JSONValue];
+    NSDictionary *params = @{@"username": username, @"password": password};
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Lade Shoutbox Daten";
+    
+    [self.manager GET:@"http://www.infernales.de/portal/forum/shoutbox.json.iphone.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        [hud hide:YES];
+        [self reloadTableViewsWithData:responseObject];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
+        [hud hide:YES];
+    }];
+}
+
+-(void)reloadTableViewsWithData:(NSArray *)array {
+    NSLog(@"%@", array);
+    self.shouts = array;
+    UITableView *table = (UITableView *)self.view;
+    [table reloadData];
 }
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.manager = [AFHTTPRequestOperationManager manager];
 
     self.title = @"Shoutbox";
     
@@ -45,17 +65,10 @@
     self.navigationItem.rightBarButtonItem = button;
     [button release];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-    self.shouts = [self loadShoutboxData];
-    UITableView *tableView = (UITableView *)self.view;
-    [tableView reloadData];
+    [self loadShoutboxData];
 }
 
 -(IBAction)pressShout:(id)sender {
@@ -89,37 +102,32 @@
     NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
     static NSString *CellIdentifier = @"ShoutboxViewCell";
     ShoutboxViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    //    PostViewCell *cell = nil;
     
     // Configure the cell...
     if(!cell) {
         NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ShoutboxViewCell" owner:nil options:nil];
         for(id currentObject in topLevelObjects) {
-            if([currentObject isKindOfClass:[UITableViewCell class]]) {
+            if([currentObject isKindOfClass:[ShoutboxViewCell class]]) {
                 cell = (ShoutboxViewCell *) currentObject;
                 break;
             }
         }
     }
 
-    NSString *autor = [dic objectForKey:@"user"];
-    autor = [autor decodeHtmlEntities];
-
     NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[[dic objectForKey:@"datestamp"] doubleValue]];
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"dd.MM.yyyy HH:mm"];
     NSString *date = [format stringFromDate:theDate];
     [format release];
-
-    autor = [autor stringByAppendingFormat:@" am "];
-    autor = [autor stringByAppendingFormat:date];
+    
+    NSString *autor = [NSString stringWithFormat:@"%@ am %@", [[dic objectForKey:@"user"] decodeHtmlEntities], date];
 
     cell.authorLabel.text = autor;
 
 
 
     // Configure the cell...
-    cell.mainLabel.text = [[dic objectForKey:@"message"] decodeHtmlEntities];
+    cell.mainLabel.text = [[dic objectForKey:@"message"] decodePhpFusionTags];
     
     return cell;
 }
@@ -128,48 +136,10 @@
     return 80.0f;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 
 -(NSDictionary *)getDictionaryAtIndexPath:(NSIndexPath *)indexPath {
-    return [self.shouts objectForKey:[[self.shouts allKeys] objectAtIndex:indexPath.row]];
+    return [self.shouts objectAtIndex:indexPath.row];
 }
 
 #pragma mark - Table view delegate
@@ -183,13 +153,6 @@
     sbdvc.shout = dic;
     [self.navigationController pushViewController:sbdvc animated:YES];
     [sbdvc release];
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
 }
 
 @end

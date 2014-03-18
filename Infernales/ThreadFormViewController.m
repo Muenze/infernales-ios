@@ -15,6 +15,7 @@
 @implementation ThreadFormViewController
 
 @synthesize forum_id;
+@synthesize manager = _manager;
 
 -(id)init {
     self = [super init];
@@ -25,6 +26,8 @@
         _root.grouped = YES;
         
         self.root = _root;
+        self.manager = [AFHTTPRequestOperationManager manager];
+        
     }
     return self;
     
@@ -40,43 +43,31 @@
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"passwort"];
     
-    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.infernales.de/portal/forum/postnewthread.json?forum_id=%@&username=%@&password=%@",self.forum_id, username, password]];
-    ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
-    [request setPostValue:message_string forKey:@"message"];
-    [request setPostValue:subject_string forKey:@"subject"];
-    [request setPostValue:@"1" forKey:@"postnewthread"];
-    
-    request.delegate = self;
-    [request startAsynchronous];
-    
+    NSString *url = [NSString
+                    stringWithFormat:@"http://www.infernales.de/portal/forum/postnewthread.json.iphone.php?forum_id=%@&username=%@&password=%@",
+                    self.forum_id,
+                    username,
+                    password];
+    NSDictionary *postParams = @{
+         @"message": message_string,
+         @"subject": subject_string,
+         @"postnewthread": @"1"
+    };
+
+    [self.manager POST:url parameters:postParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([[responseObject objectForKey:@"code"] isEqualToNumber:@0]) {
+            //        [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:index] animated:YES];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Fehler");
+    }];
 }
 
-
-
-- (void)requestFinished:(ASIHTTPRequest *)request
-{
-    // Use when fetching text data
-    NSString *responseString = [request responseString];
-    
-    NSDictionary *response = [responseString JSONValue];
-    if ([[response objectForKey:@"code"] compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
-//        [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:index] animated:YES];
-        [self.navigationController popViewControllerAnimated:YES];
-    }
-    
-    // Use when fetching binary data
-    //    NSData *responseData = [request responseData];
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[self.manager operationQueue] cancelAllOperations];
 }
-
-- (void)requestFailed:(ASIHTTPRequest *)request
-{
-}
-
-
-
-
-
-
 
 - (void)viewDidLoad
 {

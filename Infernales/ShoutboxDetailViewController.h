@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NSString+HtmlEntities.h"
 #import "ShoutboxFormViewController.h"
+#import "NSString+phpfusiontags.h"
 
 @interface ShoutboxDetailViewController : UIViewController {
     IBOutlet UITextView *shoutView;

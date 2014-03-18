@@ -20,6 +20,7 @@
 @synthesize btnInbox = _btnInbox;
 @synthesize btnOutbox = _btnOutbox;
 @synthesize btnTrash = _btnTrash;
+@synthesize manager = _manager;
 
 //- (id)initWithStyle:(UITableViewStyle)style
 //{
@@ -30,23 +31,37 @@
 //    return self;
 //}
 
+-(id)init {
+    if(self = [super init]) {
+        self.manager = [AFHTTPRequestOperationManager manager];
+    }
+    return self;
+}
+
 -(void)fetchMessages {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *username = [defaults objectForKey:@"username"];
     NSString *password = [defaults objectForKey:@"passwort"];
     
-    NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/messages.json.php?username=%@&password=%@&folder=%@", username, password, _folder];
-    NSURL *url = [NSURL URLWithString:urlString];
-    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
-    [request setCompletionBlock:^{
-        self.dict = [[request responseString] JSONValue];
-        [self.tableView reloadData];
-    }];
-    [request setFailedBlock:^{
-        NSLog(@"Failed for reason: %@", [[request error] localizedDescription]);
-    }];
-    [request startSynchronous];
+    NSDictionary *params = @{@"username": username, @"password": password, @"folder": self.folder};
+    
+    [self.manager
+     GET:@"http://www.infernales.de/portal/forum/messages.json.iphone.php"
+     parameters:params
+     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         NSLog(@"%@", responseObject);
+         [self reloadTableWithData:responseObject];
+     }
+     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         NSLog(@"%@", error);
+     }];
 }
+
+- (void)reloadTableWithData:(NSArray *)data {
+    self.dict = data;
+    [_tableView reloadData];
+}
+
 
 - (void)viewDidLoad
 {

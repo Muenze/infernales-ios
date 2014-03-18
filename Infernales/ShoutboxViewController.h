@@ -8,17 +8,22 @@
 
 #import <UIKit/UIKit.h>
 #import "JSON.h"
-#import "OrderedDictionary.h"
 #import "NSString+HtmlEntities.h"
 #import "ShoutboxViewCell.h"
 #import "ShoutboxDetailViewController.h"
 #import "ShoutboxFormViewController.h"
+#import <AFNetworking/AFNetworking.h>
+#import <MBProgressHUD/MBProgressHUD.h>
+#import "NSString+phpfusiontags.h"
 
 @interface ShoutboxViewController : UITableViewController {
-    OrderedDictionary *shouts;
 }
 
-@property (nonatomic, retain) OrderedDictionary* shouts;
+@property (nonatomic, retain) NSArray *shouts;
+@property (nonatomic, retain) AFHTTPRequestOperationManager *manager;
+
+-(void)loadShoutboxData;
+-(void)reloadTableViewsWithData:(NSArray *)array;
 
 -(IBAction)pressShout:(id)sender;
 @end

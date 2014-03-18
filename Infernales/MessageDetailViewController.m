@@ -33,7 +33,6 @@
     
     subjectLabel.text = [message objectForKey:@"message_subject"];
     
-    NSString *autor = [message objectForKey:@"user_name"];
     
     NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[[message objectForKey:@"message_datestamp"] doubleValue]];
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
@@ -41,7 +40,9 @@
     NSString *date = [format stringFromDate:theDate];
     [format release];
     
-    autor = [[autor stringByAppendingString:@" am "] stringByAppendingString:date];
+    
+    NSString *autor = [NSString stringWithFormat:@"%@ am %@",[message objectForKey:@"username"], date];
+    
     authorLabel.text = autor;
     
     UIBarButtonItem *postButton = [[UIBarButtonItem alloc] initWithTitle:@"antworten" style:UIBarButtonItemStylePlain target:self action:@selector(replyToMessage:)];

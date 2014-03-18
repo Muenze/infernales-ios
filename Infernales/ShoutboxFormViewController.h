@@ -9,13 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "ASIFormDataRequest.h"
 #import <QuartzCore/QuartzCore.h>
-#import "ACPlaceholderTextView.h"
 #import "ShoutboxViewController.h"
 #import <QuickDialog/QuickDialog.h>
+#import <AFNetworking/AFNetworking.h>
 
 @interface ShoutboxFormViewController : QuickDialogController {
+    
 }
 
+@property (nonatomic, retain) AFHTTPRequestOperationManager *manager;
+
 -(IBAction)pressSend:(id)sender;
+-(void)redirectWithResponse:(NSDictionary *)response;
 
 @end

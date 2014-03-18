@@ -164,8 +164,8 @@
     
     
     NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
-    NSString *autor = [dic objectForKey:@"user_name"];
-    autor = [autor decodeHtmlEntities];
+//    NSString *autor = [dic objectForKey:@"user_name"];
+//    autor = [autor decodeHtmlEntities];
     
     NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[[dic objectForKey:@"post_datestamp"] doubleValue]];
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
@@ -173,8 +173,10 @@
     NSString *date = [format stringFromDate:theDate];
     [format release];
     
-    autor = [autor stringByAppendingFormat:@" am "];
-    autor = [autor stringByAppendingFormat:date];
+//    autor = [autor stringByAppendingFormat:@" am "];
+//    autor = [autor stringByAppendingFormat:date];
+    
+    NSString *autor = [NSString stringWithFormat:@"%@ am %@", [[dic objectForKey:@"user_name"] decodeHtmlEntities], date];
     
     
     

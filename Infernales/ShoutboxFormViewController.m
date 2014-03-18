@@ -14,6 +14,8 @@
 
 @implementation ShoutboxFormViewController
 
+@synthesize manager = _manager;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -24,6 +26,8 @@
         
         self.root = _root;
         
+        self.manager = [AFHTTPRequestOperationManager manager];
+        
     }
     return self;
 }
@@ -32,26 +36,12 @@
 {
     [super viewDidLoad];
     
-//    ACPlaceholderTextView *tv = [[ACPlaceholderTextView alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 275.0f, 160.0f)];
-//    tv.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-//    //        tv.delegate = self;
-//    tv.backgroundColor = [UIColor colorWithWhite:245/255.0f alpha:1];
-//    tv.scrollIndicatorInsets = UIEdgeInsetsMake(13, 0, 8, 6);
-//    tv.scrollsToTop = NO;
-//    tv.font = [UIFont systemFontOfSize:14];
-//    tv.autocorrectionType = UITextAutocorrectionTypeNo;
-//    tv.layer.borderColor = [[UIColor grayColor] CGColor];
-//    tv.layer.borderWidth = 2;
-//    [self.view addSubview:tv];
-//    message = tv;
-//
-    
     QSection *sec = [[QSection alloc] init];
     QMultilineElement *multi = [[QMultilineElement alloc]
                                 initWithTitle:@"Shout Text"
                                 Value:@""
                                 Placeholder:@"Hier klicken"];
-    multi.key = @"text";
+    multi.key = @"shout_message";
     [sec addElement:multi];
     
     [self.root addSection:sec];
@@ -60,42 +50,35 @@
     
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStylePlain target:self action:@selector(pressSend:)];
     self.navigationItem.rightBarButtonItem = button;
-//    [button release];
-    // Do any additional setup after loading the view from its nib.
 }
 
 -(IBAction)pressSend:(id)sender {
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Shout wird gespeichert";
+    
+    
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"passwort"];
 
     NSMutableDictionary *fetched = [NSMutableDictionary new];
     [self.root fetchValueIntoObject:fetched];
+    [fetched setObject:@"1" forKey:@"post_shout"];
     
-    NSString *message_string = [fetched objectForKey:@"text"];
-//
-//    
-    NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/shoutbox.json.php?username=%@&password=%@", username, password];
-    NSURL *url = [NSURL URLWithString:urlString];
-    ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
-    [request setPostValue:message_string forKey:@"shout_message"];
-    [request setPostValue:@"1" forKey:@"post_shout"];
+    NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/shoutbox.json.iphone.php?username=%@&password=%@", username, password];
     
-    request.delegate = self;
-    [request startAsynchronous];
-    
+    [self.manager POST:urlString parameters:fetched success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [hud hide:YES];
+        [self redirectWithResponse:responseObject];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [hud hide:YES];
+        [UIAlertView ]
+        NSLog(@"Error: %@", error);
+    }];
 }
 
-
-
-- (void)requestFinished:(ASIHTTPRequest *)request
-{
-    // Use when fetching text data
-    NSString *responseString = [request responseString];
-    
-    NSLog(@"response: %@",responseString);
-    
-    NSDictionary *response = [responseString JSONValue];
-    if ([[response objectForKey:@"code"] compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
+-(void)redirectWithResponse:(NSDictionary *)response {
+    if ([[response objectForKey:@"code"] isEqualToNumber:@0]) {
         NSUInteger index = [self.navigationController.viewControllers indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
             if([obj isKindOfClass:[ShoutboxViewController class]]) {
                 *stop = YES;
@@ -104,19 +87,8 @@
             return NO;
         }];
         
-        
         [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:index] animated:YES];
-//        [self.navigationController popViewControllerAnimated:YES];
     }
-    
-    // Use when fetching binary data
-    //    NSData *responseData = [request responseData];
-}
-
-- (void)requestFailed:(ASIHTTPRequest *)request
-{
-    NSError *error = [request error];
-    
 }
 
 - (void)didReceiveMemoryWarning

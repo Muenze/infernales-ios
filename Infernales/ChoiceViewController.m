@@ -181,7 +181,7 @@
         [sbvc release];
     }
     else if (indexPath.row == 2 && indexPath.section == 0) {
-        MessagesViewController *ibc = [[MessagesViewController alloc] initWithNibName:@"MessagesViewController" bundle:nil];
+        MessagesViewController *ibc = [[MessagesViewController alloc] init];
         ibc.folder = @"inbox";
         [self.navigationController pushViewController:ibc animated:YES];
         [ibc release];

@@ -14,16 +14,16 @@
 #import <QuickDialog/QuickDialog.h>
 
 @interface PostFormViewController : QuickDialogController {
-    NSInteger* threadId;
-    NSInteger* forumId;
+    NSNumber *threadId;
+    NSNumber *forumId;
     NSString *formString;
     bool editMode;
     NSDictionary *postValues;
 }
 
 @property (strong, nonatomic) NSString *formString;
-@property (nonatomic) NSInteger* threadId;
-@property (nonatomic) NSInteger* forumId;
+@property (nonatomic, strong) NSNumber* threadId;
+@property (nonatomic, strong) NSNumber* forumId;
 @property (strong, nonatomic) UIButton *sendButton;
 @property (nonatomic) bool editMode;
 @property (nonatomic, strong) NSDictionary *postValues;

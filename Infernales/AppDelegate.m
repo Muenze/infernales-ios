@@ -44,6 +44,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
 
     UINavigationController *nav = [[UINavigationController alloc] init];
+    nav.navigationBar.translucent = YES;
     ChoiceViewController *cvc = [[ChoiceViewController alloc] init];
     [nav pushViewController:cvc animated:NO];
     [cvc release];

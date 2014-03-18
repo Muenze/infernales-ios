@@ -82,7 +82,7 @@
     if ([[response objectForKey:@"code"] compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
         AppDelegate *del = [[UIApplication sharedApplication] delegate];
         del.needsUpdatePost = true;
-        NSUInteger *index = [self.navigationController.viewControllers indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+        NSUInteger index = [self.navigationController.viewControllers indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
             if([obj isKindOfClass:[PostViewController class]]) {
                 *stop = YES;
                 return YES;
@@ -98,7 +98,6 @@
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-    NSError *error = [request error];
 
 }
 

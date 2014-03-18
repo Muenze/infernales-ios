@@ -9,15 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "ASIFormDataRequest.h"
 #import <QuartzCore/QuartzCore.h>
-#import "ACPlaceholderTextView.h"
 #import <QuickDialog/QuickDialog.h>
 #import "NSString+SBJSON.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface ThreadFormViewController : QuickDialogController {
     NSNumber *forum_id;
 }
 
 @property (nonatomic, strong) NSNumber *forum_id;
+@property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
+
 
 -(IBAction)pressSend:(id)sender;
 -(void)buildQuickDialog;

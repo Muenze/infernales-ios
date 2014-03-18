@@ -13,12 +13,14 @@
 #import "MessageViewCell.h"
 #import "MessageDetailViewController.h"
 #import "MessageNewViewController.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface MessagesViewController : UIViewController {
-    NSMutableArray *dict;
+    NSArray *dict;
 }
 
-@property (nonatomic, strong)  NSMutableArray *dict;
+@property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
+@property (nonatomic, strong)  NSArray *dict;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSString *folder;
 @property (retain, nonatomic) IBOutlet UIBarButtonItem *btnInbox;
@@ -29,4 +31,5 @@
 - (IBAction)pressInbox:(id)sender;
 - (IBAction)pressOutbox:(id)sender;
 - (IBAction)pressTrash:(id)sender;
+- (void)reloadTableWithData:(NSArray *)data;
 @end

@@ -26,7 +26,6 @@
 		47E3FA0189C648639A07CF03 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC6DF6937B8E46A286E6D1B3 /* libPods.a */; };
 		CB0AC9B5170234A1007C13B0 /* ShoutboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0AC9B3170234A1007C13B0 /* ShoutboxViewController.m */; };
 		CB0AC9B6170234A1007C13B0 /* ShoutboxViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB0AC9B4170234A1007C13B0 /* ShoutboxViewController.xib */; };
-		CB1FB42016FCF965003636BA /* ACPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1FB41F16FCF965003636BA /* ACPlaceholderTextView.m */; };
 		CB1FB42816FCFC31003636BA /* MessageInputBarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1FB42716FCFC31003636BA /* MessageInputBarBackground.png */; };
 		CB1FB42A16FCFD78003636BA /* MessageInputBarBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1FB42916FCFD78003636BA /* MessageInputBarBackground@2x.png */; };
 		CB1FB42D16FCFD84003636BA /* MessageInputFieldBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1FB42B16FCFD84003636BA /* MessageInputFieldBackground.png */; };
@@ -61,6 +60,7 @@
 		CBAD4911173D872600EC8365 /* MessageFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBAD490F173D872600EC8365 /* MessageFormViewController.xib */; };
 		CBAFD2D616EA7D21002D4BE8 /* PostViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAFD2D516EA7D21002D4BE8 /* PostViewCell.m */; };
 		CBAFD2D816EA7D36002D4BE8 /* PostViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBAFD2D716EA7D36002D4BE8 /* PostViewCell.xib */; };
+		CBB2D96118D82D7600761396 /* splash-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB2D96018D82D7600761396 /* splash-568h@2x.png */; };
 		CBBD598815A4C9C9002BA33F /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBD598715A4C9C9002BA33F /* OrderedDictionary.m */; };
 		CBCFB1B916E3E2C500972EEB /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCFB1B816E3E2C500972EEB /* pin.png */; };
 		CBD0273C17085E7000EC67D3 /* ThreadFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD0273A17085E7000EC67D3 /* ThreadFormViewController.m */; };
@@ -116,8 +116,6 @@
 		CB0AC9B2170234A1007C13B0 /* ShoutboxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoutboxViewController.h; sourceTree = "<group>"; };
 		CB0AC9B3170234A1007C13B0 /* ShoutboxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoutboxViewController.m; sourceTree = "<group>"; };
 		CB0AC9B4170234A1007C13B0 /* ShoutboxViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoutboxViewController.xib; sourceTree = "<group>"; };
-		CB1FB41E16FCF965003636BA /* ACPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACPlaceholderTextView.h; sourceTree = "<group>"; };
-		CB1FB41F16FCF965003636BA /* ACPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACPlaceholderTextView.m; sourceTree = "<group>"; };
 		CB1FB42716FCFC31003636BA /* MessageInputBarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageInputBarBackground.png; sourceTree = "<group>"; };
 		CB1FB42916FCFD78003636BA /* MessageInputBarBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageInputBarBackground@2x.png"; sourceTree = "<group>"; };
 		CB1FB42B16FCFD84003636BA /* MessageInputFieldBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageInputFieldBackground.png; sourceTree = "<group>"; };
@@ -167,6 +165,7 @@
 		CBAFD2D416EA7D21002D4BE8 /* PostViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewCell.h; sourceTree = "<group>"; };
 		CBAFD2D516EA7D21002D4BE8 /* PostViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewCell.m; sourceTree = "<group>"; };
 		CBAFD2D716EA7D36002D4BE8 /* PostViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostViewCell.xib; sourceTree = "<group>"; };
+		CBB2D96018D82D7600761396 /* splash-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-568h@2x.png"; sourceTree = "<group>"; };
 		CBBD598615A4C9C9002BA33F /* OrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderedDictionary.h; sourceTree = "<group>"; };
 		CBBD598715A4C9C9002BA33F /* OrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderedDictionary.m; sourceTree = "<group>"; };
 		CBCFB1B816E3E2C500972EEB /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
@@ -233,6 +232,7 @@
 		07F05FD91586709B00380D63 = {
 			isa = PBXGroup;
 			children = (
+				CBB2D96018D82D7600761396 /* splash-568h@2x.png */,
 				07F05FF01586709B00380D63 /* Infernales */,
 				07F05FE71586709B00380D63 /* Frameworks */,
 				07F05FE51586709B00380D63 /* Products */,
@@ -396,8 +396,6 @@
 			children = (
 				CB9F1740172F0B5D002965F9 /* UIDropDownMenu.h */,
 				CB9F1741172F0B5D002965F9 /* UIDropDownMenu.m */,
-				CB1FB41E16FCF965003636BA /* ACPlaceholderTextView.h */,
-				CB1FB41F16FCF965003636BA /* ACPlaceholderTextView.m */,
 				CB9D836016E375FC0047B1F2 /* NSString+HtmlEntities.h */,
 				CB9D836116E375FC0047B1F2 /* NSString+HtmlEntities.m */,
 				CBBD598615A4C9C9002BA33F /* OrderedDictionary.h */,
@@ -479,6 +477,7 @@
 				CB1FB43116FCFD8C003636BA /* SendButton.png in Resources */,
 				CB1FB43216FCFD8C003636BA /* SendButton@2x.png in Resources */,
 				CB1FB43516FCFD92003636BA /* SendButtonHighlighted.png in Resources */,
+				CBB2D96118D82D7600761396 /* splash-568h@2x.png in Resources */,
 				CB1FB43616FCFD92003636BA /* SendButtonHighlighted@2x.png in Resources */,
 				CB0AC9B6170234A1007C13B0 /* ShoutboxViewController.xib in Resources */,
 				CBF60D3B170788AC004A67C8 /* ShoutboxViewCell.xib in Resources */,
@@ -557,7 +556,6 @@
 				CB4B49F618C73A910014078E /* NSString+phpfusiontags.m in Sources */,
 				CB21A91316F11F5F00BD3735 /* PostdetailViewController.m in Sources */,
 				CB91035F16FBA2DC00DA7E07 /* PostFormViewController.m in Sources */,
-				CB1FB42016FCF965003636BA /* ACPlaceholderTextView.m in Sources */,
 				CB0AC9B5170234A1007C13B0 /* ShoutboxViewController.m in Sources */,
 				CBF60D3917078895004A67C8 /* ShoutboxViewCell.m in Sources */,
 				CBD0273C17085E7000EC67D3 /* ThreadFormViewController.m in Sources */,

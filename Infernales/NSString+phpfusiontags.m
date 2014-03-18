@@ -14,15 +14,29 @@
     NSString *temp = [self copy];
     
     NSError *error;
-    NSRegularExpression *expr = [NSRegularExpression
-                                 regularExpressionWithPattern:@"\\[youtube\\](.*?)\\[/youtube\\]"
-                                 options:NSRegularExpressionCaseInsensitive
-                                 error:&error];
+    NSRegularExpression *youtubeExpr = [NSRegularExpression
+                                        regularExpressionWithPattern:@"\\[youtube\\](.*?)\\[/youtube\\]"
+                                        options:NSRegularExpressionCaseInsensitive
+                                        error:&error];
     
-    temp = [expr stringByReplacingMatchesInString:temp
-                                                         options:0
-                                                           range:NSMakeRange(0,[temp length])
-                                                    withTemplate:@"http://youtube.de/$1"];
+    temp = [youtubeExpr stringByReplacingMatchesInString:temp
+                                                 options:0
+                                                   range:NSMakeRange(0,[temp length])
+                                            withTemplate:@"http://youtube.de/$1"];
+    
+    NSRegularExpression *urlExpr = [NSRegularExpression
+                                        regularExpressionWithPattern:@"\\[url\\](.*?)\\[/url\\]"
+                                        options:NSRegularExpressionCaseInsensitive
+                                        error:&error];
+    
+    temp = [urlExpr stringByReplacingMatchesInString:temp
+                                                 options:0
+                                                   range:NSMakeRange(0,[temp length])
+                                            withTemplate:@"$1"];
+    
+    
+    
+    
     
     
     

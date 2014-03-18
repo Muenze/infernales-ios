@@ -33,8 +33,6 @@
     self.navigationItem.rightBarButtonItem = button;
     [button release];
     
-    NSString *autor = [shout objectForKey:@"user"];
-    autor = [autor decodeHtmlEntities];
     
     NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[[shout objectForKey:@"datestamp"] doubleValue]];
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
@@ -42,14 +40,13 @@
     NSString *date = [format stringFromDate:theDate];
     [format release];
     
-    autor = [autor stringByAppendingFormat:@" am "];
-    autor = [autor stringByAppendingFormat:date];
+    NSString *autor = [NSString stringWithFormat:@"%@ am %@", [shout objectForKey:@"user"], date];
+    
     
     label.text = autor;
     
-    NSString *text = [shout objectForKey:@"message"];
-    text = [text decodeHtmlEntities];
-    shoutView.text = text;    
+    NSString *text = [[shout objectForKey:@"message"] decodePhpFusionTags];
+    shoutView.text = text;
     
     
     // Do any additional setup after loading the view from its nib.
