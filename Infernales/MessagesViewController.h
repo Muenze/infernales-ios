@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "OrderedDictionary.h"
 #import "JSON.h"
 #import "ASIFormDataRequest.h"
 #import "MessageViewCell.h"
 #import "MessageDetailViewController.h"
 #import "MessageNewViewController.h"
 #import <AFNetworking/AFNetworking.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface MessagesViewController : UIViewController {
     NSArray *dict;
@@ -23,9 +23,10 @@
 @property (nonatomic, strong)  NSArray *dict;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSString *folder;
-@property (retain, nonatomic) IBOutlet UIBarButtonItem *btnInbox;
-@property (retain, nonatomic) IBOutlet UIBarButtonItem *btnOutbox;
-@property (retain, nonatomic) IBOutlet UIBarButtonItem *btnTrash;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *btnInbox;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *btnOutbox;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *btnTrash;
+@property (nonatomic, retain) MBProgressHUD *hud;
 
 
 - (IBAction)pressInbox:(id)sender;

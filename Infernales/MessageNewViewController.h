@@ -13,6 +13,7 @@
 #import "JSON.h"
 #import <QuartzCore/QuartzCore.h>
 #import "MBProgressHUD.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface MessageNewViewController : UIViewController <UIScrollViewDelegate, UIDropDownMenuDelegate> {
     UIDropDownMenu *recieverMenu;
@@ -25,6 +26,7 @@
 @property (strong, nonatomic) UIDropDownMenu *recieverMenu;
 @property (strong, nonatomic) NSArray *valueArray;
 @property (strong, nonatomic) NSArray *titleArray;
+@property (nonatomic, retain) AFHTTPRequestOperationManager *manager;
 
 -(IBAction)sendMessage:(id)sender;
 

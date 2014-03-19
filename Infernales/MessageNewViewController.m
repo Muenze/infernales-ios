@@ -22,6 +22,7 @@
 @synthesize txtReciever     = _txtReciever;
 @synthesize txtSubject      = _txtSubject;
 @synthesize recieverId      = _recieverId;
+@synthesize manager         = _manager;
 
 -(id)init {
     self = [super init];
@@ -36,6 +37,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.manager = [AFHTTPRequestOperationManager manager];
     }
     return self;
 }
@@ -48,8 +50,8 @@
     
     recieverMenu = [[UIDropDownMenu alloc] initWithIdentifier:@"recieverMenu"];
     recieverMenu.ScaleToFitParent = TRUE;
-    recieverMenu.titleArray = _titleArray;
-    recieverMenu.valueArray = _valueArray;
+    recieverMenu.titleArray = [_titleArray copy];
+    recieverMenu.valueArray = [_valueArray copy];
     [recieverMenu makeMenu:_txtReciever targetView:self.view];
     recieverMenu.delegate = self;
     

@@ -21,6 +21,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
+            self.edgesForExtendedLayout = UIRectEdgeNone;
+        }
     }
     return self;
 }
@@ -28,6 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     
     messageTextView.text = [message objectForKey:@"message_message"];
     
@@ -41,7 +45,7 @@
     [format release];
     
     
-    NSString *autor = [NSString stringWithFormat:@"%@ am %@",[message objectForKey:@"username"], date];
+    NSString *autor = [NSString stringWithFormat:@"%@ am %@",[message objectForKey:@"user_name"], date];
     
     authorLabel.text = autor;
     

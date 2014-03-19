@@ -43,6 +43,9 @@
     NSString *username = [defaults objectForKey:@"username"];
     NSString *password = [defaults objectForKey:@"passwort"];
     
+    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.hud.labelText = @"Lade Messages";
+    
     NSDictionary *params = @{@"username": username, @"password": password, @"folder": self.folder};
     
     [self.manager
@@ -51,9 +54,11 @@
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
          NSLog(@"%@", responseObject);
          [self reloadTableWithData:responseObject];
+         [self.hud hide:YES];
      }
      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          NSLog(@"%@", error);
+         [self.hud hide:YES];
      }];
 }
 
