@@ -56,7 +56,6 @@
                  NSLog(@"%@", error);
              }
          ];
-//    });
 }
 
 - (void)viewDidLoad

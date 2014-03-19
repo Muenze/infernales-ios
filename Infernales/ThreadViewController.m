@@ -16,10 +16,15 @@
 @implementation ThreadViewController
 
 @synthesize threadData, forumId, threadName;
+@synthesize hud = _hud;
 
 -(void)loadThreadData {
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"passwort"];
+    
+    self.hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    self.hud.labelText = @"Lade Threaddaten";
+    
     
     NSDictionary *params = @{
         @"forum_id": forumId
@@ -38,9 +43,11 @@
         parameters:params
         success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [self reloadTableWithData:responseObject];
+            [self.hud hide:YES];
         }
         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"%@",error);
+            [self.hud hide:YES];
         }
     ];
 }

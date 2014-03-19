@@ -12,6 +12,7 @@
 #import "PostViewCell.h"
 #import "PostdetailViewController.h"
 #import "PostFormViewController.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface PostViewController : UITableViewController {
     NSNumber* threadId;
@@ -24,6 +25,7 @@
 @property (nonatomic, strong) NSNumber* forumId;
 @property (nonatomic, strong) NSArray *postData;
 @property (nonatomic, strong) NSString *threadName;
+@property (nonatomic, retain) MBProgressHUD *hud;
 @property bool locked;
 
 -(void)loadPostData;

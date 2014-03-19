@@ -12,6 +12,7 @@
 #import "PostViewController.h"
 #import "NSString+HtmlEntities.h"
 #import "ThreadFormViewController.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface ThreadViewController : UITableViewController {
     NSArray *threadData;
@@ -22,6 +23,7 @@
 @property (nonatomic, retain) NSArray *threadData;
 @property (nonatomic, retain) NSNumber* forumId;
 @property (nonatomic, strong) NSString* threadName;
+@property (nonatomic, retain) MBProgressHUD *hud;
 
 -(void)loadThreadData;
 -(id)initWithForumId:(NSNumber *)fd;

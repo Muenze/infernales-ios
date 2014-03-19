@@ -15,10 +15,14 @@
 @implementation PostViewController
 
 @synthesize forumId, threadId, postData, threadName, locked;
+@synthesize hud = _hud;
 
 -(void)loadPostData {
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"passwort"];
+    
+    self.hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    self.hud.labelText = @"Lade Postdaten";
     
     NSDictionary *params = @{
                              @"thread_id": threadId
@@ -36,11 +40,12 @@
      GET:@"http://www.infernales.de/portal/forum/viewthread.json.iphone.php"
      parameters:params
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//         [self reloadTableWithData:responseObject];
          [self reloadTableWithData:responseObject];
+         [self.hud hide:YES];
      }
      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          NSLog(@"%@",error);
+         [self.hud hide:YES];
      }
      ];
 }

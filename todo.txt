@@ -1,8 +1,9 @@
 - ForumViewController
-	- HUD an den Navigation Controller hängen
 	- Login Fehler abfangen
 	- Leere Login Daten abfangen
 - ShoutboxViewController
 	- Error abfangen
 - ShoutboxFormViewController
 	- Umstellung auf AFNetworking
+- ThreadViewController
+- PostViewController
