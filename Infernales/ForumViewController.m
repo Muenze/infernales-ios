@@ -28,10 +28,9 @@
 
 -(void)loadForumData {
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     hud.labelText = @"Lade Forendaten";
     
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
         NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"passwort"];
         
@@ -51,9 +50,7 @@
             parameters:params
             success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 [self reloadTableWithData:responseObject];
-//                 dispatch_async(dispatch_get_main_queue(), ^{
-                     [MBProgressHUD hideHUDForView:self.view animated:YES];
-//                 });
+                     [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
              }
              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                  NSLog(@"%@", error);

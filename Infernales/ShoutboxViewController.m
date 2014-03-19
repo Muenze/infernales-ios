@@ -33,21 +33,19 @@
     
     NSDictionary *params = @{@"username": username, @"password": password};
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     hud.labelText = @"Lade Shoutbox Daten";
     
     [self.manager GET:@"http://www.infernales.de/portal/forum/shoutbox.json.iphone.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-
         [hud hide:YES];
         [self reloadTableViewsWithData:responseObject];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@", error);
+//        NSLog(@"%@", error);
         [hud hide:YES];
     }];
 }
 
 -(void)reloadTableViewsWithData:(NSArray *)array {
-    NSLog(@"%@", array);
     self.shouts = array;
     UITableView *table = (UITableView *)self.view;
     [table reloadData];

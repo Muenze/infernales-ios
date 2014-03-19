@@ -21,9 +21,11 @@
 
 @property (nonatomic, retain) NSArray *shouts;
 @property (nonatomic, retain) AFHTTPRequestOperationManager *manager;
+@property (nonatomic, retain) MBProgressHUD *hud;
 
 -(void)loadShoutboxData;
 -(void)reloadTableViewsWithData:(NSArray *)array;
+-(void)redirectToRoot:(NSDictionary *)response;
 
 -(IBAction)pressShout:(id)sender;
 @end

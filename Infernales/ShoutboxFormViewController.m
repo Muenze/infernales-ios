@@ -54,7 +54,7 @@
 
 -(IBAction)pressSend:(id)sender {
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     hud.labelText = @"Shout wird gespeichert";
     
     
@@ -72,7 +72,9 @@
         [self redirectWithResponse:responseObject];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [hud hide:YES];
-        [UIAlertView ]
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fehler" message:@"Fehler beim speichern" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+        
         NSLog(@"Error: %@", error);
     }];
 }
