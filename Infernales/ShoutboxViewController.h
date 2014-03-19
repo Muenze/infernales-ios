@@ -25,7 +25,6 @@
 
 -(void)loadShoutboxData;
 -(void)reloadTableViewsWithData:(NSArray *)array;
--(void)redirectToRoot:(NSDictionary *)response;
 
 -(IBAction)pressShout:(id)sender;
 @end

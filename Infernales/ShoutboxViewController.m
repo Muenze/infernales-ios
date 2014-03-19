@@ -70,7 +70,7 @@
 }
 
 -(IBAction)pressShout:(id)sender {
-    ShoutboxFormViewController *sfc = [[ShoutboxFormViewController alloc] initWithNibName:@"ShoutboxFormViewController" bundle:nil];
+    ShoutboxFormViewController *sfc = [[ShoutboxFormViewController alloc] init];
     [self.navigationController pushViewController:sfc animated:YES];
     [sfc release];
 }

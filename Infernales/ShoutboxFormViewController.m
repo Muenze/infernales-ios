@@ -16,18 +16,15 @@
 
 @synthesize manager = _manager;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+-(id)init {
+    self = [super init];
+    if(self) {
         QRootElement *_root = [[QRootElement alloc] init];
         _root.grouped = YES;
         
         self.root = _root;
         
         self.manager = [AFHTTPRequestOperationManager manager];
-        
     }
     return self;
 }
@@ -45,6 +42,7 @@
     [sec addElement:multi];
     
     [self.root addSection:sec];
+    
     
     
     

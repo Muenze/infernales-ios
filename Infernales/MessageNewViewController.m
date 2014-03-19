@@ -23,6 +23,14 @@
 @synthesize txtSubject      = _txtSubject;
 @synthesize recieverId      = _recieverId;
 
+-(id)init {
+    self = [super init];
+    if(self) {
+        
+    }
+    return self;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -113,7 +121,7 @@
 -(void)fetchUsers {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/collections.json.php?username=%@&password=%@&collection=alluser", [defaults objectForKey:@"username"], [defaults objectForKey:@"passwort"]];
+    NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/collections.json.iphone.php?username=%@&password=%@&collection=alluser", [defaults objectForKey:@"username"], [defaults objectForKey:@"passwort"]];
     NSDictionary *dic = [[NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil] JSONValue];
     _titleArray = [dic objectForKey:@"title"];
     _valueArray = [dic objectForKey:@"value"];
