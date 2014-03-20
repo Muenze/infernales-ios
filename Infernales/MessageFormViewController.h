@@ -10,16 +10,13 @@
 #import "ASIFormDataRequest.h"
 #import <QuartzCore/QuartzCore.h>
 #import "MessagesViewController.h"
+#import <QuickDialog/QuickDialog.h>
+#import <AFNetworking/AFNetworking.h>
 
+@interface MessageFormViewController : QuickDialogController
 
-@interface MessageFormViewController : UIViewController
-
-@property (retain, nonatomic) IBOutlet UILabel *lblSubject;
-@property (retain, nonatomic) IBOutlet UILabel *lblMessage;
-@property (retain, nonatomic) IBOutlet UITextField *txtSubject;
-@property (retain, nonatomic) IBOutlet UITextView *tvMessage;
 @property (retain, nonatomic) NSDictionary *messageData;
-@property (retain, nonatomic) IBOutlet UIScrollView *svMyScrollView;
+@property (nonatomic, retain) AFHTTPRequestOperationManager *manager;
 
 -(IBAction)sendMessage:(id)sender;
 

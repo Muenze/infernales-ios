@@ -14,32 +14,57 @@
 
 @implementation MessageNewViewController
 
-@synthesize svMyScrollView  = _svMyScrollView;
-@synthesize recieverMenu;
 @synthesize titleArray      = _titleArray;
 @synthesize valueArray      = _valueArray;
-@synthesize txtMessage      = _txtMessage;
-@synthesize txtReciever     = _txtReciever;
-@synthesize txtSubject      = _txtSubject;
 @synthesize recieverId      = _recieverId;
 @synthesize manager         = _manager;
+@synthesize userCollection  = _userCollection;
+@synthesize users           = _users;
+@synthesize hud             = _hud;
 
 -(id)init {
     self = [super init];
     if(self) {
         
+        QRootElement *_root = [[QRootElement alloc] init];
+//        QRootElement *_root = [[QRootElement alloc] initWithJSONFile:@"section"];
+        _root.grouped = YES;
+        
+        self.root = _root;
+        
+        self.manager = [AFHTTPRequestOperationManager manager];
     }
     return self;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)buildDialog
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-        self.manager = [AFHTTPRequestOperationManager manager];
-    }
-    return self;
+    QSection *sec = [[QSection alloc] init];
+    
+    QAutoEntryElement *autoReciever = [[QAutoEntryElement alloc] init];
+    autoReciever.title = @"Reciever";
+    autoReciever.key = @"reciever";
+    autoReciever.autoCompleteValues = self.users;
+
+    [sec addElement:autoReciever];
+    
+    QEntryElement *subject = [[QEntryElement alloc] initWithKey:@"subject"];
+    subject.title = @"Subject";
+    
+    [sec addElement:subject];
+    
+    QMultilineElement *text = [[QMultilineElement alloc] initWithKey:@"message"];
+    text.title = @"Message";
+    [sec addElement:text];
+    
+    [self.root addSection:sec];
+    
+    NSMutableDictionary *dic = [NSMutableDictionary new];
+    [self.root fetchValueIntoObject:dic];
+    
+    NSLog(@"Dic: %@",dic);
+    
+    [self.quickDialogTableView reloadData];
 }
 
 - (void)viewDidLoad
@@ -47,21 +72,12 @@
     [super viewDidLoad];
     
     [self fetchUsers];
-    
-    recieverMenu = [[UIDropDownMenu alloc] initWithIdentifier:@"recieverMenu"];
-    recieverMenu.ScaleToFitParent = TRUE;
-    recieverMenu.titleArray = [_titleArray copy];
-    recieverMenu.valueArray = [_valueArray copy];
-    [recieverMenu makeMenu:_txtReciever targetView:self.view];
-    recieverMenu.delegate = self;
+   
     
     
-    _txtMessage = [[UITextView alloc] initWithFrame:CGRectMake(20.0f, 148.0f, 280.0f, 120.0f)];
-    _txtMessage.autocorrectionType = UITextAutocorrectionTypeNo;
-    _txtMessage.layer.borderColor = [[UIColor grayColor] CGColor];
-    _txtMessage.layer.borderWidth = 2;
     
-    [_svMyScrollView addSubview:_txtMessage];
+    
+
     
     
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"send" style:UIBarButtonItemStylePlain target:self action:@selector(sendMessage:)];
@@ -77,23 +93,19 @@
     NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
     NSString *username = [def objectForKey:@"username"];
     NSString *password = [def objectForKey:@"passwort"];
-    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.infernales.de/portal/forum/messages.json.php?username=%@&password=%@&msg_send=0", username, password]]];
-    [request setPostValue:_txtSubject.text forKey:@"subject"];
-    [request setPostValue:_txtMessage.text forKey:@"message"];
-    [request setPostValue:_recieverId forKey:@"msg_send"];
-    [request setPostValue:@"Senden" forKey:@"send_message"];
     
-    [request setCompletionBlock:^{
+    NSMutableDictionary *values = [NSMutableDictionary new];
+    [self.root fetchValueIntoObject:values];
+    
+    [values setObject:[self.userCollection objectForKey:[values objectForKey:@"reciever"]] forKey:@"msg_send"];
+    [values setObject:@"Senden" forKey:@"send_message"];
+
+    [self.manager POST:[NSString stringWithFormat:@"http://www.infernales.de/portal/forum/messages.json.iphone.php?username=%@&password=%@&msg_send=0", username, password] parameters:values success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self.navigationController popViewControllerAnimated:YES];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fehler" message:@"Fehler bei der Speicherun" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
     }];
-    
-    [request setFailedBlock:^{
-        
-        [self.navigationController popViewControllerAnimated:YES];
-    }];
-    
-    [request startAsynchronous];
-    
 }
 
 
@@ -104,17 +116,9 @@
 }
 
 - (void)dealloc {
-    [_svMyScrollView release];
-    [_txtSubject release];
-    [_txtMessage release];
-    [_txtReciever release];
     [super dealloc];
 }
 - (void)viewDidUnload {
-    [self setSvMyScrollView:nil];
-    [self setTxtSubject:nil];
-    [self setTxtMessage:nil];
-    [self setTxtReciever:nil];
     [super viewDidUnload];
 }
 
@@ -123,37 +127,32 @@
 -(void)fetchUsers {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/collections.json.iphone.php?username=%@&password=%@&collection=alluser", [defaults objectForKey:@"username"], [defaults objectForKey:@"passwort"]];
-    NSDictionary *dic = [[NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil] JSONValue];
-    _titleArray = [dic objectForKey:@"title"];
-    _valueArray = [dic objectForKey:@"value"];
-}
+    NSString *urlString = @"http://www.infernales.de/portal/forum/collections.json.iphone.php";
+    NSDictionary *params = @{
+                             @"username": [defaults objectForKey:@"username"],
+                             @"password": [defaults objectForKey:@"passwort"],
+                             @"collection": @"alluser"
+                             };
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return YES;
-}
-
-
-#pragma mark UIDropDownMenuDelegate functions
-
-- (void) DropDownMenuDidChange:(NSString *)identifier :(NSString *)ReturnValue{
+    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.hud.labelText = @"Lade Empfänger";
     
-    _recieverId = ReturnValue;
-    if ([identifier compare:@"recieverMenu"] == NSOrderedSame){
-        NSUInteger index = [_valueArray indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-            if([obj isEqualToString:ReturnValue]) {
-                *stop = YES;
-                return YES;
-            }
-            return NO;
-        }];
-
-        
-        NSString *recieverString = [_titleArray objectAtIndex:index];
-        _txtReciever.text = recieverString;
-        
-    }
+    
+    
+    
+    [self.manager GET:urlString parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.userCollection = [responseObject objectForKey:@"data"];
+        self.users = [responseObject objectForKey:@"userarray"];
+        [self.hud hide:YES];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self buildDialog];
+        });
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fehler" message:@"Konnte Benutzerliste nicht abrufen" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [self.hud hide:YES];
+        [alert show];
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 @end

@@ -52,7 +52,6 @@
      GET:@"http://www.infernales.de/portal/forum/messages.json.iphone.php"
      parameters:params
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
-         NSLog(@"%@", responseObject);
          [self reloadTableWithData:responseObject];
          [self.hud hide:YES];
      }
@@ -257,7 +256,7 @@
 }
 
 -(IBAction)clickNewButton:(id)sender {
-    MessageNewViewController *mnvc = [[MessageNewViewController alloc] initWithNibName:@"MessageNewViewController" bundle:nil];
+    MessageNewViewController *mnvc = [[MessageNewViewController alloc] init];
     [self.navigationController pushViewController:mnvc animated:YES];
     [mnvc release];
 }

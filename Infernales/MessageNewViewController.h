@@ -7,26 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIDropDownMenu.h"
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
-#import "JSON.h"
-#import <QuartzCore/QuartzCore.h>
-#import "MBProgressHUD.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 #import <AFNetworking/AFNetworking.h>
+#import <QuickDialog/QuickDialog.h>
 
-@interface MessageNewViewController : UIViewController <UIScrollViewDelegate, UIDropDownMenuDelegate> {
-    UIDropDownMenu *recieverMenu;
-}
-@property (retain, nonatomic) IBOutlet UIScrollView *svMyScrollView;
-@property (retain, nonatomic) IBOutlet UITextField *txtSubject;
-@property (retain, nonatomic) IBOutlet UITextView *txtMessage;
-@property (retain, nonatomic) IBOutlet UITextField *txtReciever;
+@interface MessageNewViewController : QuickDialogController
+
 @property (retain, nonatomic) NSString *recieverId;
-@property (strong, nonatomic) UIDropDownMenu *recieverMenu;
 @property (strong, nonatomic) NSArray *valueArray;
 @property (strong, nonatomic) NSArray *titleArray;
 @property (nonatomic, retain) AFHTTPRequestOperationManager *manager;
+@property (nonatomic, retain) NSDictionary *userCollection;
+@property (nonatomic, retain) NSArray *users;
+@property (nonatomic, retain) MBProgressHUD *hud;
 
 -(IBAction)sendMessage:(id)sender;
 
