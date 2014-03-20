@@ -32,26 +32,25 @@ PODS:
   - ASIHTTPRequest/S3 (1.8.2):
     - ASIHTTPRequest/Core
   - MBProgressHUD (0.8)
-  - QuickDialog (1.0):
+  - QuickDialog (HEAD based on 1.0):
     - QuickDialog/Core
-  - QuickDialog/Core (1.0)
+  - QuickDialog/Core (HEAD based on 1.0)
   - Reachability (3.1.1)
+  - Reveal-iOS-SDK (1.0.3)
 
 DEPENDENCIES:
   - AFNetworking
   - ASIHTTPRequest
   - MBProgressHUD (~> 0.8)
-  - QuickDialog (from `https://github.com/escoz/QuickDialog.git`)
-
-EXTERNAL SOURCES:
-  QuickDialog:
-    :git: https://github.com/escoz/QuickDialog.git
+  - QuickDialog (HEAD)
+  - Reveal-iOS-SDK
 
 SPEC CHECKSUMS:
   AFNetworking: 0121f4b69be3fa58d1ab317866e036e12ac9651d
   ASIHTTPRequest: 4bd3ed65bf8a726292c5fa79ea5c0a2e02c97241
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
-  QuickDialog: 36f3e3387b6e1af9f963c3afc665a07f03107a01
+  QuickDialog: 64b08aa21a150e881cfe688c6099614d5229a5ef
   Reachability: be4883bb93f31e38266ae3365e5600a317aae735
+  Reveal-iOS-SDK: f2525cb560a564fdc086316e89ec45ced6977fd3
 
 COCOAPODS: 0.29.0

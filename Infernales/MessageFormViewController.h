@@ -13,7 +13,7 @@
 #import <QuickDialog/QuickDialog.h>
 #import <AFNetworking/AFNetworking.h>
 
-@interface MessageFormViewController : QuickDialogController
+@interface MessageFormViewController : QuickDialogController <QuickDialogEntryElementDelegate>
 
 @property (retain, nonatomic) NSDictionary *messageData;
 @property (nonatomic, retain) AFHTTPRequestOperationManager *manager;

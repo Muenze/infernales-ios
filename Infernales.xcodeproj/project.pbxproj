@@ -55,9 +55,7 @@
 		CB9D836716E390090047B1F2 /* ThreadViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB9D836616E390090047B1F2 /* ThreadViewCell.xib */; };
 		CB9F1742172F0B5D002965F9 /* UIDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9F1741172F0B5D002965F9 /* UIDropDownMenu.m */; };
 		CBAB310E172DA56A00E79810 /* MessageNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAB310C172DA56A00E79810 /* MessageNewViewController.m */; };
-		CBAB310F172DA56A00E79810 /* MessageNewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBAB310D172DA56A00E79810 /* MessageNewViewController.xib */; };
 		CBAD4910173D872600EC8365 /* MessageFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAD490E173D872600EC8365 /* MessageFormViewController.m */; };
-		CBAD4911173D872600EC8365 /* MessageFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBAD490F173D872600EC8365 /* MessageFormViewController.xib */; };
 		CBAFD2D616EA7D21002D4BE8 /* PostViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAFD2D516EA7D21002D4BE8 /* PostViewCell.m */; };
 		CBAFD2D816EA7D36002D4BE8 /* PostViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBAFD2D716EA7D36002D4BE8 /* PostViewCell.xib */; };
 		CBB2D96118D82D7600761396 /* splash-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB2D96018D82D7600761396 /* splash-568h@2x.png */; };
@@ -158,10 +156,8 @@
 		CB9F1741172F0B5D002965F9 /* UIDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDropDownMenu.m; sourceTree = "<group>"; };
 		CBAB310B172DA56A00E79810 /* MessageNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageNewViewController.h; sourceTree = "<group>"; };
 		CBAB310C172DA56A00E79810 /* MessageNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageNewViewController.m; sourceTree = "<group>"; };
-		CBAB310D172DA56A00E79810 /* MessageNewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageNewViewController.xib; sourceTree = "<group>"; };
 		CBAD490D173D872600EC8365 /* MessageFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageFormViewController.h; sourceTree = "<group>"; };
 		CBAD490E173D872600EC8365 /* MessageFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageFormViewController.m; sourceTree = "<group>"; };
-		CBAD490F173D872600EC8365 /* MessageFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageFormViewController.xib; sourceTree = "<group>"; };
 		CBAFD2D416EA7D21002D4BE8 /* PostViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewCell.h; sourceTree = "<group>"; };
 		CBAFD2D516EA7D21002D4BE8 /* PostViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewCell.m; sourceTree = "<group>"; };
 		CBAFD2D716EA7D36002D4BE8 /* PostViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostViewCell.xib; sourceTree = "<group>"; };
@@ -373,8 +369,6 @@
 				CBE9BEF916E5470F0050EE0F /* ForumViewCell.xib */,
 				07E7579F15965856000EA122 /* ForumViewController.xib */,
 				CB36CB82171968A600AF44B4 /* MessageDetailViewController.xib */,
-				CBAD490F173D872600EC8365 /* MessageFormViewController.xib */,
-				CBAB310D172DA56A00E79810 /* MessageNewViewController.xib */,
 				CBF7C2C21718B06300F1761B /* MessagesViewController.xib */,
 				CB36CB791719657C00AF44B4 /* MessageViewCell.xib */,
 				CB21A91216F11F5F00BD3735 /* PostdetailViewController.xib */,
@@ -435,6 +429,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0430;
+				TargetAttributes = {
+					07F05FE31586709B00380D63 = {
+						DevelopmentTeam = C5FBLVY4J4;
+					};
+				};
 			};
 			buildConfigurationList = 07F05FDE1586709B00380D63 /* Build configuration list for PBXProject "Infernales" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -487,10 +486,8 @@
 				CBF7C2C41718B06300F1761B /* MessagesViewController.xib in Resources */,
 				CB36CB7A1719657C00AF44B4 /* MessageViewCell.xib in Resources */,
 				CB36CB84171968A600AF44B4 /* MessageDetailViewController.xib in Resources */,
-				CBAB310F172DA56A00E79810 /* MessageNewViewController.xib in Resources */,
 				CB801351173440FC00CBDEEE /* splash@2x.png in Resources */,
 				CB801353173440FF00CBDEEE /* splash.png in Resources */,
-				CBAD4911173D872600EC8365 /* MessageFormViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,11 +639,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2EB58509DE0943D3A73B3B90 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Infernales/Infernales-Prefix.pch";
 				INFOPLIST_FILE = "Infernales/Infernales-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
@@ -658,11 +658,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2EB58509DE0943D3A73B3B90 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Infernales/Infernales-Prefix.pch";
 				INFOPLIST_FILE = "Infernales/Infernales-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;

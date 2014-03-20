@@ -41,6 +41,7 @@
     
     QMultilineElement *message = [[QMultilineElement alloc] initWithKey:@"message"];
     message.title = @"Message";
+    message.delegate = self;
     message.textValue = [self.messageData objectForKey:@"message_message"];
     
     
@@ -53,6 +54,12 @@
     self.navigationItem.rightBarButtonItem = button;
     [button release];
 }
+
+- (void)QEntryEditingChangedForElement:(QEntryElement *)element  andCell:(QEntryTableViewCell *)cell {
+    cell.textField.text = element.textValue;
+    [cell setNeedsLayout];
+}
+
 
 -(IBAction)sendMessage:(id)sender {
     NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
