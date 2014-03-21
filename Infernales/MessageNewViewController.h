@@ -13,7 +13,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import <QuickDialog/QuickDialog.h>
 
-@interface MessageNewViewController : QuickDialogController
+@interface MessageNewViewController : QuickDialogController <QuickDialogEntryElementDelegate>
 
 @property (retain, nonatomic) NSString *recieverId;
 @property (strong, nonatomic) NSArray *valueArray;

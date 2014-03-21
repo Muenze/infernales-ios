@@ -18,6 +18,7 @@
 
 -(id)init {
     if(self = [super init]) {
+        self.manager = [AFHTTPRequestOperationManager manager];
         QRootElement *_root = [[QRootElement alloc] init];
         _root.grouped = YES;
         
@@ -66,38 +67,30 @@
     NSString *username = [def objectForKey:@"username"];
     NSString *password = [def objectForKey:@"passwort"];
     
-    QSection *sec = [self.root getSectionForIndex:0];
     
-    QMultilineElement *multi = [sec getVisibleElementForIndex:1];
-//    [multi
-    NSLog(@"Done");
-//    NSLog(@"%@", [sec getVisibleElementForIndex:1]);
+    NSMutableDictionary *params = [NSMutableDictionary new];
+    [self.root fetchValueIntoObject:params];
     
-//    NSMutableDictionary *params = [NSMutableDictionary new];
-//    [self.root fetchValueIntoObject:params];
-//    
-//    [params setObject:[self.messageData objectForKey:@"user_id"] forKey:@"msg_send"];
-//    [params setObject:@"Senden" forKey:@"send_message"];
-//    
-//    NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/messages.json.iphone.php?username=%@&password=%@&msg_send=0", username, password];
-//
-//    [self.manager POST:urlString parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            NSUInteger index = [self.navigationController.viewControllers indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-//                if([obj isKindOfClass:[MessagesViewController class]]) {
-//                    *stop = YES;
-//                    return YES;
-//                }
-//                return NO;
-//            }];
-//            
-//            [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:index] animated:YES];
-//        });
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fehler" message:@"Fehler beim speichern" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//        [alert show];
-//    }];
+    [params setObject:[self.messageData objectForKey:@"user_id"] forKey:@"msg_send"];
+    [params setObject:@"Senden" forKey:@"send_message"];
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/messages.json.iphone.php?username=%@&password=%@&msg_send=0", username, password];
+
+    [self.manager POST:urlString parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@", responseObject);
+        NSUInteger index = [self.navigationController.viewControllers indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+            if([obj isKindOfClass:[MessagesViewController class]]) {
+                *stop = YES;
+                return YES;
+            }
+            return NO;
+        }];
+        
+        [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:index] animated:YES];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fehler" message:@"Fehler beim speichern" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }];
 }
 
 - (void)didReceiveMemoryWarning

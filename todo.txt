@@ -4,6 +4,5 @@
 - ShoutboxViewController
 	- Error abfangen
 - ShoutboxFormViewController
-	- Umstellung auf AFNetworking
 - ThreadViewController
 - PostViewController

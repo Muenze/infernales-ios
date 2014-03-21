@@ -97,6 +97,7 @@
                                Value:@""
                                Placeholder:@"Hier klicken"];
     text.key = @"text";
+    text.delegate = self;
     [sec addElement:text];
     
     
@@ -112,6 +113,11 @@
                                action:@selector(pressSend:)];
     self.navigationItem.rightBarButtonItem = button;
 
+}
+
+- (void)QEntryEditingChangedForElement:(QEntryElement *)element  andCell:(QEntryTableViewCell *)cell {
+    cell.textField.text = element.textValue;
+    [cell setNeedsLayout];
 }
 
 @end

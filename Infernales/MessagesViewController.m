@@ -296,4 +296,9 @@
     [self fetchMessages];
 }
 
+-(void)viewWillDisappear:(BOOL)animated {
+    [[self.manager operationQueue] cancelAllOperations];
+    [super viewWillDisappear:animated];
+}
+
 @end

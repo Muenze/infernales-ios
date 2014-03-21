@@ -13,7 +13,7 @@
 #import <QuickDialog/QuickDialog.h>
 #import <AFNetworking/AFNetworking.h>
 
-@interface ShoutboxFormViewController : QuickDialogController {
+@interface ShoutboxFormViewController : QuickDialogController <QuickDialogEntryElementDelegate> {
     
 }
 

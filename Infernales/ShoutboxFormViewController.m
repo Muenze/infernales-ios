@@ -39,6 +39,7 @@
                                 Value:@""
                                 Placeholder:@"Hier klicken"];
     multi.key = @"shout_message";
+    multi.delegate = self;
     [sec addElement:multi];
     
     [self.root addSection:sec];
@@ -95,6 +96,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)QEntryEditingChangedForElement:(QEntryElement *)element  andCell:(QEntryTableViewCell *)cell {
+    cell.textField.text = element.textValue;
+    [cell setNeedsLayout];
 }
 
 @end

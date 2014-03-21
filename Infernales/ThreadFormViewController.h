@@ -13,7 +13,7 @@
 #import "NSString+SBJSON.h"
 #import <AFNetworking/AFNetworking.h>
 
-@interface ThreadFormViewController : QuickDialogController {
+@interface ThreadFormViewController : QuickDialogController <QuickDialogEntryElementDelegate> {
     NSNumber *forum_id;
 }
 

@@ -12,6 +12,8 @@
 @implementation PostFormViewController
 
 @synthesize forumId, threadId, formString, editMode, postValues;
+@synthesize manager = _manager;
+@synthesize hud = _hud;
 
 -(id)init {
     self = [super init];
@@ -20,6 +22,7 @@
         _root.grouped = YES;
         
         self.root = _root;
+        self.manager = [AFHTTPRequestOperationManager manager];
     }
     return self;
 }
@@ -48,37 +51,44 @@
     NSMutableDictionary *fetched = [NSMutableDictionary new];
     [self.root fetchValueIntoObject:fetched];
     
-    
+    self.hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     
     if(editMode != TRUE) {
-        NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.infernales.de/portal/forum/postreply.json.php?forum_id=%@&thread_id=%@&username=%@&password=%@",forumId, threadId, username, password]];
-        ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
-        NSString *message = [fetched objectForKey:@"message"];
-        [request setPostValue:message forKey:@"message"];
-        [request setPostValue:@"1" forKey:@"postreply"];
         
-        request.delegate = self;
-        [request startAsynchronous];
+        NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/postreply.json.iphone.php?forum_id=%@&thread_id=%@&username=%@&password=%@",forumId, threadId, username, password];
+        [fetched setObject:@"1" forKey:@"postreply"];
+        
+        [self.manager POST:urlString parameters:fetched success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [self requestFinished:responseObject];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [self requestHasError];
+            NSLog(@"%@", error);
+        }];
         
     } else {
-        NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/postedit.json.php?username=%@&password=%@&post_id=%@", username, password, [postValues objectForKey:@"post_id"]];
-        NSURL* url = [NSURL URLWithString:urlString];
-        ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
-        NSString *message = [fetched objectForKey:@"message"];
-        [request setPostValue:message forKey:@"message"];
-        [request setPostValue:@"1" forKey:@"savechanges"];
-        [request setDelegate:self];
-        [request startAsynchronous];
+        NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/postedit.json.iphone.php?username=%@&password=%@&post_id=%@", username, password, [postValues objectForKey:@"post_id"]];
+
+        [fetched setObject:@"1" forKey:@"savechanges"];
+        
+        [self.manager POST:urlString parameters:fetched success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [self requestFinished:responseObject];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [self requestHasError];
+            NSLog(@"%@", error);
+        }];
     }
 }
 
-- (void)requestFinished:(ASIHTTPRequest *)request
-{
-    // Use when fetching text data
-    NSString *responseString = [request responseString];
-//    NSLog(@"Response: %@", request);
+-(void)requestHasError {
+    [self.hud hide:YES];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fehler" message:@"Fehler bei der Speicherung" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
     
-    NSDictionary *response = [responseString JSONValue];
+}
+
+- (void)requestFinished:(NSDictionary *)response
+{
+    [self.hud hide:YES];
     if ([[response objectForKey:@"code"] compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
         AppDelegate *del = [[UIApplication sharedApplication] delegate];
         del.needsUpdatePost = true;
@@ -92,14 +102,8 @@
         
         [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:index] animated:YES];
     }
-    
-    // Use when fetching binary data
 }
 
-- (void)requestFailed:(ASIHTTPRequest *)request
-{
-
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -135,6 +139,7 @@
                  Placeholder:@"Hier klicken"];
     }
     
+    multi.delegate = self;
     multi.key = @"message";
     [sec addElement:multi];
     
@@ -143,5 +148,9 @@
     [self.root addSection:sec];
 }
 
+- (void)QEntryEditingChangedForElement:(QEntryElement *)element  andCell:(QEntryTableViewCell *)cell {
+    cell.textField.text = element.textValue;
+    [cell setNeedsLayout];
+}
 
 @end

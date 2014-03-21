@@ -55,6 +55,7 @@
     
     QMultilineElement *text = [[QMultilineElement alloc] initWithKey:@"message"];
     text.title = @"Message";
+    text.delegate = self;
     [sec addElement:text];
     
     [self.root addSection:sec];
@@ -153,6 +154,11 @@
         [alert show];
         NSLog(@"Error: %@", error);
     }];
+}
+
+- (void)QEntryEditingChangedForElement:(QEntryElement *)element  andCell:(QEntryTableViewCell *)cell {
+    cell.textField.text = element.textValue;
+    [cell setNeedsLayout];
 }
 
 @end
