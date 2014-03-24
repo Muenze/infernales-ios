@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JSON.h"
 #import "ThreadViewCell.h"
 #import "PostViewController.h"
 #import "NSString+HtmlEntities.h"

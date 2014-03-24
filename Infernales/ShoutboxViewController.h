@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JSON.h"
 #import "NSString+HtmlEntities.h"
 #import "ShoutboxViewCell.h"
 #import "ShoutboxDetailViewController.h"

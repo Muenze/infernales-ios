@@ -14,7 +14,7 @@
 
 @implementation MessagesViewController
 
-@synthesize dict;
+@synthesize dict = _dict;
 @synthesize tableView = _tableView;
 @synthesize folder = _folder;
 @synthesize btnInbox = _btnInbox;
@@ -62,7 +62,7 @@
 }
 
 - (void)reloadTableWithData:(NSArray *)data {
-    self.dict = data;
+    self.dict = [data mutableCopy];
     [_tableView reloadData];
 }
 
@@ -129,15 +129,15 @@
     
 
 
-    NSDictionary *dict = [self.dict objectAtIndex:indexPath.row];
+    NSDictionary *dictionary = [self.dict objectAtIndex:indexPath.row];
 //    cell.textLabel.text = [dict objectForKey:@"message_subject"];
     
-    cell.subjectLabel.text = [dict objectForKey:@"message_subject"];
+    cell.subjectLabel.text = [dictionary objectForKey:@"message_subject"];
     
     
-    NSString *autor = [dict objectForKey:@"user_name"];
+    NSString *autor = [dictionary objectForKey:@"user_name"];
     
-    NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[[dict objectForKey:@"message_datestamp"] doubleValue]];
+    NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[[dictionary objectForKey:@"message_datestamp"] doubleValue]];
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"dd.MM.yyyy HH:mm"];
     NSString *date = [format stringFromDate:theDate];
@@ -251,7 +251,7 @@
 }
 
 -(UIBarButtonItem *)getNewButton {
-    UIBarButtonItem *button = [[[UIBarButtonItem alloc] initWithTitle:@"Neu" style:UIBarButtonSystemItemAdd target:self action:@selector(clickNewButton:)] autorelease];
+    UIBarButtonItem *button = [[[UIBarButtonItem alloc] initWithTitle:@"Neu" style:UIBarButtonItemStylePlain target:self action:@selector(clickNewButton:)] autorelease];
     return button;
 }
 

@@ -7,12 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07E75796159657ED000EA122 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E7578B159657ED000EA122 /* NSObject+SBJSON.m */; };
-		07E75797159657ED000EA122 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E7578D159657ED000EA122 /* NSString+SBJSON.m */; };
-		07E75798159657ED000EA122 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E7578F159657ED000EA122 /* SBJSON.m */; };
-		07E75799159657ED000EA122 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E75791159657ED000EA122 /* SBJsonBase.m */; };
-		07E7579A159657ED000EA122 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E75793159657ED000EA122 /* SBJsonParser.m */; };
-		07E7579B159657ED000EA122 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E75795159657ED000EA122 /* SBJsonWriter.m */; };
 		07E757A015965857000EA122 /* ForumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E7579E15965856000EA122 /* ForumViewController.m */; };
 		07E757A115965857000EA122 /* ForumViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07E7579F15965856000EA122 /* ForumViewController.xib */; };
 		07EEC8541587BDAC006A7F37 /* ChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EEC8521587BDAC006A7F37 /* ChoiceViewController.m */; };
@@ -45,7 +39,6 @@
 		CB801351173440FC00CBDEEE /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB801350173440FC00CBDEEE /* splash@2x.png */; };
 		CB801353173440FF00CBDEEE /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = CB801352173440FF00CBDEEE /* splash.png */; };
 		CB87B5CD16ED0BFC0022355F /* infernales.png in Resources */ = {isa = PBXBuildFile; fileRef = CB87B5CC16ED0BFC0022355F /* infernales.png */; };
-		CB87B5CF16ED0C0E0022355F /* infernales.png in Resources */ = {isa = PBXBuildFile; fileRef = CB87B5CE16ED0C0E0022355F /* infernales.png */; };
 		CB893B6816E684F00028DBF0 /* foldernew.gif in Resources */ = {isa = PBXBuildFile; fileRef = CB893B6716E684F00028DBF0 /* foldernew.gif */; };
 		CB893B6F16E696A80028DBF0 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB893B6D16E696A80028DBF0 /* PostViewController.m */; };
 		CB893B7016E696A80028DBF0 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB893B6E16E696A80028DBF0 /* PostViewController.xib */; };
@@ -53,13 +46,11 @@
 		CB9D836216E375FC0047B1F2 /* NSString+HtmlEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9D836116E375FC0047B1F2 /* NSString+HtmlEntities.m */; };
 		CB9D836516E38E7D0047B1F2 /* ThreadViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9D836416E38E7D0047B1F2 /* ThreadViewCell.m */; };
 		CB9D836716E390090047B1F2 /* ThreadViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB9D836616E390090047B1F2 /* ThreadViewCell.xib */; };
-		CB9F1742172F0B5D002965F9 /* UIDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9F1741172F0B5D002965F9 /* UIDropDownMenu.m */; };
 		CBAB310E172DA56A00E79810 /* MessageNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAB310C172DA56A00E79810 /* MessageNewViewController.m */; };
 		CBAD4910173D872600EC8365 /* MessageFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAD490E173D872600EC8365 /* MessageFormViewController.m */; };
 		CBAFD2D616EA7D21002D4BE8 /* PostViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAFD2D516EA7D21002D4BE8 /* PostViewCell.m */; };
 		CBAFD2D816EA7D36002D4BE8 /* PostViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBAFD2D716EA7D36002D4BE8 /* PostViewCell.xib */; };
 		CBB2D96118D82D7600761396 /* splash-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB2D96018D82D7600761396 /* splash-568h@2x.png */; };
-		CBBD598815A4C9C9002BA33F /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBD598715A4C9C9002BA33F /* OrderedDictionary.m */; };
 		CBCFB1B916E3E2C500972EEB /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCFB1B816E3E2C500972EEB /* pin.png */; };
 		CBD0273C17085E7000EC67D3 /* ThreadFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD0273A17085E7000EC67D3 /* ThreadFormViewController.m */; };
 		CBD0273D17085E7000EC67D3 /* ThreadFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBD0273B17085E7000EC67D3 /* ThreadFormViewController.xib */; };
@@ -78,19 +69,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		07E75789159657ED000EA122 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
-		07E7578A159657ED000EA122 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
-		07E7578B159657ED000EA122 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
-		07E7578C159657ED000EA122 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
-		07E7578D159657ED000EA122 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
-		07E7578E159657ED000EA122 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
-		07E7578F159657ED000EA122 /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
-		07E75790159657ED000EA122 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
-		07E75791159657ED000EA122 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
-		07E75792159657ED000EA122 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
-		07E75793159657ED000EA122 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
-		07E75794159657ED000EA122 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
-		07E75795159657ED000EA122 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		07E7579D15965856000EA122 /* ForumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumViewController.h; sourceTree = "<group>"; };
 		07E7579E15965856000EA122 /* ForumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumViewController.m; sourceTree = "<group>"; };
 		07E7579F15965856000EA122 /* ForumViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForumViewController.xib; sourceTree = "<group>"; };
@@ -152,8 +130,6 @@
 		CB9D836316E38E7D0047B1F2 /* ThreadViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadViewCell.h; sourceTree = "<group>"; };
 		CB9D836416E38E7D0047B1F2 /* ThreadViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadViewCell.m; sourceTree = "<group>"; };
 		CB9D836616E390090047B1F2 /* ThreadViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreadViewCell.xib; sourceTree = "<group>"; };
-		CB9F1740172F0B5D002965F9 /* UIDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDropDownMenu.h; sourceTree = "<group>"; };
-		CB9F1741172F0B5D002965F9 /* UIDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDropDownMenu.m; sourceTree = "<group>"; };
 		CBAB310B172DA56A00E79810 /* MessageNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageNewViewController.h; sourceTree = "<group>"; };
 		CBAB310C172DA56A00E79810 /* MessageNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageNewViewController.m; sourceTree = "<group>"; };
 		CBAD490D173D872600EC8365 /* MessageFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageFormViewController.h; sourceTree = "<group>"; };
@@ -162,8 +138,6 @@
 		CBAFD2D516EA7D21002D4BE8 /* PostViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewCell.m; sourceTree = "<group>"; };
 		CBAFD2D716EA7D36002D4BE8 /* PostViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostViewCell.xib; sourceTree = "<group>"; };
 		CBB2D96018D82D7600761396 /* splash-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-568h@2x.png"; sourceTree = "<group>"; };
-		CBBD598615A4C9C9002BA33F /* OrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderedDictionary.h; sourceTree = "<group>"; };
-		CBBD598715A4C9C9002BA33F /* OrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderedDictionary.m; sourceTree = "<group>"; };
 		CBCFB1B816E3E2C500972EEB /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
 		CBD0273917085E7000EC67D3 /* ThreadFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadFormViewController.h; sourceTree = "<group>"; };
 		CBD0273A17085E7000EC67D3 /* ThreadFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadFormViewController.m; sourceTree = "<group>"; };
@@ -205,26 +179,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		07E75788159657ED000EA122 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				07E75789159657ED000EA122 /* JSON.h */,
-				07E7578A159657ED000EA122 /* NSObject+SBJSON.h */,
-				07E7578B159657ED000EA122 /* NSObject+SBJSON.m */,
-				07E7578C159657ED000EA122 /* NSString+SBJSON.h */,
-				07E7578D159657ED000EA122 /* NSString+SBJSON.m */,
-				07E7578E159657ED000EA122 /* SBJSON.h */,
-				07E7578F159657ED000EA122 /* SBJSON.m */,
-				07E75790159657ED000EA122 /* SBJsonBase.h */,
-				07E75791159657ED000EA122 /* SBJsonBase.m */,
-				07E75792159657ED000EA122 /* SBJsonParser.h */,
-				07E75793159657ED000EA122 /* SBJsonParser.m */,
-				07E75794159657ED000EA122 /* SBJsonWriter.h */,
-				07E75795159657ED000EA122 /* SBJsonWriter.m */,
-			);
-			path = JSON;
-			sourceTree = "<group>";
-		};
 		07F05FD91586709B00380D63 = {
 			isa = PBXGroup;
 			children = (
@@ -291,7 +245,6 @@
 				CB91036316FBA34100DA7E07 /* libs */,
 				CB91036216FBA32E00DA7E07 /* views */,
 				CB91036116FBA31D00DA7E07 /* images */,
-				07E75788159657ED000EA122 /* JSON */,
 				07F05FF81586709B00380D63 /* Infernales-Prefix.pch */,
 				07F05FF21586709B00380D63 /* Infernales-Info.plist */,
 				07F05FF61586709B00380D63 /* main.m */,
@@ -388,12 +341,8 @@
 		CB91036316FBA34100DA7E07 /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				CB9F1740172F0B5D002965F9 /* UIDropDownMenu.h */,
-				CB9F1741172F0B5D002965F9 /* UIDropDownMenu.m */,
 				CB9D836016E375FC0047B1F2 /* NSString+HtmlEntities.h */,
 				CB9D836116E375FC0047B1F2 /* NSString+HtmlEntities.m */,
-				CBBD598615A4C9C9002BA33F /* OrderedDictionary.h */,
-				CBBD598715A4C9C9002BA33F /* OrderedDictionary.m */,
 				CB4B49F418C73A910014078E /* NSString+phpfusiontags.h */,
 				CB4B49F518C73A910014078E /* NSString+phpfusiontags.m */,
 			);
@@ -467,7 +416,6 @@
 				CB893B7016E696A80028DBF0 /* PostViewController.xib in Resources */,
 				CBAFD2D816EA7D36002D4BE8 /* PostViewCell.xib in Resources */,
 				CB87B5CD16ED0BFC0022355F /* infernales.png in Resources */,
-				CB87B5CF16ED0C0E0022355F /* infernales.png in Resources */,
 				CB21A91416F11F5F00BD3735 /* PostdetailViewController.xib in Resources */,
 				CB1FB42816FCFC31003636BA /* MessageInputBarBackground.png in Resources */,
 				CB1FB42A16FCFD78003636BA /* MessageInputBarBackground@2x.png in Resources */,
@@ -536,14 +484,7 @@
 				07F05FFE1586709B00380D63 /* Infernales.xcdatamodeld in Sources */,
 				07EEC8541587BDAC006A7F37 /* ChoiceViewController.m in Sources */,
 				07EEC85D1587CCC2006A7F37 /* SettingsViewController.m in Sources */,
-				07E75796159657ED000EA122 /* NSObject+SBJSON.m in Sources */,
-				07E75797159657ED000EA122 /* NSString+SBJSON.m in Sources */,
-				07E75798159657ED000EA122 /* SBJSON.m in Sources */,
-				07E75799159657ED000EA122 /* SBJsonBase.m in Sources */,
-				07E7579A159657ED000EA122 /* SBJsonParser.m in Sources */,
-				07E7579B159657ED000EA122 /* SBJsonWriter.m in Sources */,
 				07E757A015965857000EA122 /* ForumViewController.m in Sources */,
-				CBBD598815A4C9C9002BA33F /* OrderedDictionary.m in Sources */,
 				CBF161F415B350990030D2C2 /* ThreadViewController.m in Sources */,
 				CB9D836216E375FC0047B1F2 /* NSString+HtmlEntities.m in Sources */,
 				CB9D836516E38E7D0047B1F2 /* ThreadViewCell.m in Sources */,
@@ -562,7 +503,6 @@
 				CB36CB781719656500AF44B4 /* MessageViewCell.m in Sources */,
 				CB36CB83171968A600AF44B4 /* MessageDetailViewController.m in Sources */,
 				CBAB310E172DA56A00E79810 /* MessageNewViewController.m in Sources */,
-				CB9F1742172F0B5D002965F9 /* UIDropDownMenu.m in Sources */,
 				CBAD4910173D872600EC8365 /* MessageFormViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

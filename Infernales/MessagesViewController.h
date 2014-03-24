@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JSON.h"
 #import "ASIFormDataRequest.h"
 #import "MessageViewCell.h"
 #import "MessageDetailViewController.h"
@@ -16,11 +15,10 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 
 @interface MessagesViewController : UIViewController {
-    NSArray *dict;
 }
 
 @property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
-@property (nonatomic, strong)  NSArray *dict;
+@property (nonatomic, strong)  NSMutableArray *dict;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSString *folder;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *btnInbox;

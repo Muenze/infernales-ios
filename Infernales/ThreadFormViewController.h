@@ -10,7 +10,6 @@
 #import "ASIFormDataRequest.h"
 #import <QuartzCore/QuartzCore.h>
 #import <QuickDialog/QuickDialog.h>
-#import "NSString+SBJSON.h"
 #import <AFNetworking/AFNetworking.h>
 
 @interface ThreadFormViewController : QuickDialogController <QuickDialogEntryElementDelegate> {
