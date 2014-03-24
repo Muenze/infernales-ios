@@ -76,7 +76,7 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    [self.forumData release];
+    self.forumData;
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -130,7 +130,7 @@
             }
         }
     }
-    NSDictionary *dic = [[[[self.forumData objectAtIndex:indexPath.section] objectForKey:@"forums"] objectAtIndex:indexPath.row] retain];
+    NSDictionary *dic = [[[self.forumData objectAtIndex:indexPath.section] objectForKey:@"forums"] objectAtIndex:indexPath.row];
     
     cell.mainLabel.text = [[dic objectForKey:@"name"] decodeHtmlEntities];
     NSDecimalNumber *dec = [dic objectForKey:@"hasnew"];
@@ -150,14 +150,12 @@
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"dd.MM.yyyy HH:mm"];
     NSString *date = [format stringFromDate:theDate];
-    [format release];
     
 
     NSString *autor = [NSString stringWithFormat:@"Letzter Post: %@ am %@", [dic objectForKey:@"user"], date];
 
     cell.lastAutorLabel.text = autor;
     
-    [dic release];
     // Configure the cell...
     return cell;
 }
@@ -175,7 +173,6 @@
     ThreadViewController *tvc = [[ThreadViewController alloc] initWithForumId:forumid];
     [tvc setThreadName:[dic objectForKey:@"name"]];
     [self.navigationController pushViewController:tvc animated:YES];
-    [tvc release];
 }
 
 @end

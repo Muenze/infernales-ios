@@ -19,8 +19,8 @@
 }
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, retain) NSData *pushDeviceToken;
-@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
+@property (nonatomic, strong) NSData *pushDeviceToken;
+@property (nonatomic, strong) IBOutlet UINavigationController *navigationController;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;

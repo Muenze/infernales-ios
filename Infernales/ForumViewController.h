@@ -17,8 +17,8 @@
     NSArray *forumData;
 }
 
-@property (nonatomic, retain) NSArray *forumData;
-@property (nonatomic, retain) AFHTTPRequestOperationManager *manager;
+@property (nonatomic, strong) NSArray *forumData;
+@property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
 
 -(void)loadForumData;
 -(NSDictionary *)getDictionaryAtIndexPath:(NSIndexPath *)indexPath;

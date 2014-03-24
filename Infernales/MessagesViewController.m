@@ -141,7 +141,6 @@
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"dd.MM.yyyy HH:mm"];
     NSString *date = [format stringFromDate:theDate];
-    [format release];
     
     autor = [[autor stringByAppendingString:@" am "] stringByAppendingString:date];
     cell.authorLabel.text = autor;
@@ -188,6 +187,7 @@
         NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/messages.json.php?username=%@&password=%@", username, password];
         NSURL *url = [NSURL URLWithString:urlString];
         ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+        __weak ASIFormDataRequest *req = request;
         [request setPostValue:msgId forKey:@"check_mark[]"];
         [request setPostValue:@"loeschen" forKey:@"delete_msg"];
         [request setCompletionBlock:^{
@@ -195,7 +195,7 @@
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         }];
         [request setFailedBlock:^{
-            NSLog(@"Error: %@", [[request error] localizedDescription]);
+            NSLog(@"Error: %@", [[req error] localizedDescription]);
         }];
         
         [request startAsynchronous];
@@ -233,16 +233,9 @@
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:dvc animated:YES];
-     [dvc release];
 }
 
 
-- (void)dealloc {
-    [_btnInbox release];
-    [_btnOutbox release];
-    [_btnTrash release];
-    [super dealloc];
-}
 - (void)viewDidUnload {
     [self setBtnInbox:nil];
     [self setBtnOutbox:nil];
@@ -251,14 +244,13 @@
 }
 
 -(UIBarButtonItem *)getNewButton {
-    UIBarButtonItem *button = [[[UIBarButtonItem alloc] initWithTitle:@"Neu" style:UIBarButtonItemStylePlain target:self action:@selector(clickNewButton:)] autorelease];
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Neu" style:UIBarButtonItemStylePlain target:self action:@selector(clickNewButton:)];
     return button;
 }
 
 -(IBAction)clickNewButton:(id)sender {
     MessageNewViewController *mnvc = [[MessageNewViewController alloc] init];
     [self.navigationController pushViewController:mnvc animated:YES];
-    [mnvc release];
 }
 
 

@@ -15,13 +15,13 @@
 
 @interface MessageNewViewController : QuickDialogController <QuickDialogEntryElementDelegate>
 
-@property (retain, nonatomic) NSString *recieverId;
+@property (strong, nonatomic) NSString *recieverId;
 @property (strong, nonatomic) NSArray *valueArray;
 @property (strong, nonatomic) NSArray *titleArray;
-@property (nonatomic, retain) AFHTTPRequestOperationManager *manager;
-@property (nonatomic, retain) NSDictionary *userCollection;
-@property (nonatomic, retain) NSArray *users;
-@property (nonatomic, retain) MBProgressHUD *hud;
+@property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
+@property (nonatomic, strong) NSDictionary *userCollection;
+@property (nonatomic, strong) NSArray *users;
+@property (nonatomic, strong) MBProgressHUD *hud;
 
 -(IBAction)sendMessage:(id)sender;
 

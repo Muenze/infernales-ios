@@ -111,9 +111,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc {
-    [super dealloc];
-}
 - (void)viewDidUnload {
     [super viewDidUnload];
 }
@@ -122,7 +119,6 @@
 -(void)buildNavigation {
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStylePlain target:self action:@selector(pressConfirmButton)];
     self.navigationItem.rightBarButtonItem = button;
-    [button release];
 }
 
 -(void)buildDialog {

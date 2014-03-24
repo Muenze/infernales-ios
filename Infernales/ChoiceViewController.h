@@ -13,10 +13,13 @@
 #import "MessagesViewController.h"
 
 
+
 @interface ChoiceViewController : UITableViewController {
     NSArray *choices;
     NSArray *subtext;
 }
+
+@property (nonatomic, strong) SettingsViewController *svc;
 
 -(IBAction)clickSettings:(id)sender;
 

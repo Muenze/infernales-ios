@@ -15,8 +15,8 @@
 
 @interface MessageFormViewController : QuickDialogController <QuickDialogEntryElementDelegate>
 
-@property (retain, nonatomic) NSDictionary *messageData;
-@property (nonatomic, retain) AFHTTPRequestOperationManager *manager;
+@property (strong, nonatomic) NSDictionary *messageData;
+@property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
 
 -(IBAction)sendMessage:(id)sender;
 

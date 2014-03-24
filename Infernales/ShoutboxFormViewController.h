@@ -17,7 +17,7 @@
     
 }
 
-@property (nonatomic, retain) AFHTTPRequestOperationManager *manager;
+@property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
 
 -(IBAction)pressSend:(id)sender;
 -(void)redirectWithResponse:(NSDictionary *)response;

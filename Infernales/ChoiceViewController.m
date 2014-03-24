@@ -9,8 +9,8 @@
 #import "ChoiceViewController.h"
 
 @interface ChoiceViewController ()
-@property (nonatomic, retain) NSArray *choices;
-@property (nonatomic, retain) NSArray *subtext;
+@property (nonatomic, strong) NSArray *choices;
+@property (nonatomic, strong) NSArray *subtext;
 
 @end
 
@@ -18,9 +18,8 @@
 @synthesize choices, subtext;
 
 -(IBAction)clickSettings:(id)sender {
-    SettingsViewController *svc = [[SettingsViewController alloc] init];
-    [self.navigationController pushViewController:svc animated:YES];
-    [svc release];
+    self.svc = [[SettingsViewController alloc] init];
+    [self.navigationController pushViewController:self.svc animated:YES];
 
 }
 
@@ -67,14 +66,12 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.leftBarButtonItem = button;
-    [button release];
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    [choices release];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -168,7 +165,6 @@
     if(indexPath.row == 0 && indexPath.section == 0) {
         ForumViewController *fvc = [[ForumViewController alloc] init];
         [self.navigationController pushViewController:fvc animated:YES];
-        [fvc release];
     }
 //    else if (indexPath.row == 1 && indexPath.section == 0) {
 //        NewsViewController *nvc = [[NewsViewController alloc] init];
@@ -178,13 +174,11 @@
     else if (indexPath.row == 1 && indexPath.section == 0) {
         ShoutboxViewController *sbvc = [[ShoutboxViewController alloc] init];
         [self.navigationController pushViewController:sbvc animated:YES];
-        [sbvc release];
     }
     else if (indexPath.row == 2 && indexPath.section == 0) {
         MessagesViewController *ibc = [[MessagesViewController alloc] init];
         ibc.folder = @"inbox";
         [self.navigationController pushViewController:ibc animated:YES];
-        [ibc release];
     }
     // Navigation logic may go here. Create and push another view controller.
     /*

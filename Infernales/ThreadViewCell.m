@@ -28,12 +28,5 @@
     // Configure the view for the selected state
 }
 
--(void)dealloc {
-    [myImageView release];
-    [threadNameLabel release];
-    [threadShortDescription release];
-    [stickyIndicator release];
-    [super dealloc];
-}
 
 @end

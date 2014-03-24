@@ -83,7 +83,6 @@
     
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"send" style:UIBarButtonItemStylePlain target:self action:@selector(sendMessage:)];
     self.navigationItem.rightBarButtonItem = button;
-    [button release];
 //    [self.view addSubview:_txtMessage];
     
     // Do any additional setup after loading the view from its nib.
@@ -116,9 +115,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc {
-    [super dealloc];
-}
 - (void)viewDidUnload {
     [super viewDidUnload];
 }

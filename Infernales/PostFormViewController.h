@@ -27,8 +27,8 @@
 @property (strong, nonatomic) UIButton *sendButton;
 @property (nonatomic) bool editMode;
 @property (nonatomic, strong) NSDictionary *postValues;
-@property (nonatomic, retain) AFHTTPRequestOperationManager *manager;
-@property (nonatomic, retain) MBProgressHUD *hud;
+@property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
+@property (nonatomic, strong) MBProgressHUD *hud;
 
 
 -(void)pressConfirmButton;

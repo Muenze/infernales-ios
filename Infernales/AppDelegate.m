@@ -19,22 +19,13 @@
 @synthesize unregistered;
 @synthesize pushDeviceToken;
 
-- (void)dealloc
-{
-    [_window release];
-    [__managedObjectContext release];
-    [__managedObjectModel release];
-    [__persistentStoreCoordinator release];
-    [navigationController release];
-    [super dealloc];
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 //    TTNavigator* navigator = [TTNavigator navigator];
 //    navigator.persistenceMode = TTNavigatorPersistenceModeAll;
     
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 //    navigator.window = self.window;
     
 //    TTURLMap* map = navigator.URLMap;
@@ -43,13 +34,12 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
 
-    UINavigationController *nav = [[UINavigationController alloc] init];
     ChoiceViewController *cvc = [[ChoiceViewController alloc] init];
-    [nav pushViewController:cvc animated:NO];
-    [cvc release];
-    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:cvc];
+
     [self.window addSubview:nav.view];
     [self.window makeKeyAndVisible];
+    self.window.rootViewController = nav;
     
     // Push Notification
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
@@ -79,14 +69,15 @@
         NSLog(@"else");
         NSURL *url = [NSURL URLWithString:@"http://www.infernales.de/push/push_controller.php"];
         ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+        __weak ASIFormDataRequest *_req = request;
         [request setDelegate:self];
         [request setPostValue:@"register" forKey:@"method"];
         [request setPostValue:self.pushDeviceToken forKey:@"device_id"];
         [request setPostValue:username forKey:@"login"];
         [request setCompletionBlock:^{
             NSLog(@"Registered with Server");
-            NSLog(@"%@",[request responseString]);
-            if([request responseStatusCode] == 200) {
+            NSLog(@"%@",[_req responseString]);
+            if([_req responseStatusCode] == 200) {
                 
             }
         }];
@@ -105,13 +96,14 @@
     } else {
         NSURL *url = [NSURL URLWithString:@"http://www.infernales.de/push/push_controller.php"];
         ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+        __weak ASIFormDataRequest *req = request;
         [request setDelegate:self];
         [request setPostValue:@"destroy" forKey:@"method"];
         [request setPostValue:username forKey:@"login"];
         [request setCompletionBlock:^{
             NSLog(@"deRegistered with Server");
-            NSLog(@"%@",[request responseString]);
-            if([request responseStatusCode] == 200) {
+            NSLog(@"%@",[req responseString]);
+            if([req responseStatusCode] == 200) {
                 
             }
         }];

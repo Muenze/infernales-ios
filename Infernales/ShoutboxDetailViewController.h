@@ -19,10 +19,10 @@
     
 }
 
-@property (nonatomic, retain) IBOutlet UITextView *shoutView;
-@property (nonatomic, retain) NSString *shoutMessage;
-@property (nonatomic, retain) NSDictionary *shout;
-@property (nonatomic, retain) UILabel *label;
+@property (nonatomic, strong) IBOutlet UITextView *shoutView;
+@property (nonatomic, strong) NSString *shoutMessage;
+@property (nonatomic, strong) NSDictionary *shout;
+@property (nonatomic, strong) UILabel *label;
 
 -(IBAction)pressShout:(id)sender;
 

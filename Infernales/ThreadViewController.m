@@ -95,7 +95,6 @@
     
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"New Thread" style:UIBarButtonItemStylePlain target:self action:@selector(postNewThread:)];
     self.navigationItem.rightBarButtonItem = button;
-    [button release];
     
 
 }
@@ -108,13 +107,11 @@
     ThreadFormViewController *tfvc = [[ThreadFormViewController alloc] init];
     tfvc.forum_id = self.forumId;
     [self.navigationController pushViewController:tfvc animated:YES];
-    [tfvc release];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    [threadData release];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -185,7 +182,6 @@
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"dd.MM.yyyy"];
     NSString *date = [format stringFromDate:theDate];
-    [format release];
     
     
     NSString *erstelltText = [NSString stringWithFormat:@"Author: %@, letzter Beitrag am: %@", author, date];
@@ -229,7 +225,6 @@
     PostViewController *pvc = [[PostViewController alloc] initWithForumId:forumId withThreadId:thread_id andThreadName:thread_name];
     pvc.locked = lock;
     [self.navigationController pushViewController:pvc animated:YES];
-    [pvc release];
 }
 
 @end

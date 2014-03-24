@@ -40,7 +40,6 @@
     if([[postValues objectForKey:@"user_name"] isEqualToString:[def objectForKey:@"username"]]) {
         UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editInForum:)];
         [theButtons addObject:editButton];
-        [editButton release];
         
     }
 
@@ -62,13 +61,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc {
-    [myTextView release];
-    [super dealloc];
-}
 - (void)viewDidUnload {
     [self setMyTextView:nil];
-    [myTextView release];
     [super viewDidUnload];
 }
 
@@ -81,7 +75,6 @@
 //    pfvc.formString = [[postValues objectForKey:@"post_message"] decodeHtmlEntities];
     
     [self.navigationController pushViewController:pfvc animated:YES];
-    [pfvc release];
 }
 
 -(IBAction)editInForum:(id)sender {
@@ -94,7 +87,6 @@
     pfvc.postValues = postValues;
     
     [self.navigationController pushViewController:pfvc animated:YES];
-    [pfvc release];
 }
 
 

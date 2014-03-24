@@ -13,7 +13,7 @@
     IBOutlet UILabel *mainLabel;
 }
 
-@property (nonatomic, retain) IBOutlet UILabel *authorLabel;
-@property (nonatomic, retain) IBOutlet UILabel *mainLabel;
+@property (nonatomic, strong) IBOutlet UILabel *authorLabel;
+@property (nonatomic, strong) IBOutlet UILabel *mainLabel;
 
 @end

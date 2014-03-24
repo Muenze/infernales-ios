@@ -42,7 +42,6 @@
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"dd.MM.yyyy HH:mm"];
     NSString *date = [format stringFromDate:theDate];
-    [format release];
     
     
     NSString *autor = [NSString stringWithFormat:@"%@ am %@",[message objectForKey:@"user_name"], date];
@@ -51,7 +50,6 @@
     
     UIBarButtonItem *postButton = [[UIBarButtonItem alloc] initWithTitle:@"antworten" style:UIBarButtonItemStylePlain target:self action:@selector(replyToMessage:)];
     self.navigationItem.rightBarButtonItem = postButton;
-    [postButton release];
     
     
     // Do any additional setup after loading the view from its nib.
@@ -62,7 +60,6 @@
     mfvc.messageData = message;
     
     [self.navigationController pushViewController:mfvc animated:YES];
-    [mfvc release];
 }
 
 
@@ -72,12 +69,5 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)dealloc {
-    [authorLabel release];
-    [messageTextView release];
-    [message release];
-    
-    [super dealloc];
-}
 
 @end

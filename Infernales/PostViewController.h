@@ -24,7 +24,7 @@
 @property (nonatomic, strong) NSNumber* forumId;
 @property (nonatomic, strong) NSArray *postData;
 @property (nonatomic, strong) NSString *threadName;
-@property (nonatomic, retain) MBProgressHUD *hud;
+@property (nonatomic, strong) MBProgressHUD *hud;
 @property bool locked;
 
 -(void)loadPostData;

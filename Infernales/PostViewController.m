@@ -86,7 +86,6 @@
     if(locked == NO) {
         UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStylePlain target:self action:@selector(postInForum:)];
         self.navigationItem.rightBarButtonItem = button;
-        [button release];
     }
 
 
@@ -110,7 +109,6 @@
     pfvc.forumId = self.forumId;
 
     [self.navigationController pushViewController:pfvc animated:YES];
-    [pfvc release];
 }
 
 
@@ -119,7 +117,6 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    [postData release];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -176,7 +173,6 @@
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"dd.MM.yyyy HH:mm"];
     NSString *date = [format stringFromDate:theDate];
-    [format release];
     
 //    autor = [autor stringByAppendingFormat:@" am "];
 //    autor = [autor stringByAppendingFormat:date];
@@ -219,7 +215,6 @@
     textView.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
     [cell.contentView addSubview:textView];
     cell.mainLabel = textView;
-    [textView release];
     
     
     
@@ -281,7 +276,6 @@
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:pdvc animated:YES];
-     [pdvc release];
     
 }
 

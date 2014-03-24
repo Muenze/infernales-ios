@@ -18,9 +18,9 @@
 @interface ShoutboxViewController : UITableViewController {
 }
 
-@property (nonatomic, retain) NSArray *shouts;
-@property (nonatomic, retain) AFHTTPRequestOperationManager *manager;
-@property (nonatomic, retain) MBProgressHUD *hud;
+@property (nonatomic, strong) NSArray *shouts;
+@property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
+@property (nonatomic, strong) MBProgressHUD *hud;
 
 -(void)loadShoutboxData;
 -(void)reloadTableViewsWithData:(NSArray *)array;

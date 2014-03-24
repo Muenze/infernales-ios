@@ -53,7 +53,6 @@
     
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"antworten" style:UIBarButtonItemStyleBordered target:self action:@selector(sendMessage:)];
     self.navigationItem.rightBarButtonItem = button;
-    [button release];
 }
 
 - (void)QEntryEditingChangedForElement:(QEntryElement *)element  andCell:(QEntryTableViewCell *)cell {
@@ -99,8 +98,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc {
-    [_messageData release];
-    [super dealloc];
-}
 @end

@@ -61,7 +61,6 @@
     
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"shout!" style:UIBarButtonItemStylePlain target:self action:@selector(pressShout:)];
     self.navigationItem.rightBarButtonItem = button;
-    [button release];
     
 }
 
@@ -72,7 +71,6 @@
 -(IBAction)pressShout:(id)sender {
     ShoutboxFormViewController *sfc = [[ShoutboxFormViewController alloc] init];
     [self.navigationController pushViewController:sfc animated:YES];
-    [sfc release];
 }
 
 - (void)didReceiveMemoryWarning
@@ -116,7 +114,6 @@
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"dd.MM.yyyy HH:mm"];
     NSString *date = [format stringFromDate:theDate];
-    [format release];
     
     NSString *autor = [NSString stringWithFormat:@"%@ am %@", [[dic objectForKey:@"user"] decodeHtmlEntities], date];
 
@@ -150,7 +147,6 @@
     ShoutboxDetailViewController *sbdvc = [[ShoutboxDetailViewController alloc] initWithNibName:@"ShoutboxDetailViewController" bundle:nil];
     sbdvc.shout = dic;
     [self.navigationController pushViewController:sbdvc animated:YES];
-    [sbdvc release];
 }
 
 @end

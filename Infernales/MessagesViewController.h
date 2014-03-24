@@ -21,10 +21,10 @@
 @property (nonatomic, strong)  NSMutableArray *dict;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSString *folder;
-@property (nonatomic, retain) IBOutlet UIBarButtonItem *btnInbox;
-@property (nonatomic, retain) IBOutlet UIBarButtonItem *btnOutbox;
-@property (nonatomic, retain) IBOutlet UIBarButtonItem *btnTrash;
-@property (nonatomic, retain) MBProgressHUD *hud;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *btnInbox;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *btnOutbox;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *btnTrash;
+@property (nonatomic, strong) MBProgressHUD *hud;
 
 
 - (IBAction)pressInbox:(id)sender;

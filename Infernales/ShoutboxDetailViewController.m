@@ -33,14 +33,12 @@
 
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"shout!" style:UIBarButtonItemStylePlain target:self action:@selector(pressShout:)];
     self.navigationItem.rightBarButtonItem = button;
-    [button release];
     
     
     NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[[shout objectForKey:@"datestamp"] doubleValue]];
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"dd.MM.yyyy HH:mm"];
     NSString *date = [format stringFromDate:theDate];
-    [format release];
     
     NSString *autor = [NSString stringWithFormat:@"%@ am %@", [shout objectForKey:@"user"], date];
     
@@ -57,7 +55,6 @@
 -(IBAction)pressShout:(id)sender {
     ShoutboxFormViewController *sfc = [[ShoutboxFormViewController alloc] init];
     [self.navigationController pushViewController:sfc animated:YES];
-    [sfc release];
 }
 
 - (void)didReceiveMemoryWarning

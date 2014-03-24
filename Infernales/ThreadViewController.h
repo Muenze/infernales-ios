@@ -19,10 +19,10 @@
     NSString *threadName;
 }
 
-@property (nonatomic, retain) NSArray *threadData;
-@property (nonatomic, retain) NSNumber* forumId;
+@property (nonatomic, strong) NSArray *threadData;
+@property (nonatomic, strong) NSNumber* forumId;
 @property (nonatomic, strong) NSString* threadName;
-@property (nonatomic, retain) MBProgressHUD *hud;
+@property (nonatomic, strong) MBProgressHUD *hud;
 
 -(void)loadThreadData;
 -(id)initWithForumId:(NSNumber *)fd;
