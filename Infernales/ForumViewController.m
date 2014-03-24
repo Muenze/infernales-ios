@@ -76,7 +76,6 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    self.forumData;
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -98,14 +97,14 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [[self.forumData objectAtIndex:section] objectForKey:@"name"];
+    return (self.forumData)[section][@"name"];
     
 //    return [[[self.forumData objectForKey:[[self.forumData allKeys] objectAtIndex:section]] objectForKey:@"name"] decodeHtmlEntities];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[self.forumData objectAtIndex:section] objectForKey:@"forums"] count];
+    return [(self.forumData)[section][@"forums"] count];
     
     
 //    return [[[self.forumData objectForKey:[[self.forumData allKeys] objectAtIndex:section]] objectForKey:@"forum"] count];
@@ -130,12 +129,12 @@
             }
         }
     }
-    NSDictionary *dic = [[[self.forumData objectAtIndex:indexPath.section] objectForKey:@"forums"] objectAtIndex:indexPath.row];
+    NSDictionary *dic = (self.forumData)[indexPath.section][@"forums"][indexPath.row];
     
-    cell.mainLabel.text = [[dic objectForKey:@"name"] decodeHtmlEntities];
-    NSDecimalNumber *dec = [dic objectForKey:@"hasnew"];
+    cell.mainLabel.text = [dic[@"name"] decodeHtmlEntities];
+    NSDecimalNumber *dec = dic[@"hasnew"];
     
-    if([dec compare:[NSNumber numberWithInt:1]] == NSOrderedSame) {
+    if([dec compare:@1] == NSOrderedSame) {
         cell.neuIndicator.image = [UIImage imageNamed:@"foldernew.gif"];
     }
 
@@ -146,13 +145,13 @@
     
 //    autor = [autor stringByAppendingString:[dic objectForKey:@"user"]];
     
-    NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[[dic objectForKey:@"lastpost"] doubleValue]];
+    NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[dic[@"lastpost"] doubleValue]];
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"dd.MM.yyyy HH:mm"];
     NSString *date = [format stringFromDate:theDate];
     
 
-    NSString *autor = [NSString stringWithFormat:@"Letzter Post: %@ am %@", [dic objectForKey:@"user"], date];
+    NSString *autor = [NSString stringWithFormat:@"Letzter Post: %@ am %@", dic[@"user"], date];
 
     cell.lastAutorLabel.text = autor;
     
@@ -161,7 +160,7 @@
 }
 
 - (NSDictionary *)getDictionaryAtIndexPath:(NSIndexPath *)indexPath {
-    return [[[self.forumData objectAtIndex:indexPath.section] objectForKey:@"forums"] objectAtIndex:indexPath.row];
+    return (self.forumData)[indexPath.section][@"forums"][indexPath.row];
 }
 
 #pragma mark - Table view delegate
@@ -169,9 +168,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
-    NSNumber *forumid = [dic objectForKey:@"forumid"];
+    NSNumber *forumid = dic[@"forumid"];
     ThreadViewController *tvc = [[ThreadViewController alloc] initWithForumId:forumid];
-    [tvc setThreadName:[dic objectForKey:@"name"]];
+    [tvc setThreadName:dic[@"name"]];
     [self.navigationController pushViewController:tvc animated:YES];
 }
 

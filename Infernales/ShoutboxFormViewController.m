@@ -62,7 +62,7 @@
 
     NSMutableDictionary *fetched = [NSMutableDictionary new];
     [self.root fetchValueIntoObject:fetched];
-    [fetched setObject:@"1" forKey:@"post_shout"];
+    fetched[@"post_shout"] = @"1";
     
     NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/shoutbox.json.iphone.php?username=%@&password=%@", username, password];
     
@@ -79,7 +79,7 @@
 }
 
 -(void)redirectWithResponse:(NSDictionary *)response {
-    if ([[response objectForKey:@"code"] isEqualToNumber:@0]) {
+    if ([response[@"code"] isEqualToNumber:@0]) {
         NSUInteger index = [self.navigationController.viewControllers indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
             if([obj isKindOfClass:[ShoutboxViewController class]]) {
                 *stop = YES;
@@ -88,7 +88,7 @@
             return NO;
         }];
         
-        [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:index] animated:YES];
+        [self.navigationController popToViewController:[self.navigationController viewControllers][index] animated:YES];
     }
 }
 

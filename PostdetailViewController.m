@@ -37,7 +37,7 @@
 
 
     
-    if([[postValues objectForKey:@"user_name"] isEqualToString:[def objectForKey:@"username"]]) {
+    if([postValues[@"user_name"] isEqualToString:[def objectForKey:@"username"]]) {
         UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editInForum:)];
         [theButtons addObject:editButton];
         
@@ -70,8 +70,8 @@
 -(IBAction)postInForum:(id)sender {
     PostFormViewController *pfvc = [[PostFormViewController alloc] init];
     
-    pfvc.threadId = [postValues objectForKey:@"thread_id"];
-    pfvc.forumId = [postValues objectForKey:@"forum_id"];
+    pfvc.threadId = postValues[@"thread_id"];
+    pfvc.forumId = postValues[@"forum_id"];
 //    pfvc.formString = [[postValues objectForKey:@"post_message"] decodeHtmlEntities];
     
     [self.navigationController pushViewController:pfvc animated:YES];
@@ -80,9 +80,9 @@
 -(IBAction)editInForum:(id)sender {
     PostFormViewController *pfvc = [[PostFormViewController alloc] init];
     
-    pfvc.threadId = [postValues objectForKey:@"thread_id"];
-    pfvc.forumId = [postValues objectForKey:@"forum_id"];
-    pfvc.formString = [[postValues objectForKey:@"post_message"] decodeHtmlEntities];
+    pfvc.threadId = postValues[@"thread_id"];
+    pfvc.forumId = postValues[@"forum_id"];
+    pfvc.formString = [postValues[@"post_message"] decodeHtmlEntities];
     pfvc.editMode = TRUE;
     pfvc.postValues = postValues;
     

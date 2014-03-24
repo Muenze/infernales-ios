@@ -97,8 +97,8 @@
     NSMutableDictionary *values = [NSMutableDictionary new];
     [self.root fetchValueIntoObject:values];
     
-    [values setObject:[self.userCollection objectForKey:[values objectForKey:@"reciever"]] forKey:@"msg_send"];
-    [values setObject:@"Senden" forKey:@"send_message"];
+    values[@"msg_send"] = (self.userCollection)[values[@"reciever"]];
+    values[@"send_message"] = @"Senden";
 
     [self.manager POST:[NSString stringWithFormat:@"http://www.infernales.de/portal/forum/messages.json.iphone.php?username=%@&password=%@&msg_send=0", username, password] parameters:values success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self.navigationController popViewControllerAnimated:YES];
@@ -138,8 +138,8 @@
     
     
     [self.manager GET:urlString parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.userCollection = [responseObject objectForKey:@"data"];
-        self.users = [responseObject objectForKey:@"userarray"];
+        self.userCollection = responseObject[@"data"];
+        self.users = responseObject[@"userarray"];
         [self.hud hide:YES];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self buildDialog];

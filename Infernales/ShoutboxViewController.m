@@ -110,19 +110,19 @@
         }
     }
 
-    NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[[dic objectForKey:@"datestamp"] doubleValue]];
+    NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[dic[@"datestamp"] doubleValue]];
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"dd.MM.yyyy HH:mm"];
     NSString *date = [format stringFromDate:theDate];
     
-    NSString *autor = [NSString stringWithFormat:@"%@ am %@", [[dic objectForKey:@"user"] decodeHtmlEntities], date];
+    NSString *autor = [NSString stringWithFormat:@"%@ am %@", [dic[@"user"] decodeHtmlEntities], date];
 
     cell.authorLabel.text = autor;
 
 
 
     // Configure the cell...
-    cell.mainLabel.text = [[dic objectForKey:@"message"] decodePhpFusionTags];
+    cell.mainLabel.text = [dic[@"message"] decodePhpFusionTags];
     
     return cell;
 }
@@ -134,7 +134,7 @@
 
 
 -(NSDictionary *)getDictionaryAtIndexPath:(NSIndexPath *)indexPath {
-    return [self.shouts objectAtIndex:indexPath.row];
+    return (self.shouts)[indexPath.row];
 }
 
 #pragma mark - Table view delegate

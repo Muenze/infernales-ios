@@ -35,17 +35,17 @@
     self.navigationItem.rightBarButtonItem = button;
     
     
-    NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[[shout objectForKey:@"datestamp"] doubleValue]];
+    NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[shout[@"datestamp"] doubleValue]];
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"dd.MM.yyyy HH:mm"];
     NSString *date = [format stringFromDate:theDate];
     
-    NSString *autor = [NSString stringWithFormat:@"%@ am %@", [shout objectForKey:@"user"], date];
+    NSString *autor = [NSString stringWithFormat:@"%@ am %@", shout[@"user"], date];
     
     
     label.text = autor;
     
-    NSString *text = [[shout objectForKey:@"message"] decodePhpFusionTags];
+    NSString *text = [shout[@"message"] decodePhpFusionTags];
     shoutView.text = text;
     
     

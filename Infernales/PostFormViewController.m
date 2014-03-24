@@ -56,7 +56,7 @@
     if(editMode != TRUE) {
         
         NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/postreply.json.iphone.php?forum_id=%@&thread_id=%@&username=%@&password=%@",forumId, threadId, username, password];
-        [fetched setObject:@"1" forKey:@"postreply"];
+        fetched[@"postreply"] = @"1";
         
         [self.manager POST:urlString parameters:fetched success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [self requestFinished:responseObject];
@@ -66,9 +66,9 @@
         }];
         
     } else {
-        NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/postedit.json.iphone.php?username=%@&password=%@&post_id=%@", username, password, [postValues objectForKey:@"post_id"]];
+        NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/postedit.json.iphone.php?username=%@&password=%@&post_id=%@", username, password, postValues[@"post_id"]];
 
-        [fetched setObject:@"1" forKey:@"savechanges"];
+        fetched[@"savechanges"] = @"1";
         
         [self.manager POST:urlString parameters:fetched success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [self requestFinished:responseObject];
@@ -89,7 +89,7 @@
 - (void)requestFinished:(NSDictionary *)response
 {
     [self.hud hide:YES];
-    if ([[response objectForKey:@"code"] compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
+    if ([response[@"code"] compare:@0] == NSOrderedSame) {
         AppDelegate *del = [[UIApplication sharedApplication] delegate];
         del.needsUpdatePost = true;
         NSUInteger index = [self.navigationController.viewControllers indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
@@ -100,7 +100,7 @@
             return NO;
         }];
         
-        [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:index] animated:YES];
+        [self.navigationController popToViewController:[self.navigationController viewControllers][index] animated:YES];
     }
 }
 
@@ -124,13 +124,12 @@
 -(void)buildDialog {
     QSection *sec = [[QSection alloc] init];
     QMultilineElement *multi = [QMultilineElement alloc];
-    
     if(self.editMode == TRUE) {
-        [multi initWithTitle:@"Posttext"
+        multi = [multi initWithTitle:@"Posttext"
                Value:self.formString
                Placeholder:@"Hier klicken"];
     } else {
-        [multi initWithTitle:@"Posttext"
+        multi = [multi initWithTitle:@"Posttext"
                        Value:@""
                  Placeholder:@"Hier klicken"];
     }

@@ -35,7 +35,7 @@
     
     QEntryElement *subject = [[QEntryElement alloc] initWithKey:@"subject"];
     subject.title = @"Subject";
-    subject.textValue = [NSString stringWithFormat:@"RE: %@", [self.messageData objectForKey:@"message_subject"]];
+    subject.textValue = [NSString stringWithFormat:@"RE: %@", (self.messageData)[@"message_subject"]];
     
     [sec addElement:subject];
     
@@ -43,7 +43,7 @@
     QMultilineElement *message = [[QMultilineElement alloc] initWithKey:@"message"];
     message.title = @"Message";
     message.delegate = self;
-    message.textValue = [self.messageData objectForKey:@"message_message"];
+    message.textValue = (self.messageData)[@"message_message"];
     
     
     [sec addElement:message];
@@ -70,8 +70,8 @@
     NSMutableDictionary *params = [NSMutableDictionary new];
     [self.root fetchValueIntoObject:params];
     
-    [params setObject:[self.messageData objectForKey:@"user_id"] forKey:@"msg_send"];
-    [params setObject:@"Senden" forKey:@"send_message"];
+    params[@"msg_send"] = (self.messageData)[@"user_id"];
+    params[@"send_message"] = @"Senden";
     
     NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/messages.json.iphone.php?username=%@&password=%@&msg_send=0", username, password];
 
@@ -85,7 +85,7 @@
             return NO;
         }];
         
-        [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:index] animated:YES];
+        [self.navigationController popToViewController:[self.navigationController viewControllers][index] animated:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fehler" message:@"Fehler beim speichern" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];

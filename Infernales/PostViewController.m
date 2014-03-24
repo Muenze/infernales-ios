@@ -169,7 +169,7 @@
 //    NSString *autor = [dic objectForKey:@"user_name"];
 //    autor = [autor decodeHtmlEntities];
     
-    NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[[dic objectForKey:@"post_datestamp"] doubleValue]];
+    NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[dic[@"post_datestamp"] doubleValue]];
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"dd.MM.yyyy HH:mm"];
     NSString *date = [format stringFromDate:theDate];
@@ -177,7 +177,7 @@
 //    autor = [autor stringByAppendingFormat:@" am "];
 //    autor = [autor stringByAppendingFormat:date];
     
-    NSString *autor = [NSString stringWithFormat:@"%@ am %@", [[dic objectForKey:@"user_name"] decodeHtmlEntities], date];
+    NSString *autor = [NSString stringWithFormat:@"%@ am %@", [dic[@"user_name"] decodeHtmlEntities], date];
     
     
     
@@ -187,7 +187,7 @@
 //    cell.mainLabel.editable = NO;
 //    cell.mainLabel.dataDetectorTypes = UIDataDetectorTypeAll;
     
-    NSString *post_message = [dic objectForKey:@"post_message"];
+    NSString *post_message = dic[@"post_message"];
     post_message = [post_message decodeHtmlEntities];
     
 //    NSLog(@"Message: %@",post_message);
@@ -244,7 +244,7 @@
     
     CGFloat initialSize = 40.0f;
     NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
-    NSString *text = [[dic objectForKey:@"post_message"] decodeHtmlEntities];
+    NSString *text = [dic[@"post_message"] decodeHtmlEntities];
     aSize = [self getSizeForString:text];
     CGFloat myheight;
     myheight = aSize.height + initialSize;
@@ -259,7 +259,7 @@
 
 
 -(NSDictionary *)getDictionaryAtIndexPath:(NSIndexPath *)indexPath {
-    return [self.postData objectAtIndex:indexPath.row];
+    return (self.postData)[indexPath.row];
 }
 
 #pragma mark - Table view delegate

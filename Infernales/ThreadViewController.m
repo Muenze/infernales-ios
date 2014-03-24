@@ -59,7 +59,7 @@
 }
 
 -(NSDictionary *)getDictionaryAtIndexPath:(NSIndexPath *)indexPath {
-    return [self.threadData objectAtIndex:indexPath.row];
+    return (self.threadData)[indexPath.row];
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -158,14 +158,14 @@
     
     NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
     
-    NSNumber *isNew = [dic objectForKey:@"isnew"];
+    NSNumber *isNew = dic[@"isnew"];
     if([isNew isEqualToNumber:@0]) {
     } else {
         UIImage *im = [UIImage imageNamed:@"foldernew.gif"];
         cell.imageView.image = im;
     }
     
-    NSNumber *isSticky = [dic objectForKey:@"sticky"];
+    NSNumber *isSticky = dic[@"sticky"];
     if([isSticky isEqualToNumber:@1]) {
         UIImage *stick = [UIImage imageNamed:@"pin.png"];
         cell.stickyIndicator.image = stick;
@@ -176,9 +176,9 @@
     
     
     
-    NSString *author = [dic objectForKey:@"lastuser"];
+    NSString *author = dic[@"lastuser"];
     
-    NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[[dic objectForKey:@"thread_lastpost"] doubleValue]];
+    NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[dic[@"thread_lastpost"] doubleValue]];
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"dd.MM.yyyy"];
     NSString *date = [format stringFromDate:theDate];
@@ -188,7 +188,7 @@
 
     
     cell.threadShortDescription.text = erstelltText;
-    NSString *name = [dic objectForKey:@"name"];
+    NSString *name = dic[@"name"];
     if(name) {
         name = [name decodeHtmlEntities];
         cell.threadNameLabel.text = name;
@@ -212,12 +212,12 @@
 {
     NSDictionary *dic = [self getDictionaryAtIndexPath:indexPath];
 
-    NSNumber *thread_id = [dic objectForKey:@"thread_id"];
-    NSString *thread_name = [dic objectForKey:@"name"];
+    NSNumber *thread_id = dic[@"thread_id"];
+    NSString *thread_name = dic[@"name"];
     thread_name = [thread_name decodeHtmlEntities];
-    NSDecimalNumber *locked = [dic objectForKey:@"locked"];
+    NSDecimalNumber *locked = dic[@"locked"];
     bool lock = NO;
-    if([locked compare:[NSNumber numberWithInt:1]] == NSOrderedSame) {
+    if([locked compare:@1] == NSOrderedSame) {
         lock = YES;
     }
     

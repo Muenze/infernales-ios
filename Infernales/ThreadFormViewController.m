@@ -38,8 +38,8 @@
     NSMutableDictionary *fetched = [NSMutableDictionary new];
     [self.root fetchValueIntoObject:fetched];
     
-    NSString *message_string = [fetched objectForKey:@"text"];
-    NSString *subject_string = [fetched objectForKey:@"title"];
+    NSString *message_string = fetched[@"text"];
+    NSString *subject_string = fetched[@"title"];
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"passwort"];
     
@@ -55,7 +55,7 @@
     };
 
     [self.manager POST:url parameters:postParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([[responseObject objectForKey:@"code"] isEqualToNumber:@0]) {
+        if ([responseObject[@"code"] isEqualToNumber:@0]) {
             //        [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:index] animated:YES];
             [self.navigationController popViewControllerAnimated:YES];
         }

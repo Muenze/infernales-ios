@@ -33,18 +33,18 @@
     [super viewDidLoad];
     
     
-    messageTextView.text = [message objectForKey:@"message_message"];
+    messageTextView.text = message[@"message_message"];
     
-    subjectLabel.text = [message objectForKey:@"message_subject"];
+    subjectLabel.text = message[@"message_subject"];
     
     
-    NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[[message objectForKey:@"message_datestamp"] doubleValue]];
+    NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[message[@"message_datestamp"] doubleValue]];
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"dd.MM.yyyy HH:mm"];
     NSString *date = [format stringFromDate:theDate];
     
     
-    NSString *autor = [NSString stringWithFormat:@"%@ am %@",[message objectForKey:@"user_name"], date];
+    NSString *autor = [NSString stringWithFormat:@"%@ am %@",message[@"user_name"], date];
     
     authorLabel.text = autor;
     

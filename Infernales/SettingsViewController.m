@@ -54,9 +54,9 @@
     [self.root fetchValueIntoObject:fetchValues];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:[fetchValues objectForKey:@"username"] forKey:@"username"];
+    [defaults setObject:fetchValues[@"username"] forKey:@"username"];
     if ([[fetchValues allKeys] containsObject:@"password"] ) {
-        [defaults setObject:[fetchValues objectForKey:@"password"] forKey:@"passwort"];
+        [defaults setObject:fetchValues[@"password"] forKey:@"passwort"];
     }
     [defaults synchronize];
     [self.navigationController popViewControllerAnimated:YES];

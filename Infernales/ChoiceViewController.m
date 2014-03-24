@@ -34,7 +34,7 @@
 
 -(NSArray *)choices {
     if(!choices) {
-        choices = [NSArray arrayWithObjects:@"Forum", @"Shoutbox", @"Private Nachrichten", nil];
+        choices = @[@"Forum", @"Shoutbox", @"Private Nachrichten"];
         
     }
     return choices;
@@ -42,7 +42,7 @@
 
 -(NSArray *)subtext {
     if(!subtext) {
-        subtext = [NSArray arrayWithObjects:@"", @"", @"", nil];
+        subtext = @[@"", @"", @""];
     }
     return subtext;
 }
@@ -109,8 +109,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
     }
     
-    cell.textLabel.text = [self.choices objectAtIndex:[indexPath row]];
-    cell.detailTextLabel.text = [self.subtext objectAtIndex:[indexPath row]];
+    cell.textLabel.text = (self.choices)[[indexPath row]];
+    cell.detailTextLabel.text = (self.subtext)[[indexPath row]];
     
     return cell;
 }

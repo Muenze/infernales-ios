@@ -129,15 +129,15 @@
     
 
 
-    NSDictionary *dictionary = [self.dict objectAtIndex:indexPath.row];
+    NSDictionary *dictionary = (self.dict)[indexPath.row];
 //    cell.textLabel.text = [dict objectForKey:@"message_subject"];
     
-    cell.subjectLabel.text = [dictionary objectForKey:@"message_subject"];
+    cell.subjectLabel.text = dictionary[@"message_subject"];
     
     
-    NSString *autor = [dictionary objectForKey:@"user_name"];
+    NSString *autor = dictionary[@"user_name"];
     
-    NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[[dictionary objectForKey:@"message_datestamp"] doubleValue]];
+    NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:[dictionary[@"message_datestamp"] doubleValue]];
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"dd.MM.yyyy HH:mm"];
     NSString *date = [format stringFromDate:theDate];
@@ -180,8 +180,8 @@
         NSString *password = [defaults objectForKey:@"passwort"];
         
         
-        NSDictionary *messageRow = [self.dict objectAtIndex:indexPath.row];
-        NSString *msgId = [messageRow objectForKey:@"message_id"];
+        NSDictionary *messageRow = (self.dict)[indexPath.row];
+        NSString *msgId = messageRow[@"message_id"];
     
         
         NSString *urlString = [NSString stringWithFormat:@"http://www.infernales.de/portal/forum/messages.json.php?username=%@&password=%@", username, password];
@@ -229,7 +229,7 @@
     // Navigation logic may go here. Create and push another view controller.
 
      MessageDetailViewController *dvc = [[MessageDetailViewController alloc] initWithNibName:@"MessageDetailViewController" bundle:nil];
-     [dvc setMessage:[self.dict objectAtIndex:indexPath.row]];
+     [dvc setMessage:(self.dict)[indexPath.row]];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:dvc animated:YES];
