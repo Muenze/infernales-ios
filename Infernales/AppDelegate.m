@@ -48,11 +48,18 @@
     [nav pushViewController:cvc animated:NO];
     [cvc release];
     
-    [self.window addSubview:nav.view];
+    self.window.rootViewController = nav;
+//    [self.window addSubview:nav.view];
     [self.window makeKeyAndVisible];
     
-    // Push Notification
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    if([application respondsToSelector:@selector(registerForRemoteNotifications:)]) {
+        // Push Notification
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    } else {
+        // Push Notification
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound) categories:nil]];
+        [application registerForRemoteNotifications];
+    }
     
     
     needsUpdatePost = false;
