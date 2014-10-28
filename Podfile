@@ -6,5 +6,5 @@ pod "QuickDialog", :head
 pod "ASIHTTPRequest"
 pod "AFNetworking"
 pod 'MBProgressHUD', '~> 0.8'
-pod 'Reveal-iOS-SDK'
+# pod 'Reveal-iOS-SDK'
 # pod "SBJson", "2.2.3" 

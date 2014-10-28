@@ -32,20 +32,7 @@
     return self;
 }
 
--(NSArray *)choices {
-    if(!choices) {
-        choices = @[@"Forum", @"Shoutbox", @"Private Nachrichten"];
-        
-    }
-    return choices;
-}
 
--(NSArray *)subtext {
-    if(!subtext) {
-        subtext = @[@"", @"", @""];
-    }
-    return subtext;
-}
 
 
 
@@ -61,6 +48,9 @@
     button.title = @"Settings";
     button.target = self;
     button.action = @selector(clickSettings:);
+
+    self.choices = @[@"Forum", @"Shoutbox", @"Private Nachrichten"];
+    self.subtext = @[@"", @"", @""];
     
     self.title = @"Auswahl";
     

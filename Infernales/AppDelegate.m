@@ -41,9 +41,17 @@
     [self.window makeKeyAndVisible];
     self.window.rootViewController = nav;
     
-    // Push Notification
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-    
+#if !(TARGET_IPHONE_SIMULATOR)
+    SEL selector = NSSelectorFromString(@"registerForRemoteNotifications:");
+    if([application respondsToSelector:selector]) {
+        // Push Notification
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    } else {
+        // Push Notification
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound) categories:nil]];
+        [application registerForRemoteNotifications];
+    }
+#endif
     
     needsUpdatePost = false;
     unregistered = false;
@@ -56,7 +64,7 @@
 {
     self.pushDeviceToken = deviceToken;
     [self registerWithPushServerWithDeviceToken];
-	NSLog(@"My token is: %@", deviceToken);
+//	NSLog(@"My token is: %@", deviceToken);
 }
 
 -(void)registerWithPushServerWithDeviceToken {
